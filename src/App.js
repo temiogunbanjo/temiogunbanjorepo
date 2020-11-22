@@ -13,11 +13,11 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name: 'Firstname lastname',
+      name: 'What\'s my name?',
       username: 'username',
       avatar: nullimg,
       profession: null,
-      bio: 'loading...',
+      bio: 'Please wait. Loading all my data...',
       repositories: [{isDummy: true}, {isDummy: true}]
     }
   }
@@ -39,7 +39,7 @@ class App extends React.Component {
         let newState = Object.assign({}, prevState, changedState);
         return newState;
       });
-    }, 5000);
+    }, 9000);
   }
 
   render(){

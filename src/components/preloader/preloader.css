@@ -44,6 +44,7 @@
 .preloader .preload-body > *{
     line-height: 1.5;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .preloader .preload-body img{

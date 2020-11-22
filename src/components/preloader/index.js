@@ -9,9 +9,17 @@ class Preloader extends React.Component {
     componentDidMount(){
         document.addEventListener("DOMContentLoaded", () => {
             const gsap = window.gsap || null;
-            console.log(gsap);
+            // console.log(gsap);
 
-            if (gsap) gsap.fromTo(document.querySelectorAll(".preloader .preload-body *"), 2, {opacity: 0}, {opacity: 1, stagger: 0.2});
+            if (gsap) {
+                let startTimeline = new gsap.timeline();
+                let animation1 = gsap.fromTo(document.querySelector(".preloader h2"), 1, {opacity: 0}, {opacity: 1, delay: 0.5, onComplete: ev => {
+                    gsap.to(document.querySelector(".preloader h2"), 1, {opacity: "0", delay: 0.5});
+                }});
+                let animation2 = gsap.fromTo(document.querySelectorAll(".preloader .preload-body *"), 2, {opacity: 0}, {opacity: 1, stagger: 0.2, delay: 1.8});
+                
+                startTimeline.add(animation1).add(animation2);
+            }
         });
 
         window.onload = (ev) => {
@@ -48,13 +56,15 @@ class Preloader extends React.Component {
             <div className="preloader">
                 <div className="gates left-gate"></div>
                 <div className="gates right-gate"></div>
+                <h2 style={{opacity: "0", position: "absolute", fontSize: "5vw", fontWeight: "400", left: "50%", top: "40%", transform: "translate(-50%, -50%)"}}>Hi There!</h2>
                 <div className="cols preload-body">
                     <span className="img-pseudo"><img className="user-profile-picture" src={ this.props.avatar } alt="" width="120" height="120" /></span>
-                    <div className="cols user-body-content" style={{fontSize: "1.3rem", fontWeight: 300, minWidth: "40%"}}>
+                    <div className="cols user-body-content" style={{fontSize: "1.25rem", fontWeight: 300, minWidth: "40%"}}>
                         <div className="username">{ this.props.user }</div>
                         <div className="profession" style={{color: "#aaa"}}>{ this.props.profession }</div>
-                        <div className="bio" style={{marginTop: "1.8rem", lineHeight: 1.5}}>{ this.props.bio }</div>
-                        <button className="strip-btn" style={{color: "white"}}>View profile</button>
+                        <div className="bio" style={{marginTop: "1.8rem", lineHeight: 1.8, fontWeight: 400}}>{ this.props.bio }</div>
+                        <button className="strip-btn" style={{color: "white"}}>View More</button>
+                        <span className="" style={{color: "#888", marginTop: "1rem", fontWeight: 500}}>Fun Tips: Tap the 'Love emoji' button on the profile to like this profile.</span>
                     </div>
                 </div>
             </div>
