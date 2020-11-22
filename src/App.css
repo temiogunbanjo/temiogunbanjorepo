@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+body{
+  background-color: var(--page-bg-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img.user-profile-picture{
+  border-radius: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form.search-form{
+  border: 1px solid #646464;
+  background-color: transparent;
+  border-radius: 4px;
+  width: auto;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+form.search-form *{
+  background-color: transparent;
+  border: none;
   color: white;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+form.search-form label{
+  border: 1px solid #646464;
+  padding: 0.2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 4px;
+  margin: auto 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+form.search-form input{
+  padding: 0.6rem 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+form.search-form input:focus + label{
+  display: none;
+}
+
+/* For all mobile users only */
+@media only screen and (max-width:799px){
+  .hide-on-mobile{
+    display: none !important;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* For desktop users */
+@media only screen and (min-width:800px){
+  .show-on-mobile{
+    display: none !important;
+  }
+
+  form.search-form{
+    margin: 0 2rem;
+    min-width: 27rem;
+  }
+
+  form.search-form input:focus{
+    background-color: #ffffff;
+    min-width: 30rem;
+    width: 30vw;
   }
 }

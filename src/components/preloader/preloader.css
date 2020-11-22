@@ -1,0 +1,196 @@
+.preloader{
+    --preload-animation-time: 0.5s;
+    --preload-animation-delay: 0s;
+    z-index: +999;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+.preloader .gates{
+    background-color: rgba(0, 20, 51, 0.95);
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.preloader .gates.left-gate{
+    left: 0;
+}
+
+.preloader .gates.left-gate.open{
+    animation: openleft var(--preload-animation-time) ease var(--preload-animation-delay) 1 normal forwards;
+}
+
+.preloader .gates.right-gate{
+    left: 50%;
+}
+
+.preloader .gates.right-gate.open{
+    animation: openright var(--preload-animation-time) ease var(--preload-animation-delay) 1 normal forwards;
+}
+
+.preloader .preload-body{
+    padding: 4rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.40);
+}
+
+.preloader .preload-body > *{
+    line-height: 1.5;
+    text-align: center;
+}
+
+.preloader .preload-body img{
+    /* position: relative; */
+    width: 200px;
+    height: 200px;
+    display: block;
+    object-fit: cover;
+}
+
+.preloader .preload-body .img-pseudo{
+    position: relative;
+    display: block;
+}
+
+.preloader .preload-body .img-pseudo::before{
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    animation: swirlshadow 10s ease 0s infinite normal forwards;
+}
+
+.preloader .preload-body .username{
+    text-transform: capitalize;
+    font-size: 2.5rem;
+}
+
+.preloader .preload-body button{
+    outline: none;
+    font-size: 1.5rem;
+    border-radius: 5vh;
+    padding: 1rem 4rem;
+    background-color: dodgerblue;
+    margin-top: 2.5rem;
+    max-width: 38rem;
+    transition: all 0.3s ease;
+}
+
+.preloader .preload-body button:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.preloader .preload-body button:focus{
+    border: 2px solid white;
+    background-color: #0262c2;
+}
+
+/* For all mobile users only */
+@media only screen and (max-width:799px){
+    .preloader .preload-body .img-pseudo{
+        margin-bottom: 2rem;
+    }
+
+    .preloader .preload-body button{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 25rem;
+    }
+}
+
+/* For desktop users */
+@media only screen and (min-width:800px){
+    .preloader .preload-body{
+        padding: 4rem;
+        flex-direction: row;
+    }
+
+    .preloader .preload-body > *{
+        text-align: left;
+    }
+    
+    .preloader .preload-body img{
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .preloader .preload-body .img-pseudo{
+        margin-right: 3rem;
+    }
+
+    .preloader .preload-body .img-pseudo::before{
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .preloader .preload-body .username{
+        font-size: 3rem;
+    }
+
+    .preloader .preload-body .user-body-content > *{
+        max-width: 550px;
+    }
+
+    .preloader .preload-body button{
+        max-width: 38rem !important;
+    }
+}
+
+@keyframes openleft{
+    0%{
+        border-right: 2px ridge #444;
+        left: 0;
+    }
+
+    100%{
+        border-right: 2px ridge #444;
+        left: -50vw;
+    }
+}
+
+@keyframes openright{
+    0%{
+        border-left: 2px ridge #444;
+        left: 50%;
+    }
+
+    100%{
+        border-left: 2px ridge #444;
+        left: 100vw;
+    }
+}
+
+
+@keyframes swirlshadow{
+    0%{
+        transform: rotateZ(0deg);
+        box-shadow: 0 -3px 0.4rem red;
+    }
+
+    25%{
+        transform: rotateZ(90deg);
+        box-shadow: 0 -4px 0.4rem dodgerblue;
+    }
+
+    50%{
+        transform: rotateZ(180deg);
+        box-shadow: 0 -1px 0.4rem #ff9900;
+    }
+
+    100%{
+        transform: rotateZ(360deg);
+        box-shadow: 0 -2px 0.4rem red;
+    }
+}
+

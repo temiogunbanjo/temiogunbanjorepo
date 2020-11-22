@@ -1,0 +1,104 @@
+header, header .rows, header + nav.mobile-navigation-menu .rows{
+    align-items: center;
+}
+
+header, header + nav.mobile-navigation-menu{
+    background-color: var(--header-bg-color);
+}
+
+header{
+    color: var(--header-text-color);
+    justify-content: space-between;
+    padding: 1.2rem;
+    height: 6.4rem;
+}
+
+header [class^="icofont-"]{
+    font-size: 2rem;
+}
+
+header .left-elements > *{
+    margin: auto 0.6rem;
+}
+
+header .octicon{
+    fill: white;
+}
+
+header .notification-element{
+    position: relative;
+}
+
+header .notification-element .unread{
+    position: absolute;
+    background-image: linear-gradient(10deg, rgb(23, 60, 228), rgb(0, 89, 253));
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    z-index: +990;
+    left: 59%;
+    top: -4%;
+    box-shadow: inset 0 0 1px rgba(134, 134, 134, 0.2);
+    /* transform: translate(130%, -5%); */
+}
+
+header .notification-element .unread::before{
+    content: "";
+    position: absolute;
+    border: 1px solid var(--header-bg-color);
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    left: -0.1rem;
+    top: -0.1rem;
+}
+
+header nav.navigation-links a{
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0 0.4rem;
+}
+
+header .left-elements .user-profile img{
+    display: block;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    margin-right: 0.2rem;
+}
+
+header + nav.mobile-navigation-menu{
+    padding: 0 1rem 2rem 1rem;
+}
+
+header + nav.mobile-navigation-menu.closed{
+    display: none !important;
+}
+
+header + nav.mobile-navigation-menu .mobile-navigation-links{
+    margin-top: 1.5rem;
+}
+
+nav.mobile-navigation-menu .mobile-navigation-links > *{
+    border-top: 1px solid #474747;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+}
+
+nav.mobile-navigation-menu .mobile-navigation-links img{
+    border-radius: 50%;
+    margin-right: 0.7rem;
+}
+
+/* For all mobile users only */
+@media only screen and (max-width:799px){
+    
+}
+
+/* For desktop users */
+@media only screen and (min-width:800px){
+    
+}
