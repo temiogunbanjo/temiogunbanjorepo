@@ -21,12 +21,12 @@
     font-size: 1.1rem;
     border-radius: 10px;
     margin: 0 1rem 1rem 0;
-    padding: 1rem;
+    padding: 1rem 2rem;
     color: #fff;
-    border-left: 2px solid var(--border-line-color);
+    /* border-left: 2px solid var(--border-line-color); */
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 9rem;
+    background-size: 6vmax;
     background-color: var(--border-line-color);
     background-image: url('../../logo.svg');
 }

@@ -39,7 +39,8 @@ class App extends React.Component {
             {name: "Node.js", bgColor: "teal", level: 7}, 
             {name: "Javascript", bgColor: "dodgerblue", level: 8},
             {name: "MySQL", bgColor: "crimson", level: 7},
-            {name: "MongoDB", bgColor: "green", level: 6}
+            {name: "MongoDB", bgColor: "green", level: 6},
+            {name: "REST API", bgColor: "orange", level: 6}
           ]
         };
         

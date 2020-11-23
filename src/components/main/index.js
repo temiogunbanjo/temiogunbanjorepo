@@ -23,7 +23,7 @@ function SkillItem(props){
             <h3>{props.name || "Skill name"}</h3>
             <div className="rows" style={{alignItems: 'center'}}>
                 <span>Skill level:</span> 
-                <progress min='0' max='100' value='50' style={{display: 'block', }}></progress>
+                <progress min='0' max='100' value={(props.level/10) * 100} style={{display: 'block', marginLeft: '1rem'}}></progress>
             </div>
         </div>
     );
@@ -32,19 +32,20 @@ function SkillItem(props){
 function OverviewChild(props){
     let headerStyle = {
         marginTop: '2.5rem',
-        borderBottom: "2px solid var(--border-line-color)",
+        borderBottom: "3px solid var(--border-line-color)",
         fontSize: '2rem',
         fontWeight: 400,
         width: 'auto',
         display: 'inline-block',
         textTransform: 'capitalize',
-        paddingBottom: '0.5rem',
+        paddingBottom: '0.45rem',
         paddingRight: '0.5rem',
         color: 'var(--text-color)'
     };
 
     let unitDataStyle = {
-        fontSize: '1.4rem'
+        fontSize: '1.4rem',
+        maxWidth: '600px'
     };
 
     return (
@@ -79,7 +80,7 @@ function OverviewChild(props){
                 </div>
                 
                 <h2 style={ headerStyle }>Career Objectives:</h2>
-                <div>I just want to stay true to me and let everyone else see me for that.</div>
+                <div>To use my wealth of skills and talents to better the lives of people</div>
                 
                 <h2 style={ headerStyle }>Qualifications:</h2>
                 <div>I just want to stay true to me and let everyone else see me for that.</div>
