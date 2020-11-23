@@ -1,5 +1,6 @@
 import './main.css';
-import nullimg from '../../resources/nullimg.png';
+import './skills.css';
+import './projects.css';
 import React from 'react';
 
 function NavigationTab(props) {
@@ -14,6 +15,77 @@ function NavigationTab(props) {
             <span id="repo-notice" className={repoNoticeClass}>{props.total}</span>
         </span>
     );    
+}
+
+function SkillItem(props){
+    return (
+        <div className='cols skill-item' style={{backgroundColor: props.bgColor}}>
+            <h3>{props.name || "Skill name"}</h3>
+            <div className="rows" style={{alignItems: 'center'}}>
+                <span>Skill level:</span> 
+                <progress min='0' max='100' value='50' style={{display: 'block', }}></progress>
+            </div>
+        </div>
+    );
+}
+
+function OverviewChild(props){
+    let headerStyle = {
+        marginTop: '2.5rem',
+        borderBottom: "2px solid var(--border-line-color)",
+        fontSize: '2rem',
+        fontWeight: 400,
+        width: 'auto',
+        display: 'inline-block',
+        textTransform: 'capitalize',
+        paddingBottom: '0.5rem',
+        paddingRight: '0.5rem',
+        color: 'var(--text-color)'
+    };
+
+    let unitDataStyle = {
+        fontSize: '1.4rem'
+    };
+
+    return (
+        <div className='cols' style={{fontSize: "1.2rem", color: 'var(--text-color)'}}>
+            <div style={{fontWeight: "300"}}>
+                <h2 style={ headerStyle }>My Profile:</h2>
+                <div className="cols">
+                    <div className="rows" style={ unitDataStyle }>
+                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Email Address:</span>
+                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>ogunbanjotemiloluwa@gmail.com</span>
+                    </div>
+
+                    <div className="rows" style={ unitDataStyle }>
+                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Mobile Number:</span>
+                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>+2349059620514</span>
+                    </div>
+
+                    <div className="rows" style={ unitDataStyle }>
+                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Nationality:</span>
+                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>Nigerian</span>
+                    </div>
+
+                    <div className="rows" style={ unitDataStyle }>
+                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Language Spoken:</span>
+                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>English</span>
+                    </div>
+
+                    <div className="rows" style={ unitDataStyle }>
+                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Current Job:</span>
+                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>{props.profession}</span>
+                    </div>
+                </div>
+                
+                <h2 style={ headerStyle }>Career Objectives:</h2>
+                <div>I just want to stay true to me and let everyone else see me for that.</div>
+                
+                <h2 style={ headerStyle }>Qualifications:</h2>
+                <div>I just want to stay true to me and let everyone else see me for that.</div>
+            </div>
+        </div>
+    );
 }
 
 function RepoItem(props){
@@ -39,12 +111,19 @@ function RepoItem(props){
     );
 }
 
+function createChildren(state, props) {
+    if(state.isActive === 0) return <OverviewChild profession={props.profession}/>;
+    if(state.isActive === 1) return props.skills.map((prop, index) => <SkillItem key={index} name={prop.name} bgColor={prop.bgColor}/>);
+    if(state.isActive === 2) return props.repos.map((prop, index) => <RepoItem key={index} name={prop.name} total={prop.total} isDummy={prop.isDummy} image={prop.img}/>);
+    if(state.isActive === 3) return props.repos.map((prop, index) => <RepoItem key={index} name={prop.name} total={prop.total} isDummy={prop.isDummy} image={prop.img}/>);
+}
+
 class MainComponent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             isActive: 0,
-            isActiveTab: null,
+            isActiveTab: "overview-container",
             navTabs: [
                 {
                     img: "icofont-book",
@@ -60,28 +139,28 @@ class MainComponent extends React.Component {
                         //     let newState = Object.assign({}, prevState, changedObject);
                         //     return newState;
                         // });
-                        this.setState({isActive: 0})
+                        this.setState({isActive: 0, isActiveTab: "overview-container"});
                     }
                 }, {
                     img: "icofont-book-alt",
                     name: "Skills & Achievements",
-                    total: 0,
+                    total: this.props.skills.length,
                     handler: (ev) => {
-                        this.setState({isActive: 1})
+                        this.setState({isActive: 1, isActiveTab: "skills-container"})
                     }
                 }, {
                     img: "icofont-tasks-alt",
                     name: "Projects",
                     total: 0,
                     handler: (ev) => {
-                        this.setState({isActive: 2})
+                        this.setState({isActive: 2, isActiveTab: "project-container"})
                     }
                 }, {
                     img: "icofont-cube",
                     name: "Contacts",
                     total: 0,
                     handler: (ev) => {
-                        this.setState({isActive: 3})
+                        this.setState({isActive: 3, isActiveTab: "contact-container"})
                     }
                 }
             ]
@@ -106,14 +185,12 @@ class MainComponent extends React.Component {
                     <div className="user-details line-clamp line-clamp-4" style={{margin: '1.8rem 0 0', fontSize: '1.35rem'}}>{ this.props.bio }</div>
                 </div>
     
-                <div className="repository-section">
+                <div className="main-content-section">
                     <nav className="nav-tab-wrapper" style={{borderBottom: '1px solid var(--separation-line-color)', width: '100%', overflowX: 'auto'}}>
                         <div className="rows slider">
     
                             {/* Create Navigation Tabs */}
-                            {this.state.navTabs.map((props, index) => {
-                                return <NavigationTab key={index} name={props.name} total={props.total} isActive={this.state.isActive === index} image={props.img} handler={props.handler}/>
-                            })}
+                            {this.state.navTabs.map((props, index) => <NavigationTab key={index} name={props.name} total={props.total} isActive={this.state.isActive === index} image={props.img} handler={props.handler}/>)}
     
                         </div>
                     </nav>
@@ -123,11 +200,9 @@ class MainComponent extends React.Component {
                                 <input type="text" className="repo-search-bar" placeholder="Find a repository..." />
                             </form>
                         </div>
-                        <div id="repository-container">
-                            {/* Create Repository Items */}
-                            {this.props.repos.map((props, index) => {
-                                return <RepoItem key={index} name={props.name} total={props.total} isDummy={props.isDummy} image={props.img}/>
-                            })}
+                        <div id={ this.state.isActiveTab } className="cols">
+                            {/* Create Selected Tab Content */}
+                            {createChildren(this.state, this.props)}
                         </div>
                     </div>
                 </div>

@@ -56,13 +56,13 @@ class Preloader extends React.Component {
             <div className="preloader">
                 <div className="gates left-gate"></div>
                 <div className="gates right-gate"></div>
-                <h2 style={{opacity: "0", position: "absolute", fontSize: "5vw", fontWeight: "400", left: "50%", top: "40%", transform: "translate(-50%, -50%)"}}>Hi There!</h2>
+                <h2 style={{opacity: "0", position: "absolute", fontSize: "5vw", fontWeight: "400", left: "50%", top: "40%", transform: "translate(-50%, -50%)"}}>Hi there!</h2>
                 <div className="cols preload-body">
                     <span className="img-pseudo"><img className="user-profile-picture" src={ this.props.avatar } alt="" width="120" height="120" /></span>
                     <div className="cols user-body-content" style={{fontSize: "1.25rem", fontWeight: 300, minWidth: "40%"}}>
                         <div className="username">{ this.props.user }</div>
                         <div className="profession" style={{color: "#aaa"}}>{ this.props.profession }</div>
-                        <div className="bio" style={{marginTop: "1.8rem", lineHeight: 1.8, fontWeight: 400}}>{ this.props.bio }</div>
+                        <div className="bio line-clamp line-clamp-4" style={{marginTop: "1.8rem", lineHeight: 1.8}}>{ this.props.bio }</div>
                         <button className="strip-btn" style={{color: "white"}}>View More</button>
                         <span className="" style={{color: "#888", marginTop: "1rem", fontWeight: 500}}>Fun Tips: Tap the 'Love emoji' button on the profile to like this profile.</span>
                     </div>

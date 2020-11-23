@@ -1,5 +1,4 @@
 import './header.css';
-import nullimg from '../../resources/nullimg.png';
 import React from 'react';
 
 class AppHeader extends React.Component {

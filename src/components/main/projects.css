@@ -1,0 +1,138 @@
+#project-container{
+    margin-top: 2rem;
+}
+
+#project-container .no-repo-text{
+    text-align: center;
+    height: 200px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 600;
+    border-top: 1px solid var(--separation-line-color);
+    border-bottom: 1px solid var(--separation-line-color);
+}
+
+#project-container .repo-item{
+    font-size: 1.1rem;
+    border-top: 1px solid var(--separation-line-color);
+    /* border-bottom: 1px solid var(--separation-line-color); */
+    padding: 2rem 0;
+}
+
+#project-container .repo-item:last-child{
+    border-bottom: 1px solid var(--separation-line-color);
+}
+
+#project-container .repo-item .icon{
+    display: block;
+    margin-right: 0.4rem;
+    margin-top: 0.2rem;
+    color: var(--icon-color);
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+#project-container .repo-item > *:first-child{
+    justify-content: space-between;
+    align-items: center;
+}
+
+#project-container .repo-item .repo-item-name{
+    font-size: 1.95rem;
+    font-weight: 600;
+    margin: 0.3rem 0;
+    color: var(--page-link-color);
+}
+
+#project-container .repo-item .repo-item-source{
+    margin: 0.5rem 0;
+    max-width: 65%;
+    color: #444;
+}
+
+#project-container .repo-item .repo-item-description{
+    color: var(--text-color);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    max-width: 65%;
+}
+
+#project-container .repo-item .repo-star-btn{
+    padding: 0.5rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid var(--border-line-color);
+    border-radius: 5px;
+    color: var(--text-color);
+}
+
+#project-container .repo-item .repo-item-details{
+    line-height: 1.5;
+    width: 100%;
+    margin-top: 1.5rem;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#project-container .repo-item .repo-item-details > *{
+    color: var(--text-color);
+    margin-right: 1.5rem;
+}
+
+#project-container .repo-item .repo-item-details [class*="icofont-"]{
+    display: inline-block;
+    font-size: 1.15rem;
+}
+
+#project-container .repo-item .repo-item-details .circle{
+    background-color: #555;
+    border-radius: 50%;
+}
+
+
+
+#project-container .dummy.repo-item .pad{
+    padding: 0.5rem !important;
+    min-width: 2rem;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+#project-container .dummy.repo-item .repo-item-name{
+    max-width: 65%;
+    padding: 0.7rem !important;
+}
+
+#project-container .dummy.repo-item .repo-item-source{
+    max-width: 50%;
+    opacity: 0.7;
+}
+
+#project-container .dummy.repo-item .repo-item-description{
+    padding: 2.5rem !important;
+    margin-top: 0.7rem;
+    max-width: 70%;
+}
+
+#project-container .dummy.repo-item .repo-star-btn{
+    width: 5rem;
+    height: 3rem;
+}
+
+#project-container .dummy.repo-item .repo-item-details{
+    margin-top: 3rem;
+    width: 90%;
+}
+
+#project-container .dummy.repo-item .repo-item-details > *{
+    width: 20%;
+}
+
+#project-container .dummy.repo-item .repo-item-details span.pad{
+    display: block;
+    width: 80% !important;
+    padding: 0.5rem !important;
+}
