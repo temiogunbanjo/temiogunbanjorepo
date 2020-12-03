@@ -36,11 +36,12 @@ class App extends React.Component {
           profession: "Fullstack Web Developer",
           bio: `I am a self-taught fullstack web developer with ${new Date().getFullYear() - 2016} years experience using Javascript, Node.js, RESTful APIs, NoSQL Databases and RDBMS. I am also a part-time graphics designer, animator, and a final student in the University of Lagos.`,
           skills: [
-            {name: "Node.js", bgColor: "teal", level: 7}, 
-            {name: "Javascript", bgColor: "dodgerblue", level: 8},
+            {name: "NodeJS", bgColor: "#1e1e1e", level: 7},
+            {name: "Javascript", bgColor: "rgb(0, 122, 245)", level: 8},
             {name: "MySQL", bgColor: "crimson", level: 7},
             {name: "MongoDB", bgColor: "green", level: 6},
-            {name: "REST API", bgColor: "orange", level: 6}
+            {name: "REST API", bgColor: "orangered", level: 6},
+            {name: "React.JS", bgColor: "orange", level: 6}
           ]
         };
         

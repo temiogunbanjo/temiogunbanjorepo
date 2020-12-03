@@ -18,12 +18,13 @@ function NavigationTab(props) {
 }
 
 function SkillItem(props){
+    let skillLevel = (props.level)? `${(props.level/10) * 100}` : '0';
     return (
         <div className='cols skill-item' style={{backgroundColor: props.bgColor}}>
             <h3>{props.name || "Skill name"}</h3>
             <div className="rows" style={{alignItems: 'center'}}>
-                <span>Skill level:</span> 
-                <progress min='0' max='100' value={(props.level/10) * 100} style={{display: 'block', marginLeft: '1rem'}}></progress>
+                <div>Skill level:</div>
+                <div className="progress" style={{marginLeft: '1rem'}}><div className="progress-value" style={{width: skillLevel + '%'}}>{skillLevel + '%'}</div></div>
             </div>
         </div>
     );
@@ -32,7 +33,8 @@ function SkillItem(props){
 function OverviewChild(props){
     let headerStyle = {
         marginTop: '2.5rem',
-        borderBottom: "3px solid var(--border-line-color)",
+        marginBottom: '0.5rem',
+        // borderBottom: "2px solid var(--border-line-color)",
         fontSize: '2rem',
         fontWeight: 400,
         width: 'auto',
@@ -44,13 +46,13 @@ function OverviewChild(props){
     };
 
     let unitDataStyle = {
-        fontSize: '1.4rem',
+        fontSize: '1.3rem',
         maxWidth: '600px'
     };
 
     return (
         <div className='cols' style={{fontSize: "1.2rem", color: 'var(--text-color)'}}>
-            <div style={{fontWeight: "300"}}>
+            <div style={{fontWeight: "400"}}>
                 <h2 style={ headerStyle }>My Profile:</h2>
                 <div className="cols">
                     <div className="rows" style={ unitDataStyle }>
@@ -114,7 +116,7 @@ function RepoItem(props){
 
 function createChildren(state, props) {
     if(state.isActive === 0) return <OverviewChild profession={props.profession}/>;
-    if(state.isActive === 1) return props.skills.map((prop, index) => <SkillItem key={index} name={prop.name} bgColor={prop.bgColor}/>);
+    if(state.isActive === 1) return props.skills.map((prop, index) => <SkillItem key={index} name={prop.name} bgColor={prop.bgColor} level={prop.level}/>);
     if(state.isActive === 2) return props.repos.map((prop, index) => <RepoItem key={index} name={prop.name} total={prop.total} isDummy={prop.isDummy} image={prop.img}/>);
     if(state.isActive === 3) return props.repos.map((prop, index) => <RepoItem key={index} name={prop.name} total={prop.total} isDummy={prop.isDummy} image={prop.img}/>);
 }

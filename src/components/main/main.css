@@ -81,7 +81,7 @@ body.dark-mode main .user-profile-section .user-details{
 
 .main-content-section .nav-tab.active{
     color: var(--text-color);
-    border-bottom: 2px solid #ff5e00;
+    border-bottom: 2px solid var(--tab-border-color);
 }
 
 .main-content-section .nav-tab .tab-name, .main-content-section .nav-tab .icon{
