@@ -2,20 +2,26 @@ footer{
     position: relative;
     border-top: 1px solid var(--separation-line-color);
     padding: 3.5rem 0;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-wrap: wrap; */
     margin: 3rem auto 0;
     width: calc(100% - 2rem);
     color: #474747;
 }
 
-footer > *{
+footer > .rows{
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer > * > *{
     font-size: 1.15rem;
     margin: 0.2rem 1.3rem 0.2rem 0;
 }
 
-footer > a:link{
+footer a:link{
     color: var(--page-link-color);
 }
 

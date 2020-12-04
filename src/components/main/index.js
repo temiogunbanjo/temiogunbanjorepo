@@ -18,7 +18,7 @@ function NavigationTab(props) {
 }
 
 function SkillItem(props){
-    let skillLevel = (props.level)? `${(props.level/10) * 100}` : '0';
+    let skillLevel = (props.level)? `${Math.round((props.level/10) * 100)}` : '0';
     return (
         <div className='cols skill-item' style={{backgroundColor: props.bgColor}}>
             <h3>{props.name || "Skill name"}</h3>
@@ -34,58 +34,79 @@ function OverviewChild(props){
     let headerStyle = {
         marginTop: '2.5rem',
         marginBottom: '0.5rem',
-        // borderBottom: "2px solid var(--border-line-color)",
+        borderLeft: "2px solid var(--tab-border-color)",
         fontSize: '2rem',
         fontWeight: 400,
         width: 'auto',
         display: 'inline-block',
         textTransform: 'capitalize',
-        paddingBottom: '0.45rem',
-        paddingRight: '0.5rem',
+        padding: '0',
+        paddingLeft: '0.8rem',
         color: 'var(--text-color)'
     };
 
-    let unitDataStyle = {
-        fontSize: '1.3rem',
+    let unitDataStyle = {padding: '0.5rem 1rem 0.5rem 0.2rem', textAlign: 'left'};
+
+    let unitDataWrapperStyle = {
+        fontSize: '1.4rem',
         maxWidth: '600px'
     };
 
     return (
-        <div className='cols' style={{fontSize: "1.2rem", color: 'var(--text-color)'}}>
-            <div style={{fontWeight: "400"}}>
+        <div className='cols' style={{fontSize: "1.4rem", color: 'var(--light-text-color)'}}>
+            <div style={{fontWeight: "300"}}>
                 <h2 style={ headerStyle }>My Profile:</h2>
                 <div className="cols">
-                    <div className="rows" style={ unitDataStyle }>
-                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Email Address:</span>
-                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>ogunbanjotemiloluwa@gmail.com</span>
+                    <div className="rows" style={ unitDataWrapperStyle }>
+                        <span className="lg-35" style={ unitDataStyle }>Email Address:</span>
+                        <span className="lg-60" style={ unitDataStyle }>ogunbanjotemiloluwa@gmail.com</span>
                     </div>
 
-                    <div className="rows" style={ unitDataStyle }>
-                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Mobile Number:</span>
-                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>+2349059620514</span>
+                    <div className="rows" style={ unitDataWrapperStyle }>
+                        <span className="lg-35" style={ unitDataStyle }>Mobile Number:</span>
+                        <span className="lg-60" style={ unitDataStyle }>+2349059620514</span>
                     </div>
 
-                    <div className="rows" style={ unitDataStyle }>
-                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Nationality:</span>
-                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>Nigerian</span>
+                    <div className="rows" style={ unitDataWrapperStyle }>
+                        <span className="lg-35" style={ unitDataStyle }>Nationality:</span>
+                        <span className="lg-60" style={ unitDataStyle }>Nigerian</span>
                     </div>
 
-                    <div className="rows" style={ unitDataStyle }>
-                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Language Spoken:</span>
-                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>English</span>
+                    <div className="rows" style={ unitDataWrapperStyle }>
+                        <span className="lg-35" style={ unitDataStyle }>Language Spoken:</span>
+                        <span className="lg-60" style={ unitDataStyle }>English</span>
                     </div>
 
-                    <div className="rows" style={ unitDataStyle }>
-                        <span className="lg-35" style={{padding: '0.5rem 1rem', textAlign: 'right'}}>Current Job:</span>
-                        <span className="lg-60" style={{padding: '0.5rem 1rem', textAlign: 'left'}}>{props.profession}</span>
+                    <div className="rows" style={ unitDataWrapperStyle }>
+                        <span className="lg-35" style={ unitDataStyle }>Current Job:</span>
+                        <span className="lg-60" style={ unitDataStyle }>{props.profession}</span>
                     </div>
                 </div>
                 
                 <h2 style={ headerStyle }>Career Objectives:</h2>
                 <div>To use my wealth of skills and talents to better the lives of people</div>
                 
-                <h2 style={ headerStyle }>Qualifications:</h2>
-                <div>I just want to stay true to me and let everyone else see me for that.</div>
+                <h2 style={ headerStyle }>Education:</h2>
+                <div className="cols education-container" style={{marginLeft: '0.5rem'}}>
+                    <div className="cols">
+                        <h4 style={{marginBottom: 0, marginTop: '1rem'}}>University of Lagos, Akoka Nigeria</h4>
+                        <em>Tertiary Institution</em>
+                        <span>(B. Sc.) Mechanical Engineering</span>
+                        <b>2015 - Present</b>
+                    </div>
+
+                    <div className="cols">
+                        <h4 style={{marginBottom: 0}}>Solidrock Model College</h4>
+                        <em>Secondary Institution</em>
+                        <b>2005 - 2015</b>
+                    </div>
+                    
+                    <div className="cols">
+                        <h4 style={{marginBottom: 0}}>Akesan Royal School</h4>
+                        <em>Primary Institution</em>
+                        <b>2002 - 2006</b>
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -147,7 +168,7 @@ class MainComponent extends React.Component {
                 }, {
                     img: "icofont-book-alt",
                     name: "Skills & Achievements",
-                    total: this.props.skills.length,
+                    total: 8,
                     handler: (ev) => {
                         this.setState({isActive: 1, isActiveTab: "skills-container"})
                     }

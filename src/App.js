@@ -22,7 +22,7 @@ class App extends React.Component {
       avatar: nullimg,
       profession: null,
       bio: 'Please wait. Loading all my data...',
-      skills: [{isDummy: true}, {isDummy: true}],
+      skills: [{isDummy: true}, {isDummy: true}, {isDummy: true}, {isDummy: true}],
       repositories: [{isDummy: true}, {isDummy: true}]
     }
   }
@@ -37,11 +37,13 @@ class App extends React.Component {
           bio: `I am a self-taught fullstack web developer with ${new Date().getFullYear() - 2016} years experience using Javascript, Node.js, RESTful APIs, NoSQL Databases and RDBMS. I am also a part-time graphics designer, animator, and a final student in the University of Lagos.`,
           skills: [
             {name: "NodeJS", bgColor: "#1e1e1e", level: 7},
-            {name: "Javascript", bgColor: "rgb(0, 122, 245)", level: 8},
+            {name: "Javascript", bgColor: "rgb(0, 122, 245)", level: 9},
             {name: "MySQL", bgColor: "crimson", level: 7},
             {name: "MongoDB", bgColor: "green", level: 6},
             {name: "REST API", bgColor: "orangered", level: 6},
-            {name: "React.JS", bgColor: "orange", level: 6}
+            {name: "ReactJS", bgColor: "orange", level: 6},
+            {name: "GraphQL", bgColor: "purple", level: 2.5},
+            {name: "AWS Lambda", bgColor: "red", level: 5.5}
           ]
         };
         
