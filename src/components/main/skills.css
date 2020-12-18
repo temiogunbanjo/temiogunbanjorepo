@@ -1,6 +1,5 @@
 #skills-container{
-    flex-direction: row !important;
-    flex-wrap: wrap;
+    flex-direction: column !important;
     margin-top: 2rem;
 }
 
@@ -17,11 +16,16 @@
     border-bottom: 1px solid var(--separation-line-color);
 }
 
+#skills-container .skill-wrapper{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #skills-container .skill-item{
     font-size: 1.1rem;
-    border-radius: 10px;
-    margin: 0 2rem 2rem 0;
-    padding: 1rem 2rem;
+    border-radius: 6px;
+    margin: 0 1rem 1.5rem 1rem;
+    padding: 1rem 2rem 2.5rem;
     color: #fff;
     background-repeat: no-repeat;
     background-position: right;
@@ -40,6 +44,7 @@
 }
 
 #skills-container .progress .progress-value{
+    width: 0;
     height: 100%;
     color: white;
     text-align: center;
@@ -47,6 +52,7 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.1));
     border-radius: 5px;
     box-shadow: 2px 0 2px #ccc;
+    transition: width 0.5s ease 2s;
 }
 
 #skills-container .skill-item h3{
@@ -143,7 +149,9 @@
 /* For all mobile users only */
 @media only screen and (max-width:799px){
     #skills-container .skill-item{
-        width: calc(50% - 2rem);
+        width: calc(50% - 1rem);
+        min-width: 140px;
+        margin: 0 0.5rem 1.5rem 0.5rem;
     }
 }
 

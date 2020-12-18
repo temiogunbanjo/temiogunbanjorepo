@@ -64,5 +64,6 @@ form.search-form input:focus + label{
     background-color: #ffffff;
     min-width: 30rem;
     width: 30vw;
+    color: #333;
   }
 }

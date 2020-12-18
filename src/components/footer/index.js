@@ -17,7 +17,7 @@ function Footer() {
                 <a href="#">About</a>
             </div>
             <div className="rows" style={{marginTop: '1.5rem'}}>
-                <span>Developed By:</span>
+                <span>Developed By</span>
                 <a href="#">Temiloluwa Ogunbanjo</a>
             </div>
         </footer>
