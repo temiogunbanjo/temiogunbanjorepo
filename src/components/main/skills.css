@@ -18,7 +18,7 @@
 
 #skills-container .skill-wrapper{
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #skills-container .skill-item{

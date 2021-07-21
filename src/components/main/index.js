@@ -59,7 +59,7 @@ function OverviewChild(props){
         marginTop: '2.5rem',
         marginBottom: '0.5rem',
         borderLeft: "2px solid var(--tab-border-color)",
-        fontSize: '1.9rem',
+        fontSize: '2rem',
         fontWeight: 400,
         width: 'auto',
         display: 'inline-block',
@@ -77,7 +77,7 @@ function OverviewChild(props){
     };
 
     return (
-        <div className='cols' style={{fontSize: "1.4rem", color: 'var(--light-text-color)'}}>
+        <div className='cols' style={{fontSize: "1.6rem", color: 'var(--light-text-color)'}}>
             <div style={{fontWeight: "300"}}>
                 <h2 style={ headerStyle }>My Profile:</h2>
                 <div className="cols">
@@ -138,17 +138,17 @@ function OverviewChild(props){
 
 function ProjectItem(props){
     return (
-        <div className={`cols ${props.isDummy? 'dummy ': ''}project-item`}>
+        <div className={ `cols ${ props.isDummy? 'dummy ': '' }project-item` }>
             <div className="cols left">
-                <h3 className={`project-item-name ${props.isDummy? 'pad lazy-loading': ''}`}>{props.name}</h3>
-                <span className={`project-item-source ${props.isDummy? 'pad lazy-loading': ''}`}>{props.type}</span>
-                <div className={`project-item-description line-clamp line-clamp-5 ${props.isDummy? 'pad lazy-loading': ''}`}>{props.description}</div>
-                <a href={props.link} target='blank' className={`project-star-btn rows ${props.isDummy? 'pad lazy-loading': ''}`}>
+                <h3 className={ `project-item-name ${ props.isDummy? 'pad lazy-loading': '' }` }>{ props.name}</h3>
+                <span className={ `project-item-source ${ props.isDummy? 'pad lazy-loading': '' }`}>{ props.type}</span>
+                <div className={`project-item-description line-clamp line-clamp-5 ${ props.isDummy? 'pad lazy-loading': ''}`}>{props.description}</div>
+                <a href={ props.link } target='blank' className={`project-star-btn rows ${ props.isDummy? 'pad lazy-loading': ''}`}>
                     <i className="icofont-arrow-right"></i>
                     <span className='content'>Check it out</span>
                 </a>
             </div>
-            <img src={props.previewImg} alt="" className={`pad lazy-loading project-item-preview right`} />
+            <img src={ props.previewImg } alt="" className={ `pad lazy-loading project-item-preview right` } />
         </div>
         // <div className={`cols ${props.isDummy? 'dummy ': ''}project-item`}>
         //     <div className="rows">

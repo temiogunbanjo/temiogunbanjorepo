@@ -44,7 +44,7 @@ class App extends React.Component {
           name: "temiloluwa ogunbanjo",
           avatar: pic1,
           profession: "Fullstack Web Developer",
-          bio: `I am a self-taught fullstack web developer with ${new Date().getFullYear() - 2016} years experience using Javascript, Node.js, RESTful APIs, NoSQL Databases and RDBMS. I am also a part-time graphics designer, animator, and a final year student in the University of Lagos.`,
+          bio: `I am a Fullstack Software Developer with ${new Date().getFullYear() - 2016} years experience using Javascript, Node.js, RESTful APIs, NoSQL Databases and RDBMS. I am also a part-time graphics designer, animator, and a final year student in the University of Lagos.`,
           skills: [
             {name: "NodeJS", bgColor: color3, level: 7, category: 'web development'},
             {name: "Javascript", bgColor: color3, level: 9, category: 'web development'},
@@ -53,7 +53,7 @@ class App extends React.Component {
             {name: "REST API", bgColor: color3, level: 6, category: 'web development'},
             {name: "ReactJS", bgColor:  color3, level: 6, category: 'web development'},
             {name: "GraphQL", bgColor: color3, level: 3, category: 'web development'},
-            {name: "AWS Lambda", bgColor: color3, level: 5, category: 'web development'},
+            {name: "AWS Services", bgColor: color3, level: 5, category: 'web development'},
             {name: "Figma", bgColor: color2, level: 5.9, category: 'graphics design'},
             {name: "Adobe Photoshop", bgColor: color2, level: 7.5, category: 'graphics design'},
             {name: "Adobe XD", bgColor: color2, level: 6, category: 'graphics design'},

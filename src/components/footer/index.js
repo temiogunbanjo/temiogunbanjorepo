@@ -1,5 +1,5 @@
 import './footer.css';
-
+import React from 'react';
 function Footer() {
     return (
         <footer className="cols">
