@@ -15,7 +15,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "preinstall": "npm install serve",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -58,5 +60,5 @@
   "bugs": {
     "url": "https://github.com/temiogunbanjo/temiogunbanjorepo/issues"
   },
-  "homepage": "https://github.com/temiogunbanjo/temiogunbanjorepo#readme"
+  "homepage": "https://temiogunbanjo.herokuapp.com"
 }

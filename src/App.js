@@ -11,10 +11,10 @@ import MainComponent from './components/main';
 import Footer from './components/footer';
 
 // import other resources
-import userpp from './resources/images/images (10).jpeg';
 import pic1 from './resources/images/julian-schultz-JP_nc0jEakE-unsplash.jpg';
-import pic2 from './resources/images/pexels-designecologist-1999463.jpg'
 import nullimg from './resources/images/nullimgT.png';
+// import userpp from './resources/images/images (10).jpeg';
+// import pic2 from './resources/images/pexels-designecologist-1999463.jpg'
 
 class App extends React.Component {
   constructor(props){
@@ -32,7 +32,7 @@ class App extends React.Component {
 
   componentDidMount(){
     let colorList = ['#1e1e1e', "rgb(0, 82, 205)", 'orange', 'red', 'purple', 'orangered', 'crimson', 'brown'];
-    let getRandomColor = () => colorList[Math.round(Math.random() * (colorList.length - 1))];
+    // let getRandomColor = () => colorList[Math.round(Math.random() * (colorList.length - 1))];
     let color1 = colorList[0];
     let color2 = colorList[3];
     let color3 = colorList[4];
@@ -43,14 +43,14 @@ class App extends React.Component {
         let changedState = {
           name: "temiloluwa ogunbanjo",
           avatar: pic1,
-          profession: "Fullstack Web Developer",
+          profession: "Fullstack Software Developer",
           bio: `I am a Fullstack Software Developer with ${new Date().getFullYear() - 2016} years experience using Javascript, Node.js, RESTful APIs, NoSQL Databases and RDBMS. I am also a part-time graphics designer, animator, and a final year student in the University of Lagos.`,
           skills: [
             {name: "NodeJS", bgColor: color3, level: 7, category: 'web development'},
             {name: "Javascript", bgColor: color3, level: 9, category: 'web development'},
             {name: "MySQL", bgColor: color3, level: 7, category: 'web development'},
             {name: "MongoDB", bgColor: color3, level: 6, category: 'web development'},
-            {name: "REST API", bgColor: color3, level: 6, category: 'web development'},
+            {name: "REST API", bgColor: color3, level: 7, category: 'web development'},
             {name: "ReactJS", bgColor:  color3, level: 6, category: 'web development'},
             {name: "GraphQL", bgColor: color3, level: 3, category: 'web development'},
             {name: "AWS Services", bgColor: color3, level: 5, category: 'web development'},
@@ -63,28 +63,34 @@ class App extends React.Component {
           ],
           projects: [
             {
+              name: 'TGuide',
+              type: 'app',
+              description: 'Tguide is a react app that serves as a virtual tour guide for travelers and tourists.',
+              previewImg: nullimg,
+              link: 'https://t-guide.herokuapp.com'
+            },{
               name: 'Univers',
               type: 'ecommerce',
               description: 'An ecommerce platform for buying and selling all categories of products from household items to fashion items and many more.',
-              previewImg: userpp,
+              previewImg: nullimg,
               link: 'https://oneunivers.herokuapp.com'
             }, {
               name: 'Teambod',
               type: 'Organization',
               description: 'Teambod was designed to make team assignment easier. The app allows companies divide big projects among several teams and members.',
-              previewImg: pic1,
+              previewImg: nullimg,
               link: 'https://teambod.herokuapp.com'
             }, {
               name: 'Hitmee',
               type: 'Social Media',
               description: 'Teambod was designed to make team assignment easier. The app allows companies divide big projects among several teams and members.',
-              previewImg: pic2,
+              previewImg: nullimg,
               link: 'https://hitmee.herokuapp.com'
             }, {
               name: 'Game Project',
               type: 'Games',
-              description: 'Game Project is a 2D game written in Javascript while employing HTML5 & CSS3. The game consists of a player (plane) and opponent (plane). The player can change its plane color and can navigate using the keyboard keys.',
-              previewImg: userpp,
+              description: 'Game Project is a 2D game written in VanillaJS. The game consists of a player (plane) and opponent (plane). The player can change its color and can navigate using the keyboard keys.',
+              previewImg: nullimg,
               link: 'https://hitmee.herokuapp.com'
             }
           ]

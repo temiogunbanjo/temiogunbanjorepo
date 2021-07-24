@@ -79,7 +79,8 @@
 .preloader .preload-body .bio{
     height: auto;
     font-weight: 300;
-    --clamp-line-height: 1.8!important;
+    font-size: 1.6rem;
+    --clamp-line-height: 1.8 !important;
 }
 
 .preloader .preload-body button{
@@ -154,7 +155,7 @@
     }
 
     .preloader .preload-body .bio{
-        font-weight: 400;
+        font-size: 1.5rem;
     }
 
     .preloader .preload-body button{
