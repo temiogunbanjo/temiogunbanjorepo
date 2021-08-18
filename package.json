@@ -19,7 +19,6 @@
   "scripts": {
     "dev": "react-scripts start",
     "dev:server": "cd server && npm run dev",
-    "preinstall": "npm install serve",
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
