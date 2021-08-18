@@ -44,7 +44,7 @@ function ProfileOverview(props){
 
                     <div className="rows" style={ unitDataWrapperStyle }>
                         <span className="lg-35" style={ unitDataStyle }>Language Spoken:</span>
-                        <span className="lg-60" style={ unitDataStyle }>English</span>
+                        <span className="lg-60" style={ unitDataStyle }>English & Yoruba</span>
                     </div>
 
                     <div className="rows" style={ unitDataWrapperStyle }>
@@ -68,13 +68,13 @@ function ProfileOverview(props){
                     <div className="cols">
                         <h4 style={{marginBottom: 0}}>Solidrock Model College</h4>
                         <em>Secondary Institution</em>
-                        <span className="date">2005 - 2015</span>
+                        <span className="date">2009 - 2015</span>
                     </div>
                     
                     <div className="cols">
                         <h4 style={{marginBottom: 0}}>Akesan Royal School</h4>
                         <em>Primary Institution</em>
-                        <span className="date">2002 - 2006</span>
+                        <span className="date">2001 - 2009</span>
                     </div>
                 </div>
             </div>

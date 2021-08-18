@@ -12,9 +12,13 @@ function formatSkills(context) {
   const skillset = context.portfolio.skills;
   const returnedItem = [];
   const skCategory = {};
+  
+  let skCategoryIsDummy = false;
 
   // Sort each skill into their respective categories
   skillset.forEach((skill) => {
+    if (skill.isDummy && skCategoryIsDummy === false) skCategoryIsDummy = true;
+
     if (!skill.category) {
       if (skCategory["other"]) skCategory["other"].push(skill);
       else skCategory["other"] = [skill];
@@ -30,6 +34,7 @@ function formatSkills(context) {
         name={category}
         skills={skCategory[category]}
         setHomeComponentState={context.setHomeComponentState}
+        isDummyCategory={skCategoryIsDummy}
       />
     );
   });

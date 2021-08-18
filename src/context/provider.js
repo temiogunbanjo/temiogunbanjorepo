@@ -1,13 +1,13 @@
 import React from "react";
 import AppContext from "./AppContext";
 
-import nullimg from '../resources/images/nullimgT.png';
+import nullimgT from '../resources/images/nullimgT.png';
 
 class AppContextProvider extends React.Component {
     state = {
         name: 'What\'s my name?',
         username: 'username',
-        avatar: nullimg,
+        avatar: nullimgT,
         portfolio: {
             profession: null,
             bio: 'Please wait. Loading all my data...',

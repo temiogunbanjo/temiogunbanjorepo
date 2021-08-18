@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import loading from "../../../../resources/images/04de2e31234507.564a1d23645bf2.gif";
 // import * as VanillaTilt from "https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.1/vanilla-tilt.min.js";
 
 function Project(props) {
@@ -8,41 +9,49 @@ function Project(props) {
       reverse: true,
       speed: 400,
       glare: true,
-      "max-glare": 0.3
+      "max-glare": 0.2,
     });
   });
 
-  const { name, description, isDummy, previewImg, link } = props.details;
+  const {
+    name,
+    type,
+    description,
+    isDummy,
+    previewImg,
+    link,
+    tags,
+  } = props.details;
   const classForDummyElements = isDummy ? "pad lazy-loading" : "";
 
   return (
     <div
       className={`cols ${isDummy ? "dummy" : ""} project-item`}
-    //   data-tilt
-    //   data-tilt-max="25"
-    //   data-tilt-speed="400"
-    //   data-tilt-glare="true"
+      //   data-tilt
+      //   data-tilt-max="25"
+      //   data-tilt-speed="400"
+      //   data-tilt-glare="true"
     >
       <div
-        style={
-          {
-            backgroundImage: `url(${previewImg})`,
-            backgroundSize: '190px',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }
-        }
-        className={`${classForDummyElements} project-item-preview top`}
+        style={{
+          backgroundImage: `url(${previewImg ? previewImg : loading})`,
+          backgroundSize: "200px",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        className={`project-item-preview top`}
       ></div>
       <div className="cols bottom">
         <h3 className={`project-item-name ${classForDummyElements}`}>{name}</h3>
         <span className={`project-item-source ${classForDummyElements}`}>
-          {props.type}
+          {type}
         </span>
         <div
-          className={`project-item-tags line-clamp line-clamp-1 ${classForDummyElements}`}
+          className={`project-item-tags ${
+            tags ? "line-clamp line-clamp-1" : ""
+          } ${classForDummyElements}`}
         >
-          Tags: React, Node.js
+          {tags}
         </div>
         <div
           className={`project-item-description line-clamp line-clamp-5 ${classForDummyElements}`}
@@ -50,13 +59,15 @@ function Project(props) {
           {description}
         </div>
         <a
-          href={(link)? link : '#'}
+          href={link ? link : "#"}
           target="blank"
-          className={`project-star-btn rows ${classForDummyElements}`}
+          className={`project-view-btn rows ${classForDummyElements}`}
           disabled={true}
-          data-disabled={(link)? false : true}
+          data-disabled={link ? false : true}
         >
-          <span className="content">{(link)? "view project" : "coming soon..."}</span>
+          <span className="content">
+            {link ? "view project" : "coming soon..."}
+          </span>
           <i className="icofont-caret-right"></i>
         </a>
       </div>
@@ -74,7 +85,7 @@ export default Project;
 //             <div className={`project-item-description ${props.isDummy? 'pad lazy-loading': ''}`}>{props.description}</div>
 //         </div>
 
-//         <div className={`rows project-star-btn ${props.isDummy? 'pad lazy-loading': ''}`}></div>
+//         <div className={`rows project-view-btn ${props.isDummy? 'pad lazy-loading': ''}`}></div>
 //     </div>
 //     <span className="rows project-item-details">
 //         <span className="rows detail-item"><i className="icon circle lazy-loading"></i><span className="pad lazy-loading"></span></span>

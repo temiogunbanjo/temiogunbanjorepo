@@ -30,7 +30,7 @@ function SkillCategory(props){
     return (
         <React.Fragment>
             {/* <SearchBar setHomeComponentState={ props.setHomeComponentState }/> */}
-            <h2 style={ headerStyle }>{ props.name }</h2>
+            <h2 style={ headerStyle }>{(props.isDummyCategory === true)? 'Loading...' : props.name }</h2>
             <div className="rows skill-wrapper">
                 {
                     props.skills.map((prop, index) => {

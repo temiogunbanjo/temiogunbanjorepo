@@ -9,6 +9,7 @@ html{
 }
 
 body{
+  --pointer-color: red;
   --page-bg-color: #fff;
   --page-link-color:#0059fd;
   --header-bg-color: #24292e;
@@ -135,6 +136,11 @@ input[type="submit"], select{
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.center{
+  justify-content: center;
+  align-items: center;
 }
 
 .lg-5{

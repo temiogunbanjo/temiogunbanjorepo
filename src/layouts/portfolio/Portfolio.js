@@ -35,11 +35,14 @@ class Body extends React.Component {
         {
           img: "icofont-book-alt",
           name: "Skills & Knowledge",
-          total: 14,
+          total: 4,
           handler: async (ev) => {
-            const skills = await AppUtils.fetchUserSkills("user");
-            if (skills) this.props.setHomeComponentState({ skills });
             this.setState({ isActive: 1, isActiveTab: "skills-container" });
+            const skills = await AppUtils.fetchUserSkills("user");
+            if (skills) {
+              this.props.setHomeComponentState({ skills });
+              this.setDataCount(skills.length, 1);
+            }
           },
         },
         {
@@ -47,9 +50,12 @@ class Body extends React.Component {
           name: "Projects",
           total: 4,
           handler: async (ev) => {
-            const projects = await AppUtils.fetchUserProject("user");
-            if (projects) this.props.setHomeComponentState({ projects });
             this.setState({ isActive: 2, isActiveTab: "project-container" });
+            const projects = await AppUtils.fetchUserProject("user");
+            if (projects) {
+              this.props.setHomeComponentState({ projects });
+              this.setDataCount(projects.length, 2);
+            }
           },
         },
         {
@@ -62,6 +68,15 @@ class Body extends React.Component {
         },
       ],
     };
+
+    this.setDataCount = (count, navTabIndex) => {
+      let newNavTab = this.state.navTabs.map((navTab, index)=> {
+        if (index === navTabIndex) navTab.total = count;
+        return navTab;
+      });
+
+      this.setState({navTabs: newNavTab});
+    }
   }
 
   render() {

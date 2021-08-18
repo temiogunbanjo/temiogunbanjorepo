@@ -34,6 +34,13 @@ class ProfileSummary extends React.Component {
             >
               {context.portfolio.bio}
             </div>
+
+            <i
+              className="user-last-seen"
+              style={{ margin: "1.8rem 0 0", fontSize: "1rem", width: "100%" }}
+            >
+              {`Last updated on ${new Date().toLocaleDateString()}`}
+            </i>
           </section>
         )}
       </AppContext.Consumer>

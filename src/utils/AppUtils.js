@@ -5,13 +5,25 @@ class AppUtils {
     };
 
     static fetchUserSkills = async (userUuid) => {
-        const userSkills = require('../data/userdata');
-        return userSkills.skills;
+        const userskills = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                try {
+                    resolve(require('../data/userdata').skills);
+                } catch (error) {
+                    reject(error);
+                }
+            }, 10000);
+        });
+        return userskills;
     };
 
     static fetchUserProject = async (userUuid) => {
-        const userSkills = require('../data/userdata');
-        return userSkills.projects;
+        const userproject = new Promise(resolve => {
+            setTimeout(() => {
+                resolve(require('../data/userdata').projects);
+            }, 10000);
+        });
+        return userproject;
     };
 }
 
