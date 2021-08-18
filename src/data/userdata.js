@@ -1,7 +1,8 @@
 import pic1 from '../resources/images/julian-schultz-JP_nc0jEakE-unsplash.jpg';
 import nullimgT from '../resources/images/nullimgT.png';
-import nullimg from '../resources/images/nullimg.png';
+import univers from '../resources/images/logo-2.png';
 import deeplug from '../resources/images/DeePlug-Logo.png';
+import workman from '../resources/images/workmanlogomain.png';
 
 
 const colorList = ['#1e1e1e', "rgb(0, 82, 205)", 'orange', 'red', 'purple', 'orangered', 'crimson', 'brown'];
@@ -44,25 +45,25 @@ export const projects = [
     name: 'Univers',
     type: 'ecommerce',
     description: 'An ecommerce platform for buying and selling all categories of products from household items to fashion items and many more.',
-    previewImg: nullimg,
+    previewImg: univers,
     link: 'https://oneunivers.herokuapp.com'
-  }, {
-    name: 'Teambod',
-    type: 'Organization',
-    description: 'Teambod was designed to make team assignment easier. The app allows companies divide big projects among several teams and members.',
-    previewImg: nullimgT,
-    link: 'https://teambod.herokuapp.com'
   }, {
     name: 'Hitmee',
     type: 'Social Media',
     description: 'Teambod was designed to make team assignment easier. The app allows companies divide big projects among several teams and members.',
-    previewImg: nullimg,
+    previewImg: nullimgT,
     link: 'https://hitmee.herokuapp.com'
   }, {
     name: 'Game Project',
     type: 'Games',
     description: 'Game Project is a 2D game written in VanillaJS. The game consists of a player (plane) and opponent (plane). The player can change its color and can navigate using the keyboard keys.',
-    previewImg: nullimg,
+    previewImg: nullimgT,
     link: 'https://hitmee.herokuapp.com'
+  }, {
+    name: 'Workman',
+    type: 'Business',
+    description: 'Workman was designed to make team assignment easier. The app allows companies divide big projects among several teams and members.',
+    previewImg: workman,
+    link: null
   }
 ];

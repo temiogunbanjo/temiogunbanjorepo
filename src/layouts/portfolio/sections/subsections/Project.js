@@ -23,11 +23,17 @@ function Project(props) {
     //   data-tilt-speed="400"
     //   data-tilt-glare="true"
     >
-      <img
-        src={previewImg}
-        alt=""
+      <div
+        style={
+          {
+            backgroundImage: `url(${previewImg})`,
+            backgroundSize: '190px',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }
+        }
         className={`${classForDummyElements} project-item-preview top`}
-      />
+      ></div>
       <div className="cols bottom">
         <h3 className={`project-item-name ${classForDummyElements}`}>{name}</h3>
         <span className={`project-item-source ${classForDummyElements}`}>
@@ -36,7 +42,7 @@ function Project(props) {
         <div
           className={`project-item-tags line-clamp line-clamp-1 ${classForDummyElements}`}
         >
-          Tags: React, Node.js,{" "}
+          Tags: React, Node.js
         </div>
         <div
           className={`project-item-description line-clamp line-clamp-5 ${classForDummyElements}`}
@@ -44,12 +50,14 @@ function Project(props) {
           {description}
         </div>
         <a
-          href={link}
+          href={(link)? link : '#'}
           target="blank"
           className={`project-star-btn rows ${classForDummyElements}`}
+          disabled={true}
+          data-disabled={(link)? false : true}
         >
-          <span className="content">Check it out</span>
-          <i className="icofont-arrow-right"></i>
+          <span className="content">{(link)? "view project" : "coming soon..."}</span>
+          <i className="icofont-caret-right"></i>
         </a>
       </div>
     </div>
