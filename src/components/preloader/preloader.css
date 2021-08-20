@@ -12,7 +12,7 @@
 }
 
 .preloader .gates{
-    animation: change-color 10s ease 0s infinite normal forwards;
+    /* animation: change-color 10s ease 0s infinite normal forwards; */
     background-color: rgba(0, 20, 51, 0.397);
     position: absolute;
     width: 50%;
