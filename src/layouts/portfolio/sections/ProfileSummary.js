@@ -30,7 +30,7 @@ class ProfileSummary extends React.Component {
 
             <div
               className="user-details"
-              style={{ margin: "1.8rem 0 0", fontSize: "1.35rem" }}
+              style={{ margin: "1.8rem 0 0", fontSize: "1.45rem" }}
             >
               {context.portfolio.bio}
             </div>

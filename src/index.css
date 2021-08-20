@@ -9,6 +9,7 @@ html{
 }
 
 body{
+  position: relative;
   --pointer-color: red;
   --page-bg-color: #fff;
   --page-link-color:#0059fd;
@@ -32,6 +33,22 @@ body{
   transition: all 0.3s ease;
 }
 
+body::after{
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100vh;
+  clip-path: circle(15% at 0% 11%);
+  background-image: linear-gradient(125deg, rgba(255, 209, 123, 0.87), rgb(255, 91, 132) 50%);
+}
+
+body.dark-mode::after{
+  background-image: none
+}
+
 body.dark-mode{
   --page-bg-color:#070913;
   --page-link-color: #ff5b84;
@@ -44,7 +61,7 @@ body.dark-mode{
   --lazy-dark-color: #d9d9d9;
   --border-line-color: #4d4d4d;
   --separation-line-color: #383838;
-  --tab-notice-bgcolor: #ff5b84;
+  --tab-notice-bgcolor: var(--page-link-color);
   --tab-border-color: var(--page-link-color);
   --tab-notice-textcolor: black;
   --footer-bg-color: #eee;
@@ -217,7 +234,9 @@ input[type="submit"], select{
 }
 
 @media only screen and (max-width:800px){
-  
+  body::after{
+    background-image: none
+  }
 }
 
 @-webkit-keyframes lazy-loading{

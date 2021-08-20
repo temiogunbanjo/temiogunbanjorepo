@@ -12,11 +12,13 @@
 }
 
 .preloader .gates{
-    background-color: rgba(0, 20, 51, 0.95);
+    animation: change-color 10s ease 0s infinite normal forwards;
+    background-color: rgba(0, 20, 51, 0.397);
     position: absolute;
     width: 50%;
     height: 100vh;
     z-index: -1;
+    transition: background-image 0.3s ease;
 }
 
 .preloader .gates.left-gate{
@@ -41,7 +43,7 @@
     align-items: center;
     height: 100vh;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.50);
+    /* background-color: rgba(0, 0, 0, 0.50); */
 }
 
 .preloader .preload-body > *{
@@ -213,3 +215,26 @@
     }
 }
 
+@-webkit-keyframes change-color{
+    0%, 100%{
+        background-image: -webkit-linear-gradient(rgba(0, 20, 51, 0.95), rgba(1, 17, 41, 0.95));
+        background-image: linear-gradient(rgba(0, 20, 51, 0.95), rgba(1, 17, 41, 0.95));
+    }
+  
+    50%{
+        background-image: -webkit-linear-gradient(rgba(0, 20, 1, 0.95), rgba(1, 15, 1, 0.95));
+        background-image: linear-gradient(rgba(0, 20, 1, 0.95), rgba(1, 15, 1, 0.95));
+    }
+}
+
+@keyframes change-color{
+    0%, 100%{
+        background-image: -webkit-linear-gradient(rgba(0, 20, 51, 0.95), rgba(1, 17, 41, 0.95));
+        background-image: linear-gradient(rgba(0, 20, 51, 0.95), rgba(1, 17, 41, 0.95));
+    }
+  
+    50%{
+        background-image: -webkit-linear-gradient(rgba(0, 20, 1, 0.95), rgba(1, 15, 1, 0.95));
+        background-image: linear-gradient(rgba(0, 20, 1, 0.95), rgba(1, 15, 1, 0.95));
+    }
+}

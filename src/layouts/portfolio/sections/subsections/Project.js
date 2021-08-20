@@ -7,9 +7,9 @@ function Project(props) {
     window.VanillaTilt.init(document.querySelectorAll(".project-item"), {
       max: 20,
       reverse: true,
-      speed: 400,
+      speed: 350,
       glare: true,
-      "max-glare": 0.2,
+      "max-glare": 0.3,
     });
   });
 
