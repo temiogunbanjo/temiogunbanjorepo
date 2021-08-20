@@ -52,7 +52,7 @@ function createSubSection(context, props) {
 
     case 2:
       return context.portfolio.projects.map((aProject, index) => {
-        return <Project key={index} details={aProject} />;
+        return <Project key={index} index={index} details={aProject} />;
       });
 
     case 3:

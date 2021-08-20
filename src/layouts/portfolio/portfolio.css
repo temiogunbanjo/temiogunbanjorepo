@@ -181,7 +181,7 @@ body.dark-mode main .user-profile-section .user-details{
     body.dark-mode main .user-profile-section{
         border-radius: 10px;
         backdrop-filter: blur(10px);
-        background-color: rgba(80, 80, 85, 0.15);
+        background-color: rgba(177, 177, 177, 0.2);
         box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3);
     }
 

@@ -40,6 +40,7 @@ function Project(props) {
           backgroundRepeat: "no-repeat",
         }}
         className={`project-item-preview top`}
+        data-index={props.index + 1}
       ></div>
       <div className="cols bottom">
         <h3 className={`project-item-name ${classForDummyElements}`}>{name}</h3>

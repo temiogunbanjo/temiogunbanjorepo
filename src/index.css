@@ -46,7 +46,7 @@ body::after{
 }
 
 body.dark-mode::after{
-  background-image: none
+  background-image: linear-gradient(125deg, rgb(235, 158, 177), rgba(104, 94, 245, 0.87) 21%);
 }
 
 body.dark-mode{
@@ -234,7 +234,7 @@ input[type="submit"], select{
 }
 
 @media only screen and (max-width:800px){
-  body::after{
+  body::after, body.dark-mode::after{
     background-image: none
   }
 }
