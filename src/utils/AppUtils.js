@@ -12,7 +12,7 @@ class AppUtils {
                 } catch (error) {
                     reject(error);
                 }
-            }, 10000);
+            }, 5000);
         });
         return userskills;
     };
@@ -21,7 +21,7 @@ class AppUtils {
         const userproject = new Promise(resolve => {
             setTimeout(() => {
                 resolve(require('../data/userdata').projects);
-            }, 10000);
+            }, 5000);
         });
         return userproject;
     };

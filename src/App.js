@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import styles
 import './App.css';
@@ -20,14 +20,10 @@ class App extends React.Component {
     return (
       <AppContextProvider>
         <Router>
-          <Switch>
-            <Route exact path="/">
-              <Portfolio />
-            </Route>
-            <Route path="/therapy">
-              <Therapy />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Portfolio />} />
+            <Route path="therapy" element={<Therapy />} />
+          </Routes>
         </Router>
       </AppContextProvider>
     );

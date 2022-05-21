@@ -8,6 +8,7 @@ footer{
     margin: 3rem auto 0;
     width: calc(100% - 2rem);
     color: #474747;
+    /* background-color: var(--header-bg-color); */
 }
 
 footer > .rows{

@@ -44,9 +44,11 @@
 }
 
 #skills-container .progress .progress-value{
+    margin-left: -1px;
     width: 0;
     height: 100%;
     color: white;
+    font-weight: bold;
     text-align: center;
     background-color: dodgerblue;
     background-image: linear-gradient(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.1));

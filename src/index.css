@@ -26,27 +26,13 @@ body{
   --tab-border-color: #ff5e00;
   --tab-notice-textcolor: #222;
   --footer-bg-color: #eee;
+  --moon-light-color: rgba(255, 209, 123, 0.87);
+  --moon-dark-color: rgb(255, 91, 132);
   padding: 0;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: all 0.3s ease;
-}
-
-body::after{
-  content: '';
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30%;
-  height: 100vh;
-  clip-path: circle(15% at 0% 11%);
-  background-image: linear-gradient(125deg, rgba(255, 209, 123, 0.87), rgb(255, 91, 132) 50%);
-}
-
-body.dark-mode::after{
-  background-image: linear-gradient(125deg, rgb(235, 158, 177), rgba(104, 94, 245, 0.87) 21%);
 }
 
 body.dark-mode{
@@ -65,8 +51,27 @@ body.dark-mode{
   --tab-border-color: var(--page-link-color);
   --tab-notice-textcolor: black;
   --footer-bg-color: #eee;
+  --moon-light-color: rgb(235, 158, 177);
+  --moon-dark-color: rgba(104, 94, 245, 0.87);
   padding: 0;
   margin: 0;
+}
+
+body::after{
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100vh;
+  clip-path: circle(15% at 0% 11%);
+  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 50%);
+  animation: swelling 15s ease-in-out 0s infinite both normal;
+}
+
+body.dark-mode::after{
+  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 21%);
 }
 
 noscript{
@@ -89,6 +94,24 @@ header{
 button:hover, a:link:hover{
   cursor: pointer;
 }
+
+/* main button {
+  position: relative;
+}
+main button:hover:after{
+  content: '';
+  position: absolute;
+  z-index: +1;
+  top: 0px;
+  left: 0px;
+  width: 8px;
+  height: 5px;
+  border-radius: 1px;
+  display: block;
+  background-color: var(--moon-dark-color);
+  box-shadow: 3px 3px 8px var(--moon-dark-color);
+  animation: swelling 15s ease-in-out 0s infinite both normal;
+} */
 
 input[type="submit"], select{
   -webkit-appearance: none;
@@ -302,5 +325,42 @@ input[type="submit"], select{
   55%{
       background-image: -webkit-linear-gradient(135deg, var(--lazy-dark-color) 60%,  var(--lazy-light-color) 75%, var(--lazy-dark-color) 90%);
       background-image: linear-gradient(135deg, var(--lazy-dark-color) 60%,  var(--lazy-light-color) 75%, var(--lazy-dark-color) 90%);
+  }
+}
+
+
+@-webkit-keyframes swelling{
+  0%, 100%{
+    clip-path: circle(12% at 0% 11%);
+    opacity: 0.9;
+  }
+
+  60%{
+    clip-path: circle(18% at 0% 15%);
+    opacity: 0.4;
+  }
+}
+
+@-moz-keyframes swelling{
+  0%, 100%{
+    clip-path: circle(12% at 0% 11%);
+    opacity: 0.9;
+  }
+
+  60%{
+    clip-path: circle(18% at 0% 15%);
+    opacity: 0.4;
+  }
+}
+
+@keyframes swelling{
+  0%, 100%{
+    clip-path: circle(12% at 0% 11%);
+    opacity: 0.9;
+  }
+
+  60%{
+    clip-path: circle(18% at 0% 15%);
+    opacity: 0.4;
   }
 }

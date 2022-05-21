@@ -5,9 +5,9 @@ import loading from "../../../../resources/images/04de2e31234507.564a1d23645bf2.
 function Project(props) {
   useEffect(() => {
     window.VanillaTilt.init(document.querySelectorAll(".project-item"), {
-      max: 20,
-      reverse: true,
-      speed: 350,
+      max: 10,
+      reverse: false,
+      speed: 100,
       glare: true,
       "max-glare": 0.3,
     });

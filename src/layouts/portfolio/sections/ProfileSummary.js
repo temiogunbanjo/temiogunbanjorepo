@@ -7,18 +7,18 @@ class ProfileSummary extends React.Component {
       <AppContext.Consumer>
         {(context) => (
           <section className="cols user-profile-section">
-            <div className="rows img-wrapper">
+            <div className="rows img-wrapper border">
               <img
                 className="user-profile-picture"
                 src={context.avatar}
-                alt=""
+                alt="Temiloluwa"
                 width="120"
                 height="120"
               />
               <span className="username">{context.name}</span>
             </div>
 
-            <div className="rows">
+            <div className="rows" style={{width: '100%'}}>
               <button className="strip-btn user-status">
                 <i className="icofont-ui-love"></i>
               </button>
@@ -39,7 +39,7 @@ class ProfileSummary extends React.Component {
               className="user-last-seen"
               style={{ margin: "1.8rem 0 0", fontSize: "1rem", width: "100%" }}
             >
-              {`Last updated on ${new Date().toLocaleDateString()}`}
+              {`Last updated on ${new Date(2022, 4, 21).toLocaleDateString()}`}
             </i>
           </section>
         )}
