@@ -42,6 +42,46 @@ form.search-form input:focus + label{
   display: none;
 }
 
+.material {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+
+.material-black {
+  background-color: #444;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+
+button.material-black {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: orange;
+  background-color: #444;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  border-radius: 5px;
+  z-index: +40;
+  width: auto;
+  /* height: 100px; */
+  border: none;
+  /* min-width: 100px; */
+  overflow: hidden;
+}
+
+button.material-black:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)) !important;
+  /* box-shadow: 2px 4px 6px rgba(30, 30, 30, 0.2); */
+}
+
+body.dark-mode button.material-black {
+  color: var(--tab-notice-bgcolor);
+  background-color: rgba(85, 85, 95, 0.3);
+}
+
+body.dark-mode button.material-black:hover {
+  box-shadow: 0px 3px 5px rgba(30, 30, 30, 0.5);
+}
+
 /* For all mobile users only */
 @media only screen and (max-width:799px){
   .hide-on-mobile{

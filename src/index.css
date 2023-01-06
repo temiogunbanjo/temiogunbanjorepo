@@ -164,7 +164,6 @@ input[type="submit"], select{
   flex-direction: row-reverse;
 }
 
-
 .cols{
   display: -webkit-box;
   display: -ms-flexbox;

@@ -38,7 +38,7 @@
     min-width: 100px;
     background-color: rgb(224, 240, 240);
     height: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     /* border: 1px solid red; */
 }
@@ -49,6 +49,7 @@
     height: 100%;
     color: white;
     font-weight: bold;
+    font-size: 10px;
     text-align: center;
     background-color: dodgerblue;
     background-image: linear-gradient(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.1));
@@ -58,8 +59,14 @@
 }
 
 #skills-container .skill-item h3{
-    font-size: 1.95rem;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#skills-container .skill-item{
+    justify-content: space-between;
+    /* color: #db8f02; */
 }
 /* 
 #skills-container .skill-item .skill-item-description{

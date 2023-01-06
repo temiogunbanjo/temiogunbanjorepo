@@ -1,5 +1,6 @@
 import React from "react";
-import { sectionStyle, sectionHeaderStyle } from '../../../../data/globals';
+import { sectionStyle, sectionHeaderStyle } from "../../../data/globals";
+import nullImg from "../../../resources/images/nullimgT.png";
 
 function ProfileOverview(props) {
   const unitDataStyle = {
@@ -101,6 +102,76 @@ function ProfileOverview(props) {
           <div className="cols">
             <h4 style={{ marginBottom: 0 }}>Akesan Royal School</h4>
             <em>Primary Institution</em>
+            <span className="date">2001 - 2009</span>
+          </div>
+        </div>
+      </section>
+
+      {/* My Work Experiences */}
+      <section style={sectionStyle}>
+        <h2 style={sectionHeaderStyle}>Industrial Experiences:</h2>
+        <div className="rows experiences" style={{ marginLeft: "0.5rem" }}>
+          <div className="cols card">
+            <div className="rows img-wrapper material">
+              <img
+                src={require("../../../resources/images/FBN-logo.png")}
+                alt="teh"
+                width={200}
+                height={80}
+              />
+            </div>
+            <h4 style={{ marginBottom: 0, marginTop: "1rem" }}>
+              First Bank Of Nigeria
+            </h4>
+            <em>Banking & Finance</em>
+            <span>RPA Developer</span>
+            <span className="date">2015 - Present</span>
+          </div>
+
+          <div className="cols card">
+            <div className="rows img-wrapper material">
+              <img
+                src={nullImg}
+                alt="teh"
+                // width={200}
+                height={80}
+              />
+            </div>
+            <h4 style={{ marginBottom: 0, marginTop: "1rem" }}>
+              Lixom Technologies
+            </h4>
+            <em>Game & Casino</em>
+            <span>Senior NodeJS/Backend Engineer</span>
+            <span className="date">2009 - 2015</span>
+          </div>
+
+          <div className="cols card">
+            <div className="rows img-wrapper material">
+              <img
+                src={require("../../../resources/images/Commodify.png")}
+                alt="teh"
+                height={80}
+              />
+            </div>
+            <h4 style={{ marginBottom: 0, marginTop: "1rem" }}>TradeBuza</h4>
+            <em>Agro-Tech & FinTech</em>
+            <span>Senior Frontend Developer</span>
+            <span className="date">2001 - 2009</span>
+          </div>
+
+          <div className="cols card">
+            <div className="rows img-wrapper material">
+              <img
+                src={require("../../../resources/images/Jara.ico")}
+                alt="teh"
+                height={80}
+              />
+            </div>
+            <h4 style={{ marginBottom: 0, marginTop: "1rem" }}>
+              Jara Analytics
+            </h4>
+            <em>E-Commerce & FinTech</em>
+            <span>Junior Fullstack Developer</span>
             <span className="date">2001 - 2009</span>
           </div>
         </div>

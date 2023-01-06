@@ -5,6 +5,7 @@ import nullimgT from "../resources/images/nullimgT.png";
 
 class AppContextProvider extends React.Component {
   state = {
+    dayMode: 'day',
     name: "What's my name?",
     username: "username",
     avatar: nullimgT,
@@ -35,11 +36,15 @@ class AppContextProvider extends React.Component {
       data
     );
     this.setState({ portfolio: newPortfolioData });
-  };
+  }
 
   setAppState = (data) => {
     this.setState(data);
-  };
+  }
+
+  setDayMode = (mode = 'day') => {
+    this.setState({ dayMode: mode });
+  }
 
   render() {
     return (
@@ -48,6 +53,7 @@ class AppContextProvider extends React.Component {
           ...this.state,
           setPortfolioState: this.setPortfolioState,
           setAppState: this.setAppState,
+          setDayMode: this.setDayMode
         }}
       >
         {this.props.children}

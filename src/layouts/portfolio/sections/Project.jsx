@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
-import loading from "../../../../resources/images/04de2e31234507.564a1d23645bf2.gif";
+import React from "react";
+import loading from "../../../resources/images/04de2e31234507.564a1d23645bf2.gif";
 // import * as VanillaTilt from "https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.1/vanilla-tilt.min.js";
 
 function Project(props) {
-  useEffect(() => {
-    window.VanillaTilt.init(document.querySelectorAll(".project-item"), {
-      max: 10,
-      reverse: false,
-      speed: 100,
-      glare: true,
-      "max-glare": 0.3,
-    });
-  });
-
   const {
     name,
     type,

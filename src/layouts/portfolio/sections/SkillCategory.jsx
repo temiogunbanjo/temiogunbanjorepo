@@ -1,35 +1,60 @@
-import React from "react";
-import { sectionStyle, sectionHeaderStyle } from "../../../../data/globals";
+import React, { useEffect } from "react";
+import { sectionStyle, sectionHeaderStyle } from "../../../data/globals";
 
 function SkillItem(props) {
   let skillLevel = props.level
     ? `${Math.round((props.level / 10) * 100)}`
     : "0";
-    const progressStyles = {
-        color: {
-            '#ee0000': '#fff',
-            '#2c2c2c': '#fff',
-        },
-        bgColor: {
-            '#ee0000': 'skyblue',
-            '#2c2c2c': '#898907',
-            // '#0052cd': 'darkorange'
-        },
-        fontWeight: {
-        }
-    }
-    let skillLevelStyle = {
-        width: `${skillLevel}%`,
-        color: progressStyles.color[props.bgColor],
-        fontWeight: progressStyles.fontWeight[props.bgColor],
-        backgroundColor: progressStyles.bgColor[props.bgColor],
-    }
+
+  const progressStyles = {
+    "#ee0000": {
+      color: "#fff",
+      bgColor: "skyblue",
+      fontWeight: 400,
+    },
+    "#2c2c2c": {
+      color: "#fff",
+      bgColor: "#898907",
+      fontWeight: 400,
+    },
+    "purple": {
+      color: "#fff",
+      bgColor: "#db8f02",
+      fontWeight: 500,
+    },
+  };
+
+  // console.log(progressStyles[props.bgColor]);
+  let skillLevelStyle = {
+    width: `${skillLevel}%`,
+    color: progressStyles[props.bgColor]?.color,
+    fontWeight: progressStyles[props.bgColor]?.fontWeight,
+    backgroundColor: progressStyles[props.bgColor]?.bgColor,
+  };
+
+  
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".skill-item");
+    window.VanillaTilt.init(elements, {
+      // max: 10,
+      // reverse: true,
+      // speed: 100,
+      // glare: true,
+      // "max-glare": 0.3,
+    });
+  });
   return (
     <div className="cols skill-item" style={{ backgroundColor: props.bgColor }}>
       <h3>{props.name || "Skill Name"}</h3>
       <div className="rows" style={{ alignItems: "center", flexWrap: "wrap" }}>
-        <div style={{ marginRight: "1rem" }}>Skill level:</div>
-        <div className="progress">
+        <div style={{ marginRight: "1rem", marginBottom: "5px" }}>Skill level:</div>
+        <div
+          className="progress"
+          style={{
+            width: "100%",
+          }}
+        >
           <div className="progress-value" style={skillLevelStyle}>
             {`${skillLevel}%`}
           </div>

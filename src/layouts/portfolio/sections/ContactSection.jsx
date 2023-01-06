@@ -1,5 +1,5 @@
 import React from "react";
-import { sectionStyle, sectionHeaderStyle } from "../../../../data/globals";
+import { sectionStyle, sectionHeaderStyle } from "../../../data/globals";
 
 function ContactSection(props) {
   let headerStyle = {
