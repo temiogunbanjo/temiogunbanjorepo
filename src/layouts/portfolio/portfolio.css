@@ -83,6 +83,7 @@ main .user-profile-section .user-details {
   line-height: 1.6;
   max-height: 400px;
   overflow-y: auto;
+  width: 100%;
 }
 
 body.dark-mode main .user-profile-section .user-details {
@@ -170,6 +171,7 @@ body.dark-mode main .user-profile-section .user-details {
   background-color: rgba(215, 215, 215, 0.1);
   border: 1px solid #dddddd80;
   padding: 20px 10px;
+  border-radius: 10px;
 }
 
 .experiences .card .img-wrapper img {

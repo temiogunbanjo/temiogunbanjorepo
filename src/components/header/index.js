@@ -59,10 +59,10 @@ function AppHeader(props) {
           </form>
 
           <nav className="navigation-links hide-on-mobile">
-            <Link to="/therapy">Therapy</Link>
-            <a href="#games">Games</a>
+            {/* <Link to="/therapy">Therapy</Link> */}
+            {/* <a href="#games">Games</a> */}
             <a href="https://oneunivers.herokuapp.com">Marketplace</a>
-            <a href="#issues">Issues</a>
+            {/* <a href="#issues">Issues</a> */}
           </nav>
         </div>
 

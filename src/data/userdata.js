@@ -26,6 +26,11 @@ export const data = {
   bio: `I am a Fullstack Software Developer with ${
     new Date().getFullYear() - 2017
   } years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`,
+  bioArray: [
+    `I am a Fullstack Software Developer with ${
+      new Date().getFullYear() - 2017
+    } years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`,
+  ],
 };
 
 export const skills = [
@@ -127,9 +132,9 @@ export const projects = [
   },
   {
     name: "Workman",
-    type: "Business",
+    type: "Lifestyle",
     description:
-      "Workman was designed to make team assignment easier. The app allows companies divide big projects among several teams and members.",
+      "Workman was designed to help people reach out to a wide range of services at the click of the button",
     previewImg: workman,
     link: null,
   },

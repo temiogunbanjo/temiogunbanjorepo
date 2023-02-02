@@ -153,6 +153,7 @@ function ProfileBody(props) {
             }}
             mainProps={props}
           />
+
           <section className="main-content-section">
             <NavigationBar navTabs={navTabs} isActive={isActive} />
             <div className="section-content">

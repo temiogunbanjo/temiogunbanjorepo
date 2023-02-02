@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="cols">
       <div className="rows">
-        <span>&copy; 2020 DeePLUG gadgets.</span>
+        <span>&copy; 2023 RealityInc&trade;.</span>
         <a href="https://hitmee.herokuapp.com">Hitmee</a>
         <a href="https://oneunivers.herokuapp.com">Univers</a>
         <a href="https://teambod.herokuapp.com">Teambod</a>

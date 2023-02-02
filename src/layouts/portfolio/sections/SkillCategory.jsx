@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Fade from "@successtar/react-reveal/Fade";
 import { sectionStyle, sectionHeaderStyle } from "../../../data/globals";
 
 function SkillItem(props) {
@@ -17,7 +18,7 @@ function SkillItem(props) {
       bgColor: "#898907",
       fontWeight: 400,
     },
-    "purple": {
+    purple: {
       color: "#fff",
       bgColor: "#db8f02",
       fontWeight: 500,
@@ -32,8 +33,6 @@ function SkillItem(props) {
     backgroundColor: progressStyles[props.bgColor]?.bgColor,
   };
 
-  
-
   useEffect(() => {
     const elements = document.querySelectorAll(".skill-item");
     window.VanillaTilt.init(elements, {
@@ -45,22 +44,32 @@ function SkillItem(props) {
     });
   });
   return (
-    <div className="cols skill-item" style={{ backgroundColor: props.bgColor }}>
-      <h3>{props.name || "Skill Name"}</h3>
-      <div className="rows" style={{ alignItems: "center", flexWrap: "wrap" }}>
-        <div style={{ marginRight: "1rem", marginBottom: "5px" }}>Skill level:</div>
+    <Fade bottom>
+      <div
+        className="cols skill-item"
+        style={{ backgroundColor: props.bgColor }}
+      >
+        <h3>{props.name || "Skill Name"}</h3>
         <div
-          className="progress"
-          style={{
-            width: "100%",
-          }}
+          className="rows"
+          style={{ alignItems: "center", flexWrap: "wrap" }}
         >
-          <div className="progress-value" style={skillLevelStyle}>
-            {`${skillLevel}%`}
+          <div style={{ marginRight: "1rem", marginBottom: "5px" }}>
+            Skill level:
+          </div>
+          <div
+            className="progress"
+            style={{
+              width: "100%",
+            }}
+          >
+            <div className="progress-value" style={skillLevelStyle}>
+              {`${skillLevel}%`}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Fade>
   );
 }
 
