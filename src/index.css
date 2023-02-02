@@ -27,7 +27,7 @@ body{
   --tab-notice-textcolor: #222;
   --footer-bg-color: #eee;
   --moon-light-color: rgba(255, 209, 123, 0.87);
-  --moon-dark-color: rgb(255, 91, 132);
+  --moon-dark-color: rgb(255, 91, 132)
   padding: 0;
   margin: 0;
   -webkit-font-smoothing: antialiased;

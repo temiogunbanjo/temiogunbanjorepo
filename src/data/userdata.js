@@ -1,8 +1,9 @@
 import avatar from "../resources/images/Me.jpeg";
 import nullimgT from "../resources/images/nullimgT.png";
 import univers from "../resources/images/logo-2.png";
-import deeplug from "../resources/images/DeePlug-Logo.png";
+// import deeplug from "../resources/images/DeePlug-Logo.png";
 import workman from "../resources/images/workmanlogomain.png";
+import CommodifyProjectImage from "../resources/images/Commodify.png";
 
 const colorList = [
   "#2c2c2c",
@@ -99,11 +100,19 @@ export const skills = [
 
 export const projects = [
   {
+    name: "Commodify",
+    type: "Loans & Finance",
+    description:
+      "Commodify provides working capital loans to agricultural commodity exporters in Sub-Saharan Africa",
+    previewImg: CommodifyProjectImage,
+    link: "https://commodify.co",
+  },
+  {
     name: "T-Guide",
     type: "Business",
     description:
       "T-Guide is a react app that serves as a virtual tour guide for travelers and tourists.",
-    previewImg: deeplug,
+    previewImg: nullimgT,
     link: "https://t-guide.herokuapp.com",
   },
   {
@@ -113,14 +122,6 @@ export const projects = [
       "An ecommerce platform for buying and selling all categories of products from household items to fashion items and many more.",
     previewImg: univers,
     link: "https://oneunivers.herokuapp.com",
-  },
-  {
-    name: "Hitmee",
-    type: "Instant Messaging",
-    description:
-      "Teambod was designed to make team assignment easier. The app allows companies divide big projects among several teams and members.",
-    previewImg: nullimgT,
-    link: "https://hitmee.herokuapp.com",
   },
   {
     name: "Game Project",

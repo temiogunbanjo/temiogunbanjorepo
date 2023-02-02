@@ -19,9 +19,9 @@ function Project(props) {
       >
         <div
           style={{
-            backgroundImage: `url(${previewImg ? previewImg : loading})`,
+            backgroundImage: `linear-gradient(-135deg, rgba(255, 91, 152, 0.0), rgba(255, 255, 255, 0) 25%), url(${previewImg ? previewImg : loading})`,
             backgroundSize: "200px",
-            backgroundPosition: "center",
+            backgroundPosition: "8% 11%",
             backgroundRepeat: "no-repeat",
           }}
           className={`project-item-preview top`}
