@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   font-family: Poppins, 'Open Sans', -apple-system, BlinkMacSystemFont, 
   'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -6,72 +10,6 @@
 
 html{
   font-size: 62.5%;
-}
-
-body{
-  position: relative;
-  --pointer-color: red;
-  --page-bg-color: #fff;
-  --page-link-color:#0059fd;
-  --header-bg-color: #24292e;
-  --header-text-color: white;
-  --icon-color: #555;
-  --text-color: #222;
-  --light-text-color: #222;
-  --lazy-light-color: #dfdfdf;
-  --lazy-dark-color: #d9d9d9;
-  --border-line-color: #dfdfdf;
-  --separation-line-color: #dfdfdf;
-  --tab-notice-bgcolor: #ccc;
-  --tab-border-color: #ff5e00;
-  --tab-notice-textcolor: #222;
-  --footer-bg-color: #eee;
-  --moon-light-color: rgba(255, 209, 123, 0.87);
-  --moon-dark-color: rgb(255, 91, 132)
-  padding: 0;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: all 0.3s ease;
-}
-
-body.dark-mode{
-  --page-bg-color:#070913;
-  --page-link-color: #ff5b84;
-  --header-bg-color: #24292e;
-  --header-text-color: white;
-  --icon-color: #7a7a7a;
-  --text-color: #dfdfdf;
-  --light-text-color: #bdbdbd;
-  --lazy-light-color: rgba(223, 223, 223, 0.8);
-  --lazy-dark-color: #d9d9d9;
-  --border-line-color: #4d4d4d;
-  --separation-line-color: #383838;
-  --tab-notice-bgcolor: var(--page-link-color);
-  --tab-border-color: var(--page-link-color);
-  --tab-notice-textcolor: black;
-  --footer-bg-color: #eee;
-  --moon-light-color: rgb(235, 158, 177);
-  --moon-dark-color: rgba(104, 94, 245, 0.87);
-  padding: 0;
-  margin: 0;
-}
-
-body::after{
-  content: '';
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30%;
-  height: 100vh;
-  clip-path: circle(15% at 0% 11%);
-  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 50%);
-  animation: swelling 15s ease-in-out 0s infinite both normal;
-}
-
-body.dark-mode::after{
-  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 21%);
 }
 
 noscript{
@@ -94,24 +32,6 @@ header{
 button:hover, a:link:hover{
   cursor: pointer;
 }
-
-/* main button {
-  position: relative;
-}
-main button:hover:after{
-  content: '';
-  position: absolute;
-  z-index: +1;
-  top: 0px;
-  left: 0px;
-  width: 8px;
-  height: 5px;
-  border-radius: 1px;
-  display: block;
-  background-color: var(--moon-dark-color);
-  box-shadow: 3px 3px 8px var(--moon-dark-color);
-  animation: swelling 15s ease-in-out 0s infinite both normal;
-} */
 
 input[type="submit"], select{
   -webkit-appearance: none;
@@ -355,11 +275,27 @@ input[type="submit"], select{
 @keyframes swelling{
   0%, 100%{
     clip-path: circle(12% at 0% 11%);
-    opacity: 0.9;
+    opacity: 0.7;
+    top: 100px;
+    left: 0px;
   }
 
   60%{
     clip-path: circle(18% at 0% 15%);
     opacity: 0.4;
+    top: 500px;
+    left: -100px;
+  }
+}
+
+@keyframes rising{
+  0% {
+    top: 500px;
+    left: -100px;
+  }
+
+  100%{
+    top: 50px;
+    left: 0;
   }
 }

@@ -1,45 +1,74 @@
 body{
+  --pointer-color: red;
+  --page-bg-color: #fff;
+  --page-link-color:#0059fd;
+  --header-bg-color: #24292e;
+  --header-text-color: #222;
+  --icon-color: #555;
+  --text-color: #222;
+  --light-text-color: #222;
+  --lazy-light-color: #dfdfdf;
+  --lazy-dark-color: #d9d9d9;
+  --border-line-color: #dfdfdf;
+  --separation-line-color: #dfdfdf;
+  --tab-notice-bgcolor: #ccc;
+  --tab-border-color: #ff5e00;
+  --tab-notice-textcolor: #222;
+  --footer-bg-color: #eee;
+  --moon-light-color: rgba(255, 209, 123, 0.87);
+  --moon-dark-color: rgb(255, 91, 132);
+  position: relative;
+  padding: 0 24px;
   background-color: var(--page-bg-color);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode{
+  --page-bg-color:#08090C;
+  --page-link-color: rgb(255, 91, 132);
+  --header-bg-color: #24292e;
+  --header-text-color: #dfdfdf;
+  --icon-color: #7a7a7a;
+  --text-color: #dfdfdf;
+  --light-text-color: #bdbdbd;
+  --lazy-light-color: rgba(223, 223, 223, 0.8);
+  --lazy-dark-color: #d9d9d9;
+  --border-line-color: #4d4d4d;
+  --separation-line-color: #383838;
+  --tab-notice-bgcolor: var(--page-link-color);
+  --tab-border-color: var(--page-link-color);
+  --tab-notice-textcolor: black;
+  --footer-bg-color: #eee;
+  --moon-light-color: rgba(255, 149, 220, 0.87);
+  --moon-dark-color: rgba(75, 65, 223, 0.659);
+}
+
+.background-illuminator{
+  /* content: '';
+  z-index: -1; */
+  position: absolute;
+  bottom: 100px;
+  right: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50% 50%;
+  opacity: 0.7;
+  background-color: var(--moon-light-color);
+  /* clip-path: circle(13% at 0% 13%); */
+  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 90%);
+  /* animation: swelling 15s ease-in-out 0s infinite forwards normal; */
+  animation: rising 10s ease-out 0s 1 backwards normal;
+}
+
+body.dark-mode .background-illuminator{
+  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 90%);
 }
 
 img.user-profile-picture{
   border-radius: 50%;
-}
-
-form.search-form{
-  border: 1px solid #646464;
-  background-color: transparent;
-  border-radius: 4px;
-  width: auto;
-  overflow: hidden;
-}
-
-form.search-form *{
-  background-color: transparent;
-  border: none;
-  color: white;
-  outline: none;
-}
-
-form.search-form label{
-  border: 1px solid #646464;
-  padding: 0.2rem;
-  min-width: 2rem;
-  min-height: 2rem;
-  text-align: center;
-  font-size: 1rem;
-  border-radius: 4px;
-  margin: auto 0.5rem;
-}
-
-form.search-form input{
-  padding: 0.6rem 1rem;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-form.search-form input:focus + label{
-  display: none;
 }
 
 .material {

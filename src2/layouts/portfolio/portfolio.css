@@ -1,0 +1,313 @@
+/* Mobile First */
+main {
+  height: auto;
+  max-height: unset;
+  color: #333;
+}
+
+main > * {
+  /* border: 1px solid red; */
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+
+main .user-profile-section,
+.main-content-section .section-content {
+  padding: 1.1rem 1.6rem;
+}
+
+main .user-profile-section {
+  padding-top: 3rem;
+  height: auto;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  /* background-color: red; */
+}
+
+main .user-profile-section .img-wrapper {
+  align-items: center;
+}
+
+main .user-profile-section img {
+  width: 65px;
+  height: 65px;
+  margin-right: 2rem !important;
+  border: 1px solid var(--border-line-color);
+  object-fit: cover;
+  object-position: top;
+}
+
+main .user-profile-section .username {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--text-color);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+main .user-profile-section input {
+  color: grey;
+}
+
+main .user-profile-section button {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  border: 1px solid var(--border-line-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  /* margin-top: 0.8rem; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main .user-profile-section button.user-status {
+  color: orange;
+  background-color: #444;
+  width: 40px;
+  height: 40px;
+  border: none;
+  min-width: unset;
+  max-width: unset;
+}
+
+body.dark-mode main .user-profile-section button.user-status {
+  color: var(--tab-notice-bgcolor);
+  background-color: rgba(85, 85, 95, 0.3);
+}
+
+main .user-profile-section .user-details {
+  color: var(--light-text-color);
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+body.dark-mode main .user-profile-section .user-details {
+  color: var(--lazy-light-color);
+}
+
+.main-content-section nav.nav-tab-wrapper {
+  /* border: 1px solid red; */
+  background-color: var(--page-bg-color);
+  z-index: +500;
+}
+
+.main-content-section .nav-tab {
+  font-size: 1.5rem;
+  padding: 1.2rem;
+  margin: 0 0.2rem;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.main-content-section .nav-tab:hover {
+  cursor: pointer;
+}
+
+.main-content-section .nav-tab.active {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--tab-border-color);
+}
+
+.main-content-section .nav-tab .tab-name,
+.main-content-section .nav-tab .icon {
+  margin-right: 0.7rem;
+}
+
+.main-content-section .nav-tab .icon {
+  color: var(--tab-notice-bgcolor);
+}
+
+.main-content-section .nav-tab.active .tab-name {
+  font-weight: 600;
+}
+
+.main-content-section .nav-tab .tab-notice {
+  display: inline-block;
+  font-size: 1.2rem;
+  color: var(--tab-notice-textcolor);
+  background-color: var(--tab-notice-bgcolor);
+  border-radius: 10px;
+  padding: 0.1rem 0.5rem;
+  text-align: center;
+}
+
+.education-container h4,
+.experiences h4 {
+  color: var(--light-text-color);
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.education-container em,
+.experiences em {
+  font-weight: 400;
+  font-size: 10px;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  margin-right: auto;
+  width: auto;
+}
+
+.experiences {
+  flex-wrap: wrap;
+  gap: 3%;
+  /* background-color: #caa81f; */
+}
+
+.experiences .card {
+  margin: 6px 0;
+  flex-grow: 1;
+  max-width: 280px;
+}
+
+.experiences .card .img-wrapper {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  background-color: rgba(215, 215, 215, 0.1);
+  border: 1px solid #dddddd80;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.experiences .card .img-wrapper img {
+  object-fit: contain;
+}
+
+.experiences .date {
+  font-size: 12px;
+  line-height: 2;
+}
+
+body.dark-mode .experiences .card .img-wrapper {
+  border: none;
+  background-color: rgba(168, 204, 255, 0.12);
+}
+
+#contact-container .icon {
+  color: #aaa;
+}
+
+/* For all mobile users only */
+@media only screen and (max-width: 799px) {
+  .main-content-section nav.nav-tab-wrapper {
+    position: sticky;
+    top: 0;
+    padding: 0 1rem;
+  }
+
+  main .user-profile-section {
+    padding-top: 10px;
+  }
+
+  main .user-profile-section .img-wrapper {
+    padding-bottom: 10px;
+  }
+
+  .experiences .card {
+    margin: 0 0 20px;
+    flex-grow: 1;
+    max-width: unset;
+  }
+
+  .experiences .card .img-wrapper {
+    background-color: rgba(215, 215, 215, 0.1);
+  }
+}
+
+/* For desktop users */
+@media only screen and (min-width: 800px) {
+  main {
+    flex-direction: column !important;
+  }
+
+  main > * {
+    margin-top: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  main .user-profile-section {
+    position: sticky;
+    top: 3rem;
+    width: 35vw;
+    min-width: 200px;
+    max-width: 320px;
+    max-height: 750px;
+    align-items: center;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(12, 12, 12, 0.1);
+    box-shadow: 6px 16px 25px rgba(27, 27, 27, 0.25);
+  }
+
+  body.dark-mode main .user-profile-section {
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    /* background-color: rgba(177, 177, 177, 0.2); */
+    background-image: linear-gradient(rgba(177, 177, 177, 0.2), rgba(177, 177, 177, 0));
+    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  body.dark-mode main .user-profile-section .user-details {
+    color: #fff;
+  }
+
+  main .user-profile-section .img-wrapper {
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column !important;
+  }
+
+  main .user-profile-section img {
+    width: 200px;
+    height: 200px;
+    margin-right: 0;
+    margin: 0 auto 1.3rem !important;
+  }
+
+  main .user-profile-section .username {
+    margin-bottom: 1rem;
+  }
+
+  main .user-profile-section button {
+    min-width: 80%;
+    max-width: 220px;
+
+    color: white;
+    background-color: #f19634;
+    border-color: #f19634;
+    /* box-shadow: 0px 3px 5px rgba(30, 30, 30, 0.5); */
+  }
+
+  body.dark-mode .user-profile-section button {
+    color: white;
+    background-color: var(--moon-dark-color);
+    border-color: var(--moon-dark-color);
+    box-shadow: 0px 3px 5px rgba(30, 30, 30, 0.5);
+  }
+
+  main .main-content-section {
+    width: 100%;
+    min-width: 400px;
+    margin-right: 1.5rem;
+  }
+
+  main .main-content-section .nav-tab {
+    font-size: 1.6rem;
+  }
+
+  .main-content-section .section-content-controls input.repo-search-bar {
+    max-width: 500px;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import AppContext from "./AppContext";
 
-import nullimgT from "../resources/images/nullimgT.png";
+import nullimgT from "../assets/images/nullimgT.png";
 
 class AppContextProvider extends React.Component {
   state = {
