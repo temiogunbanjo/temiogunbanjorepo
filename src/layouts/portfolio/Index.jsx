@@ -1,49 +1,22 @@
 import React, { useState } from "react";
 import {
   CgArrowLongDown as DownArrowIcon,
-  CgBrackets,
-  CgCode,
   CgCodeSlash,
-  CgDatabase,
-  CgDesignmodo,
-  CgGitFork,
-  CgGitPull,
-  CgPathIntersect,
   CgPathOutline as CallIcon,
-  CgServer,
-  CgSmartphoneRam,
-  CgSoftwareUpload,
-  CgUiKit,
-  CgWebsite,
 } from "react-icons/cg";
-import {
-  AiFillDatabase,
-  AiFillFormatPainter,
-  AiOutlineCode,
-  AiFillSafetyCertificate,
-  AiOutlinePullRequest,
-  AiOutlineTool,
-} from "react-icons/ai";
+import { AiOutlineCode, AiOutlineTool } from "react-icons/ai";
 import {
   FaAngleDoubleDown,
   FaAngleDoubleUp,
   FaBezierCurve,
-  FaBlender,
-  FaCaretDown,
-  FaCloud,
-  FaCloudDownloadAlt,
   FaCloudUploadAlt,
   FaDatabase,
-  FaDrawPolygon,
   FaEthernet,
   FaGithub,
-  FaIntercom,
-  FaNetworkWired,
   FaPalette,
-  FaPlug,
-  FaSatellite,
-  FaServicestack,
 } from "react-icons/fa";
+import ReactHtmlParser from "html-react-parser";
+import JsxParser from "parser-string-html-jsx";
 import { TypeAnimation } from "react-type-animation";
 import Fade from "@successtar/react-reveal/Fade";
 import CustomButton from "../../components/common/Button";
@@ -616,44 +589,58 @@ const PortfolioIndex = () => {
       company: "TradeBuza",
       timeframe: "May 2022 - Present",
       role: "Senior Frontend Developer • Full-Time",
-      description: "",
+      description: `<p>I was responsible for:</p>
+      <ol>
+      <li>Design client-side and server-side 
+      architectures. </li>
+      <li>Develop effective APIs with standardized 
+      documentations.</li>
+      <li>Test software to ensure responsiveness & 
+      efficiency.</li> 
+      <li>Create ssecurity and data protection 
+      settings.</li>
+      </ol>
+      `,
     },
     {
       company: "Lixom Technologies Ltd.",
       timeframe: "Nov 2021 - Present",
       role: "Senior Backend/Game Engineer • Full-Time",
-      description: `Built scalable and automated solutions for major game companies (can not disclose due to NDA) in the country. I was responsible for:
-
-      1. Collaborate with the team of professionals engineers to build and document the server-side architecture for the game suite. 
+      description: `<p>Built scalable and automated solutions for major game companies (can not disclose due to NDA) in the country. I was responsible for:</p>
+      <ol style={{ list-style: 'decimal' }}>
+      <li>Collaborate with the team of professionals engineers to build and document the server-side architecture for the game suite. </li>
       
-      2. Write effective algorithm to handle data analytics of the players, admin and agents on the platform. 
+      <li>Write effective algorithm to handle data analytics of the players, admin and agents on the platform. </li>
       
-      3. Develop effective (super fast and has low time & space complexity) algorithms that can process millions of data. 
+      <li>Develop effective (super fast and has low time & space complexity) algorithms that can process millions of data. </li>
       
-      4. Perform coverage, integration and unit testing on the whole game flow. 
+      <li>Perform coverage, integration and unit testing on the whole game flow. </li>
       
-      5. Manage & troubleshoot cloud (AWS, Digital Ocean) integrations and payment portals 
+      <li>Manage & troubleshoot cloud (AWS, Digital Ocean) integrations and payment portals </li>
       
-      6. Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. 
+      <li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. </li>
       
-      7. Documentation of the API endpoints. 
+      <li>Documentation of the API endpoints. </li>
       
-      8. Management and supervision of my engineers.
+      <li> Management and supervision of my engineers.</li>
+      </ol>
       `,
     },
     {
       company: "Jara Analytics",
       timeframe: "May 2021 - Feb 2022",
       role: "Fullstack Software Engineer • Full-Time",
-      description: `I was responsible for:
-      1. Design client-side and server-side 
-      architectures. 
-      2. Develop effective APIs with standardized 
-      documentations.
-      3. Test software to ensure responsiveness & 
-      efficiency. 
-      4. Create ssecurity and data protection 
-      settings.
+      description: `<p>I was responsible for:</p>
+      <ol>
+      <li>Design client-side and server-side 
+      architectures. </li>
+      <li>Develop effective APIs with standardized 
+      documentations.</li>
+      <li>Test software to ensure responsiveness & 
+      efficiency.</li> 
+      <li>Create ssecurity and data protection 
+      settings.</li>
+      </ol>
       `,
     },
   ]);
@@ -722,24 +709,43 @@ const PortfolioIndex = () => {
     }
   };
 
-  const [bios] = useState([
-    "I am a Full Stack Software Engineer",
-    "I am a Mobile App Developer",
-    "I am a Graphics Designer",
-    "I am a Mechanical Engineer",
-    `I primarily work as a Fullstack Software Developer with ${
-      new Date().getFullYear() - 2017
-    } years of professional experience building RESTful APIs`,
-    `I primarily work as a Fullstack Software Developer with ${
-      new Date().getFullYear() - 2017
-    } years of professional experience managing databases (NoSQL, ORM, Amazon RDS, and RDBMS)`,
-    `I primarily work as a Fullstack Software Developer with ${
-      new Date().getFullYear() - 2017
-    } years of professional experience building modern websites using the M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack`,
-    "Finally...",
-    "Finally, I am a recent graduate of the University of Lagos. One the top universities in Nigeria",
-    "Nice to meet you!",
-  ]);
+  const quoteSequence = [
+    [
+      "A wise man once said:",
+      2000,
+      "A wise man once said: 'Someone to love",
+      2000,
+      "A wise man once said: 'Someone to love, something to hope for",
+      2000,
+      "A wise man once said: 'Someone to love, something to hope for and something to do",
+      2000,
+      "A wise man once said: 'Someone to love, something to hope for and something to do is the true formula to happiness'.",
+      4000, // Waits 1s
+      () => {
+        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+      },
+    ],
+    [
+      "In the quest for learning...",
+      2000,
+      "In the quest for learning, we should not neglect the importance of unlearning...",
+      2000,
+      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute...",
+      2000,
+      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is...",
+      2000,
+      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is, the harder it will be to re-learn.",
+      4000, // Waits 1s
+      () => {
+        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+      },
+    ]
+  ];
+
+  const getRandomQuote = () => {
+    const quoteIndex = Math.floor(Math.random() * quoteSequence.length);
+    return quoteSequence[quoteIndex];
+  }
 
   return (
     <>
@@ -884,39 +890,31 @@ const PortfolioIndex = () => {
             </div>
 
             <TypeAnimation
-              sequence={[
-                bios[0], // Types 'One'
-                1000, // Waits 1s
-                bios[1], // Deletes 'One' and types 'Two'
-                1000, // Waits 2s
-                bios[2], // Types 'Three' without deleting 'Two'
-                1000,
-                bios[3],
-                1000,
-                bios[4],
-                4000, // Waits 1s
-                bios[5], // Deletes 'One' and types 'Two'
-                1000, // Waits 2s
-                bios[6], // Types 'Three' without deleting 'Two'
-                1000,
-                bios[7],
-                1000,
-                bios[8],
-                1000,
-                bios[9],
-                3000,
-                () => {
-                  console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                },
-              ]}
-              wrapper="div"
-              speed={45}
+              sequence={getRandomQuote()}
+              wrapper="code"
+              speed={35}
               deletionSpeed={88}
               cursor={true}
-              repeat={Infinity}
-              className="user-details"
-              style={{ fontSize: "1.45rem", margin: "1.8rem 0 0" }}
+              repeat={0}
+              className="user-details text-justify"
+              style={{
+                fontSize: "14px",
+                fontWeight: 500,
+                lineHeight: 1.8,
+                margin: "1.8rem 0 0",
+              }}
             />
+            {/* <code
+              className="user-details text-justify"
+              style={{
+                fontSize: "14px",
+                fontWeight: 500,
+                lineHeight: 1.8,
+                margin: "1.8rem 0 0",
+              }}
+            >
+              "A wise man once said: 'Someone to love, something to hope for and something to do is the formula to happiness'."
+            </code> */}
 
             <i
               className="user-last-seen"
@@ -1025,7 +1023,7 @@ const PortfolioIndex = () => {
               <div className="flex flex-row mb-12 my-3">
                 <div
                   className="flex flex-col mr-8 h-auto"
-                  style={{ width: "180px", flex: 'none' }}
+                  style={{ width: "200px", flex: "none" }}
                 >
                   <span
                     className="text-2xl"
@@ -1055,16 +1053,16 @@ const PortfolioIndex = () => {
                   >
                     {each.company}
                   </span>
-                  <blockquote
-                    className="text-2xl"
+                  <div
                     style={{
+                      fontSize: "14px",
                       fontWeight: 500,
                       color: "var(--light-text-color)",
-                      lineHeight: 2
+                      lineHeight: 2,
                     }}
                   >
-                    {each.description}
-                  </blockquote>
+                    {ReactHtmlParser(each.description)}
+                  </div>
                 </div>
               </div>
             ))}

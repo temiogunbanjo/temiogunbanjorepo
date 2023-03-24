@@ -18,8 +18,10 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import NoPage from "./components/404Page";
 
 import Portfolio from "./pages/Portfolio";
+
 import Therapy from "./layouts/therapy/Therapy";
 import PortfolioIndex from "./layouts/portfolio/Index";
+import PortfolioIssues from "./layouts/portfolio/Issues";
 
 function App(props) {
   return (
@@ -29,6 +31,7 @@ function App(props) {
           <Switch>
             <Route path="/" element={<Portfolio />}>
               <Route index element={<PortfolioIndex />} />
+              <Route path="issues" element={<PortfolioIssues />} />
               <Route path="therapy" element={<Therapy />} />
             </Route>
 

@@ -12,14 +12,15 @@ body{
   --border-line-color: #dfdfdf;
   --separation-line-color: #dfdfdf;
   --tab-notice-bgcolor: #ccc;
-  --tab-border-color: #ff5e00;
+  --tab-border-color: #ff6e1a;
   --tab-notice-textcolor: #222;
   --footer-bg-color: #eee;
   --moon-light-color: rgba(255, 209, 123, 0.87);
   --moon-dark-color: rgb(255, 91, 132);
   position: relative;
-  padding: 0 24px;
+  padding: 0;
   background-color: var(--page-bg-color);
+  /* background-image: url(../src/assets/images/3638095.png); */
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

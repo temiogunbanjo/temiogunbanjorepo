@@ -14,6 +14,7 @@ header {
   justify-content: space-between;
   padding: 1.2rem;
   height: 6.4rem;
+  /* padding: 0 24px; */
 }
 
 header [class^="icofont-"] {
@@ -91,6 +92,9 @@ main {
   height: auto;
   max-height: unset;
   color: #333;
+  z-index: +333333;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 main > * {
@@ -106,7 +110,7 @@ main > * {
   border-radius: 8px;
 }
 
-.hero .main-text {
+.main-text {
   font-family: Poppins, "Open Sans";
   font-size: 44px;
   font-weight: 700;

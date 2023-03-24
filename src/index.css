@@ -12,6 +12,13 @@ html{
   font-size: 62.5%;
 }
 
+ul, ol {
+  list-style: circle;
+  padding: initial;
+  padding-left: 1.8rem;
+  margin: initial;
+}
+
 noscript{
   display: block;
   width: 100%;
