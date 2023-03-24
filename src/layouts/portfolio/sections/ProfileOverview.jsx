@@ -133,7 +133,21 @@ function ProfileOverview(props) {
               </h4>
               <em>Banking & Finance</em>
               <span>RPA Developer</span>
-              <span className="date">2015 - Present</span>
+              <span className="date">Sep 2022 - March 2023</span>
+            </div>
+
+            <div className="cols card">
+              <div className="rows img-wrapper">
+                <img
+                  src={require("../../../resources/images/Commodify.png")}
+                  alt="teh"
+                  height={80}
+                />
+              </div>
+              <h4 style={{ marginBottom: 0, marginTop: "1rem" }}>TradeBuza</h4>
+              <em>Agro-Tech & FinTech</em>
+              <span>Senior Frontend Developer</span>
+              <span className="date">May 2022 - Present</span>
             </div>
 
             <div className="cols card">
@@ -150,21 +164,7 @@ function ProfileOverview(props) {
               </h4>
               <em>Game & Casino</em>
               <span>Senior NodeJS/Backend Engineer</span>
-              <span className="date">2009 - 2015</span>
-            </div>
-
-            <div className="cols card">
-              <div className="rows img-wrapper">
-                <img
-                  src={require("../../../resources/images/Commodify.png")}
-                  alt="teh"
-                  height={80}
-                />
-              </div>
-              <h4 style={{ marginBottom: 0, marginTop: "1rem" }}>TradeBuza</h4>
-              <em>Agro-Tech & FinTech</em>
-              <span>Senior Frontend Developer</span>
-              <span className="date">2001 - 2009</span>
+              <span className="date">Nov 2021 - Present</span>
             </div>
 
             <div className="cols card">
@@ -180,7 +180,7 @@ function ProfileOverview(props) {
               </h4>
               <em>E-Commerce & FinTech</em>
               <span>Junior Fullstack Developer</span>
-              <span className="date">2001 - 2009</span>
+              <span className="date">May 2021 - Feb 2022</span>
             </div>
           </div>
         </section>
