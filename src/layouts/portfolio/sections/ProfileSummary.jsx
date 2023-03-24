@@ -10,13 +10,13 @@ function ProfileSummary() {
     "I am a Graphics Designer",
     "I am a Mechanical Engineer",
     `I primarily work as a Fullstack Software Developer with ${
-      new Date().getFullYear() - 2017
+      new Date().getFullYear() - 2019
     } years of professional experience building RESTful APIs`,
     `I primarily work as a Fullstack Software Developer with ${
-      new Date().getFullYear() - 2017
+      new Date().getFullYear() - 2019
     } years of professional experience managing databases (NoSQL, ORM, Amazon RDS, and RDBMS)`,
     `I primarily work as a Fullstack Software Developer with ${
-      new Date().getFullYear() - 2017
+      new Date().getFullYear() - 2019
     } years of professional experience building modern websites using the M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack`,
     "Finally...",
     "Finally, I am a recent graduate of the University of Lagos. One the top universities in Nigeria",
