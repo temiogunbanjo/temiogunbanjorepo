@@ -11,7 +11,7 @@ body{
   --lazy-dark-color: #d9d9d9;
   --border-line-color: #dfdfdf;
   --separation-line-color: #dfdfdf;
-  --tab-notice-bgcolor: #ccc;
+  --tab-notice-bgcolor: orange;
   --tab-border-color: #ff6e1a;
   --tab-notice-textcolor: #222;
   --footer-bg-color: #eee;
@@ -45,27 +45,6 @@ body.dark-mode{
   --footer-bg-color: #eee;
   --moon-light-color: rgba(255, 149, 220, 0.87);
   --moon-dark-color: rgba(75, 65, 223, 0.659);
-}
-
-.background-illuminator{
-  /* content: '';
-  z-index: -1; */
-  position: absolute;
-  bottom: 100px;
-  right: 10px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50% 50%;
-  opacity: 0.7;
-  background-color: var(--moon-light-color);
-  /* clip-path: circle(13% at 0% 13%); */
-  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 90%);
-  /* animation: swelling 15s ease-in-out 0s infinite forwards normal; */
-  animation: rising 10s ease-out 0s 1 backwards normal;
-}
-
-body.dark-mode .background-illuminator{
-  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 90%);
 }
 
 img.user-profile-picture{

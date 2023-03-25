@@ -55,7 +55,7 @@ function Header(props) {
             <Link to="/therapy">Book Therapy Session</Link>
             {/* <a href="#games">Games</a> */}
             <a href="https://oneunivers.herokuapp.com">Visit Marketplace</a>
-            {/* <a href="#issues">Issues</a> */}
+            <a href="/issues">Issues Catalogue</a>
           </nav>
 
           {/* <form
@@ -109,7 +109,7 @@ function Header(props) {
           </span>
         </div>
       </header>
-      <nav className="cols show-on-mobile mobile-navigation-menu closed">
+      {/* <nav className="cols show-on-mobile mobile-navigation-menu closed">
         <form action="" method="GET" className="rows search-form">
           <input
             type="text"
@@ -135,7 +135,7 @@ function Header(props) {
           <a href="https://oneunivers.herokuapp.com">Marketplace</a>
           <a href="#issues">Issues</a>
         </div>
-      </nav>
+      </nav> */}
       <PointerBox />
     </React.Fragment>
   );

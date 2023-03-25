@@ -16,56 +16,10 @@ const Issues = () => {
   const [experiences, setExperiences] = useState([
     {
       title: "How I got my first tech job!",
-      timeframe: "Sep 2022 - March 2023",
-      role: "RPA Developer • Internship at First Bank of Nigeria",
-      content: "I was responsible for ...",
-    },
-    {
-      title: "How to code on your phone",
-      timeframe: "May 2022 - Present",
-      role: "Senior Frontend Developer • Full-Time",
-      content: "I was responsible for ...",
-    },
-    {
-      title: "The Trap of Remote Work And Burnouts",
-      timeframe: "Nov 2021 - Present",
-      role: "Senior Backend/Game Engineer • Full-Time",
-      content: `Built scalable and automated solutions for major game companies (can not disclose due to NDA) in the country. I was responsible for:
-
-      1. Collaborate with the team of professionals engineers to build and document the server-side architecture for the game suite. 
-      
-      2. Write effective algorithm to handle data analytics of the players, admin and agents on the platform. 
-      
-      3. Develop effective (super fast and has low time & space complexity) algorithms that can process millions of data. 
-      
-      4. Perform coverage, integration and unit testing on the whole game flow. 
-      
-      5. Manage & troubleshoot cloud (AWS, Digital Ocean) integrations and payment portals 
-      
-      6. Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. 
-      
-      7. Documentation of the API endpoints. 
-      
-      8. Management and supervision of my engineers.
-      `,
-    },
-    {
-      title: "Jara Analytics",
-      timeframe: "May 2021 - Feb 2022",
-      role: "Fullstack Software Engineer • Full-Time",
-      content: `<p>I was responsible for:</p>
-      <ol>
-      <li>Design client-side and server-side 
-      architectures. </li>
-      <li>Develop effective APIs with standardized 
-      documentations.</li>
-      <li>Test software to ensure responsiveness & 
-      efficiency.</li> 
-      <li>Create ssecurity and data protection 
-      settings.</li>
-      </ol>
-      `,
-    },
+      timeframe: "Sep 2020 - March 2021",
+      role: "Freelance Developer • Internship at Jara Analytics",
+      content: "Not available",
+    }
   ]);
 
   return (

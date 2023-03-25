@@ -102,6 +102,10 @@ main > * {
   margin-top: 4rem;
 }
 
+/* .show-on-mobile{
+  display: none !important;
+} */
+
 .hero {
   overflow-x: hidden;
   /* padding: 10px; */
@@ -138,25 +142,23 @@ main > * {
   margin-bottom: 20px;
 }
 
-.user-profile-section,
-.main-content-section .section-content {
-  padding: 1.1rem 1.6rem;
-}
-
 .user-profile-section {
-  position: sticky;
   color: var(--text-color);
-  top: 3rem;
   width: 35vw;
   min-height: 550px;
   min-width: 200px;
   max-width: 320px;
   max-height: 750px;
   align-items: center;
+  /* padding: 1.1rem 1.6rem; */
   padding: 3rem 2.5rem 5rem 2.5rem;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  background-color: rgba(12, 12, 12, 0.1);
+  /* background-color: rgba(12, 12, 12, 0.1); */
+  background-image: linear-gradient(
+    rgba(12, 12, 12, 0),
+    rgba(12, 12, 12, 0)
+  );
   box-shadow: 6px 16px 25px rgba(27, 27, 27, 0.25);
   height: auto;
   z-index: +220;
@@ -176,16 +178,6 @@ main > * {
   height: 200px;
   margin-right: 0;
   margin: 0 auto 1.3rem !important;
-}
-
-.user-profile-section .username {
-  font-size: 2.5rem;
-  font-weight: 400;
-  line-height: 1.3;
-  color: var(--text-color);
-  text-align: center;
-  text-transform: capitalize;
-  margin-bottom: 1rem;
 }
 
 .user-profile-section input {
@@ -209,8 +201,8 @@ body.dark-mode .user-profile-section {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   background-image: linear-gradient(
-    rgba(177, 177, 177, 0.2),
-    rgba(177, 177, 177, 0.02)
+    rgba(177, 177, 177, 0),
+    rgba(177, 177, 177, 0)
   );
   box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3);
 }
@@ -223,7 +215,7 @@ body.dark-mode .user-profile-section button {
 }
 
 body.dark-mode .user-profile-section button.user-status {
-  color: var(--tab-notice-bgcolor);
+  color: var(--tab-border-color);
   background-color: rgba(85, 85, 95, 0.3);
 }
 
@@ -241,49 +233,25 @@ body.dark-mode .user-profile-section .user-details {
   color: #fff;
 }
 
-.main-content-section nav.nav-tab-wrapper {
-  background-color: var(--page-bg-color);
-  z-index: +500;
+.background-illuminator{
+  /* content: '';
+  z-index: -1; */
+  position: absolute;
+  bottom: 100px;
+  right: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50% 50%;
+  opacity: 0;
+  background-color: var(--moon-light-color);
+  /* clip-path: circle(13% at 0% 13%); */
+  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 90%);
+  /* animation: swelling 15s ease-in-out 0s infinite forwards normal; */
+  /* animation: rising 10s ease-out 0s 1 both normal; */
 }
 
-.main-content-section .nav-tab {
-  font-size: 1.5rem;
-  padding: 1.2rem;
-  margin: 0 0.2rem;
-  align-items: center;
-  color: var(--text-color);
-}
-
-.main-content-section .nav-tab:hover {
-  cursor: pointer;
-}
-
-.main-content-section .nav-tab.active {
-  color: var(--text-color);
-  border-bottom: 2px solid var(--tab-border-color);
-}
-
-.main-content-section .nav-tab .tab-name,
-.main-content-section .nav-tab .icon {
-  margin-right: 0.7rem;
-}
-
-.main-content-section .nav-tab .icon {
-  color: var(--tab-notice-bgcolor);
-}
-
-.main-content-section .nav-tab.active .tab-name {
-  font-weight: 600;
-}
-
-.main-content-section .nav-tab .tab-notice {
-  display: inline-block;
-  font-size: 1.2rem;
-  color: var(--tab-notice-textcolor);
-  background-color: var(--tab-notice-bgcolor);
-  border-radius: 10px;
-  padding: 0.1rem 0.5rem;
-  text-align: center;
+body.dark-mode .background-illuminator{
+  background-image: linear-gradient(125deg, var(--moon-light-color), var(--moon-dark-color) 90%);
 }
 
 .education-container h4,
@@ -308,6 +276,7 @@ body.dark-mode .user-profile-section .user-details {
 
 .skills {
   justify-content: center;
+  /* border: 1px solid; */
 }
 
 .skills .card {
@@ -316,10 +285,10 @@ body.dark-mode .user-profile-section .user-details {
   padding: 20px 40px;
   flex-grow: 1;
   min-width: 210px;
-  background-color: rgba(115, 115, 115, 0.31);
+  background-color: rgba(145, 145, 145, 0.23);
   border-radius: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   transition: transform 0.2s ease-out;
 }
 
@@ -353,52 +322,42 @@ body.dark-mode .skills .card .img-wrapper {
   border: none;
 }
 
-#contact-container .icon {
-  color: #aaa;
+.experiences .timeline-section {
+  width: 180px;
+  flex: none;
 }
 
-/* ryr==============================ryry */
-/* .main-content-section {
+.experiences img {
+  height: 100px;
   width: 100%;
-  min-width: 400px;
-  margin-right: 1.5rem;
-} */
+  object-fit: cover;
+}
 
-/* .main-content-section .nav-tab {
-  font-size: 1.6rem;
-} */
+#contact-container .icon {
+  color: #aaaaaa;
+}
 
-/* .main-content-section .section-content-controls input.repo-search-bar {
-  max-width: 500px;
-} */
+footer {
+  position: sticky;
+  top: 100%;
+  left: 0;
+  height: 100vh;
+  min-height: 500px;
+  color: var(--light-text-color);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/images/satoru-gojo-jujutsu-1920x1080-10828.png); */
+}
 
 /* For all mobile users only */
-@media only screen and (max-width: 799px) {
-  .user-profile-section img {
-    width: 65px;
-    height: 65px;
-    /* margin-right: 2rem !important;
-    border: 1px solid var(--border-line-color);
-    object-fit: cover;
-    object-position: top; */
-  }
-
-  .main-content-section nav.nav-tab-wrapper {
-    position: sticky;
-    top: 0;
-    padding: 0 1rem;
-  }
-
-  .user-profile-section {
-    padding-top: 10px;
-  }
+@media only screen and (max-width: 768px) {
+  /* .show-on-mobile{
+    display: flex !important;
+  } */
 
   .user-profile-section .img-wrapper {
     padding-bottom: 10px;
-  }
-
-  .user-profile-section .username {
-    margin-bottom: unset;
   }
 
   .user-profile-section button {
@@ -415,15 +374,40 @@ body.dark-mode .skills .card .img-wrapper {
   .skills .card {
     margin: 5px 15px 20px;
   }
-
-  /* .skills .card {
-    margin: 0 0 20px;
-    flex-grow: 1;
-    max-width: unset;
-  }
-
-  .skills .card .img-wrapper {
-    background-color: rgba(215, 215, 215, 0.1);
-  } */
 }
 
+@media only screen and (max-width: 640px) {
+  .user-profile-section {
+    color: var(--text-color);
+    width: 100%;
+    max-width: unset;
+    margin-top: 80px;
+    min-height: 480px;
+    /* min-width: 200px; */
+    
+    /* max-height: 750px; */
+    /* align-items: center; */
+    /* padding: 1.1rem 1.6rem; */
+    /* padding: 3rem 2.5rem 5rem 2.5rem; */
+    /* border-radius: 10px; */
+    /* backdrop-filter: blur(10px); */
+    /* background-color: rgba(12, 12, 12, 0.1); */
+    /* box-shadow: 6px 16px 25px rgba(27, 27, 27, 0.25); */
+    /* height: auto; */
+    /* z-index: +220; */
+  }
+
+  .user-profile-section img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .background-illuminator{
+    bottom: 10px;
+  }
+
+  .experiences .timeline-section {
+    width: 100%;
+    /* flex: none; */
+  }
+}
