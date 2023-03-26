@@ -6,6 +6,9 @@
   },
   "private": true,
   "dependencies": {
+    "@react-three/cannon": "^6.5.2",
+    "@react-three/drei": "^9.58.4",
+    "@react-three/fiber": "^8.12.0",
     "@successtar/react-reveal": "^1.2.10",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -21,6 +24,7 @@
     "react-scripts": "^5.0.1",
     "react-type-animation": "^2.1.2",
     "serve": "^14.2.0",
+    "three": "^0.150.1",
     "web-vitals": "^3.3.0"
   },
   "scripts": {

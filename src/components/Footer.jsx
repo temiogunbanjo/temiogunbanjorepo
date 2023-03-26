@@ -50,7 +50,7 @@ const Footer = () => {
                 Education History
               </a>
               <a
-                href="/#"
+                href="/projects"
                 className="transition-all ease-in-out mb-6 text-xl capitalize hover:text-2xl"
               >
                 Personal Projects

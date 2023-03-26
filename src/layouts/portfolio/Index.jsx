@@ -810,7 +810,7 @@ const PortfolioIndex = () => {
       <Fade bottom cascade>
         <section
           id="skill-section"
-          className="skills flex flex-col items-center p-5"
+          className="skills flex flex-col "
           // style={{ backgroundColor: "rgba(100, 100, 100, 0.2)" }}
         >
           <h2
@@ -825,7 +825,7 @@ const PortfolioIndex = () => {
           </h2>
 
           <div className="flex flex-row flex-wrap">
-            {(showAllSkills ? skills : skills.slice(0, 6)).map((eachSkill) => (
+            {(showAllSkills ? skills : skills.slice(0, 9)).map((eachSkill) => (
               <div
                 className="card flex flex-row mx-6"
                 style={{
@@ -912,7 +912,7 @@ const PortfolioIndex = () => {
               >
                 <span>
                   {!showAllSkills
-                    ? `Show ${skills.length - 6} more`
+                    ? `Show ${skills.length - 9} more`
                     : "Show less"}
                 </span>
                 <i

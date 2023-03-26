@@ -89,17 +89,21 @@ header form.search-form input:focus + label {
 }
 
 main {
-  height: auto;
-  max-height: unset;
+  /* height: 100vh; */
   color: #333;
-  z-index: +333333;
   padding-left: 24px;
   padding-right: 24px;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  /* overflow-y: auto; */
 }
 
-main > * {
-  margin-top: 1.5rem;
-  margin-top: 4rem;
+main > section {
+  flex: none;
+  margin-bottom: 3.5rem;
+  min-height: 100vh;
+  /* overflow-y: auto; */
+  /* scroll-snap-align: center; */
 }
 
 /* .show-on-mobile{
@@ -108,9 +112,7 @@ main > * {
 
 .hero {
   overflow-x: hidden;
-  /* padding: 10px; */
   justify-content: space-between;
-  /* border: 2px solid rgba(255, 0, 0, 0.658); */
   border-radius: 8px;
 }
 
@@ -275,8 +277,9 @@ body.dark-mode .background-illuminator{
 }
 
 .skills {
-  justify-content: center;
-  /* border: 1px solid; */
+  scroll-snap-align: top !important;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .skills .card {

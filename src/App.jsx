@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Routes as Switch,
   Route,
-  Outlet,
+  // Outlet,
   // Redirect
 } from "react-router-dom";
 
@@ -22,6 +22,7 @@ import Portfolio from "./pages/Portfolio";
 import Therapy from "./layouts/therapy/Therapy";
 import PortfolioIndex from "./layouts/portfolio/Index";
 import PortfolioIssues from "./layouts/portfolio/Issues";
+import Projects from "./layouts/portfolio/Projects";
 
 function App(props) {
   return (
@@ -34,6 +35,8 @@ function App(props) {
               <Route path="issues" element={<PortfolioIssues />} />
               <Route path="therapy" element={<Therapy />} />
             </Route>
+
+            <Route path="/projects" element={<Projects />} />
 
             <Route path="*" element={<NoPage />} />
           </Switch>
