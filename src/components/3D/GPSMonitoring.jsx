@@ -1,16 +1,16 @@
-import { useBox } from "@react-three/cannon";
+import { useSphere } from "@react-three/cannon";
 import React from "react";
 
-export default function Box({
+export default function GPSMonitoring({
   position = [0, 0, 0],
   rotation = [0, 0, 0],
-  size = [1, 1, 1],
+  size = [1],
   color = "dodgerblue",
   map = null,
   physicsOptions = {},
   ...rest
 }) {
-  const [box, api] = useBox(() => ({
+  const [sphere] = useSphere(() => ({
     ...physicsOptions,
     position,
     rotation,
@@ -18,8 +18,8 @@ export default function Box({
   }));
   // const box = useRef();
   return (
-    <mesh ref={box} rotation={rotation} position={position} {...rest}>
-      <boxGeometry attach="geometry" args={size} />
+    <mesh ref={sphere} rotation={rotation} position={position} {...rest}>
+      <sphereGeometry attach="geometry" args={size} />
       <meshLambertMaterial attach="material" color={color} map={map} />
     </mesh>
   );

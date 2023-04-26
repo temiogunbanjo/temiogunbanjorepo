@@ -146,10 +146,10 @@ main > section {
 
 .user-profile-section {
   color: var(--text-color);
-  width: 35vw;
+  width: 38vw;
   min-height: 550px;
   min-width: 200px;
-  max-width: 320px;
+  max-width: 360px;
   max-height: 750px;
   align-items: center;
   /* padding: 1.1rem 1.6rem; */
@@ -161,7 +161,7 @@ main > section {
     rgba(12, 12, 12, 0),
     rgba(12, 12, 12, 0)
   );
-  box-shadow: 6px 16px 25px rgba(27, 27, 27, 0.25);
+  /* box-shadow: 6px 16px 25px rgba(27, 27, 27, 0.25); */
   height: auto;
   z-index: +220;
 }
@@ -285,14 +285,22 @@ body.dark-mode .background-illuminator{
 .skills .card {
   color: var(--light-text-color);
   margin: 5px 15px 25px;
-  padding: 20px 40px;
+  padding: 20px 30px;
   flex-grow: 1;
   min-width: 210px;
-  background-color: rgba(145, 145, 145, 0.23);
+  background-color: rgba(145, 145, 145, 0);
+  border: 1px solid #d5d5d5;
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
   transition: transform 0.2s ease-out;
+}
+
+body.dark-mode .skills .card {
+  color: var(--light-text-color);
+  background-color: rgba(145, 145, 145, 0.23);
+  border: none;
+  border-radius: 10px;
 }
 
 .skills .card:hover {

@@ -286,8 +286,8 @@ import CustomButton from "../../components/common/Button";
 // }
 
 const PortfolioIndex = () => {
-  const iconStyles = { fontSize: "24px", marginBottom: "8px" };
-  const [skillPieWidth, skillPieHeight] = [30, 30];
+  const iconStyles = { fontSize: "24px", marginBottom: "10px" };
+  const [skillPieWidth, skillPieHeight] = [25, 25];
   const [showProfilePic, setShowProfilePic] = useState(false);
   const [showAllSkills, setShowAllSkills] = useState(false);
   const [skills, setSkills] = useState([
@@ -465,7 +465,8 @@ const PortfolioIndex = () => {
       company: "First Bank Of Nigeria",
       timeframe: "Sep 2022 - March 2023",
       role: "RPA Developer • Internship",
-      description: "I was responsible for building a Time Sheet Process Application using Microsoft PowerApp, SharePoint Lists and Power Automate. I was able to learn the fundamentals of No-code development and due to the guidance from the Exec 200 Team",
+      description:
+        "I was responsible for building a Time Sheet Process Application using Microsoft PowerApp, SharePoint Lists and Power Automate. I was able to learn the fundamentals of No-code development and due to the guidance from the Exec 200 Team",
       images: [],
     },
     {
@@ -824,80 +825,85 @@ const PortfolioIndex = () => {
             Skills & Technical Knowledge
           </h2>
 
-          <div className="flex flex-row flex-wrap">
-            {(showAllSkills ? skills : skills.slice(0, 9)).map((eachSkill) => (
-              <div
-                className="card flex flex-row mx-6"
-                style={{
-                  borderRadius: "8px",
-                }}
-              >
-                <div className="flex flex-col">
-                  {eachSkill.icon}
-                  <div className="rows img-wrapper">
-                    <b
-                      className="text-center"
-                      style={{
-                        margin: 0,
-                        color: "var(--text-color)",
-                        fontSize: "20px",
-                      }}
-                    >
-                      {eachSkill.name}
-                    </b>
+          <div className="flex flex-row flex-wrap justify-center">
+            {/* <div className="w-1/2"></div> */}
+            <div className="flex flex-row flex-wrap w-5/7">
+              {(showAllSkills ? skills : skills.slice(0, 9)).map(
+                (eachSkill) => (
+                  <div
+                    className="card flex flex-row mx-4"
+                    style={{
+                      borderRadius: "8px",
+                    }}
+                  >
+                    <div className="flex flex-col">
+                      {eachSkill.icon}
+                      <div className="rows img-wrapper">
+                        <b
+                          className="text-center"
+                          style={{
+                            margin: 0,
+                            color: "var(--text-color)",
+                            fontSize: "16px",
+                          }}
+                        >
+                          {eachSkill.name}
+                        </b>
+                      </div>
+                      <em className="mt-4 capitalize">{eachSkill.tag}</em>
+                    </div>
+
+                    <div className="">
+                      <PieChart
+                        totalValue={100}
+                        radius={skillPieWidth / 2 - 2}
+                        segmentsShift={(index) => (index !== 0 ? 0.5 : 0.5)}
+                        viewBoxSize={[skillPieWidth, skillPieHeight]}
+                        center={[skillPieWidth / 2, skillPieHeight / 2]}
+                        startAngle={-90}
+                        animate
+                        // lengthAngle={90}
+                        // label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
+                        // labelStyle={{
+                        //   fontSize: '6px',
+                        //   fill: 'var(--text-color)'
+                        // }}
+                        paddingAngle={5}
+                        lineWidth={25}
+                        data={[
+                          {
+                            title: "Mastered",
+                            value: eachSkill.level * 10,
+                            color: ((grade) => {
+                              switch (true) {
+                                case grade >= 0 && grade < 3.33:
+                                  return "crimson";
+
+                                case grade >= 3.33 && grade < 6.67:
+                                  return "dodgerblue";
+
+                                case grade >= 6.67:
+                                  return "#5fc754";
+
+                                default:
+                                  return grade.color || "#E38627";
+                              }
+                            })(eachSkill.level),
+                          },
+                          {
+                            title: "Unmastered",
+                            value: 100 - eachSkill.level * 10,
+                            color: "#555",
+                          },
+                          // { title: 'Three', value: 10, color: '#6A2135' },
+                        ]}
+                        style={{ height: "60px", marginLeft: "15px" }}
+                      />
+                    </div>
                   </div>
-                  <em className="mt-4 capitalize">{eachSkill.tag}</em>
-                </div>
-
-                <div className="">
-                  <PieChart
-                    totalValue={100}
-                    radius={skillPieWidth / 2 - 2}
-                    segmentsShift={(index) => (index !== 0 ? 0.5 : 0.5)}
-                    viewBoxSize={[skillPieWidth, skillPieHeight]}
-                    center={[skillPieWidth / 2, skillPieHeight / 2]}
-                    startAngle={-90}
-                    animate
-                    // lengthAngle={90}
-                    // label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
-                    // labelStyle={{
-                    //   fontSize: '6px',
-                    //   fill: 'var(--text-color)'
-                    // }}
-                    paddingAngle={5}
-                    lineWidth={25}
-                    data={[
-                      {
-                        title: "Mastered",
-                        value: eachSkill.level * 10,
-                        color: ((grade) => {
-                          switch (true) {
-                            case grade >= 0 && grade < 3.33:
-                              return "crimson";
-
-                            case grade >= 3.33 && grade < 6.67:
-                              return "orange";
-
-                            case grade >= 6.67:
-                              return "#5fc754";
-
-                            default:
-                              return grade.color || "#E38627";
-                          }
-                        })(eachSkill.level),
-                      },
-                      {
-                        title: "Unmastered",
-                        value: 100 - eachSkill.level * 10,
-                        color: "#555",
-                      },
-                      // { title: 'Three', value: 10, color: '#6A2135' },
-                    ]}
-                    style={{ height: "60px", marginLeft: "15px" }}
-                  />
-                </div>
-              </div>
-            ))}
+                )
+              )}
+            </div>
           </div>
 
           <CustomButton
@@ -1080,7 +1086,7 @@ const PortfolioIndex = () => {
                 <div
                   className={`card flex flex-col sm:flex-row mb-6 pb-3 pt-3 pl-8 my-3 -ml-1`}
                   style={{
-                    borderLeft: "1px dashed #444",
+                    borderLeft: "2px solid #333",
                   }}
                 >
                   <div className="flex flex-col mr-8 h-auto timeline-section">
@@ -1108,7 +1114,7 @@ const PortfolioIndex = () => {
 
                   <div className="flex flex-col flew-grow sm:ml-8 mt-3 sm:mt-0 text-2xl w-full">
                     <span
-                      className="text-3xl mb-1 sm:mb-4"
+                      className="text-2xl mb-0 sm:mb-4"
                       style={{ fontWeight: 700, color: "var(--text-color)" }}
                     >
                       {each.company}
@@ -1120,13 +1126,13 @@ const PortfolioIndex = () => {
                         ))}
                     </div>
                     <div
-                      className="mt-1 sm:mt-4"
+                      className="mt-0 sm:mt-4"
                       style={{
                         // fontFamily: "Nunito",
-                        fontSize: "14px",
+                        fontSize: "13px",
                         fontWeight: 400,
                         color: "var(--light-text-color)",
-                        lineHeight: 2.25,
+                        lineHeight: 2,
                       }}
                     >
                       {ReactHtmlParser(each.description)}

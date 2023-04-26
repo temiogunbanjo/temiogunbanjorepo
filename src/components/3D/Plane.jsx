@@ -7,22 +7,22 @@ function Plane({
   size = [10, 10],
   sizeMultiplier = [1, 1],
   color = "dodgerblue",
+  ...rest
 }) {
+  const planeSize = sizeMultiplier
+    ? size.map((d, i) => d * (sizeMultiplier[i] || 1))
+    : size;
+
   const [planeRef] = usePlane(() => ({
+    args: planeSize,
     rotation,
-    position
+    position,
   }));
 
   return (
-    <mesh ref={planeRef} rotation={rotation} position={position}>
-      <planeGeometry
-        args={
-          sizeMultiplier
-            ? size.map((d, i) => d * (sizeMultiplier[i] || 1))
-            : size
-        }
-      />
-      <meshBasicMaterial attach="material" color={color} />
+    <mesh ref={planeRef} castShadow rotation={rotation} position={position} {...rest}>
+      <planeGeometry args={planeSize} />
+      <meshLambertMaterial attach="material" color={color} />
     </mesh>
   );
 }
