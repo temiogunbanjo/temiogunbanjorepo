@@ -81,11 +81,11 @@ function Header(props) {
               appearance: "none",
               color: "inherit",
             }}
-            onClick={toggleDarkMode}
+            // onClick={toggleDarkMode}
           >
             <i
               className="mode-btn icofont-moon"
-              style={{ fontSize: "1.8rem" }}
+              style={{ fontSize: "20px" }}
             ></i>
           </button>
 

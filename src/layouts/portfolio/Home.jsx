@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 // import SwipeableViews from 'react-swipeable-views';
 // import { useTheme } from "@mui/material/styles";
-import { Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs } from "@mui/material";
 import {
   CgArrowLongDown as DownArrowIcon,
   // CgChart,
@@ -119,7 +120,7 @@ const PortfolioIndex = () => {
       content: [
         {
           type: "video",
-          url: "https://www.youtube.com/embed/-huRykhjs6g",
+          url: "/videos/Deeplug gadget View.mp4",
         },
       ],
       tag: "Animations & Motion Graphics",
@@ -128,8 +129,8 @@ const PortfolioIndex = () => {
       name: "Robin Virtual Assistant",
       content: [
         {
-          type: "image",
-          url: "../../assets/videos/Deeplug gadget View.mp4",
+          type: "video",
+          url: "https://www.youtube.com/embed/-huRykhjs6g",
         },
       ],
       tag: "Software Development",
@@ -138,16 +139,17 @@ const PortfolioIndex = () => {
 
   const [tabIndex, setTabIndex] = useState(1);
 
+  const quotePause = 1500;
   const quoteSequence = [
     [
       "A wise man once said:",
-      2000,
+      quotePause,
       "A wise man once said: 'Someone to love",
-      2000,
+      quotePause,
       "A wise man once said: 'Someone to love, something to hope for",
-      2000,
+      quotePause,
       "A wise man once said: 'Someone to love, something to hope for and something to do",
-      2000,
+      quotePause,
       "A wise man once said: 'Someone to love, something to hope for and something to do is the true formula to happiness'.",
       4000, // Waits 1s
       () => {
@@ -157,13 +159,13 @@ const PortfolioIndex = () => {
     ],
     [
       "In the quest for learning...",
-      2000,
+      quotePause,
       "In the quest for learning, we should not neglect the importance of unlearning...",
-      2000,
+      quotePause,
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute...",
-      2000,
+      quotePause,
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is...",
-      2000,
+      quotePause,
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is, the harder it will be to re-learn.",
       4000, // Waits 1s
       () => {
@@ -172,15 +174,15 @@ const PortfolioIndex = () => {
       },
     ],
     [
-      "Your expectations...",
-      2000,
-      "In the quest for learning, we should not neglect the importance of unlearning...",
-      2000,
-      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute...",
-      2000,
-      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is...",
-      2000,
-      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is, the harder it will be to re-learn.",
+      "The expectations of an outcome...",
+      quotePause,
+      "The expectations of an outcome produces a manifestation...",
+      quotePause,
+      "The expectations of an outcome produces a manifestation that would, in time, become your new reality.",
+      quotePause,
+      "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might...",
+      quotePause,
+      "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might as it would surely produce something with what you put into it",
       4000, // Waits 1s
       () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
@@ -277,8 +279,8 @@ const PortfolioIndex = () => {
       <section
         className="hero flex flex-col sm:flex-row relative"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06))",
+          // backgroundImage:
+          //   "linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06)), url(../../assets/images/New.svg)",
         }}
       >
         <Fade left cascade>
@@ -338,7 +340,10 @@ const PortfolioIndex = () => {
               } years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
             </p>
 
-            <div className="flex flex-row pt-10" style={{ paddingTop: "40px" }}>
+            <div
+              className="flex flex-row pt-10 mx-auto sm:mx-0"
+              style={{ paddingTop: "40px" }}
+            >
               <a href="#skill-section">
                 <CustomButton
                   className="border"
@@ -458,15 +463,11 @@ const PortfolioIndex = () => {
 
       {/* MY SKILLS */}
       <Fade bottom cascade>
-        <section
-          id="skill-section"
-          className="skills flex flex-col"
-          // style={{ backgroundColor: "rgba(100, 100, 100, 0.2)" }}
-        >
+        <section id="skill-section" className="skills flex flex-col">
           <h2
             className="subtitle center-headings"
             style={{
-              fontSize: "24px",
+              // fontSize: "24px",
               color: "var(--text-color)",
               fontWeight: 700,
             }}
@@ -474,7 +475,7 @@ const PortfolioIndex = () => {
             Skills & Technical Knowledge
           </h2>
 
-          <div className="flex flex-col flex-wrap sm:flex-nowrap w-full">
+          <div className="flex flex-col mt-2 flex-wrap sm:flex-nowrap w-full">
             {/* <div className="w-1/2"></div> */}
             <Tabs
               value={tabIndex}
@@ -484,6 +485,7 @@ const PortfolioIndex = () => {
               variant="scrollable"
               scrollButtons="auto"
               sx={{
+                width: "100%",
                 mb: 2,
                 color: "var(--text-color)",
                 borderBottom: "1px solid #333",
@@ -626,13 +628,13 @@ const PortfolioIndex = () => {
           className="experiences flex flex-col items-left pb-12 pt-8"
           style={{
             backgroundImage:
-              "linear-gradient(45deg, rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.05))",
+              "linear-gradient(-45deg, rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.05))",
           }}
         >
           <h2
             className="mb-10 right-headings"
             style={{
-              fontSize: "26px",
+              // fontSize: "26px",
               color: "var(--text-color)",
               fontWeight: 700,
             }}
@@ -640,13 +642,18 @@ const PortfolioIndex = () => {
             Professional Experiences
           </h2>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-2">
             {(showAllExperiences ? experiences : experiences.slice(0, 2)).map(
               (each) => (
-                <div
-                  className={`card flex flex-col sm:flex-row mb-6 pb-3 pt-3 pl-8 my-3 -ml-1`}
-                  style={{
+                <Box
+                  component="div"
+                  className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-1`}
+                  sx={{
                     borderLeft: "2px solid #333",
+                    transition: "all 0.3s ease-in",
+                    "&:hover": {
+                      borderLeft: "2px solid #efefef",
+                    },
                   }}
                 >
                   <div className="flex flex-col mr-8 h-auto timeline-section">
@@ -662,10 +669,11 @@ const PortfolioIndex = () => {
                     <span
                       className="text-l mt-2 sm:mt-5"
                       style={{
-                        fontWeight: 500,
-                        color: "#97ef7c",
-                        letterSpacing: "1px",
-                        lineHeight: 2
+                        fontFamily: "Montserrat, 'Open Sans'",
+                        fontWeight: 600,
+                        color: "var(--tab-notice-bgcolor)",
+                        // letterSpacing: "1px",
+                        lineHeight: 2,
                       }}
                     >
                       {each.role}
@@ -674,7 +682,7 @@ const PortfolioIndex = () => {
 
                   <div
                     className="flex flex-col flew-grow sm:ml-8 mt-5 sm:mt-0 text-2xl w-full"
-                    style={{ maxWidth: "800px" }}
+                    style={{ maxWidth: "900px" }}
                   >
                     <div className="flex flex-row items-center justify-start mb-1 sm:mb-4">
                       <span
@@ -703,10 +711,10 @@ const PortfolioIndex = () => {
                         ))}
                     </div>
                     <div
-                      className="mt-2 sm:mt-4"
+                      className="mt-2 sm:mt-2"
                       style={{
                         // fontFamily: "Nunito",
-                        fontSize: "13px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         color: "var(--light-text-color)",
                         lineHeight: 2,
@@ -731,6 +739,8 @@ const PortfolioIndex = () => {
                               color: "#777",
                               minWidth: "100px",
                               fontSize: "12px",
+                              fontWeight: 600,
+                              fontFamily: "Montserrat, 'Open Sans'",
                             }}
                           >
                             {each.relatedSkills.join(" • ")}
@@ -739,28 +749,9 @@ const PortfolioIndex = () => {
                       </div>
                     )}
                   </div>
-                </div>
+                </Box>
               )
             )}
-
-            {/* <div
-              className="card flex flex-col mx-6"
-              style={{
-                // backgroundColor: "rgba(255, 255, 255, 0.1)",
-                borderRadius: "8px",
-                mixBlendMode: "luminosity",
-              }}
-            >
-              <div className="rows img-wrapper">
-                <img
-                  src={require("../../assets/images/Jara.ico")}
-                  alt="teh"
-                  width={160}
-                  height={40}
-                />
-              </div>
-              <em className="mt-4">e-Commerce & Fin-Tech</em>
-            </div> */}
           </div>
 
           {experiences.length > 2 && (
@@ -816,12 +807,12 @@ const PortfolioIndex = () => {
           <h2
             className="mb-5 subtitle left-headings"
             style={{
-              fontSize: "24px",
+              // fontSize: "24px",
               color: "var(--text-color)",
               fontWeight: 700,
             }}
           >
-            Some Cool Projects...
+            Some Cool Projects
           </h2>
 
           <div className="flex flex-row flex-wrap justify-center">
@@ -840,18 +831,28 @@ const PortfolioIndex = () => {
                     <div
                       className="mb-8"
                       style={{
-                        width: "100%",
-                        height: "200px",
+                        width: "250px",
+                        height: "250px",
                         // border: "1px solid #ccc",
                       }}
                     >
                       {eachProj?.content?.[0]?.type === "video" && (
-                        <video
-                          src={eachProj?.content?.[0]?.url || ""}
-                          controls
-                          style={{ width: "calc(100% - 1px)", height: "100%" }}
-                        ></video>
+                        <ReactPlayer
+                          url={eachProj?.content?.[0]?.url || ""}
+                          controls={true}
+                          width={"100%"}
+                          height={"100%"}
+                          style={{ width: "250px", height: "250px" }}
+                        />
                       )}
+                      {/* <video
+                          controls
+                         
+                          
+                        >
+                          <source src={eachProj?.content?.[0]?.url || ""} type="video/webm" />
+                          Sorry, your browser doesn't support videos.
+                        </video> */}
 
                       {eachProj?.content?.[0]?.type === "image" && (
                         <img
