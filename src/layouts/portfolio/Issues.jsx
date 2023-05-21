@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ReactHtmlParser from "html-react-parser";
 import {
   CgEye,
-  CgArrowLongLeft as LeftIcon1,
-  CgPathOutline as CallIcon,
+  // CgArrowLongLeft as LeftIcon1,
+  // CgPathOutline as CallIcon,
 } from "react-icons/cg";
 import {
   BsChevronLeft as LeftIcon,
@@ -16,9 +16,9 @@ const Issues = () => {
   const [experiences, setExperiences] = useState([
     {
       title: "How I got my first tech job!",
-      timeframe: "Sep 2020 - March 2021",
+      timeframe: "Posted on Mar, 2023",
       role: "Freelance Developer • Internship at Jara Analytics",
-      content: "Not available",
+      content: "-- --",
     }
   ]);
 

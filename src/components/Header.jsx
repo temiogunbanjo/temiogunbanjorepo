@@ -52,10 +52,10 @@ function Header(props) {
             className="navigation-links hide-on-mobile"
             style={{ marginLeft: "20px", marginright: "20px" }}
           >
-            <Link to="/therapy">Book Therapy Session</Link>
+            <Link to="/therapy">Need Therapy?</Link>
             {/* <a href="#games">Games</a> */}
-            <a href="https://oneunivers.herokuapp.com">Visit Marketplace</a>
-            <a href="/issues">Issues Catalogue</a>
+            {/* <a href="https://oneunivers.herokuapp.com">Visit Marketplace</a> */}
+            <a href="/issues">Career Challenges</a>
           </nav>
 
           {/* <form
@@ -100,13 +100,13 @@ function Header(props) {
             ></span>
           </span> */}
 
-          <span className="rows user-profile hide-on-mobile">
+          {/* <span className="rows user-profile hide-on-mobile">
             <img className="user-profile-picture" src={props.avatar} alt="" />
             <span
               className="icofont-caret-down"
               style={{ fontSize: "1.1rem" }}
             ></span>
-          </span>
+          </span> */}
         </div>
       </header>
       {/* <nav className="cols show-on-mobile mobile-navigation-menu closed">

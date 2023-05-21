@@ -1,0 +1,377 @@
+{
+  "colors": [
+    "#2c2c2c",
+    "#0052cd",
+    "orange",
+    "#ee0000",
+    "purple",
+    "orangered",
+    "crimson",
+    "brown"
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "name": "temiloluwa ogunbanjo",
+      "avatar": "../resources/images/Me.jpeg",
+      "profession": "Fullstack Software Developer",
+      "bio": "I am a Fullstack Software Developer with 6 years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.",
+      "bioArray": []
+    }
+  ],
+  "skills": [
+    {
+      "userId": 1,
+      "data": [
+        {
+          "name": "NodeJS",
+          "level": 9.2,
+          "tags": [
+            "Back-End Development",
+            "Software Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "<CgCodeSlash style={iconStyles} />"
+        },
+        {
+          "name": "Javascript (JS)",
+          "level": 9.2,
+          "tags": [
+            "Software Development",
+            "Back-End Development",
+            "Front-End Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "<CgCodeSlash style={iconStyles} />"
+        },
+        {
+          "name": "ReactJS",
+          "level": 8.5,
+          "tags": [
+            "Front-End Development",
+            "Software Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "<CgCodeSlash style={iconStyles} />"
+        },
+        {
+          "name": "React Native",
+          "level": 5.5,
+          "tags": [
+            "Mobile Development",
+            "Software Development",
+            "Front-End Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "<CgCodeSlash style={iconStyles} />"
+        },
+        {
+          "name": "Typescript (TS)",
+          "level": 8,
+          "tags": [
+            "Software Development",
+            "Front-End Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "<CgCodeSlash style={iconStyles} />"
+        },
+        {
+          "name": "MySQL",
+          "level": 7.5,
+          "tags": [
+            "Database",
+            "Software Development",
+            "Back-End Development",
+            "SQL"
+          ],
+          "color": "orange",
+          "icon": "<FaDatabase style={iconStyles} />"
+        },
+        {
+          "name": "PostgreSQL",
+          "level": 5.5,
+          "tags": [
+            "Database",
+            "Software Development",
+            "Back-End Development",
+            "SQL"
+          ],
+          "color": "orange",
+          "icon": "<FaDatabase style={iconStyles} />"
+        },
+        {
+          "name": "RethinkDB",
+          "level": 3.5,
+          "tags": [
+            "Database",
+            "Software Development",
+            "Back-End Development",
+            "NoSQL"
+          ],
+          "color": "orange",
+          "icon": "<FaDatabase style={iconStyles} />"
+        },
+        {
+          "name": "MongoDB",
+          "level": 5,
+          "tags": [
+            "Database",
+            "Software Development",
+            "Back-End Development",
+            "NoSQL"
+          ],
+          "color": "orange",
+          "icon": "<FaDatabase style={iconStyles} />"
+        },
+        {
+          "name": "Git/GitHub",
+          "level": 7,
+          "tags": [
+            "Version Control System (VCS)",
+            "VCS",
+            "Software Development"
+          ],
+          "color": "orange",
+          "icon": "<FaGithub style={iconStyles} />"
+        },
+        {
+          "name": "BitBucket",
+          "level": 7,
+          "tags": [
+            "Version Control System (VCS)",
+            "VCS",
+            "Software Development"
+          ],
+          "color": "orange",
+          "icon": "<FaGithub style={iconStyles} />"
+        },
+        {
+          "name": "REST API",
+          "level": 9,
+          "tags": [
+            "Software Development",
+            "Back-End Development",
+            "Web Development"
+          ],
+          "color": "orange",
+          "icon": "<FaNetworkWired style={iconStyles} />"
+        },
+        {
+          "name": "GraphQL",
+          "level": 2.5,
+          "tags": [
+            "Software Development",
+            "Back-End Development",
+            "Web Development"
+          ],
+          "color": "orange",
+          "icon": "<CgChart style={iconStyles} />"
+        },
+        {
+          "name": "AWS Services",
+          "level": 4,
+          "tags": [
+            "Cloud Provider",
+            "Software Development",
+            "Back-End Development",
+            "Web Development"
+          ],
+          "color": "orange",
+          "icon": "<FaAws style={iconStyles} />"
+        },
+        {
+          "name": "Python",
+          "level": 7,
+          "tags": [
+            "Software Development",
+            "Back-End Development",
+            "Mobile Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "<FaPython style={iconStyles} />"
+        },
+        {
+          "name": "Java",
+          "level": 4,
+          "tags": [
+            "Software Development",
+            "Back-End Development",
+            "Mobile Development"
+          ],
+          "color": "purple",
+          "icon": "<FaPython style={iconStyles} />"
+        },
+        {
+          "name": "Problem Solving",
+          "level": 9,
+          "tags": [
+            "Interpersonal Skill"
+          ],
+          "color": "purple"
+        },
+        {
+          "name": "Figma",
+          "level": 5.5,
+          "color": "orange",
+          "tags": ["UI/UX Design & Prototyping"],
+          "icon": "<IoColorPaletteOutline style={iconStyles} />"
+        },
+        {
+          "name": "Adobe XD",
+          "level": 3,
+          "color": "orange",
+          "tags": ["UI/UX Design & Prototyping"],
+          "icon": "<IoColorPaletteOutline style={iconStyles} />"
+        },
+        {
+          "name": "Adobe Photoshop",
+          "level": 6.5,
+          "color": "orange",
+          "tags": ["graphics design"],
+          "icon": "<TbSlideshow style={iconStyles} />"
+        },
+        {
+          "name": "Blender",
+          "level": 7,
+          "color": "orange",
+          "tags": ["Animations & Motion Graphics"],
+          "icon": "<IoCube style={iconStyles} />"
+        },
+        {
+          "name": "Microsoft Power Apps",
+          "level": 5,
+          "color": "orange",
+          "tags": ["Low-Code App Development"],
+          "icon": "<IoApps style={iconStyles} />"
+        },
+        {
+          "name": "UI Path",
+          "level": 3,
+          "color": "orange",
+          "tags": ["Process & Automations"],
+          "icon": "<SiMlflow style={iconStyles} />"
+        },
+        {
+          "name": "Autodesk AutoCAD",
+          "level": 5,
+          "color": "orange",
+          "tags": ["machinery & Computer Aided Designs"]
+        },
+        {
+          "name": "Autodesk Inventor",
+          "level": 6,
+          "color": "orange",
+          "tags": ["machinery & Computer Aided Designs"]
+        },
+        {
+          "name": "Welding & Fabrication",
+          "level": 4,
+          "color": "orange",
+          "tags": ["machinery & Computer Aided Designs"],
+          "icon": "<AiOutlineTool style={iconStyles} />"
+        }
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "userId": 1,
+      "data": [
+        {
+          "company": "First Bank Of Nigeria",
+          "timeframe": "Sep 2022 - March 2023",
+          "role": "RPA Developer • Internship",
+          "description": "I was responsible for building a Time Sheet Process Application using Microsoft PowerApp, SharePoint Lists and Power Automate. I was able to learn the fundamentals of No-code development and due to the guidance from the Exec 200 Team",
+          "images": [],
+          "link": "https://www.linkedin.com/company/first-bank-of-nigeria-ltd/",
+          "relatedSkills": [
+            "UI Path",
+            "Microsoft Power Apps",
+            "MySQL"
+          ]
+        },
+        {
+          "company": "TradeBuza",
+          "timeframe": "May 2022 - Present",
+          "role": "Senior Front-End Developer • Full-Time",
+          "description": "<p>I was responsible for:</p><ol><li>Developing the frontend Web Application for the various new agro-tech products in the suites</li><li>Rewriting the legacy apps</li><li>Test software to ensure responsiveness & efficiency.</li> <li>Create security and data protection settings.</li><li>Collaboration with the team to brainstorm and generate ideas for improvements to the app suites</li></ol>",
+          "link": "https://www.tradebuza.com/",
+          "relatedSkills": [
+            "ReactJS",
+            "Typescript",
+            "Figma",
+            "Javascript (JS)"
+          ]
+        },
+        {
+          "company": "Lixom Technologies Ltd.",
+          "timeframe": "Nov 2021 - Present",
+          "role": "Senior Back-End/Game Engineer • Full-Time",
+          "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol style='list-style: decimal'><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals, </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. </li><li>Documentation of the API endpoints. </li><li> Management and supervision of my engineers.</li></ol>",
+          "link": "",
+          "relatedSkills": [
+            "NodeJS",
+            "PosgreSQL",
+            "MySQL",
+            "Javascript (JS)"
+          ]
+        },
+        {
+          "company": "Jara Analytics",
+          "timeframe": "May 2021 - Feb 2022",
+          "role": "Fullstack Software Engineer • Full-Time",
+          "description": "<p>I was responsible for:</p><ol><li>Design client-side and server-side architectures. </li><li>Develop effective APIs with standardized documentations.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Create security and data protection settings.</li></ol>",
+          "link": null
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "userId": 1,
+      "data": [
+        {
+          "name": "Commodify",
+          "type": "Loans & Finance",
+          "description": "Commodify provides working capital loans to agricultural commodity exporters in Sub-Saharan Africa",
+          "previewImg": "CommodifyProjectImage",
+          "link": "https://commodify.co"
+        },
+        {
+          "name": "T-Guide",
+          "type": "Business",
+          "description": "T-Guide is a react app that serves as a virtual tour guide for travelers and tourists.",
+          "previewImg": "nullimgT",
+          "link": "https://t-guide.herokuapp.com"
+        },
+        {
+          "name": "Univers",
+          "type": "e-Commerce",
+          "description": "An ecommerce platform for buying and selling all categories of products from household items to fashion items and many more.",
+          "previewImg": "univers",
+          "link": "https://oneunivers.herokuapp.com"
+        },
+        {
+          "name": "Game Project",
+          "type": "Games",
+          "description": "Game Project is a 2D game written in VanillaJS. The game consists of a player (plane) and opponent (plane). The player can change its color and can navigate using the keyboard keys.",
+          "previewImg": "nullimgT",
+          "link": "https://hitmee.herokuapp.com"
+        },
+        {
+          "name": "Workman",
+          "type": "Lifestyle",
+          "description": "Workman was designed to help people reach out to a wide range of services at the click of the button",
+          "previewImg": "workman",
+          "link": null
+        }
+      ]
+    }
+  ]
+}

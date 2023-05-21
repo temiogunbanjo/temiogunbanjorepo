@@ -1,38 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./pointer.css";
 
-class PointerBox extends React.Component {
-  constructor(props) {
-    super(props);
+function PointerBox (props) {
+  const [text] = useState("Try my new dark/light mode");
+  const [visibility, setVisibility] = useState(false);
 
-    this.state = {
-      text: "Click here to try my new dark/light mode",
-      visibility: false,
-    };
-  }
+  useEffect(() => {
+    const timeout = Math.round(Math.random() * 30 + 8);
 
-  componentDidMount() {
-    let timeout = Math.round(Math.random() * 30 + 8);
-
-    let hidePointer = () => {
-      this.setState({ visibility: false });
+    const hidePointer = () => {
+      setVisibility(false);
     };
 
-    let showPointer = () => {
-      this.setState({ visibility: true });
-      setTimeout(hidePointer, 10000);
+    const showPointer = () => {
+      setVisibility(true);
+      window.setTimeout(hidePointer, 10000);
     };
 
-    setTimeout(showPointer, timeout * 1000);
-  }
+    window.setTimeout(showPointer, timeout * 1000);
+  }, []);
 
-  render() {
-    return (
-      <div className={`pointer-box ${this.state.visibility ? "" : "off"}`}>
-        <div className="rows pointer-box-content">{this.state.text}</div>
-      </div>
-    );
-  }
+  return (
+    <div className={`pointer-box ${visibility ? "" : "off"}`}>
+      <div className="rows pointer-box-content">{text}</div>
+    </div>
+  );
 }
 
 export default PointerBox;
