@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logo from "../assets/images/DeeplugTEO.png";
 import PointerBox from "./common/Pointer";
@@ -28,6 +28,13 @@ const toggleNavigationDrawer = (ev) => {
 };
 
 function Header(props) {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    window.localStorage.removeItem('visitor_name');
+    navigate('/');
+  }
+
   return (
     <React.Fragment>
       <header className="rows">
@@ -85,6 +92,20 @@ function Header(props) {
           >
             <i
               className="mode-btn icofont-moon"
+              style={{ fontSize: "20px" }}
+            ></i>
+          </button>
+
+          <button
+            className="strip-btn view-mode-element"
+            style={{
+              appearance: "none",
+              color: "crimson",
+            }}
+            onClick={() => logout()}
+          >
+            <i
+              className="mode-btn icofont-power"
               style={{ fontSize: "20px" }}
             ></i>
           </button>

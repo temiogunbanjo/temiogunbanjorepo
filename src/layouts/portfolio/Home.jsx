@@ -24,9 +24,11 @@ import Fade from "@successtar/react-reveal/Fade";
 import CustomButton from "../../components/common/Button";
 import TabPanel from "../../components/common/TabPanel";
 
-import { fetchUserExperiences, fetchUserSkills } from "../../database";
+import { fetchUserExperiences, fetchUserProject, fetchUserSkills } from "../../database";
 import { getRandomItem } from "../../utils";
-import Status from "../../components/common/StatusIndicator";
+// import Status from "../../components/common/StatusIndicator";
+import Spinner from "../../components/common/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const SkillCard = (props) => {
   const [skillPieWidth, skillPieHeight] = [25, 25];
@@ -106,36 +108,20 @@ const SkillCard = (props) => {
 };
 
 const PortfolioIndex = () => {
+  const navigate = useNavigate();
   const [showProfilePic, setShowProfilePic] = useState(false);
 
+  const [loadingSkills, setLoadingSkills] = useState(true);
   const [showAllSkills, setShowAllSkills] = useState(false);
   const [skills, setSkills] = useState([]);
 
   const [showAllExperiences, setShowAllExperiences] = useState(false);
+  const [loadingExperiences, setLoadingExperiences] = useState(true);
   const [experiences, setExperiences] = useState([]);
 
-  const [projects] = useState([
-    {
-      name: "3D Blender Product Animation",
-      content: [
-        {
-          type: "video",
-          url: "/videos/Deeplug gadget View.mp4",
-        },
-      ],
-      tag: "Animations & Motion Graphics",
-    },
-    {
-      name: "Robin Virtual Assistant",
-      content: [
-        {
-          type: "video",
-          url: "https://www.youtube.com/embed/-huRykhjs6g",
-        },
-      ],
-      tag: "Software Development",
-    },
-  ]);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [loadingProjects, setLoadingProjects] = useState(true);
+  const [projects, setProjects] = useState([]);
 
   const [tabIndex, setTabIndex] = useState(1);
 
@@ -196,12 +182,32 @@ const PortfolioIndex = () => {
   };
 
   useEffect(() => {
+    const vName = window.localStorage.getItem('visitor_name');
+    if (!vName) {
+      navigate('/');
+    }
+  });
+
+  useEffect(() => {
     (async () => {
+      // setLoadingProjects(false);
+      const projResponse = await fetchUserProject(1);
+      if (projResponse) {
+        setLoadingProjects(false);
+        setProjects(projResponse);
+      }
+
       const skillResponse = await fetchUserSkills(1);
-      if (skillResponse) setSkills(skillResponse);
+      if (skillResponse) {
+        setLoadingSkills(false);
+        setSkills(skillResponse);
+      }
 
       const expResponse = await fetchUserExperiences(1);
-      if (expResponse) setExperiences(expResponse);
+      if (expResponse) {
+        setLoadingExperiences(false);
+        setExperiences(expResponse);
+      }
     })();
   }, []);
 
@@ -278,12 +284,14 @@ const PortfolioIndex = () => {
     <>
       <section
         className="hero flex flex-col sm:flex-row relative"
-        style={{
-          // backgroundImage:
-          //   "linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06)), url(../../assets/images/New.svg)",
-        }}
+        style={
+          {
+            // backgroundImage:
+            //   "linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06)), url(../../assets/images/New.svg)",
+          }
+        }
       >
-        <Fade left cascade>
+        <Fade cascade>
           <div
             className="cols"
             style={{ justifyContent: "center", padding: "10px" }}
@@ -510,76 +518,29 @@ const PortfolioIndex = () => {
         index={value}
         onChangeIndex={handleChangeIndex}
       > */}
-            <TabPanel
-              index={0}
-              currentTabIndex={tabIndex}
-              sx={{ display: "none" }}
-            >
-              <div className="flex flex-row flex-wrap w-4/7">
-                {(showAllSkills
-                  ? filterSkills(tabIndex)
-                  : filterSkills(tabIndex).slice(0, 9)
-                ).map((eachSkill) => (
-                  <SkillCard data={eachSkill} />
-                ))}
-              </div>
-            </TabPanel>
-
-            <TabPanel index={1} currentTabIndex={tabIndex} sx={{}}>
-              <div className="flex flex-row flex-wrap w-4/7">
-                {(showAllSkills
-                  ? filterSkills(tabIndex)
-                  : filterSkills(tabIndex).slice(0, 9)
-                ).map((eachSkill) => (
-                  <SkillCard data={eachSkill} />
-                ))}
-              </div>
-            </TabPanel>
-
-            <TabPanel index={2} currentTabIndex={tabIndex} sx={{}}>
-              <div className="flex flex-row flex-wrap w-4/7">
-                {(showAllSkills
-                  ? filterSkills(tabIndex)
-                  : filterSkills(tabIndex).slice(0, 9)
-                ).map((eachSkill) => (
-                  <SkillCard data={eachSkill} />
-                ))}
-              </div>
-            </TabPanel>
-
-            <TabPanel index={3} currentTabIndex={tabIndex} sx={{}}>
-              <div className="flex flex-row flex-wrap w-4/7">
-                {(showAllSkills
-                  ? filterSkills(tabIndex)
-                  : filterSkills(tabIndex).slice(0, 9)
-                ).map((eachSkill) => (
-                  <SkillCard data={eachSkill} />
-                ))}
-              </div>
-            </TabPanel>
-
-            <TabPanel index={4} currentTabIndex={tabIndex} sx={{}}>
-              <div className="flex flex-row flex-wrap w-4/7">
-                {(showAllSkills
-                  ? filterSkills(tabIndex)
-                  : filterSkills(tabIndex).slice(0, 9)
-                ).map((eachSkill) => (
-                  <SkillCard data={eachSkill} />
-                ))}
-              </div>
-            </TabPanel>
-
-            <TabPanel index={5} currentTabIndex={tabIndex} sx={{}}>
-              <div className="flex flex-row flex-wrap w-4/7">
-                {(showAllSkills
-                  ? filterSkills(tabIndex)
-                  : filterSkills(tabIndex).slice(0, 9)
-                ).map((eachSkill) => (
-                  <SkillCard data={eachSkill} />
-                ))}
-              </div>
-            </TabPanel>
-            {/* </SwipeableViews> */}
+            {[0, 1, 2, 3, 4, 5].map((each, index) => (
+              <TabPanel
+                key={index}
+                index={each}
+                currentTabIndex={tabIndex}
+                sx={{ display: each === 0 ? "none" : "initial" }}
+              >
+                {!loadingSkills ? (
+                  <div className="flex flex-row flex-wrap w-4/7">
+                    {(showAllSkills
+                      ? filterSkills(tabIndex)
+                      : filterSkills(tabIndex).slice(0, 9)
+                    ).map((eachSkill) => (
+                      <SkillCard data={eachSkill} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center w-4/7">
+                    <Spinner />
+                  </div>
+                )}
+              </TabPanel>
+            ))}
           </div>
 
           {filterSkills(tabIndex).length > 9 && (
@@ -643,114 +604,129 @@ const PortfolioIndex = () => {
           </h2>
 
           <div className="flex flex-col mt-2">
-            {(showAllExperiences ? experiences : experiences.slice(0, 2)).map(
-              (each) => (
-                <Box
-                  component="div"
-                  className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-1`}
-                  sx={{
-                    borderLeft: "2px solid #333",
-                    transition: "all 0.3s ease-in",
-                    "&:hover": {
-                      borderLeft: "2px solid #efefef",
-                    },
-                  }}
-                >
-                  <div className="flex flex-col mr-8 h-auto timeline-section">
-                    <span
-                      className="text-xl sm:text-2xl"
-                      style={{
-                        fontWeight: 700,
-                        color: "var(--light-text-color)",
-                      }}
-                    >
-                      {each.timeframe}
-                    </span>
-                    <span
-                      className="text-l mt-2 sm:mt-5"
-                      style={{
-                        fontFamily: "Montserrat, 'Open Sans'",
-                        fontWeight: 600,
-                        color: "var(--tab-notice-bgcolor)",
-                        // letterSpacing: "1px",
-                        lineHeight: 2,
-                      }}
-                    >
-                      {each.role}
-                    </span>
-                  </div>
-
-                  <div
-                    className="flex flex-col flew-grow sm:ml-8 mt-5 sm:mt-0 text-2xl w-full"
-                    style={{ maxWidth: "900px" }}
+            {!loadingExperiences ? (
+              (showAllExperiences ? experiences : experiences.slice(0, 2)).map(
+                (each) => (
+                  <Box
+                    component="div"
+                    className={`card flex flex-col sm:flex-row mb-14 sm:mb-8 pl-8 my-3 -ml-1`}
+                    sx={{
+                      borderLeft: "2px solid #333",
+                      transition: "all 0.3s ease-in",
+                      "&:hover": {
+                        borderLeft: "2px solid #efefef",
+                      },
+                    }}
                   >
-                    <div className="flex flex-row items-center justify-start mb-1 sm:mb-4">
+                    <div className="flex flex-col mr-8 h-auto timeline-section">
                       <span
-                        className="text-2xl"
-                        style={{ fontWeight: 700, color: "var(--text-color)" }}
+                        className="text-xl sm:text-2xl"
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--light-text-color)",
+                        }}
                       >
-                        {each.company}
+                        {each.timeframe}
                       </span>
-                      {each.link && (
-                        <a
-                          href={each.link}
-                          className="text-2xl ml-2"
-                          style={{
-                            fontWeight: 700,
-                            color: "var(--tab-notice-bgcolor)",
-                          }}
-                        >
-                          <HiExternalLink />
-                        </a>
-                      )}
+                      <span
+                        className="text-lg mt-2 sm:mt-5"
+                        style={{
+                          fontFamily: "Montserrat, 'Open Sans'",
+                          fontWeight: 600,
+                          color: "var(--tab-notice-bgcolor)",
+                          // letterSpacing: "1px",
+                          lineHeight: 2,
+                        }}
+                      >
+                        {each.role}
+                      </span>
                     </div>
-                    <div className="grid grid-cols-6 gap-6 w-full">
-                      {each.images &&
-                        each.images.map((eachImg) => (
-                          <img className="rounded-lg" src={eachImg} alt="#" />
-                        ))}
-                    </div>
+
                     <div
-                      className="mt-2 sm:mt-2"
-                      style={{
-                        // fontFamily: "Nunito",
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        color: "var(--light-text-color)",
-                        lineHeight: 2,
-                      }}
+                      className="flex flex-col flew-grow sm:ml-8 mt-5 sm:mt-0 text-2xl w-full"
+                      style={{ maxWidth: "900px" }}
                     >
-                      {ReactHtmlParser(each.description)}
-                    </div>
-                    {each.relatedSkills && each.relatedSkills.length > 0 && (
-                      <div className="flex flex-col justify-start mt-6 sm:mt-6">
+                      <div className="flex flex-row items-center justify-start mb-1 sm:mb-4">
                         <span
-                          className="mb-2"
+                          className="text-4xl"
                           style={{
-                            fontSize: "14px",
+                            fontWeight: 400,
                             color: "var(--text-color)",
                           }}
                         >
-                          Related Skills:
+                          {each.company}
                         </span>
-                        <div className="flex flex-row items-center justify-start">
-                          <span
+                        {each.link && (
+                          <a
+                            href={each.link}
+                            className="text-2xl ml-2"
                             style={{
-                              color: "#777",
-                              minWidth: "100px",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              fontFamily: "Montserrat, 'Open Sans'",
+                              fontWeight: 700,
+                              color: "var(--tab-notice-bgcolor)",
                             }}
                           >
-                            {each.relatedSkills.join(" • ")}
-                          </span>
-                        </div>
+                            <HiExternalLink />
+                          </a>
+                        )}
                       </div>
-                    )}
-                  </div>
-                </Box>
+
+                      {each.relatedSkills && each.relatedSkills.length > 0 && (
+                        <div className="flex flex-row justify-start items-center mt-3 sm:mt-2.5">
+                          <span
+                            className="mb-2 text-lg"
+                            style={{
+                              // fontSize: "12px",
+                              color: "#888",
+                              fontWeight: 400,
+                              // fontFamily: "Montserrat, 'Open Sans'",
+                              letterSpacing: "1px"
+                              // color: "var(--text-color)",
+                            }}
+                          >
+                            Related Skills: {each.relatedSkills.join(" • ")}
+                          </span>
+                          {/* <div className="flex flex-row items-center justify-start">
+                            <span
+                              style={{
+                                color: "#777",
+                                minWidth: "100px",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                fontFamily: "Montserrat, 'Open Sans'",
+                              }}
+                            >
+                              {each.relatedSkills.join(" • ")}
+                            </span>
+                          </div> */}
+                        </div>
+                      )}
+
+                      <div className="grid grid-cols-6 gap-6 w-full">
+                        {each.images &&
+                          each.images.map((eachImg) => (
+                            <img className="rounded-lg" src={eachImg} alt="#" />
+                          ))}
+                      </div>
+                      <div
+                        className="mt-2 text-xl md:text-2xl sm:mt-2"
+                        style={{
+                          // fontFamily: "Nunito",
+                          // fontSize: "1.25rem",
+                          fontWeight: 400,
+                          color: "var(--light-text-color)",
+                          lineHeight: 1.8,
+                        }}
+                      >
+                        {ReactHtmlParser(each.description)}
+                      </div>
+                    </div>
+                  </Box>
+                )
               )
+            ) : (
+              <div className="flex flex-col items-center justify-center">
+                <Spinner />
+              </div>
             )}
           </div>
 
@@ -797,7 +773,7 @@ const PortfolioIndex = () => {
       {/* MY Projects */}
       <Fade bottom cascade>
         <section
-          className="skills flex flex-col py-12 mb-10"
+          className="projects flex flex-col py-12 mb-10"
           style={{
             minHeight: "unset",
             // backgroundImage:
@@ -816,23 +792,37 @@ const PortfolioIndex = () => {
           </h2>
 
           <div className="flex flex-row flex-wrap justify-center">
-            {/* <div className="w-1/2"></div> */}
-            <div className="flex flex-row flex-wrap w-5/7">
-              {(showAllSkills ? projects : projects.slice(0, 9)).map(
-                (eachProj) => (
+            {!loadingProjects ? (
+              (showAllProjects ? projects : projects.slice(0, 9)).map(
+                (eachProj, index) => (
                   <div
-                    className="card flex flex-col mx-4"
+                    className={`flex py-12 mb-4 ${
+                      index % 2 === 0
+                        ? "flex-col sm:flex-row"
+                        : "flex-col sm:flex-row-reverse"
+                    } items-center md:items-center`}
                     style={{
-                      borderRadius: "5px",
-                      // backgroundColor: 'white',
-                      padding: "4px",
+                      // borderRadius: "5px",
+                      width: "100%",
                     }}
                   >
-                    <div
-                      className="mb-8"
-                      style={{
-                        width: "250px",
+                    <Box
+                      className={`${
+                        index % 2 === 0 ? "mr-0 sm:mr-12" : "ml-0 sm:ml-12"
+                      } border mb-10 sm:mb-0`}
+                      sx={{
+                        width: {
+                          xs: "100%",
+                          md: "50vw",
+                        },
                         height: "250px",
+                        maxWidth: {
+                          xs: "unset",
+                          sm: "400px",
+                        },
+                        borderRadius: "8px",
+                        overflow: "hidden",
+                        border: { sm: "1px solid #ccc", xs: "1px solid #555" },
                         // border: "1px solid #ccc",
                       }}
                     >
@@ -842,7 +832,7 @@ const PortfolioIndex = () => {
                           controls={true}
                           width={"100%"}
                           height={"100%"}
-                          style={{ width: "250px", height: "250px" }}
+                          // style={{ width: "250px", height: "250px" }}
                         />
                       )}
                       {/* <video
@@ -861,27 +851,49 @@ const PortfolioIndex = () => {
                           style={{ width: "calc(100% - 1px)", height: "100%" }}
                         />
                       )}
-                    </div>
+                    </Box>
 
                     <div className="flex flex-col w-full px-6 pb-6">
                       <div className="rows img-wrapper">
                         <b
-                          className="text-center"
+                          className="text-4xl"
                           style={{
                             margin: 0,
                             color: "var(--text-color)",
-                            fontSize: "15px",
+                            fontWeight: 400,
                           }}
                         >
                           {eachProj.name}
                         </b>
                       </div>
-                      <span className="mt-3 capitalize">{eachProj.tag}</span>
+                      <span
+                        className="mt-3 capitalize"
+                        style={{
+                          color: "var(--light-text-color)",
+                          fontWeight: 400,
+                          opacity: 0.8,
+                        }}
+                      >
+                        {eachProj.tag}
+                      </span>
+                      <p
+                        className="mt-3 text-xl md:text-2xl"
+                        style={{
+                          color: "var(--text-color)",
+                          fontWeight: 400,
+                          lineHeight: 1.8,
+                          maxWidth: "600px",
+                        }}
+                      >
+                        {eachProj.description}
+                      </p>
                     </div>
                   </div>
                 )
-              )}
-            </div>
+              )
+            ) : (
+              <Spinner />
+            )}
           </div>
 
           {/* <CustomButton

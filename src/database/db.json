@@ -337,39 +337,39 @@
       "userId": 1,
       "data": [
         {
-          "name": "Commodify",
-          "type": "Loans & Finance",
-          "description": "Commodify provides working capital loans to agricultural commodity exporters in Sub-Saharan Africa",
-          "previewImg": "CommodifyProjectImage",
-          "link": "https://commodify.co"
+          "name": "3D Blender Product Animation",
+          "content": [
+            {
+              "type": "video",
+              "url": "/videos/Deeplug gadget View.mp4"
+            }
+          ],
+          "tag": "Animations & Motion Graphics",
+          "description":
+           "This product animation was created using Blender3D, photoshop and some other resources as an advertisement for my business (DeePlug) as at the time"
         },
         {
-          "name": "T-Guide",
-          "type": "Business",
-          "description": "T-Guide is a react app that serves as a virtual tour guide for travelers and tourists.",
-          "previewImg": "nullimgT",
-          "link": "https://t-guide.herokuapp.com"
+          "name": "Robin Virtual Assistant",
+          "content": [
+            {
+              "type": "video",
+              "url": "/videos/Robin.mp4"
+            }
+          ],
+          "tag": "Software Development",
+          "description":
+           "Robin was a python project I enjoyed working on. As at the time of building the project, I needed a way to automate my workspace, keep reminders and generally have a personal assistant to do the boring repetitive stuffs and so I decided to build a Virtual Assistant. Throughout the duration of the project, I gained experience working with Python, RegExp, Natural Language Processing (NLP), Machine Learning, multi-threading and a lot more."
         },
         {
-          "name": "Univers",
-          "type": "e-Commerce",
-          "description": "An ecommerce platform for buying and selling all categories of products from household items to fashion items and many more.",
-          "previewImg": "univers",
-          "link": "https://oneunivers.herokuapp.com"
-        },
-        {
-          "name": "Game Project",
-          "type": "Games",
-          "description": "Game Project is a 2D game written in VanillaJS. The game consists of a player (plane) and opponent (plane). The player can change its color and can navigate using the keyboard keys.",
-          "previewImg": "nullimgT",
-          "link": "https://hitmee.herokuapp.com"
-        },
-        {
-          "name": "Workman",
-          "type": "Lifestyle",
-          "description": "Workman was designed to help people reach out to a wide range of services at the click of the button",
-          "previewImg": "workman",
-          "link": null
+          "name": "Robin Virtual Assistant",
+          "content": [
+            {
+              "type": "video",
+              "url": "https://www.youtube.com/embed/-huRykhjs6g"
+            }
+          ],
+          "tag": "Software Development",
+          "description": ""
         }
       ]
     }
