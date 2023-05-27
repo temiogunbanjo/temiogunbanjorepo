@@ -201,7 +201,7 @@ const PortfolioIndex = () => {
     } else {
       setDarkMode(true);
     }
-  });
+  }, [navigate]);
 
   useEffect(() => {
     (async () => {
@@ -647,7 +647,7 @@ const PortfolioIndex = () => {
                     </div>
 
                     <div
-                      className="flex flex-col flew-grow sm:ml-8 mt-3 sm:mt-0 text-2xl w-full"
+                      className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
                       style={{ maxWidth: "800px" }}
                     >
                       <div className="flex flex-row items-center justify-start mb-1 sm:mb-4">

@@ -375,8 +375,8 @@ body.dark-mode .background-illuminator {
   padding: 20px 30px;
   flex-grow: 1;
   min-width: 210px;
-  background-color: rgba(145, 145, 145, 0);
-  border: 1px solid #d5d5d5;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 20px #eee;
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
@@ -387,7 +387,7 @@ body.dark-mode .skills .card {
   color: var(--light-text-color);
   background-color: rgba(145, 145, 145, 0.23);
   border: none;
-  border-radius: 10px;
+  box-shadow: none;
 }
 
 .skills .card:hover {
@@ -423,7 +423,7 @@ body.dark-mode .skills .card .img-wrapper {
 body .experiences {
   background-image: linear-gradient(
     92deg,
-    rgba(235, 235, 240, 0.5),
+    rgba(240, 240, 240, 0.5),
     rgba(251, 251, 255, 0.3) 80%
   );
 }
@@ -502,6 +502,11 @@ footer {
     /* margin-top: 0.8rem; */
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .experiences .card {
+    border-left: none !important;
+    padding-left: 10px;
   }
 
   .skills .card {
