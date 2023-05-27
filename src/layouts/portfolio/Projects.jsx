@@ -1,29 +1,33 @@
 import React, { Suspense, useRef } from "react";
-import { PerspectiveCamera, TextureLoader } from "three";
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+// import { TextureLoader } from "three";
+import {
+  Canvas,
+  useFrame,
+  // useLoader
+} from "@react-three/fiber";
 import {
   Loader,
-  OrbitControls,
+  // OrbitControls,
   PresentationControls,
   Scroll,
   ScrollControls,
   Stars,
-  Text,
+  // Text,
 } from "@react-three/drei";
-import { Debug, Physics } from "@react-three/cannon";
+import { Physics } from "@react-three/cannon";
 
-import texture from "../../assets/textures/wood_planks_grey/wood_planks_grey_rough_4k.jpg";
+// import texture from "../../assets/textures/wood_planks_grey/wood_planks_grey_rough_4k.jpg";
 
-import Box from "../../components/3D/Box";
-import Plane from "../../components/3D/Plane";
+// import Box from "../../components/3D/Box";
+// import Plane from "../../components/3D/Plane";
 import Store from "../../components/3D/Store";
-import Test from "../../components/3D/Test";
-import Sphere from "../../components/3D/Sphere";
-import Axis from "../../components/3D/Axis";
-import GPSMonitoring from "../../components/3D/GPSMonitoring";
+// import Test from "../../components/3D/Test";
+// import Sphere from "../../components/3D/Sphere";
+// import Axis from "../../components/3D/Axis";
+// import GPSMonitoring from "../../components/3D/GPSMonitoring";
 
 const World = () => {
-  const colorMap = useLoader(TextureLoader, texture);
+  // const colorMap = useLoader(TextureLoader, texture);
   const stars = useRef();
 
   useFrame((_, delta) => {

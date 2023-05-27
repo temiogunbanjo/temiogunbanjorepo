@@ -1,5 +1,5 @@
-import { useBox, useCompoundBody } from "@react-three/cannon";
-import React, { useRef } from "react";
+import { useCompoundBody } from "@react-three/cannon";
+import React from "react";
 
 const Store = ({
   children,

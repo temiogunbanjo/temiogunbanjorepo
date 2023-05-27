@@ -10,7 +10,7 @@ import { setDarkMode } from "../../utils";
 
 const Issues = () => {
   const navigate = useNavigate();
-  const [experiences, setExperiences] = useState([
+  const [experiences] = useState([
     {
       title: "How I got my first tech job!",
       timeframe: "Posted on Mar, 2023",

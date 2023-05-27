@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgressProps } from "@mui/material/CircularProgress";
+// import { CircularProgressProps } from "@mui/material/CircularProgress";
 import { Box, Fade, CircularProgress } from "@mui/material";
 
 /**

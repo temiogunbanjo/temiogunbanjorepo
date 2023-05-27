@@ -1,4 +1,4 @@
-import { useBox } from "@react-three/cannon";
+// import { useBox } from "@react-three/cannon";
 import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
 

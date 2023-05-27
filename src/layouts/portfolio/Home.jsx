@@ -126,7 +126,7 @@ const PortfolioIndex = () => {
   const [loadingExperiences, setLoadingExperiences] = useState(true);
   const [experiences, setExperiences] = useState([]);
 
-  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showAllProjects] = useState(false);
   const [loadingProjects, setLoadingProjects] = useState(true);
   const [projects, setProjects] = useState([]);
 

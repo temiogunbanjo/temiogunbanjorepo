@@ -1,5 +1,5 @@
 import { useSphere } from "@react-three/cannon";
-import React, { useRef } from "react";
+import React from "react";
 
 export default function Sphere({
   position = [0, 0, 0],
@@ -10,7 +10,7 @@ export default function Sphere({
   physicsOptions = {},
   ...rest
 }) {
-  const [sphere, api] = useSphere(() => ({
+  const [sphere] = useSphere(() => ({
     ...physicsOptions,
     position,
     rotation,

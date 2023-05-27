@@ -10,7 +10,7 @@ export default function Box({
   physicsOptions = {},
   ...rest
 }) {
-  const [box, api] = useBox(() => ({
+  const [box] = useBox(() => ({
     ...physicsOptions,
     position,
     rotation,
