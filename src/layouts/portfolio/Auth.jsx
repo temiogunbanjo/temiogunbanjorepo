@@ -6,8 +6,9 @@ import Fade from "@successtar/react-reveal/Fade";
 
 import CustomButton from "../../components/common/Button";
 import { useNavigate } from "react-router-dom";
+import { setDarkMode } from "../../utils";
 
-const PortfolioIndex = () => {
+const PortfolioAuth = () => {
   const navigate = useNavigate();
 
   const [value, setValue] = useState("Guest 1");
@@ -24,15 +25,15 @@ const PortfolioIndex = () => {
     setIsDone(false);
     // setValue(event.target.value);
   };
-
+  const testPattern = /^(([A-Za-z]{1,})(\s*))+$/gi;
   const handleChange = (event) => {
-    const test = event.target.value.match(/^([A-Za-z]{2,}(\s*))+$/gi) !== null;
+    const test = event.target.value.match(testPattern) !== null;
     setIsValid(test);
     setValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    const test = value.match(/^([A-Za-z]{2,})$/gi) !== null;
+    const test = value.match(testPattern) !== null;
     setIsValid(test);
     setIsDone(true);
     setSubmitCount((prev) => prev + 1);
@@ -46,22 +47,22 @@ const PortfolioIndex = () => {
 
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
+    const isDarkMode = window.localStorage.getItem("dark_mode");
+
     if (vName) {
       setValue(vName);
+    }
+
+    if (isDarkMode !== null) {
+      setDarkMode(isDarkMode);
+    } else {
+      setDarkMode(true);
     }
   }, []);
 
   return (
     <>
-      <section
-        className="hero flex flex-col sm:flex-row relative "
-        style={
-          {
-            // width: "100%",
-            // maxWidth: "unset",
-          }
-        }
-      >
+      <section className="hero flex flex-col sm:flex-row relative ">
         <Fade>
           <div
             className="cols items-center"
@@ -288,18 +289,6 @@ const PortfolioIndex = () => {
               }
               return reaction;
             })()}
-            {/* <p
-              className="py-8 text-center"
-              style={{
-                fontSize: "14px",
-                fontWeight: 400,
-                color: "var(--light-text-color)",
-                lineHeight: 2,
-                maxWidth: "500px",
-              }}
-            >
-              {`Before we go in, can you please introduce yourself so that I can remember who paid me a visit. Pheww, don't mind me, I tend to forget little things pretty fast`}
-            </p> */}
 
             <div
               className="flex flex-row pt-10 mx-auto sm:mx-0 items-center"
@@ -308,7 +297,7 @@ const PortfolioIndex = () => {
               <TextField
                 onChange={handleChange}
                 onFocus={handleFocus}
-                autoFocus={canType}
+                focused={canType}
                 value={value}
                 placeholder="Please enter your name"
                 variant="standard"
@@ -320,7 +309,7 @@ const PortfolioIndex = () => {
                     px: 2.3,
                     py: 1.6,
                     backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    color: "#fff",
+                    color: "var(--text-color)",
                   },
                 }}
                 sx={{
@@ -328,55 +317,22 @@ const PortfolioIndex = () => {
                 }}
                 disabled={!canType}
               />
-              {/* <a href="#skill-section">
-                <CustomButton
-                  className="border"
-                  value={
-                    <span
-                      className="flex flex-row items-center"
-                      style={{ color: "var(--text-color)" }}
-                    >
-                      <i
-                        className="mr-3 animate-bounce"
-                        style={{
-                          fontSize: "26px",
-                        }}
-                      >
-                        <DownArrowIcon />
-                      </i>
-                      <span>Scroll Down</span>
-                    </span>
-                  }
-                  sx={{
-                    boxShadow: "none",
-                    color: "#393A4A",
-                  }}
-                />
-              </a> */}
 
               <CustomButton
                 className="ml-9"
-                value={
-                  <span
-                    className="flex flex-row items-center"
-                    style={{ color: "#222" }}
-                  >
-                    {/* <i
-                        className="mr-3"
-                        style={{
-                          fontSize: "26px",
-                        }}
-                      >
-                        <CallIcon />
-                      </i> */}
-                    <span>Let's Go!</span>
-                  </span>
-                }
-                // disabled={!isValid}
                 sx={{
                   backgroundColor: "var(--tab-notice-bgcolor)",
                   boxShadow: "none",
                 }}
+                value={
+                  <span
+                    className="flex flex-row items-center"
+                    style={{ color: "#fff" }}
+                  >
+                    <span>{!isValid || !isTouched ? "Test" : "Let's Go!"}</span>
+                  </span>
+                }
+                disabled={!isTouched}
                 onClick={handleSubmit}
               />
             </div>
@@ -387,4 +343,4 @@ const PortfolioIndex = () => {
   );
 };
 
-export default PortfolioIndex;
+export default PortfolioAuth;

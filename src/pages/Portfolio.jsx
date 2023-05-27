@@ -8,9 +8,12 @@ const Portfolio = () => {
   return (
     <>
       <Header />
-      <main className="cols" style={{
-        zIndex: '+999',
-      }}>
+      <main
+        className="cols"
+        style={{
+          zIndex: "+999",
+        }}
+      >
         <Outlet />
       </main>
       <Footer />

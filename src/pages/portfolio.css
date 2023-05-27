@@ -122,8 +122,15 @@ main > section {
   justify-content: space-between;
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-image: 
-    linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06));
+  /* background-image: 
+    linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06)); */
+}
+
+body.dark-mode .hero {
+  background-image: linear-gradient(
+    rgba(160, 160, 160, 0.1),
+    rgba(160, 160, 160, 0.06)
+  );
 }
 
 .main-text {
@@ -410,6 +417,37 @@ body.dark-mode .skills .card {
 body.dark-mode .skills .card .img-wrapper {
   border: none;
 }
+
+body .experiences {
+  background-image: linear-gradient(
+    92deg,
+    rgba(235, 235, 240, 0.5),
+    rgba(251, 251, 255, 0.3) 80%
+  );
+}
+
+body.dark-mode .experiences {
+  background-image: linear-gradient(
+    -45deg,
+    rgba(160, 160, 160, 0.1),
+    rgba(160, 160, 160, 0.05)
+  );
+}
+
+body .experiences .card {
+  border-left: 2px solid #ccc;
+  transition: all 0.3s ease-in;
+}
+
+body.dark-mode .experiences .card {
+  border-left: 2px solid #333;
+}
+
+body.dark-mode .experiences .card:hover {
+  border-left-color: #efefef;
+}
+
+/* color: "#888", */
 
 .experiences .timeline-section {
   width: 180px;

@@ -24,8 +24,12 @@ import Fade from "@successtar/react-reveal/Fade";
 import CustomButton from "../../components/common/Button";
 import TabPanel from "../../components/common/TabPanel";
 
-import { fetchUserExperiences, fetchUserProject, fetchUserSkills } from "../../database";
-import { getRandomItem } from "../../utils";
+import {
+  fetchUserExperiences,
+  fetchUserProject,
+  fetchUserSkills,
+} from "../../database";
+import { getRandomItem, setDarkMode } from "../../utils";
 // import Status from "../../components/common/StatusIndicator";
 import Spinner from "../../components/common/Spinner";
 import { useNavigate } from "react-router-dom";
@@ -35,28 +39,31 @@ const SkillCard = (props) => {
 
   return (
     <div
-      className="card flex flex-row mx-4"
+      className="card flex flex-col mx-4 items-center"
       style={{
         borderRadius: "8px",
       }}
     >
       <div className="flex flex-col">
-        <div className="rows img-wrapper">
-          <b
-            className="text-center"
-            style={{
-              margin: 0,
-              color: "var(--text-color)",
-              fontSize: "15px",
-            }}
-          >
-            {props.data?.name}
-          </b>
-        </div>
-        <span className="mt-3 capitalize">{props.data?.tags[0]}</span>
+        {/* <div className="rows img-wrapper border"> */}
+        <b
+          className="text-center text-2xl"
+          style={{
+            margin: 0,
+            fontWeight: 500,
+            color: "var(--text-color)",
+            // fontSize: "15px",
+          }}
+        >
+          {props.data?.name}
+        </b>
+        {/* </div> */}
+        <span className="mt-3 capitalize text-center">
+          {props.data?.tags[0]}
+        </span>
       </div>
 
-      <div className="">
+      <div className="mt-5">
         <PieChart
           totalValue={100}
           radius={skillPieWidth / 2 - 2}
@@ -96,11 +103,11 @@ const SkillCard = (props) => {
             {
               title: "Unmastered",
               value: 100 - props.data?.level * 10,
-              color: "#555",
+              color: "var(--border-line-color)",
             },
             // { title: 'Three', value: 10, color: '#6A2135' },
           ]}
-          style={{ height: "60px", marginLeft: "15px" }}
+          style={{ height: "60px" }}
         />
       </div>
     </div>
@@ -182,9 +189,17 @@ const PortfolioIndex = () => {
   };
 
   useEffect(() => {
-    const vName = window.localStorage.getItem('visitor_name');
+    const vName = window.localStorage.getItem("visitor_name");
+    const isDarkMode = window.localStorage.getItem("dark_mode");
+
     if (!vName) {
-      navigate('/');
+      navigate("/");
+    }
+
+    if (isDarkMode !== null) {
+      setDarkMode(isDarkMode);
+    } else {
+      setDarkMode(true);
     }
   });
 
@@ -337,6 +352,7 @@ const PortfolioIndex = () => {
             <p
               className="py-8"
               style={{
+                fontWeight: 500,
                 fontSize: "14px",
                 color: "var(--text-color)",
                 lineHeight: 2,
@@ -345,7 +361,7 @@ const PortfolioIndex = () => {
             >
               {`I am a Fullstack Software Developer with ${
                 new Date().getFullYear() - 2019
-              } years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
+              } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
             </p>
 
             <div
@@ -354,7 +370,7 @@ const PortfolioIndex = () => {
             >
               <a href="#skill-section">
                 <CustomButton
-                  className="border"
+                  className="border-2"
                   value={
                     <span
                       className="flex flex-row items-center"
@@ -384,7 +400,7 @@ const PortfolioIndex = () => {
                   value={
                     <span
                       className="flex flex-row items-center"
-                      style={{ color: "#222" }}
+                      style={{ color: "#eee" }}
                     >
                       <i
                         className="mr-3"
@@ -398,6 +414,7 @@ const PortfolioIndex = () => {
                     </span>
                   }
                   sx={{
+                    opacity: 0.9,
                     backgroundColor: "var(--tab-notice-bgcolor)",
                     boxShadow: "none",
                   }}
@@ -496,7 +513,7 @@ const PortfolioIndex = () => {
                 width: "100%",
                 mb: 2,
                 color: "var(--text-color)",
-                borderBottom: "1px solid #333",
+                borderBottom: "1px solid var(--border-line-color)",
               }}
             >
               <Tab
@@ -586,16 +603,17 @@ const PortfolioIndex = () => {
       {/* EXPERIENCES */}
       <Fade bottom cascade>
         <section
-          className="experiences flex flex-col items-left pb-12 pt-8"
-          style={{
-            backgroundImage:
-              "linear-gradient(-45deg, rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.05))",
-          }}
+          className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8"
+          style={
+            {
+              // backgroundImage:
+              //   "linear-gradient(-45deg, rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.05))",
+            }
+          }
         >
           <h2
             className="mb-10 right-headings"
             style={{
-              // fontSize: "26px",
               color: "var(--text-color)",
               fontWeight: 700,
             }}
@@ -610,20 +628,14 @@ const PortfolioIndex = () => {
                   <Box
                     component="div"
                     className={`card flex flex-col sm:flex-row mb-14 sm:mb-8 pl-8 my-3 -ml-1`}
-                    sx={{
-                      borderLeft: "2px solid #333",
-                      transition: "all 0.3s ease-in",
-                      "&:hover": {
-                        borderLeft: "2px solid #efefef",
-                      },
-                    }}
+                    sx={{}}
                   >
                     <div className="flex flex-col mr-8 h-auto timeline-section">
                       <span
-                        className="text-xl sm:text-2xl"
+                        className="text-xl sm:text-xl"
                         style={{
-                          fontWeight: 700,
-                          color: "var(--light-text-color)",
+                          fontWeight: 600,
+                          color: "var(--text-color)",
                         }}
                       >
                         {each.timeframe}
@@ -631,10 +643,10 @@ const PortfolioIndex = () => {
                       <span
                         className="text-lg mt-2 sm:mt-5"
                         style={{
-                          fontFamily: "Montserrat, 'Open Sans'",
+                          fontFamily: "'Open Sans'",
                           fontWeight: 600,
                           color: "var(--tab-notice-bgcolor)",
-                          // letterSpacing: "1px",
+                          letterSpacing: "0.5px",
                           lineHeight: 2,
                         }}
                       >
@@ -643,14 +655,14 @@ const PortfolioIndex = () => {
                     </div>
 
                     <div
-                      className="flex flex-col flew-grow sm:ml-8 mt-5 sm:mt-0 text-2xl w-full"
-                      style={{ maxWidth: "900px" }}
+                      className="flex flex-col flew-grow sm:ml-8 mt-3 sm:mt-0 text-2xl w-full"
+                      style={{ maxWidth: "800px" }}
                     >
                       <div className="flex flex-row items-center justify-start mb-1 sm:mb-4">
                         <span
                           className="text-4xl"
                           style={{
-                            fontWeight: 400,
+                            fontWeight: 500,
                             color: "var(--text-color)",
                           }}
                         >
@@ -671,33 +683,18 @@ const PortfolioIndex = () => {
                       </div>
 
                       {each.relatedSkills && each.relatedSkills.length > 0 && (
-                        <div className="flex flex-row justify-start items-center mt-3 sm:mt-2.5">
+                        <div className="flex flex-row justify-start items-center mt-3 sm:mt-2 mb-2">
                           <span
-                            className="mb-2 text-lg"
+                            className="text-lg"
                             style={{
-                              // fontSize: "12px",
                               color: "#888",
                               fontWeight: 400,
-                              // fontFamily: "Montserrat, 'Open Sans'",
-                              letterSpacing: "1px"
-                              // color: "var(--text-color)",
+                              fontFamily: "'Open Sans'",
+                              letterSpacing: "0.5px",
                             }}
                           >
                             Related Skills: {each.relatedSkills.join(" • ")}
                           </span>
-                          {/* <div className="flex flex-row items-center justify-start">
-                            <span
-                              style={{
-                                color: "#777",
-                                minWidth: "100px",
-                                fontSize: "12px",
-                                fontWeight: 600,
-                                fontFamily: "Montserrat, 'Open Sans'",
-                              }}
-                            >
-                              {each.relatedSkills.join(" • ")}
-                            </span>
-                          </div> */}
                         </div>
                       )}
 
@@ -707,14 +704,14 @@ const PortfolioIndex = () => {
                             <img className="rounded-lg" src={eachImg} alt="#" />
                           ))}
                       </div>
+            
                       <div
                         className="mt-2 text-xl md:text-2xl sm:mt-2"
                         style={{
-                          // fontFamily: "Nunito",
-                          // fontSize: "1.25rem",
                           fontWeight: 400,
-                          color: "var(--light-text-color)",
+                          color: "var(--text-color)",
                           lineHeight: 1.8,
+                          // fontSize: '14px'
                         }}
                       >
                         {ReactHtmlParser(each.description)}
@@ -735,11 +732,11 @@ const PortfolioIndex = () => {
               onClick={() => {
                 setShowAllExperiences((prev) => !prev);
               }}
-              className="border mt-8 mx-auto"
+              className="mt-12 mx-auto"
               value={
                 <span
                   className="flex flex-row items-center"
-                  style={{ color: "var(--text-color)" }}
+                  style={{ color: "#fff" }}
                 >
                   <span>
                     {!showAllExperiences
@@ -750,7 +747,7 @@ const PortfolioIndex = () => {
                     className="ml-3 animate-bounce"
                     style={{
                       fontSize: "16px",
-                      color: "var(--light-text-color)",
+                      color: "#fff",
                     }}
                   >
                     {!showAllExperiences ? (
@@ -762,8 +759,9 @@ const PortfolioIndex = () => {
                 </span>
               }
               sx={{
+                backgroundColor: "var(--tab-notice-bgcolor)",
                 boxShadow: "none",
-                color: "#393A4A",
+                color: "#fff",
               }}
             />
           )}
@@ -788,7 +786,7 @@ const PortfolioIndex = () => {
               fontWeight: 700,
             }}
           >
-            Some Cool Projects
+            Featured Projects
           </h2>
 
           <div className="flex flex-row flex-wrap justify-center">
@@ -809,7 +807,7 @@ const PortfolioIndex = () => {
                     <Box
                       className={`${
                         index % 2 === 0 ? "mr-0 sm:mr-12" : "ml-0 sm:ml-12"
-                      } border mb-10 sm:mb-0`}
+                      } mb-10 sm:mb-0`}
                       sx={{
                         width: {
                           xs: "100%",
@@ -822,8 +820,11 @@ const PortfolioIndex = () => {
                         },
                         borderRadius: "8px",
                         overflow: "hidden",
-                        border: { sm: "1px solid #ccc", xs: "1px solid #555" },
-                        // border: "1px solid #ccc",
+                        border: {
+                          sm: "1px solid var(--border-line-color)",
+                          xs: "1px solid #555",
+                        },
+                        backgroundColor: "var(--border-line-color)",
                       }}
                     >
                       {eachProj?.content?.[0]?.type === "video" && (
@@ -870,7 +871,7 @@ const PortfolioIndex = () => {
                         className="mt-3 capitalize"
                         style={{
                           color: "var(--light-text-color)",
-                          fontWeight: 400,
+                          fontWeight: 600,
                           opacity: 0.8,
                         }}
                       >

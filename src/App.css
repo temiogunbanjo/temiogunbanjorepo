@@ -2,7 +2,7 @@ body{
   /* color: #a600a6; */
   /* background-image: radial-gradient(ellipse, rgb(182, 49, 82), var(--tab-border-color)); */
   --pointer-color: red;
-  --page-bg-color: #fff;
+  --page-bg-color: #fefeff;
   --page-link-color:#0059fd;
   --header-bg-color: #24292e;
   --header-text-color: #222;
@@ -11,10 +11,10 @@ body{
   --light-text-color: #222;
   --lazy-light-color: #dfdfdf;
   --lazy-dark-color: #d9d9d9;
-  --border-line-color: #dfdfdf;
+  --border-line-color: #ccc;
   --separation-line-color: #dfdfdf;
-  --tab-notice-bgcolor: orange;
-  --tab-border-color: #ff6e1a;
+  --tab-notice-bgcolor: #5457ff;
+  --tab-border-color: #5457FF;
   --tab-notice-textcolor: #222;
   --footer-bg-color: #eee;
   --moon-light-color: rgba(255, 209, 123, 0.87);
@@ -39,7 +39,7 @@ body.dark-mode{
   --light-text-color: #bdbdbd;
   --lazy-light-color: rgba(223, 223, 223, 0.8);
   --lazy-dark-color: #d9d9d9;
-  --border-line-color: #4d4d4d;
+  --border-line-color: #333;
   --separation-line-color: #383838;
   --tab-notice-bgcolor: var(--page-link-color);
   --tab-border-color: var(--page-link-color);
@@ -60,6 +60,11 @@ img.user-profile-picture{
 .material-black {
   background-color: #444;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+
+button:disabled {
+  background-color: #444 !important;
+  opacity: 0.5;
 }
 
 button.material-black {

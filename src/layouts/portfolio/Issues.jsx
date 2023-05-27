@@ -1,26 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReactHtmlParser from "html-react-parser";
-import {
-  CgEye,
-  // CgArrowLongLeft as LeftIcon1,
-  // CgPathOutline as CallIcon,
-} from "react-icons/cg";
-import {
-  BsChevronLeft as LeftIcon,
-} from "react-icons/bs";
-// import { TypeAnimation } from "react-type-animation";
 import Fade from "@successtar/react-reveal/Fade";
+import { CgEye } from "react-icons/cg";
+import { BsChevronLeft as LeftIcon } from "react-icons/bs";
+
 import CustomButton from "../../components/common/Button";
+import { setDarkMode } from "../../utils";
 
 const Issues = () => {
+  const navigate = useNavigate();
   const [experiences, setExperiences] = useState([
     {
       title: "How I got my first tech job!",
       timeframe: "Posted on Mar, 2023",
       role: "Freelance Developer • Internship at Jara Analytics",
       content: "-- --",
-    }
+    },
   ]);
+
+  useEffect(() => {
+    const vName = window.localStorage.getItem("visitor_name");
+    const isDarkMode = window.localStorage.getItem("dark_mode");
+
+    if (!vName) {
+      navigate("/");
+    }
+
+    if (isDarkMode !== null) {
+      setDarkMode(isDarkMode);
+    } else {
+      setDarkMode(true);
+    }
+  });
 
   return (
     <>
@@ -86,13 +98,13 @@ const Issues = () => {
                   <div
                     // className="text-2xl"
                     style={{
-                      fontSize: '14px',
+                      fontSize: "14px",
                       fontWeight: 500,
                       color: "var(--light-text-color)",
                       lineHeight: 2,
                     }}
                   >
-                  {ReactHtmlParser(each.content)}
+                    {ReactHtmlParser(each.content)}
                     {/* {each.content} */}
                   </div>
                 </div>
@@ -118,7 +130,7 @@ const Issues = () => {
                   sx={{
                     boxShadow: "none",
                     color: "#393A4A",
-                    flex: 'none'
+                    flex: "none",
                   }}
                 />
               </div>
