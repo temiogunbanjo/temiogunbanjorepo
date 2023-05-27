@@ -650,7 +650,7 @@ const PortfolioIndex = () => {
                       className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
                       style={{ maxWidth: "800px" }}
                     >
-                      <div className="flex flex-row items-center justify-start mb-1 sm:mb-4">
+                      <div className="flex flex-row items-center justify-start mb-3 sm:mb-4">
                         <span
                           className="text-4xl"
                           style={{
@@ -674,22 +674,6 @@ const PortfolioIndex = () => {
                         )}
                       </div>
 
-                      {each.relatedSkills && each.relatedSkills.length > 0 && (
-                        <div className="flex flex-row justify-start items-center mt-3 sm:mt-2 mb-2">
-                          <span
-                            className="text-lg"
-                            style={{
-                              color: "#888",
-                              fontWeight: 400,
-                              fontFamily: "'Open Sans'",
-                              letterSpacing: "0.5px",
-                            }}
-                          >
-                            Related Skills: {each.relatedSkills.join(" • ")}
-                          </span>
-                        </div>
-                      )}
-
                       <div className="grid grid-cols-6 gap-6 w-full">
                         {each.images &&
                           each.images.map((eachImg) => (
@@ -708,6 +692,22 @@ const PortfolioIndex = () => {
                       >
                         {ReactHtmlParser(each.description)}
                       </div>
+
+                      {each.relatedSkills && each.relatedSkills.length > 0 && (
+                        <div className="flex flex-row justify-start items-center mt-3 sm:mt-2 mb-2">
+                          <span
+                            className="text-lg"
+                            style={{
+                              color: "#888",
+                              fontWeight: 400,
+                              fontFamily: "'Open Sans'",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Related Skills: {each.relatedSkills.join(" • ")}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </Box>
                 )

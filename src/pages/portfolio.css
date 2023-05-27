@@ -509,6 +509,18 @@ footer {
     padding-left: 10px;
   }
 
+  body .experiences .card {
+    border-bottom: 1px solid var(--border-line-color);
+    padding-bottom: 25px;
+    margin-bottom: 19px;
+  }
+
+  body .experiences .card:last-child {
+    border-bottom: none;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+  }
+
   .skills .card {
     margin: 5px 15px 20px;
   }
