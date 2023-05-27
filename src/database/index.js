@@ -13,7 +13,7 @@ export const fetchUserProfile = async (userId) => {
       } catch (error) {
         reject(error);
       }
-    }, 3000);
+    }, 1500);
   });
   return profile;
 };
@@ -31,7 +31,7 @@ export const fetchUserSkills = async (userId) => {
       } catch (error) {
         reject(error);
       }
-    }, 3000);
+    }, 1500);
   });
   return userskills;
 };
@@ -49,7 +49,7 @@ export const fetchUserExperiences = async (userId) => {
       } catch (error) {
         reject(error);
       }
-    }, 3000);
+    }, 1500);
   });
   return userskills;
 }
@@ -67,7 +67,7 @@ export const fetchUserProject = async (userId) => {
       } catch (error) {
         reject(error);
       }
-    }, 3000);
+    }, 1500);
   });
   return userproject;
 };

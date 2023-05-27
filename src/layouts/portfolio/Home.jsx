@@ -87,13 +87,16 @@ const SkillCard = (props) => {
               color: ((grade) => {
                 switch (true) {
                   case grade >= 0 && grade < 3.33:
-                    return "crimson";
+                    return "dodgerblue";
+                  // return "crimson";
 
                   case grade >= 3.33 && grade < 6.67:
-                    return "orange";
+                    return "dodgerblue";
+                  // return "orange";
 
                   case grade >= 6.67:
-                    return "#5fc754";
+                    return "dodgerblue";
+                  // return "#5fc754";
 
                   default:
                     return grade.color || "#E38627";
@@ -500,8 +503,38 @@ const PortfolioIndex = () => {
             Skills & Technical Knowledge
           </h2>
 
-          <div className="flex flex-col mt-2 flex-wrap sm:flex-nowrap w-full">
+          <div className="flex flex-col flex-wrap sm:flex-nowrap w-full">
             {/* <div className="w-1/2"></div> */}
+            <Tabs
+              value={tabIndex}
+              onChange={handleTabChange}
+              aria-label="Skills Tab"
+              orientation="horizontal"
+              variant="standard"
+              scrollButtons="auto"
+              centered={true}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                width: "100%",
+                mb: 2,
+                color: "var(--text-color)",
+                borderBottom: "1px solid var(--border-line-color)",
+              }}
+            >
+              <Tab
+                label="Inter-Personal Skills"
+                sx={{ ...styles.tabStyles, display: "none" }}
+              />
+              <Tab label="Web Development" sx={styles.tabStyles} />
+              <Tab label="Database Management" sx={styles.tabStyles} />
+              <Tab label="Version Controls" sx={styles.tabStyles} />
+              <Tab
+                label="3D Animations & Graphics Design"
+                sx={styles.tabStyles}
+              />
+              <Tab label="Others" sx={styles.tabStyles} />
+            </Tabs>
+
             <Tabs
               value={tabIndex}
               onChange={handleTabChange}
@@ -509,7 +542,9 @@ const PortfolioIndex = () => {
               orientation="horizontal"
               variant="scrollable"
               scrollButtons="auto"
+              centered={false}
               sx={{
+                display: { xs: "flex", md: "none" },
                 width: "100%",
                 mb: 2,
                 color: "var(--text-color)",
@@ -956,6 +991,7 @@ const PortfolioIndex = () => {
 const styles = {
   iconStyles: { fontSize: "20px", marginBottom: "10px" },
   tabStyles: {
+    fontFamily: "Poppins, Roboto,'Open Sans', Montserrat, san-serif",
     color: "var(--light-text-color)",
     fontSize: "14px",
     py: "6px",
