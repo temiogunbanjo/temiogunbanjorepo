@@ -51,6 +51,7 @@ const PortfolioAuth = () => {
 
     if (vName) {
       setValue(vName);
+      navigate("/home");
     }
 
     if (isDarkMode !== null) {
@@ -58,7 +59,7 @@ const PortfolioAuth = () => {
     } else {
       setDarkMode(true);
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <>
