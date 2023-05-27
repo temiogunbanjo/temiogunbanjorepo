@@ -300,15 +300,7 @@ const PortfolioIndex = () => {
 
   return (
     <>
-      <section
-        className="hero flex flex-col sm:flex-row relative"
-        style={
-          {
-            // backgroundImage:
-            //   "linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06)), url(../../assets/images/New.svg)",
-          }
-        }
-      >
+      <section className="hero flex flex-col sm:flex-row relative">
         <Fade cascade>
           <div
             className="cols"
