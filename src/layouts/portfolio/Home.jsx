@@ -602,15 +602,7 @@ const PortfolioIndex = () => {
 
       {/* EXPERIENCES */}
       <Fade bottom cascade>
-        <section
-          className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8"
-          style={
-            {
-              // backgroundImage:
-              //   "linear-gradient(-45deg, rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.05))",
-            }
-          }
-        >
+        <section className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8">
           <h2
             className="mb-10 right-headings"
             style={{
@@ -627,7 +619,7 @@ const PortfolioIndex = () => {
                 (each) => (
                   <Box
                     component="div"
-                    className={`card flex flex-col sm:flex-row mb-14 sm:mb-8 pl-8 my-3 -ml-1`}
+                    className={`card flex flex-col sm:flex-row mb-14 sm:mb-8 pl-8 my-3 -ml-4`}
                     sx={{}}
                   >
                     <div className="flex flex-col mr-8 h-auto timeline-section">
@@ -704,7 +696,7 @@ const PortfolioIndex = () => {
                             <img className="rounded-lg" src={eachImg} alt="#" />
                           ))}
                       </div>
-            
+
                       <div
                         className="mt-2 text-xl md:text-2xl sm:mt-2"
                         style={{
@@ -768,7 +760,7 @@ const PortfolioIndex = () => {
         </section>
       </Fade>
 
-      {/* MY Projects */}
+      {/* My Projects */}
       <Fade bottom cascade>
         <section
           className="projects flex flex-col py-12 mb-10"
@@ -928,6 +920,33 @@ const PortfolioIndex = () => {
               color: "#393A4A",
             }}
           /> */}
+        </section>
+      </Fade>
+
+      {/* ABOUT SITE */}
+      <Fade bottom cascade>
+        <section id="about-section" className="skills flex flex-col">
+          <h2
+            className="subtitle center-headings"
+            style={{
+              // fontSize: "24px",
+              color: "var(--text-color)",
+              fontWeight: 700,
+            }}
+          >
+            About This Site
+          </h2>
+
+          <div
+            className="flex flex-col mt-2 w-full text-center text-2xl"
+            style={{
+              color: "var(--light-text-color)",
+              fontWeight: 500,
+            }}
+          >
+            This site was built using modern frontend technologies and libraries
+            such as ReactJS,
+          </div>
         </section>
       </Fade>
     </>

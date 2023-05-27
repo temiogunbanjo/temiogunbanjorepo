@@ -105,7 +105,7 @@ function Header(props) {
             className="strip-btn view-mode-element"
             style={{
               appearance: "none",
-              color: "crimson",
+              // color: "crimson",
             }}
             onClick={() => logout()}
           >

@@ -18,6 +18,10 @@ header {
   /* padding: 0 24px; */
 }
 
+body:not(.dark-mode) header {
+  background-color: var(--tab-border-color);
+}
+
 header [class^="icofont-"] {
   font-size: 2rem;
 }
@@ -122,11 +126,9 @@ main > section {
   justify-content: space-between;
   background-repeat: no-repeat;
   background-position: bottom right;
-  /* background-image: 
-    linear-gradient(rgba(160, 160, 160, 0.1), rgba(160, 160, 160, 0.06)); */
 }
 
-body.dark-mode .hero {
+body.dark-mode .hero, #about-section {
   background-image: linear-gradient(
     rgba(160, 160, 160, 0.1),
     rgba(160, 160, 160, 0.06)
@@ -447,8 +449,6 @@ body.dark-mode .experiences .card:hover {
   border-left-color: #efefef;
 }
 
-/* color: "#888", */
-
 .experiences .timeline-section {
   width: 180px;
   flex: none;
@@ -479,6 +479,11 @@ footer {
 
 /* For all mobile users only */
 @media only screen and (max-width: 768px) {
+  .hero {
+    height: calc(100vh - 100px) !important;
+    min-height: 500px !important;
+  }
+
   main > section {
     padding-left: 26px;
     padding-right: 26px;
