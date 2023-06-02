@@ -6,13 +6,14 @@ import ReactPlayer from "react-player";
 // import TimelineConnector from "@mui/lab/TimelineConnector";
 // import TimelineContent from "@mui/lab/TimelineContent";
 // import TimelineDot from "@mui/lab/TimelineDot";
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Modal, Tab, Tabs, Typography } from "@mui/material";
 import {
   CgArrowLongDown as DownArrowIcon,
   CgPathOutline as CallIcon,
 } from "react-icons/cg";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
-import { HiExternalLink } from "react-icons/hi";
+import { HiExternalLink, HiOutlineLightningBolt as SkillBadgeIcon } from "react-icons/hi";
+// import { GiSkills as SkillBadgeIcon1 } from "react-icons/gi";
 
 import { PieChart } from "react-minimal-pie-chart";
 import ReactHtmlParser from "html-react-parser";
@@ -35,18 +36,37 @@ const SkillCard = (props) => {
   const { onClick = () => {} } = props;
   const [skillPieWidth, skillPieHeight] = [25, 25];
 
+  const getColor = (grade) => {
+    switch (true) {
+      case grade >= 0 && grade < 3.33:
+        // return "#5fc754";
+        return "#ff56cf";
+
+      case grade >= 3.33 && grade < 6.67:
+        return "#ffdb56";
+      // return "orange";
+
+      case grade >= 6.67:
+        // return "dodgerblue";
+        return "#79ff9f";
+
+      default:
+        return grade.color || "#E38627";
+    }
+  };
+
   return (
     <div
-      className="card flex flex-col mx-4 items-center"
+      className="card flex flex-col-reverse mx-4 items-center"
       style={{
         borderRadius: "8px",
+        padding: "20px 20px",
       }}
       onClick={onClick}
     >
-      <div className="flex flex-col">
-        {/* <div className="rows img-wrapper border"> */}
+      <div className="flex flex-col w-full">
         <b
-          className="text-center text-2xl"
+          className="text-left text-xl uppercase"
           style={{
             margin: 0,
             fontWeight: 600,
@@ -56,61 +76,59 @@ const SkillCard = (props) => {
         >
           {props.data?.name}
         </b>
-        {/* </div> */}
-        <span className="mt-3 capitalize text-center">
-          {props.data?.tags[0]}
-        </span>
+        <span className="mt-3 capitalize text-left">{props.data?.tags[0]}</span>
       </div>
 
-      <div className="mt-5">
-        <PieChart
-          totalValue={100}
-          radius={skillPieWidth / 2 - 2}
-          segmentsShift={(index) => (index !== 0 ? 0.5 : 0.5)}
-          viewBoxSize={[skillPieWidth, skillPieHeight]}
-          center={[skillPieWidth / 2, skillPieHeight / 2]}
-          startAngle={-90}
-          animate
-          // lengthAngle={90}
-          // label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
-          // labelStyle={{
-          //   fontSize: '6px',
-          //   fill: 'var(--text-color)'
-          // }}
-          paddingAngle={5}
-          lineWidth={20}
-          data={[
-            {
-              title: "Mastered",
-              value: props.data?.level * 10,
-              color: ((grade) => {
-                switch (true) {
-                  case grade >= 0 && grade < 3.33:
-                    return "dodgerblue";
-                  // return "crimson";
-
-                  case grade >= 3.33 && grade < 6.67:
-                    return "dodgerblue";
-                  // return "orange";
-
-                  case grade >= 6.67:
-                    return "dodgerblue";
-                  // return "#5fc754";
-
-                  default:
-                    return grade.color || "#E38627";
-                }
-              })(props.data?.level),
-            },
-            {
-              title: "Unmastered",
-              value: 100 - props.data?.level * 10,
-              color: "var(--border-line-color)",
-            },
-            // { title: 'Three', value: 10, color: '#6A2135' },
-          ]}
-          style={{ height: "60px" }}
+      <div className="flex flex-row mb-5 w-full items-center justify-between">
+        <SkillBadgeIcon
+          style={{
+            fontSize: "32px",
+            marginBottom: "5px",
+            marginTop: "5px",
+            color: "var(--light-text-color)",
+          }}
         />
+        <div
+          className="flex rounded-full"
+          style={
+            {
+              // backgroundColor: "var(--border-line-color)",
+              // borderColor: "var(--border-line-color)",
+            }
+          }
+        >
+          <PieChart
+            totalValue={100}
+            radius={skillPieWidth / 2 - 2}
+            segmentsShift={(index) => (index !== 0 ? 0.5 : 0.5)}
+            viewBoxSize={[skillPieWidth, skillPieHeight]}
+            center={[skillPieWidth / 2, skillPieHeight / 2]}
+            startAngle={-90}
+            animate
+            // lengthAngle={90}
+            // label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
+            // labelStyle={{
+            //   fontSize: '6px',
+            //   fill: 'var(--text-color)'
+            // }}
+            paddingAngle={5}
+            lineWidth={20}
+            data={[
+              {
+                title: "Mastered",
+                value: props.data?.level * 10,
+                color: getColor(props.data?.level),
+              },
+              {
+                title: "Unmastered",
+                value: 100 - props.data?.level * 10,
+                color: "var(--border-line-color)",
+              },
+              // { title: 'Three', value: 10, color: '#6A2135' },
+            ]}
+            style={{ height: "58px" }}
+          />
+        </div>
       </div>
     </div>
   );
@@ -120,7 +138,7 @@ const ExperienceCard = (props) => {
   return (
     <Box
       component="div"
-      className={`card flex flex-col sm:flex-row mb-14 sm:mb-8 pl-8 my-3 -ml-4`}
+      className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
       sx={{}}
     >
       <div className="flex flex-col mr-8 h-auto timeline-section">
@@ -138,7 +156,7 @@ const ExperienceCard = (props) => {
           style={{
             fontFamily: "'Open Sans'",
             fontWeight: 600,
-            color: "var(--tab-notice-bgcolor)",
+            color: "var(--primary-color)",
             letterSpacing: "0.5px",
             lineHeight: 2,
           }}
@@ -153,9 +171,9 @@ const ExperienceCard = (props) => {
       >
         <div className="flex flex-row items-center justify-start mb-3 sm:mb-4">
           <span
-            className="text-4xl"
+            className="text-3xl sm:text-4xl"
             style={{
-              fontWeight: 500,
+              fontWeight: 400,
               color: "var(--text-color)",
             }}
           >
@@ -167,7 +185,7 @@ const ExperienceCard = (props) => {
               className="text-2xl ml-2"
               style={{
                 fontWeight: 700,
-                color: "var(--tab-notice-bgcolor)",
+                color: "var(--primary-color)",
               }}
             >
               <HiExternalLink />
@@ -196,9 +214,9 @@ const ExperienceCard = (props) => {
 
         {props?.data?.relatedSkills &&
           props?.data?.relatedSkills.length > 0 && (
-            <div className="flex flex-row justify-start items-center mt-3 sm:mt-2 mb-2">
+            <div className="flex flex-row justify-start items-center mt-4 sm:mt-6 mb-2">
               <span
-                className="text-lg"
+                className="text-xl"
                 style={{
                   color: "#888",
                   fontWeight: 400,
@@ -218,6 +236,7 @@ const ExperienceCard = (props) => {
 const PortfolioIndex = () => {
   const navigate = useNavigate();
   const [showProfilePic, setShowProfilePic] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const [loadingSkills, setLoadingSkills] = useState(true);
   const [showAllSkills, setShowAllSkills] = useState(false);
@@ -284,6 +303,9 @@ const PortfolioIndex = () => {
       },
     ],
   ];
+
+  // const handleOpen = () => setOpenModal(true);
+  const handleClose = () => setOpenModal(false);
 
   const handleTabChange = (event, newValue) => {
     setTabIndex(newValue);
@@ -438,7 +460,7 @@ const PortfolioIndex = () => {
                 repeat={Infinity}
                 className=""
                 style={{
-                  color: "var(--tab-notice-bgcolor)",
+                  color: "var(--primary-color)",
                   letterSpacing: "1px",
                 }}
               />
@@ -447,11 +469,12 @@ const PortfolioIndex = () => {
             <p
               className="py-8"
               style={{
-                fontWeight: 500,
+                // fontFamily: "'Open Sans'",
+                fontWeight: 600,
                 fontSize: "14px",
                 color: "var(--text-color)",
                 lineHeight: 2,
-                maxWidth: "700px",
+                maxWidth: "650px",
               }}
             >
               {`I am a Fullstack Software Developer with ${
@@ -475,6 +498,7 @@ const PortfolioIndex = () => {
                         className="mr-3 animate-bounce"
                         style={{
                           fontSize: "26px",
+                          // color: "#78ffdf"
                         }}
                       >
                         <DownArrowIcon />
@@ -509,8 +533,8 @@ const PortfolioIndex = () => {
                     </span>
                   }
                   sx={{
-                    opacity: 0.9,
-                    backgroundColor: "var(--tab-notice-bgcolor)",
+                    opacity: 0.95,
+                    backgroundColor: "var(--primary-color)",
                     boxShadow: "none",
                   }}
                 />
@@ -774,7 +798,7 @@ const PortfolioIndex = () => {
                             style={{
                               fontFamily: "'Open Sans'",
                               fontWeight: 600,
-                              color: "var(--tab-notice-bgcolor)",
+                              color: "var(--primary-color)",
                               letterSpacing: "0.5px",
                               lineHeight: 2,
                             }}
@@ -803,7 +827,7 @@ const PortfolioIndex = () => {
                                 className="text-2xl ml-2"
                                 style={{
                                   fontWeight: 700,
-                                  color: "var(--tab-notice-bgcolor)",
+                                  color: "var(--primary-color)",
                                 }}
                               >
                                 <HiExternalLink />
@@ -896,7 +920,7 @@ const PortfolioIndex = () => {
                 </span>
               }
               sx={{
-                backgroundColor: "var(--tab-notice-bgcolor)",
+                backgroundColor: "var(--primary-color)",
                 boxShadow: "none",
                 color: "#fff",
               }}
@@ -1095,7 +1119,21 @@ const PortfolioIndex = () => {
         </section>
       </Fade>
 
-      
+      <Modal
+        open={openModal}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={{}}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
     </>
   );
 };

@@ -1,24 +1,25 @@
 body{
   /* color: #a600a6; */
   /* background-image: radial-gradient(ellipse, rgb(182, 49, 82), var(--tab-border-color)); */
-  --pointer-color: red;
+  --primary-color: #8e65ff;
   --page-bg-color: #fefeff;
-  --page-link-color:#0059fd;
-  --header-bg-color: #24292e;
+  /* --page-link-color:#0059fd; */
+  --header-bg-color: var(--primary-color);
   --header-text-color: #fff;
-  --icon-color: #555;
+  --icon-color: #78ffdf;
   --text-color: #222;
   --light-text-color: #222;
   --lazy-light-color: #dfdfdf;
   --lazy-dark-color: #d9d9d9;
-  --border-line-color: #ccc;
+  --border-line-color: rgba(170, 170, 170, 0.5);
   --separation-line-color: #dfdfdf;
-  --tab-notice-bgcolor: #5457ff;
-  --tab-border-color: #5457FF;
+  --tab-notice-bgcolor: var(--primary-color);
+  --tab-border-color: var(--primary-color);
   --tab-notice-textcolor: #222;
   --footer-bg-color: #eee;
   --moon-light-color: rgba(255, 209, 123, 0.87);
   --moon-dark-color: rgb(255, 91, 132);
+  --pointer-color: var(--moon-dark-color);
   position: relative;
   padding: 0;
   background-color: var(--page-bg-color);
@@ -30,23 +31,25 @@ body{
 }
 
 body.dark-mode{
+  --primary-color: #ff5b84;
   --page-bg-color:#08090C;
-  --page-link-color: #ff5b84;
-  --header-bg-color: #24292e;
+  --page-link-color: var(--primary-color);
+  --header-bg-color: transparent;
   --header-text-color: #dfdfdf;
-  --icon-color: #7a7a7a;
+  --icon-color: #78ffdf;
   --text-color: #dfdfdf;
   --light-text-color: #bdbdbd;
   --lazy-light-color: rgba(223, 223, 223, 0.8);
   --lazy-dark-color: #d9d9d9;
   --border-line-color: #333;
   --separation-line-color: #383838;
-  --tab-notice-bgcolor: var(--page-link-color);
-  --tab-border-color: var(--page-link-color);
+  --tab-notice-bgcolor: var(--primary-color);
+  --tab-border-color: var(--primary-color);
   --tab-notice-textcolor: black;
   --footer-bg-color: #eee;
   --moon-light-color: rgba(255, 149, 220, 0.87);
   --moon-dark-color: rgba(75, 65, 223, 0.659);
+  --pointer-color: red;
 }
 
 img.user-profile-picture{

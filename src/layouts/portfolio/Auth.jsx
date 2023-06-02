@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { TextField, Fade as MuiFade } from "@mui/material";
+import { TextField } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import Fade from "@successtar/react-reveal/Fade";
 
@@ -75,55 +75,54 @@ const PortfolioAuth = () => {
               borderColor: "#333",
             }}
           >
-            <MuiFade out={isDone && isValid}>
-              <figure
-                className="p-5 mb-3 rounded-full flex flex-row items-center justify-center"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-              >
-                {(() => {
-                  let face = "😋";
-                  switch (true) {
-                    case !isTouched:
-                      face = "😋";
-                      break;
+            {/* <MuiFade in={(isDone && isValid)}> */}
+            <figure
+              className="p-5 mb-3 rounded-full flex flex-row items-center justify-center"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+            >
+              {(() => {
+                let face = "😋";
+                switch (true) {
+                  case !isTouched:
+                    face = "😋";
+                    break;
 
-                    case isTouched && value.length === 0 && !isDone:
-                      face = "🙂";
-                      break;
+                  case isTouched && value.length === 0 && !isDone:
+                    face = "🙂";
+                    break;
 
-                    case isTouched &&
-                      value.length > 0 &&
-                      value.length <= 20 &&
-                      !isDone:
-                      face = "👀";
-                      break;
+                  case isTouched &&
+                    value.length > 0 &&
+                    value.length <= 20 &&
+                    !isDone:
+                    face = "👀";
+                    break;
 
-                    case isTouched && value.length > 20 && !isDone:
-                      face = "😳";
-                      break;
+                  case isTouched && value.length > 20 && !isDone:
+                    face = "😳";
+                    break;
 
-                    case isTouched && value.length > 0 && isDone && isValid:
-                      face = "👍";
-                      break;
+                  case isTouched && value.length > 0 && isDone && isValid:
+                    face = "👍";
+                    break;
 
-                    case isTouched && value.length > 0 && isDone && !isValid:
-                      face = "🙄";
-                      break;
+                  case isTouched && value.length > 0 && isDone && !isValid:
+                    face = "🙄";
+                    break;
 
-                    default:
-                      face = "😋";
-                      break;
-                  }
-                  return <span className="text-8xl">{face}</span>;
-                })()}
-              </figure>
+                  default:
+                    face = "😋";
+                    break;
+                }
+                return <span className="text-8xl">{face}</span>;
+              })()}
+            </figure>
 
-              <h1 className="main-text text-center capitalize">{`Hey ${
-                window.localStorage.getItem("visitor_name")
-                  ? window.localStorage.getItem("visitor_name")
-                  : "Buddy"
-              }!`}</h1>
-            </MuiFade>
+            <h1 className="main-text text-center capitalize">
+              {`Hey ${window.localStorage.getItem("visitor_name") ? window.localStorage.getItem("visitor_name") : "Buddy"}!`}
+            </h1>
+
+            {/* </MuiFade> */}
             {(() => {
               let reaction = null;
               const allProps = {

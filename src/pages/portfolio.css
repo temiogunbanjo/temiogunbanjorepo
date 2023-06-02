@@ -3,7 +3,7 @@ header,
 header .rows,
 header + nav.mobile-navigation-menu .rows {
   align-items: center;
-  color: #7cef91;
+  color: var(--icon-color);
 }
 
 header + nav.mobile-navigation-menu {
@@ -11,15 +11,13 @@ header + nav.mobile-navigation-menu {
 }
 
 header {
+  width: 100%;
+  background-color: var(--header-bg-color);
   color: var(--header-text-color);
   justify-content: space-between;
   padding: 1.2rem;
   height: 6.4rem;
   /* padding: 0 24px; */
-}
-
-body:not(.dark-mode) header {
-  background-color: var(--tab-border-color);
 }
 
 header [class^="icofont-"] {
@@ -34,16 +32,16 @@ header .left-elements > * {
   margin: auto 0.6rem;
 }
 
-header .octicon {
+/* header .octicon {
   fill: var(--header-text-color);
-}
+} */
 
 header nav.navigation-links a {
   color: var(--header-text-color);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.3rem;
   margin: 0 1.5rem;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
 }
 
 header .left-elements .user-profile img {
@@ -237,9 +235,9 @@ main > section:hover .left-headings::before {
   /* padding: 1.1rem 1.6rem; */
   padding: 3rem 2.5rem 5rem 2.5rem;
   border-radius: 10px;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
   /* background-color: rgba(12, 12, 12, 0.1); */
-  background-image: linear-gradient(rgba(12, 12, 12, 0), rgba(12, 12, 12, 0));
+  /* background-image: linear-gradient(rgba(12, 12, 12, 0), rgba(12, 12, 12, 0)); */
   /* box-shadow: 6px 16px 25px rgba(27, 27, 27, 0.25); */
   height: auto;
   z-index: +220;
@@ -280,12 +278,12 @@ main > section:hover .left-headings::before {
 
 body.dark-mode .user-profile-section {
   border-radius: 10px;
-  backdrop-filter: blur(10px);
-  background-image: linear-gradient(
+  /* backdrop-filter: blur(10px); */
+  /* background-image: linear-gradient(
     rgba(177, 177, 177, 0),
     rgba(177, 177, 177, 0)
-  );
-  box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3);
+  ); */
+  /* box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3); */
 }
 
 body.dark-mode .user-profile-section button {
@@ -372,7 +370,6 @@ body.dark-mode .background-illuminator {
 .skills .card {
   color: var(--light-text-color);
   margin: 5px 15px 25px;
-  padding: 20px 30px;
   flex-grow: 1;
   min-width: 210px;
   background-color: rgba(255, 255, 255, 1);
@@ -437,12 +434,32 @@ body.dark-mode .experiences {
 }
 
 body .experiences .card {
-  border-left: 2px solid #ccc;
+  position: relative;
+  border-left: 2px solid #ddd;
   transition: all 0.3s ease-in;
+}
+
+body .experiences .card::after {
+  content: "";
+  top: -2px;
+  left: 0;
+  transform: translateX(-50.5%);
+  position: absolute;
+  background-color: #ccc;
+  /* border: 2px solid #7cef91; */
+  /* border: 2px solid var(--tab-border-color); */
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  transition: all 0.3s ease;
 }
 
 body.dark-mode .experiences .card {
   border-left: 2px solid #333;
+}
+
+body.dark-mode .experiences .card::after {
+  background-color: #efefef;
 }
 
 body.dark-mode .experiences .card:hover {
@@ -504,7 +521,7 @@ footer {
     margin-right: auto;
   }
 
-  .experiences .card {
+  /* .experiences .card {
     border-left: none !important;
     padding-left: 10px;
   }
@@ -513,7 +530,7 @@ footer {
     border-bottom: 1px solid var(--border-line-color);
     padding-bottom: 25px;
     margin-bottom: 19px;
-  }
+  } */
 
   body .experiences .card:last-child {
     border-bottom: none;
