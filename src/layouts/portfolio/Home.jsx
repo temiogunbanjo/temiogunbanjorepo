@@ -488,7 +488,7 @@ const PortfolioIndex = () => {
             >
               <a href="#skill-section">
                 <CustomButton
-                  className="border-2"
+                  className="border"
                   value={
                     <span
                       className="flex flex-row items-center"

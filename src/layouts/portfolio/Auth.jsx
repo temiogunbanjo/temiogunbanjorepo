@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { TextField } from "@mui/material";
+import { Box, Collapse, TextField } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import Fade from "@successtar/react-reveal/Fade";
 
@@ -63,22 +63,36 @@ const PortfolioAuth = () => {
 
   return (
     <>
-      <section className="hero flex flex-col sm:flex-row relative ">
-        <Fade>
-          <div
-            className="cols items-center"
+      <section
+        className="hero flex flex-col sm:flex-row relative "
+        style={{ justifyContent: "space-around" }}
+      >
+        <Fade cascade>
+          <Box
+            component="div"
+            className="cols items-start p-10 mx-5 my-10"
             style={{
               justifyContent: "center",
-              padding: "10px",
+              padding: "36px",
               width: "100%",
+              minWidth: { xs: "unset", md: "505px" },
               maxWidth: "unset",
               borderColor: "#333",
+              borderRadius: "15px",
+              backgroundColor: "rgba(20, 50, 50, 1)",
+              // transform: "scale(0.5)",
+              // "&:hover": {
+              //   transform: "scale(1)",
+              // }
             }}
           >
             {/* <MuiFade in={(isDone && isValid)}> */}
             <figure
-              className="p-5 mb-3 rounded-full flex flex-row items-center justify-center"
-              style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+              className="p-5 mb-5 flex flex-row items-center justify-center rounded-lg"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "15px",
+              }}
             >
               {(() => {
                 let face = "😋";
@@ -118,8 +132,12 @@ const PortfolioAuth = () => {
               })()}
             </figure>
 
-            <h1 className="main-text text-center capitalize">
-              {`Hey ${window.localStorage.getItem("visitor_name") ? window.localStorage.getItem("visitor_name") : "Buddy"}!`}
+            <h1 className="main-text text-left capitalize">
+              {`Hey ${
+                window.localStorage.getItem("visitor_name")
+                  ? window.localStorage.getItem("visitor_name")
+                  : "Buddy"
+              }!`}
             </h1>
 
             {/* </MuiFade> */}
@@ -131,11 +149,11 @@ const PortfolioAuth = () => {
                 deletionSpeed: 68,
                 cursor: true,
                 repeat: 0,
-                className: "py-8 text-center",
+                className: "py-8 text-left",
                 style: {
                   fontSize: "14px",
-                  fontWeight: 400,
-                  color: "var(--light-text-color)",
+                  fontWeight: 600,
+                  color: "var(--text-color)",
                   lineHeight: 2,
                   maxWidth: "500px",
                   minHeight: "100px",
@@ -292,35 +310,37 @@ const PortfolioAuth = () => {
             })()}
 
             <div
-              className="flex flex-row pt-10 mx-auto sm:mx-0 items-center"
+              className="flex flex-row pt-10 mx-auto sm:mx-0 items-start"
               style={{ paddingTop: "40px" }}
             >
-              <TextField
-                onChange={handleChange}
-                onFocus={handleFocus}
-                focused={canType}
-                value={value}
-                placeholder="Please enter your name"
-                variant="standard"
-                className="border text-xl"
-                InputProps={{
-                  classes: "text-xl",
-                  sx: {
-                    fontSize: "1.45rem",
-                    px: 2.3,
-                    py: 1.6,
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    color: "var(--text-color)",
-                  },
-                }}
-                sx={{
-                  minWidth: { xs: "150px", md: "300px" },
-                }}
-                disabled={!canType}
-              />
+              <Collapse orientation="horizontal" in={canType} timeout={600} className="mr-9">
+                <TextField
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  focused={canType}
+                  value={value}
+                  placeholder="Please enter your name"
+                  variant="standard"
+                  className="border text-xl"
+                  InputProps={{
+                    classes: "text-xl",
+                    sx: {
+                      fontSize: "1.45rem",
+                      px: 2.3,
+                      py: 1.6,
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      color: "var(--text-color)",
+                    },
+                  }}
+                  sx={{
+                    minWidth: { xs: "150px", md: "300px" },
+                  }}
+                  disabled={!canType}
+                />
+              </Collapse>
 
               <CustomButton
-                className="ml-9"
+                className=""
                 sx={{
                   backgroundColor: "var(--tab-notice-bgcolor)",
                   boxShadow: "none",
@@ -337,7 +357,80 @@ const PortfolioAuth = () => {
                 onClick={handleSubmit}
               />
             </div>
-          </div>
+          </Box>
+
+          <Box
+            component="div"
+            className="cols items-start p-10 -ml-5 sm:ml-5 mr-5 my-10"
+            style={{
+              justifyContent: "center",
+              padding: "36px",
+              width: "100%",
+              minWidth: { xs: "unset", md: "505px" },
+              maxWidth: "unset",
+              borderColor: "#333",
+              borderRadius: "15px",
+              backgroundColor: "rgba(30, 50, 60, 1)",
+              // transform: "scale(0.5)",
+              // "&:hover": {
+              //   transform: "scale(2)",
+              // }
+            }}
+          >
+            <figure
+              className="p-5 mb-5 flex flex-row items-center justify-center rounded-lg"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "15px",
+              }}
+            >
+              <span className="text-8xl">😋</span>
+            </figure>
+
+            <h1 className="main-text text-left capitalize">
+              ...Or go Incognito!
+            </h1>
+
+            <p
+              className="py-8 text-left"
+              style={{
+                fontSize: "14px",
+                fontWeight: 600,
+                color: "var(--text-color)",
+                lineHeight: 2,
+                maxWidth: "500px",
+                minHeight: "100px",
+              }}
+            >
+              Incognito mode allows you login as anonymous guest to view
+              everything in the portfolio but the interactions would be
+              minimized
+            </p>
+            <div
+              className="flex flex-row pt-10 mx-auto sm:mx-0 items-start"
+              style={{ paddingTop: "40px" }}
+            >
+              <CustomButton
+                className="ml-0"
+                sx={{
+                  backgroundColor: "#555",
+                  boxShadow: "0px 5px 20px rgba(8, 17, 25, 0.15)",
+                }}
+                value={
+                  <span
+                    className="flex flex-row items-center"
+                    style={{ color: "#fff" }}
+                  >
+                    <span>{"Let's Go!"}</span>
+                  </span>
+                }
+                onClick={() => {
+                  window.localStorage.setItem("visitor_name", value);
+                  navigate("/home");
+                }}
+              />
+            </div>
+          </Box>
         </Fade>
       </section>
     </>

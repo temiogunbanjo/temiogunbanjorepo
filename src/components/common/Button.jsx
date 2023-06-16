@@ -8,11 +8,12 @@ function CustomButton(props) {
       variant="contained"
       {...rest}
       style={{
-        fontWeight: 700,
+        fontWeight: 600,
         fontSize: "14px",
         textTransform: "capitalize",
         padding: "16px 24px",
         boxShadow: "0px 5px 20px rgba(108, 117, 125, 0.15)",
+        borderRadius: "5px",
         ...customSx,
       }}
     >
