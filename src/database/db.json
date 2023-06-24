@@ -32,7 +32,8 @@
             "Web Development"
           ],
           "color": "purple",
-          "icon": "<CgCodeSlash style={iconStyles} />"
+          "icon": "<CgCodeSlash style={iconStyles} />",
+          "featured": true
         },
         {
           "name": "Javascript",
@@ -90,7 +91,8 @@
             "SQL"
           ],
           "color": "orange",
-          "icon": "<FaDatabase style={iconStyles} />"
+          "icon": "<FaDatabase style={iconStyles} />",
+          "featured": true
         },
         {
           "name": "PostgreSQL",
@@ -137,7 +139,8 @@
             "Software Development"
           ],
           "color": "orange",
-          "icon": "<FaGithub style={iconStyles} />"
+          "icon": "<FaGithub style={iconStyles} />",
+          "featured": true
         },
         {
           "name": "BitBucket",
@@ -159,7 +162,8 @@
             "Web Development"
           ],
           "color": "orange",
-          "icon": "<FaNetworkWired style={iconStyles} />"
+          "icon": "<FaNetworkWired style={iconStyles} />",
+          "featured": true
         },
         {
           "name": "GraphQL",
@@ -213,14 +217,16 @@
           "tags": [
             "Interpersonal Skill"
           ],
-          "color": "purple"
+          "color": "purple",
+          "featured": true
         },
         {
           "name": "Figma",
           "level": 5.5,
           "color": "orange",
           "tags": ["UI/UX Design & Prototyping"],
-          "icon": "<IoColorPaletteOutline style={iconStyles} />"
+          "icon": "<IoColorPaletteOutline style={iconStyles} />",
+          "featured": true
         },
         {
           "name": "Adobe XD",
@@ -241,7 +247,8 @@
           "level": 7,
           "color": "orange",
           "tags": ["Animations & Motion Graphics"],
-          "icon": "<IoCube style={iconStyles} />"
+          "icon": "<IoCube style={iconStyles} />",
+          "featured": true
         },
         {
           "name": "Microsoft Power Apps",

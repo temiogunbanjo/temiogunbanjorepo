@@ -133,8 +133,11 @@ body.dark-mode .hero, #about-section {
   );
 }
 
-.main-text {
+.main-text, .main-text * {
   font-family: Montserrat, "Open Sans";
+}
+
+.main-text {
   font-size: 44px;
   font-weight: 700;
   margin: 0;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Box, Collapse, TextField } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
-import Fade from "@successtar/react-reveal/Fade";
+// import Fade from "@successtar/react-reveal/Fade";
 
 import CustomButton from "../../components/common/Button";
 import { useNavigate } from "react-router-dom";
@@ -67,371 +67,294 @@ const PortfolioAuth = () => {
         className="hero flex flex-col sm:flex-row relative "
         style={{ justifyContent: "space-around" }}
       >
-        <Fade cascade>
-          <Box
-            component="div"
-            className="cols items-start p-10 mx-5 my-10"
+        <Box
+          component="div"
+          className="cols items-start mx-auto my-10"
+          style={{
+            justifyContent: "center",
+            width: "100%",
+            minWidth: { xs: "unset", md: "505px" },
+            maxWidth: "600px",
+          }}
+        >
+          {/* <MuiFade in={(isDone && isValid)}> */}
+          <figure
+            className="p-5 mb-5 flex flex-row items-center justify-center rounded-lg"
             style={{
-              justifyContent: "center",
-              padding: "36px",
-              width: "100%",
-              minWidth: { xs: "unset", md: "505px" },
-              maxWidth: "unset",
-              borderColor: "#333",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
               borderRadius: "15px",
-              backgroundColor: "rgba(20, 50, 50, 1)",
-              // transform: "scale(0.5)",
-              // "&:hover": {
-              //   transform: "scale(1)",
-              // }
             }}
           >
-            {/* <MuiFade in={(isDone && isValid)}> */}
-            <figure
-              className="p-5 mb-5 flex flex-row items-center justify-center rounded-lg"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                borderRadius: "15px",
-              }}
-            >
-              {(() => {
-                let face = "😋";
-                switch (true) {
-                  case !isTouched:
-                    face = "😋";
-                    break;
-
-                  case isTouched && value.length === 0 && !isDone:
-                    face = "🙂";
-                    break;
-
-                  case isTouched &&
-                    value.length > 0 &&
-                    value.length <= 20 &&
-                    !isDone:
-                    face = "👀";
-                    break;
-
-                  case isTouched && value.length > 20 && !isDone:
-                    face = "😳";
-                    break;
-
-                  case isTouched && value.length > 0 && isDone && isValid:
-                    face = "👍";
-                    break;
-
-                  case isTouched && value.length > 0 && isDone && !isValid:
-                    face = "🙄";
-                    break;
-
-                  default:
-                    face = "😋";
-                    break;
-                }
-                return <span className="text-8xl">{face}</span>;
-              })()}
-            </figure>
-
-            <h1 className="main-text text-left capitalize">
-              {`Hey ${
-                window.localStorage.getItem("visitor_name")
-                  ? window.localStorage.getItem("visitor_name")
-                  : "Buddy"
-              }!`}
-            </h1>
-
-            {/* </MuiFade> */}
             {(() => {
-              let reaction = null;
-              const allProps = {
-                wrapper: "p",
-                speed: 55,
-                deletionSpeed: 68,
-                cursor: true,
-                repeat: 0,
-                className: "py-8 text-left",
-                style: {
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "var(--text-color)",
-                  lineHeight: 2,
-                  maxWidth: "500px",
-                  minHeight: "100px",
-                },
-              };
-
+              let face = "😋";
               switch (true) {
                 case !isTouched:
-                  reaction = (
-                    <TypeAnimation
-                      key={1}
-                      sequence={[
-                        "Before we go in, please introduce yourself so that I can remember who paid me a visit. Pheww...",
-                        1000, // Waits 1s
-                        "Before we go in, please introduce yourself so that I can remember who paid me a visit. Pheww, don't mind me, I tend to forget little things pretty fast.",
-                        500, // Waits 1s
-                        () => {
-                          setCanType(true); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                      speed={65}
-                    />
-                  );
+                  face = "😋";
                   break;
 
                 case isTouched && value.length === 0 && !isDone:
-                  reaction = (
-                    <TypeAnimation
-                      key={2}
-                      sequence={[
-                        "Hmmm...",
-                        1000, // Waits 1s
-                        () => {
-                          console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                    />
-                  );
-                  break;
-
-                case isTouched &&
-                  value.length > 4 &&
-                  value.length <= 20 &&
-                  submitCount === 0 &&
-                  !isDone:
-                  reaction = (
-                    <TypeAnimation
-                      key={3}
-                      sequence={[
-                        "Seems familiar and easy to recall...!",
-                        1000, // Waits 1s
-                        () => {
-                          console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                    />
-                  );
+                  face = "🙂";
                   break;
 
                 case isTouched &&
                   value.length > 0 &&
                   value.length <= 20 &&
-                  submitCount > 0 &&
                   !isDone:
-                  reaction = (
-                    <TypeAnimation
-                      key={3}
-                      sequence={[
-                        "Maybe try a shorter name...!",
-                        1000, // Waits 1s
-                        () => {
-                          console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                    />
-                  );
+                  face = "👀";
                   break;
 
                 case isTouched && value.length > 20 && !isDone:
-                  reaction = (
-                    <TypeAnimation
-                      key={4}
-                      sequence={[
-                        "Woah!",
-                        1000, // Waits 1s
-                        "You have a pretty long name, I am probably going to have a hard time remembering it!",
-                        1000, // Waits 2s
-                        () => {
-                          console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                    />
-                  );
+                  face = "😳";
                   break;
 
                 case isTouched && value.length > 0 && isDone && isValid:
-                  reaction = (
-                    <TypeAnimation
-                      key={5}
-                      sequence={[
-                        "Perfect!",
-                        500, // Waits 1s
-                        "Perfect! I would try to remember your name. Let's go have fun!",
-                        1000, // Waits 2s
-                        () => {
-                          console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                    />
-                  );
+                  face = "👍";
                   break;
 
                 case isTouched && value.length > 0 && isDone && !isValid:
-                  reaction = (
-                    <TypeAnimation
-                      key={6}
-                      sequence={[
-                        "Really?",
-                        500, // Waits 1s
-                        "Really? Is that even your name?",
-                        1000, // Waits 2s
-                        () => {
-                          console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                    />
-                  );
+                  face = "🙄";
                   break;
 
                 default:
-                  reaction = (
-                    <TypeAnimation
-                      key={7}
-                      sequence={[
-                        "Hmmmm...",
-                        1000, // Waits 1s
-                        () => {
-                          console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                        },
-                      ]}
-                      {...allProps}
-                    />
-                  );
+                  face = "😋";
                   break;
               }
-              return reaction;
+              return <span className="text-8xl">{face}</span>;
             })()}
+          </figure>
 
-            <div
-              className="flex flex-row pt-10 mx-auto sm:mx-0 items-start"
-              style={{ paddingTop: "40px" }}
-            >
-              <Collapse orientation="horizontal" in={canType} timeout={600} className="mr-9">
-                <TextField
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  focused={canType}
-                  value={value}
-                  placeholder="Please enter your name"
-                  variant="standard"
-                  className="border text-xl"
-                  InputProps={{
-                    classes: "text-xl",
-                    sx: {
-                      fontSize: "1.45rem",
-                      px: 2.3,
-                      py: 1.6,
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                      color: "var(--text-color)",
-                    },
-                  }}
-                  sx={{
-                    minWidth: { xs: "150px", md: "300px" },
-                  }}
-                  disabled={!canType}
-                />
-              </Collapse>
+          <h1 className="main-text text-left capitalize">
+            {`Hey ${
+              window.localStorage.getItem("visitor_name")
+                ? window.localStorage.getItem("visitor_name")
+                : "Buddy"
+            }!`}
+          </h1>
 
-              <CustomButton
-                className=""
-                sx={{
-                  backgroundColor: "var(--tab-notice-bgcolor)",
-                  boxShadow: "none",
-                }}
-                value={
-                  <span
-                    className="flex flex-row items-center"
-                    style={{ color: "#fff" }}
-                  >
-                    <span>{!isValid || !isTouched ? "Test" : "Let's Go!"}</span>
-                  </span>
-                }
-                disabled={!isTouched}
-                onClick={handleSubmit}
-              />
-            </div>
-          </Box>
-
-          <Box
-            component="div"
-            className="cols items-start p-10 -ml-5 sm:ml-5 mr-5 my-10"
-            style={{
-              justifyContent: "center",
-              padding: "36px",
-              width: "100%",
-              minWidth: { xs: "unset", md: "505px" },
-              maxWidth: "unset",
-              borderColor: "#333",
-              borderRadius: "15px",
-              backgroundColor: "rgba(30, 50, 60, 1)",
-              // transform: "scale(0.5)",
-              // "&:hover": {
-              //   transform: "scale(2)",
-              // }
-            }}
-          >
-            <figure
-              className="p-5 mb-5 flex flex-row items-center justify-center rounded-lg"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                borderRadius: "15px",
-              }}
-            >
-              <span className="text-8xl">😋</span>
-            </figure>
-
-            <h1 className="main-text text-left capitalize">
-              ...Or go Incognito!
-            </h1>
-
-            <p
-              className="py-8 text-left"
-              style={{
+          {/* </MuiFade> */}
+          {(() => {
+            let reaction = null;
+            const allProps = {
+              wrapper: "p",
+              speed: 55,
+              deletionSpeed: 68,
+              cursor: true,
+              repeat: 0,
+              className: "py-8 text-left",
+              style: {
                 fontSize: "14px",
                 fontWeight: 600,
                 color: "var(--text-color)",
                 lineHeight: 2,
                 maxWidth: "500px",
                 minHeight: "100px",
-              }}
+              },
+            };
+
+            switch (true) {
+              case !isTouched:
+                reaction = (
+                  <TypeAnimation
+                    key={1}
+                    sequence={[
+                      "Before we go in, please introduce yourself so that I can remember who paid me a visit. Pheww...",
+                      1000, // Waits 1s
+                      "Before we go in, please introduce yourself so that I can remember who paid me a visit. Pheww, don't mind me, I tend to forget little things pretty fast.",
+                      500, // Waits 1s
+                      () => {
+                        setCanType(true); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                    speed={65}
+                  />
+                );
+                break;
+
+              case isTouched && value.length === 0 && !isDone:
+                reaction = (
+                  <TypeAnimation
+                    key={2}
+                    sequence={[
+                      "Hmmm...",
+                      1000, // Waits 1s
+                      () => {
+                        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                  />
+                );
+                break;
+
+              case isTouched &&
+                value.length > 4 &&
+                value.length <= 20 &&
+                submitCount === 0 &&
+                !isDone:
+                reaction = (
+                  <TypeAnimation
+                    key={3}
+                    sequence={[
+                      "Seems familiar and easy to recall...!",
+                      1000, // Waits 1s
+                      () => {
+                        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                  />
+                );
+                break;
+
+              case isTouched &&
+                value.length > 0 &&
+                value.length <= 20 &&
+                submitCount > 0 &&
+                !isDone:
+                reaction = (
+                  <TypeAnimation
+                    key={3}
+                    sequence={[
+                      "Maybe try a shorter name...!",
+                      1000, // Waits 1s
+                      () => {
+                        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                  />
+                );
+                break;
+
+              case isTouched && value.length > 20 && !isDone:
+                reaction = (
+                  <TypeAnimation
+                    key={4}
+                    sequence={[
+                      "Woah!",
+                      1000, // Waits 1s
+                      "You have a pretty long name, I am probably going to have a hard time remembering it!",
+                      1000, // Waits 2s
+                      () => {
+                        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                  />
+                );
+                break;
+
+              case isTouched && value.length > 0 && isDone && isValid:
+                reaction = (
+                  <TypeAnimation
+                    key={5}
+                    sequence={[
+                      "Perfect!",
+                      500, // Waits 1s
+                      "Perfect! I would try to remember your name. Let's go have fun!",
+                      1000, // Waits 2s
+                      () => {
+                        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                  />
+                );
+                break;
+
+              case isTouched && value.length > 0 && isDone && !isValid:
+                reaction = (
+                  <TypeAnimation
+                    key={6}
+                    sequence={[
+                      "Really?",
+                      500, // Waits 1s
+                      "Really? Is that even your name?",
+                      1000, // Waits 2s
+                      () => {
+                        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                  />
+                );
+                break;
+
+              default:
+                reaction = (
+                  <TypeAnimation
+                    key={7}
+                    sequence={[
+                      "Hmmmm...",
+                      1000, // Waits 1s
+                      () => {
+                        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                      },
+                    ]}
+                    {...allProps}
+                  />
+                );
+                break;
+            }
+            return reaction;
+          })()}
+
+          <div
+            className="flex flex-row pt-10 mx-auto sm:mx-0 items-start"
+            style={{ paddingTop: "40px" }}
+          >
+            <Collapse
+              orientation="horizontal"
+              in={canType}
+              timeout={600}
+              className=""
             >
-              Incognito mode allows you login as anonymous guest to view
-              everything in the portfolio but the interactions would be
-              minimized
-            </p>
-            <div
-              className="flex flex-row pt-10 mx-auto sm:mx-0 items-start"
-              style={{ paddingTop: "40px" }}
-            >
-              <CustomButton
-                className="ml-0"
+              <TextField
+                onChange={handleChange}
+                onFocus={handleFocus}
+                focused={canType}
+                value={value}
+                placeholder="Please enter your name"
+                variant="outlined"
+                className="text-xl"
+                InputProps={{
+                  classes: "text-xl",
+                  sx: {
+                    fontSize: "1.45rem",
+                    px: 1.3,
+                    // py: 1.6,
+                    mr: 4,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    color: "var(--text-color)",
+                  },
+                }}
                 sx={{
-                  backgroundColor: "#555",
-                  boxShadow: "0px 5px 20px rgba(8, 17, 25, 0.15)",
+                  minWidth: { xs: "150px", md: "300px" },
                 }}
-                value={
-                  <span
-                    className="flex flex-row items-center"
-                    style={{ color: "#fff" }}
-                  >
-                    <span>{"Let's Go!"}</span>
-                  </span>
-                }
-                onClick={() => {
-                  window.localStorage.setItem("visitor_name", value);
-                  navigate("/home");
-                }}
+                disabled={!canType}
               />
-            </div>
-          </Box>
-        </Fade>
+            </Collapse>
+
+            <CustomButton
+              className=""
+              sx={{
+                backgroundColor: "var(--tab-notice-bgcolor)",
+                boxShadow: "none",
+              }}
+              value={
+                <span
+                  className="flex flex-row items-center"
+                  style={{ color: "#fff" }}
+                >
+                  <span>{!isValid || !isTouched ? "Test" : "Let's Go!"}</span>
+                </span>
+              }
+              disabled={!isTouched}
+              onClick={handleSubmit}
+            />
+          </div>
+        </Box>
       </section>
     </>
   );

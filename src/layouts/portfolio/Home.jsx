@@ -6,13 +6,29 @@ import ReactPlayer from "react-player";
 // import TimelineConnector from "@mui/lab/TimelineConnector";
 // import TimelineContent from "@mui/lab/TimelineContent";
 // import TimelineDot from "@mui/lab/TimelineDot";
-import { Box, Modal, Tab, Tabs, Typography } from "@mui/material";
+import {
+  Box,
+  Collapse,
+  Link,
+  Modal,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import {
   CgArrowLongDown as DownArrowIcon,
   CgPathOutline as CallIcon,
 } from "react-icons/cg";
-import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
-import { HiExternalLink, HiOutlineLightningBolt as SkillBadgeIcon } from "react-icons/hi";
+import {
+  FaAngleDoubleDown,
+  FaAngleDoubleUp,
+  FaAngleRight,
+} from "react-icons/fa";
+import {
+  HiExternalLink,
+  HiOutlineLightningBolt as SkillBadgeIcon,
+  HiLightningBolt as FeaturedSkillBadgeIcon,
+} from "react-icons/hi";
 // import { GiSkills as SkillBadgeIcon1 } from "react-icons/gi";
 
 import { PieChart } from "react-minimal-pie-chart";
@@ -20,6 +36,7 @@ import ReactHtmlParser from "html-react-parser";
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
+// import { Fade as AwesomeFade } from "react-awesome-reveal";
 
 import CustomButton from "../../components/common/Button";
 import TabPanel from "../../components/common/TabPanel";
@@ -39,16 +56,16 @@ const SkillCard = (props) => {
   const getColor = (grade) => {
     switch (true) {
       case grade >= 0 && grade < 3.33:
-        // return "#5fc754";
-        return "#ff56cf";
+        return "var(--text-color)";
+      // return "#ff56cf";
 
       case grade >= 3.33 && grade < 6.67:
-        return "#ffdb56";
-      // return "orange";
+        return "var(--text-color)";
+      // return "#ffdb56";
 
       case grade >= 6.67:
-        // return "dodgerblue";
-        return "#79ff9f";
+        return "var(--text-color)";
+      // return "#79ff9f";
 
       default:
         return grade.color || "#E38627";
@@ -60,43 +77,29 @@ const SkillCard = (props) => {
       className="card flex flex-col-reverse mx-4 items-center"
       style={{
         borderRadius: "8px",
-        padding: "20px 20px",
+        padding: "15px",
       }}
       onClick={onClick}
     >
-      <div className="flex flex-col w-full">
-        <b
-          className="text-left text-xl uppercase"
-          style={{
-            margin: 0,
-            fontWeight: 600,
-            color: "var(--text-color)",
-            // fontSize: "15px",
-          }}
-        >
-          {props.data?.name}
-        </b>
-        <span className="mt-3 capitalize text-left">{props.data?.tags[0]}</span>
-      </div>
+      <div className="flex flex-row items-center justify-between w-full">
+        <div className="flex flex-col w-full">
+          <b
+            className="text-left text-2xl uppercase"
+            style={{
+              margin: 0,
+              fontWeight: 700,
+              color: "var(--text-color)",
+              // fontSize: "15px",
+            }}
+          >
+            {props.data?.name}
+          </b>
+          <span className="mt-3 capitalize text-left">
+            {props.data?.tags[0]}
+          </span>
+        </div>
 
-      <div className="flex flex-row mb-5 w-full items-center justify-between">
-        <SkillBadgeIcon
-          style={{
-            fontSize: "32px",
-            marginBottom: "5px",
-            marginTop: "5px",
-            color: "var(--light-text-color)",
-          }}
-        />
-        <div
-          className="flex rounded-full"
-          style={
-            {
-              // backgroundColor: "var(--border-line-color)",
-              // borderColor: "var(--border-line-color)",
-            }
-          }
-        >
+        <div className="flex rounded-full">
           <PieChart
             totalValue={100}
             radius={skillPieWidth / 2 - 2}
@@ -129,6 +132,33 @@ const SkillCard = (props) => {
             style={{ height: "58px" }}
           />
         </div>
+      </div>
+
+      <div
+        className="flex flex-row mb-8 w-full items-center justify-between px-3 py-2.5 rounded-lg"
+        style={{
+          backgroundColor: "rgba(170, 170, 170, 0.15)",
+        }}
+      >
+        {!props.data?.featured ? (
+          <SkillBadgeIcon
+            style={{
+              fontSize: "32px",
+              marginBottom: "5px",
+              marginTop: "5px",
+              color: "var(--light-text-color)",
+            }}
+          />
+        ) : (
+          <FeaturedSkillBadgeIcon
+            style={{
+              fontSize: "32px",
+              marginBottom: "5px",
+              marginTop: "5px",
+              color: "gold",
+            }}
+          />
+        )}
       </div>
     </div>
   );
@@ -171,9 +201,9 @@ const ExperienceCard = (props) => {
       >
         <div className="flex flex-row items-center justify-start mb-3 sm:mb-4">
           <span
-            className="text-3xl sm:text-4xl"
+            className="text-3xl sm:text-3xl"
             style={{
-              fontWeight: 400,
+              fontWeight: 700,
               color: "var(--text-color)",
             }}
           >
@@ -220,7 +250,6 @@ const ExperienceCard = (props) => {
                 style={{
                   color: "#888",
                   fontWeight: 400,
-                  fontFamily: "'Open Sans'",
                   letterSpacing: "0.5px",
                 }}
               >
@@ -428,9 +457,17 @@ const PortfolioIndex = () => {
             className="cols"
             style={{ justifyContent: "center", padding: "10px" }}
           >
-            <h1 className="main-text">I am Temiloluwa Ogunbanjo</h1>
+            <h1 className="main-text" style={{ fontSize: "50px" }}>
+              <span style={{ fontSize: "28px", lineHeight: 0.5 }}>Who is </span>
+              <br />
+              <span style={{}}>Temiloluwa Ogunbanjo </span>
+              <span className="" style={{ color: "var(--primary-color)" }}>
+                {" "}
+                ?
+              </span>
+            </h1>
             <h3
-              className="flex flex-row align-center"
+              className="flex flex-row align-center mt-3"
               style={{ fontSize: "24px" }}
             >
               <span
@@ -470,6 +507,7 @@ const PortfolioIndex = () => {
               className="py-8"
               style={{
                 // fontFamily: "'Open Sans'",
+                textAlign: "justify",
                 fontWeight: 600,
                 fontSize: "14px",
                 color: "var(--text-color)",
@@ -541,9 +579,7 @@ const PortfolioIndex = () => {
               </a>
             </div>
           </div>
-        </Fade>
 
-        <Fade right>
           <div className="flex flex-col user-profile-section">
             <blockquote>
               <TypeAnimation
@@ -563,20 +599,27 @@ const PortfolioIndex = () => {
                 }}
               />
             </blockquote>
-            <div
-              className="flex flex-row img-wrapper mt-14 transition-all ease-in"
-              style={{
-                opacity: showProfilePic ? 1 : 0,
-              }}
+            <Collapse
+              orientation="vertical"
+              in={showProfilePic}
+              timeout={600}
+              className=""
             >
-              <img
-                className="user-profile-picture"
-                src={require("../../assets/images/Me.jpeg")}
-                alt="Temiloluwa"
-                width="120"
-                height="120"
-              />
-            </div>
+              <div
+                className="flex flex-row img-wrapper mt-14 transition-all ease-in"
+                style={{
+                  opacity: showProfilePic ? 1 : 0,
+                }}
+              >
+                <img
+                  className="user-profile-picture"
+                  src={require("../../assets/images/Me.jpeg")}
+                  alt="Temiloluwa"
+                  width="120"
+                  height="120"
+                />
+              </div>
+            </Collapse>
 
             <i
               className="user-last-seen text-center"
@@ -602,6 +645,19 @@ const PortfolioIndex = () => {
           >
             Skills & Technical Knowledge
           </h2>
+
+          <span
+            className="-mt-10 mb-12 text-center text-xl"
+            style={{
+              color: "var(--light-text-color)",
+              fontWeight: 400,
+              opacity: 0.8,
+              lineHeight: 1.8,
+              maxWidth: '650px'
+            }}
+          >
+            This sections shows all the skills acquired all through my tech career. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning.
+          </span>
 
           <div className="flex flex-col flex-wrap sm:flex-nowrap w-full">
             {/* <div className="w-1/2"></div> */}
@@ -751,7 +807,7 @@ const PortfolioIndex = () => {
             Professional Experiences
           </h2>
 
-          <div className="flex flex-col mt-2">
+          <div className="flex flex-col mt-2 pl-6">
             {!loadingExperiences ? (
               (showAllExperiences ? experiences : experiences.slice(0, 2)).map(
                 (each) => <ExperienceCard data={each} />
@@ -762,131 +818,6 @@ const PortfolioIndex = () => {
               </div>
             )}
           </div>
-
-          {/* <div className="flex flex-col mt-2">
-            <Timeline>
-              {!loadingExperiences ? (
-                (showAllExperiences
-                  ? experiences
-                  : experiences.slice(0, 2)
-                ).map((each) => (
-                  <TimelineItem>
-                    <TimelineSeparator>
-                      <TimelineDot />
-                      <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent>
-                      <Box
-                        component="div"
-                        className={`card flex flex-col sm:flex-row mb-14 sm:mb-8 pl-8 my-3 -ml-4`}
-                        sx={{
-                          // borderLeft: "none"
-                        }}
-                      >
-                        <div className="flex flex-col mr-8 h-auto timeline-section">
-                          <span
-                            className="text-xl sm:text-xl"
-                            style={{
-                              fontWeight: 600,
-                              color: "var(--text-color)",
-                            }}
-                          >
-                            {each.timeframe}
-                          </span>
-                          <span
-                            className="text-lg mt-2 sm:mt-5"
-                            style={{
-                              fontFamily: "'Open Sans'",
-                              fontWeight: 600,
-                              color: "var(--primary-color)",
-                              letterSpacing: "0.5px",
-                              lineHeight: 2,
-                            }}
-                          >
-                            {each.role}
-                          </span>
-                        </div>
-
-                        <div
-                          className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
-                          style={{ maxWidth: "800px" }}
-                        >
-                          <div className="flex flex-row items-center justify-start mb-3 sm:mb-4">
-                            <span
-                              className="text-4xl"
-                              style={{
-                                fontWeight: 500,
-                                color: "var(--text-color)",
-                              }}
-                            >
-                              {each.company}
-                            </span>
-                            {each.link && (
-                              <a
-                                href={each.link}
-                                className="text-2xl ml-2"
-                                style={{
-                                  fontWeight: 700,
-                                  color: "var(--primary-color)",
-                                }}
-                              >
-                                <HiExternalLink />
-                              </a>
-                            )}
-                          </div>
-
-                          <div className="grid grid-cols-6 gap-6 w-full">
-                            {each.images &&
-                              each.images.map((eachImg) => (
-                                <img
-                                  className="rounded-lg"
-                                  src={eachImg}
-                                  alt="#"
-                                />
-                              ))}
-                          </div>
-
-                          <div
-                            className="mt-2 text-xl md:text-2xl sm:mt-2"
-                            style={{
-                              fontWeight: 400,
-                              color: "var(--text-color)",
-                              lineHeight: 1.8,
-                              // fontSize: '14px'
-                            }}
-                          >
-                            {ReactHtmlParser(each.description)}
-                          </div>
-
-                          {each.relatedSkills &&
-                            each.relatedSkills.length > 0 && (
-                              <div className="flex flex-row justify-start items-center mt-3 sm:mt-2 mb-2">
-                                <span
-                                  className="text-lg"
-                                  style={{
-                                    color: "#888",
-                                    fontWeight: 400,
-                                    fontFamily: "'Open Sans'",
-                                    letterSpacing: "0.5px",
-                                  }}
-                                >
-                                  Related Skills:{" "}
-                                  {each.relatedSkills.join(" • ")}
-                                </span>
-                              </div>
-                            )}
-                        </div>
-                      </Box>
-                    </TimelineContent>
-                  </TimelineItem>
-                ))
-              ) : (
-                <div className="flex flex-col items-center justify-center">
-                  <Spinner />
-                </div>
-              )}
-            </Timeline>
-          </div> */}
 
           {experiences.length > 2 && (
             <CustomButton
@@ -997,14 +928,6 @@ const PortfolioIndex = () => {
                           // style={{ width: "250px", height: "250px" }}
                         />
                       )}
-                      {/* <video
-                          controls
-                         
-                          
-                        >
-                          <source src={eachProj?.content?.[0]?.url || ""} type="video/webm" />
-                          Sorry, your browser doesn't support videos.
-                        </video> */}
 
                       {eachProj?.content?.[0]?.type === "image" && (
                         <img
@@ -1049,6 +972,20 @@ const PortfolioIndex = () => {
                       >
                         {eachProj.description}
                       </p>
+
+                      <Link
+                        className="flex flex-row items-center text-xl mt-3"
+                        style={{
+                          // fontFamily: "'Open Sans'",
+                          fontWeight: 600,
+                          color: "var(--primary-color)",
+                          lineHeight: 2,
+                          textDecoration: "none",
+                        }}
+                      >
+                        Read more{" "}
+                        <FaAngleRight style={{ verticalAlign: "middle" }} />
+                      </Link>
                     </div>
                   </div>
                 )
@@ -1057,38 +994,6 @@ const PortfolioIndex = () => {
               <Spinner />
             )}
           </div>
-
-          {/* <CustomButton
-            onClick={() => {
-              setShowAllSkills((prev) => !prev);
-            }}
-            className="border mt-8"
-            value={
-              <span
-                className="flex flex-row items-center"
-                style={{ color: "var(--text-color)" }}
-              >
-                <span>
-                  {!showAllSkills
-                    ? `Show ${skills.length - 9} more`
-                    : "Show less"}
-                </span>
-                <i
-                  className="ml-3 animate-bounce"
-                  style={{
-                    fontSize: "16px",
-                    color: "var(--light-text-color)",
-                  }}
-                >
-                  {!showAllSkills ? <FaAngleDoubleDown /> : <FaAngleDoubleUp />}
-                </i>
-              </span>
-            }
-            sx={{
-              boxShadow: "none",
-              color: "#393A4A",
-            }}
-          /> */}
         </section>
       </Fade>
 
@@ -1106,16 +1011,18 @@ const PortfolioIndex = () => {
             About This Site
           </h2>
 
-          <div
-            className="flex flex-col mt-2 w-full text-center text-2xl"
+          <span
+            className="-mt-10 mb-12 text-center text-2xl"
             style={{
               color: "var(--light-text-color)",
-              fontWeight: 500,
+              fontWeight: 400,
+              opacity: 0.8,
+              lineHeight: 1.8,
+              maxWidth: '650px'
             }}
           >
-            This site was built using modern frontend technologies and libraries
-            such as ReactJS,
-          </div>
+            This sections shows all the skills acquired all through my tech career. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning.
+          </span>
         </section>
       </Fade>
 
