@@ -7,12 +7,15 @@ import ReactPlayer from "react-player";
 // import TimelineContent from "@mui/lab/TimelineContent";
 // import TimelineDot from "@mui/lab/TimelineDot";
 import {
+  Avatar,
+  AvatarGroup,
   Box,
   Collapse,
   Link,
   Modal,
   Tab,
   Tabs,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import {
@@ -48,6 +51,7 @@ import {
   fetchUserSkills,
 } from "../../database";
 import { getRandomItem, setDarkMode } from "../../utils";
+import { blueGrey, deepPurple, grey, pink } from "@mui/material/colors";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -223,13 +227,6 @@ const ExperienceCard = (props) => {
           )}
         </div>
 
-        <div className="grid grid-cols-6 gap-6 w-full">
-          {props?.data?.images &&
-            props?.data?.images.map((eachImg) => (
-              <img className="rounded-lg" src={eachImg} alt="#" />
-            ))}
-        </div>
-
         <div
           className="mt-2 text-xl md:text-2xl sm:mt-2"
           style={{
@@ -257,6 +254,44 @@ const ExperienceCard = (props) => {
               </span>
             </div>
           )}
+
+        <div className="grid grid-cols-6 gap-6 w-full">
+          {props?.data?.references && (
+            <AvatarGroup
+              max={4}
+              spacing="medium"
+              sx={{
+                my: 1,
+                justifyContent: "left",
+                border: "none",
+                "& [class*=MuiAvatar-root-MuiAvatarGroup-avatar]": {
+                  fontSize: "12px",
+                  backgroundColor: "black",
+                  borderColor: "var(--border-line-color) !important",
+                  width: 30,
+                  height: 30,
+                },
+              }}
+            >
+              {props?.data?.references.map((eachImg, index) => (
+                <Tooltip title="gggg">
+                  <Avatar
+                    key={index}
+                    alt={eachImg?.name || "Remy Sharp"}
+                    src={eachImg?.url || ""}
+                    sx={{
+                      borderColor: "var(--border-line-color) !important",
+                      fontSize: "12px",
+                      width: 30,
+                      height: 30,
+                      bgcolor: blueGrey[500],
+                    }}
+                  />
+                </Tooltip>
+              ))}
+            </AvatarGroup>
+          )}
+        </div>
       </div>
     </Box>
   );
@@ -292,7 +327,7 @@ const PortfolioIndex = () => {
       quotePause,
       "A wise man once said: 'Someone to love, something to hope for and something to do",
       quotePause,
-      "A wise man once said: 'Someone to love, something to hope for and something to do is the true formula to happiness'.",
+      "A wise man once said: 'Someone to love, something to hope for and something to do are the 3 essence of true happiness'.",
       4000, // Waits 1s
       () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
@@ -309,7 +344,7 @@ const PortfolioIndex = () => {
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is...",
       quotePause,
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is, the harder it will be to re-learn.",
-      4000, // Waits 1s
+      3000, // Waits 1s
       () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
         setShowProfilePic(true);
@@ -324,8 +359,24 @@ const PortfolioIndex = () => {
       quotePause,
       "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might...",
       quotePause,
-      "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might as it would surely produce something with what you put into it",
-      4000, // Waits 1s
+      "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might as it would surely produce something with whatever you put into it.",
+      2000, // Waits 1s
+      () => {
+        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+        setShowProfilePic(true);
+      },
+    ],
+    [
+      "If GOD isn't real...",
+      quotePause,
+      "If GOD isn't real, and these whole universe was just born from pure randomness including us...",
+      quotePause,
+      "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts?",
+      quotePause,
+      "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic?",
+      quotePause,
+      "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic? Therefore, GOD is REAl!",
+      2000, // Waits 1s
       () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
         setShowProfilePic(true);
@@ -653,10 +704,13 @@ const PortfolioIndex = () => {
               fontWeight: 400,
               opacity: 0.8,
               lineHeight: 1.8,
-              maxWidth: '650px'
+              maxWidth: "650px",
             }}
           >
-            This sections shows all the skills acquired all through my tech career. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning.
+            This sections shows all the skills acquired all through my tech
+            career. Search for the keywords to learn more about each warning.
+            Search for the keywords to learn more about each warning. Search for
+            the keywords to learn more about each warning.
           </span>
 
           <div className="flex flex-col flex-wrap sm:flex-nowrap w-full">
@@ -1018,10 +1072,13 @@ const PortfolioIndex = () => {
               fontWeight: 400,
               opacity: 0.8,
               lineHeight: 1.8,
-              maxWidth: '650px'
+              maxWidth: "650px",
             }}
           >
-            This sections shows all the skills acquired all through my tech career. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning. Search for the keywords to learn more about each warning.
+            This sections shows all the skills acquired all through my tech
+            career. Search for the keywords to learn more about each warning.
+            Search for the keywords to learn more about each warning. Search for
+            the keywords to learn more about each warning.
           </span>
         </section>
       </Fade>

@@ -295,7 +295,28 @@
           "timeframe": "Sep 2022 - March 2023",
           "role": "RPA Developer • Internship",
           "description": "I was responsible for building a Time Sheet Process application using Microsoft PowerApp, SharePoint Lists and Power Automate. I was able to learn the fundamentals of No-code development and due to the guidance from the Exec 200 Team",
-          "images": [],
+          "references": [
+            {
+              "name": "Remy Sharp",
+              "url": "/static/images/avatar/1.jpg"
+            },
+            {
+              "name": "Travis Howard",
+              "url": "/static/images/avatar/2.jpg"
+            },
+            {
+              "name": "Cindy Baker",
+              "url": "/static/images/avatar/3.jpg"
+            },
+            {
+              "name": "Agnes Walker",
+              "url": "/static/images/avatar/4.jpg"
+            },
+            {
+              "name": "Trevor Henderson",
+              "url": "/static/images/avatar/5.jpg"
+            }
+          ],
           "link": "https://www.linkedin.com/company/first-bank-of-nigeria-ltd/",
           "relatedSkills": [
             "UI Path",
@@ -308,6 +329,28 @@
           "timeframe": "Nov 2021 - Present",
           "role": "Senior Back-End/Game Engineer • Full-Time",
           "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals, </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. </li><li>Documentation of the API endpoints. </li><li> Management and supervision of my engineers.</li></ol>",
+          "references": [
+            {
+              "name": "Remy Sharp",
+              "url": "/static/images/avatar/1.jpg"
+            },
+            {
+              "name": "Travis Howard",
+              "url": "/static/images/avatar/2.jpg"
+            },
+            {
+              "name": "Cindy Baker",
+              "url": "/static/images/avatar/3.jpg"
+            },
+            {
+              "name": "Agnes Walker",
+              "url": "/static/images/avatar/4.jpg"
+            },
+            {
+              "name": "Trevor Henderson",
+              "url": "/static/images/avatar/5.jpg"
+            }
+          ],
           "link": "",
           "relatedSkills": [
             "NodeJS",
@@ -321,6 +364,28 @@
           "timeframe": "May 2022 - Present",
           "role": "Senior Front-End Developer • Full-Time",
           "description": "<p>I was responsible for:</p><ol><li>Rewriting the legacy apps</li><li>Create security and data protection settings.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Developing the frontend web application for the various new agro-tech products in the suites</li><li>Collaboration with the team to brainstorm and generate ideas for improvements to the app suites</li></ol>",
+          "references": [
+            {
+              "name": "Remy Sharp",
+              "url": "/static/images/avatar/1.jpg"
+            },
+            {
+              "name": "Travis Howard",
+              "url": "/static/images/avatar/2.jpg"
+            },
+            {
+              "name": "Cindy Baker",
+              "url": "/static/images/avatar/3.jpg"
+            },
+            {
+              "name": "Agnes Walker",
+              "url": "/static/images/avatar/4.jpg"
+            },
+            {
+              "name": "Trevor Henderson",
+              "url": "/static/images/avatar/5.jpg"
+            }
+          ],
           "link": "https://www.tradebuza.com/",
           "relatedSkills": [
             "ReactJS",
@@ -334,6 +399,28 @@
           "timeframe": "May 2021 - Feb 2022",
           "role": "Fullstack Software Engineer • Full-Time",
           "description": "<p>I was responsible for:</p><ol><li>Design client-side and server-side architectures. </li><li>Develop effective APIs with standardized documentations.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Create security and data protection settings.</li></ol>",
+          "references": [
+            {
+              "name": "Remy Sharp",
+              "url": "/static/images/avatar/1.jpg"
+            },
+            {
+              "name": "Travis Howard",
+              "url": "/static/images/avatar/2.jpg"
+            },
+            {
+              "name": "Cindy Baker",
+              "url": "/static/images/avatar/3.jpg"
+            },
+            {
+              "name": "Agnes Walker",
+              "url": "/static/images/avatar/4.jpg"
+            },
+            {
+              "name": "Trevor Henderson",
+              "url": "/static/images/avatar/5.jpg"
+            }
+          ],
           "link": null
         }
       ]
