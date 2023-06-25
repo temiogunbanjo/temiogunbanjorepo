@@ -19,13 +19,14 @@ const Status = (props) => {
     backgroundColor: "#FFF1F0",
     borderWidth: "0.6px",
     display: "flex",
+    textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
     ...sx,
   };
 
   const textStyle = {
-    fontSize: "12px",
+    fontSize: "10px",
     fontWeight: 400,
     display: "block",
     color: "#F5222D",
@@ -33,51 +34,54 @@ const Status = (props) => {
   };
 
   switch (type) {
+    case "ongoing":
+      wrapperStyle.backgroundColor = "#FFF7E6";
+      wrapperStyle.borderColor = "#FA8C16";
+      textStyle.color = "#FA8C16";
+      break;
+
+    case "skipped":
+      wrapperStyle.backgroundColor = "rgb(236 237 242)";
+      wrapperStyle.borderColor = "#1890FF";
+      textStyle.color = "#1890FF";
+      break;
+
+    case "done":
+      wrapperStyle.backgroundColor = "#F6FFED";
+      wrapperStyle.borderColor = "#B7EB8F";
+      textStyle.color = "#52C41A";
+      break;
+
     case "success":
-      // Green
-      wrapperStyle.backgroundColor = "#97ef7c00";
-      wrapperStyle.borderColor = "#97ef7c";
-      textStyle.color = "#97ef7c";
+      wrapperStyle.backgroundColor = "#F6FFED";
+      wrapperStyle.borderColor = "#B7EB8F";
+      textStyle.color = "#52C41A";
       break;
 
     case "pending":
-      // Orange
-      wrapperStyle.backgroundColor = "crimson";
-      wrapperStyle.borderColor = "white";
-      textStyle.color = "white";
+      wrapperStyle.backgroundColor = "rgba(238 237 235, 0)";
+      wrapperStyle.borderColor = "grey";
+      textStyle.color = "grey";
+      textStyle.fontWeight = 600;
       break;
 
     case "error":
-      // Red
-      wrapperStyle.backgroundColor = "#FFD4D2";
-      wrapperStyle.borderColor = "#FFD4D2";
-      textStyle.color = "#9F1F17";
-      break;
-
-    case "info":
-      // blue
-      wrapperStyle.backgroundColor = "#DBF5FF";
-      wrapperStyle.borderColor = "#DBF5FF";
-      textStyle.color = "#1E0A3C";
+      wrapperStyle.backgroundColor = "#FFF1F000";
+      wrapperStyle.borderColor = "#F5222D";
+      textStyle.color = "#F5222D";
       break;
 
     case "neutral":
-      // gray
-      wrapperStyle.backgroundColor = "#E5E5EA";
-      wrapperStyle.borderColor = "#E5E5EA";
-      textStyle.color = "#1E0A3C";
-      break;
-
     default:
-      wrapperStyle.backgroundColor = "#FFF1F0";
-      wrapperStyle.borderColor = "#F5222D";
-      textStyle.color = "#F5222D";
+      wrapperStyle.backgroundColor = "#E5E5EA";
+      wrapperStyle.borderColor = "#1E0A3C";
+      textStyle.color = "#1E0A3C";
       break;
   }
 
   return (
     <div style={wrapperStyle}>
-      <span style={textStyle}>{value}</span>
+      <span className="capitalize" style={textStyle}>{value}</span>
     </div>
   );
 };

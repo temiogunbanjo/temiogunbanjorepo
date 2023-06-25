@@ -13,16 +13,14 @@ import {
   Collapse,
   IconButton,
   Link,
-  Modal,
   Stack,
   Tab,
   Tabs,
   Tooltip,
-  Typography,
 } from "@mui/material";
 import {
   CgArrowLongDown as DownArrowIcon,
-  CgPathOutline as CallIcon,
+  // CgPathOutline as CallIcon,
 } from "react-icons/cg";
 import {
   FaAngleDoubleDown,
@@ -51,6 +49,7 @@ import Fade from "@successtar/react-reveal/Fade";
 import CustomButton from "../../components/common/Button";
 import TabPanel from "../../components/common/TabPanel";
 import Spinner from "../../components/common/Spinner";
+import Dialog from "../../components/common/Dialog";
 
 import {
   fetchUserExperiences,
@@ -60,6 +59,7 @@ import {
 import { getRandomItem, setDarkMode } from "../../utils";
 import { blueGrey } from "@mui/material/colors";
 import StyledAvatar from "../../components/common/StyledAvatar";
+import { SkillInfo } from "./ModalContents";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -68,15 +68,15 @@ const SkillCard = (props) => {
   const getColor = (grade) => {
     switch (true) {
       case grade >= 0 && grade < 3.33:
-        return "var(--text-color)";
+        return "var(--light-text-color)";
       // return "#ff56cf";
 
       case grade >= 3.33 && grade < 6.67:
-        return "var(--text-color)";
+        return "var(--light-text-color)";
       // return "#ffdb56";
 
       case grade >= 6.67:
-        return "var(--text-color)";
+        return "var(--light-text-color)";
       // return "#79ff9f";
 
       default:
@@ -127,7 +127,7 @@ const SkillCard = (props) => {
             //   fill: 'var(--text-color)'
             // }}
             paddingAngle={5}
-            lineWidth={20}
+            lineWidth={25}
             data={[
               {
                 title: "Mastered",
@@ -400,6 +400,7 @@ const PortfolioIndex = () => {
   const [showProfilePic, setShowProfilePic] = useState(false);
   const [isLayman, setIsLayman] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [dialogContent, setDialogContent] = useState(null);
 
   const [loadingSkills, setLoadingSkills] = useState(true);
   const [showAllSkills, setShowAllSkills] = useState(false);
@@ -483,14 +484,20 @@ const PortfolioIndex = () => {
     ],
   ];
 
-  // const handleOpen = () => setOpenModal(true);
-  const handleClose = () => setOpenModal(false);
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => {
+    setDialogContent(null);
+    setOpenModal(false);
+  }
 
   const handleTabChange = (event, newValue) => {
     setTabIndex(newValue);
   };
 
-  const handleSkillClick = (data) => (ev) => {};
+  const handleSkillClick = (data) => (ev) => {
+    handleOpen(ev);
+    setDialogContent(<SkillInfo data={data}/>)
+  };
 
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
@@ -765,7 +772,7 @@ const PortfolioIndex = () => {
                     </span>
                   }
                   sx={{
-                    border: '1px solid var(--primary-color)',
+                    border: "1px solid var(--primary-color)",
                     // opacity: 0.95,
                     backgroundColor: "var(--primary-color)",
                     boxShadow: "none",
@@ -934,7 +941,7 @@ const PortfolioIndex = () => {
                 sx={{ display: each === 0 ? "none" : "initial" }}
               >
                 {!loadingSkills ? (
-                  <div className="flex flex-row flex-wrap w-4/7">
+                  <div className="flex flex-row justify-center flex-wrap w-4/7">
                     {(showAllSkills
                       ? filterSkills(tabIndex)
                       : filterSkills(tabIndex).slice(0, 9)
@@ -962,7 +969,7 @@ const PortfolioIndex = () => {
               className="border mt-8"
               value={
                 <span
-                  className="flex flex-row items-center"
+                  className="flex flex-row items-center text-center uppercase"
                   style={{ color: "var(--text-color)" }}
                 >
                   <span>
@@ -1027,7 +1034,7 @@ const PortfolioIndex = () => {
               className="mt-12 mx-auto"
               value={
                 <span
-                  className="flex flex-row items-center"
+                  className="flex flex-row items-center text-center uppercase"
                   style={{ color: "#fff" }}
                 >
                   <span>
@@ -1229,21 +1236,9 @@ const PortfolioIndex = () => {
         </section>
       </Fade>
 
-      <Modal
-        open={openModal}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={{}}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
+      <Dialog open={openModal} onClose={handleClose}>
+        {dialogContent}
+      </Dialog>
     </>
   );
 };

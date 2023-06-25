@@ -3,7 +3,7 @@ body{
   /* background-image: radial-gradient(ellipse, rgb(182, 49, 82), var(--tab-border-color)); */
   --primary-color: #8e65ff;
   --page-bg-color: #fefeff;
-  /* --page-link-color:#0059fd; */
+  --page-dialog-bg-color: #fefeff;
   --header-bg-color: var(--primary-color);
   --header-text-color: #fff;
   --icon-color: #78ffdf;
@@ -33,6 +33,7 @@ body{
 body.dark-mode{
   --primary-color: #ff5b84;
   --page-bg-color:#08090C;
+  --page-dialog-bg-color: rgb(30, 30, 30);
   --page-link-color: var(--primary-color);
   --header-bg-color: transparent;
   --header-text-color: #dfdfdf;
