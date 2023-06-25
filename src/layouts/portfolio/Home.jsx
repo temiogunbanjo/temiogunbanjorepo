@@ -11,8 +11,10 @@ import {
   AvatarGroup,
   Box,
   Collapse,
+  IconButton,
   Link,
   Modal,
+  Stack,
   Tab,
   Tabs,
   Tooltip,
@@ -28,11 +30,16 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 import {
+  BsTelephoneFill as PhoneIcon,
+  BsGlobe as WebIcon,
+} from "react-icons/bs";
+// BsTelephoneFill
+import {
   HiExternalLink,
-  HiOutlineLightningBolt as SkillBadgeIcon,
+  // HiOutlineLightningBolt as SkillBadgeIcon,
   HiLightningBolt as FeaturedSkillBadgeIcon,
 } from "react-icons/hi";
-// import { GiSkills as SkillBadgeIcon1 } from "react-icons/gi";
+import { IoMail as MailIcon } from "react-icons/io5";
 
 import { PieChart } from "react-minimal-pie-chart";
 import ReactHtmlParser from "html-react-parser";
@@ -51,7 +58,8 @@ import {
   fetchUserSkills,
 } from "../../database";
 import { getRandomItem, setDarkMode } from "../../utils";
-import { blueGrey, deepPurple, grey, pink } from "@mui/material/colors";
+import { blueGrey } from "@mui/material/colors";
+import StyledAvatar from "../../components/common/StyledAvatar";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -139,17 +147,17 @@ const SkillCard = (props) => {
       </div>
 
       <div
-        className="flex flex-row mb-8 w-full items-center justify-between px-3 py-2.5 rounded-lg"
+        className="flex flex-row-reverse mb-8 w-full items-center justify-between px-3 py-2.5 rounded-lg"
         style={{
           backgroundColor: "rgba(170, 170, 170, 0.15)",
         }}
       >
         {!props.data?.featured ? (
-          <SkillBadgeIcon
+          <FeaturedSkillBadgeIcon
             style={{
-              fontSize: "32px",
-              marginBottom: "5px",
-              marginTop: "5px",
+              fontSize: "30px",
+              marginBottom: "6px",
+              marginTop: "6px",
               color: "var(--light-text-color)",
             }}
           />
@@ -241,22 +249,43 @@ const ExperienceCard = (props) => {
 
         {props?.data?.relatedSkills &&
           props?.data?.relatedSkills.length > 0 && (
-            <div className="flex flex-row justify-start items-center mt-4 sm:mt-6 mb-2">
+            <div className="flex flex-col justify-start items-start mt-4 sm:mt-6 mb-2">
               <span
-                className="text-xl"
+                className="text-xl mb-2"
+                style={{
+                  color: "#888",
+                  fontWeight: 700,
+                  letterSpacing: "0.5px",
+                }}
+              >
+                Related Skills:
+              </span>
+              <span
+                className="text-lg"
                 style={{
                   color: "#888",
                   fontWeight: 400,
                   letterSpacing: "0.5px",
                 }}
               >
-                Related Skills: {props?.data?.relatedSkills.join(" • ")}
+                {props?.data?.relatedSkills.join(" • ")}
               </span>
             </div>
           )}
 
-        <div className="grid grid-cols-6 gap-6 w-full">
-          {props?.data?.references && (
+        {props?.data?.references && props?.data?.references.length > 0 && (
+          <div className="flex flex-col mt-2 sm:mt-4 w-full">
+            <span
+              className="text-xl capitalize"
+              style={{
+                color: "#888",
+                fontWeight: 700,
+                letterSpacing: "0.5px",
+              }}
+            >
+              {`References at ${props?.data?.company}:`}
+            </span>
+
             <AvatarGroup
               max={4}
               spacing="medium"
@@ -274,7 +303,76 @@ const ExperienceCard = (props) => {
               }}
             >
               {props?.data?.references.map((eachImg, index) => (
-                <Tooltip title="gggg">
+                <Tooltip
+                  arrow={true}
+                  placement="bottom-start"
+                  title={
+                    <div className="p-5">
+                      <div className="flex flex-row items-center">
+                        <StyledAvatar
+                          alt={eachImg?.name || "Remy Sharp"}
+                          src={eachImg?.url || ""}
+                          sx={{
+                            borderColor: "var(--border-line-color) !important",
+                            fontSize: "12px",
+                            width: 28,
+                            height: 28,
+                            bgcolor: blueGrey[500],
+                          }}
+                        />
+                        <Stack className="ml-5">
+                          <span className="text-xl" style={{ fontWeight: 700 }}>
+                            {eachImg.name}
+                          </span>
+                          <span className="text-lg" style={{ fontWeight: 400 }}>
+                            {eachImg?.title || "-- --"}
+                          </span>
+                        </Stack>
+                      </div>
+
+                      <div className="flex flex-row items-center justify-between border-b-2 border-t-2 p-2 mt-4">
+                        <IconButton
+                          href={`tel:${eachImg?.phone}`}
+                          disabled={!eachImg?.phone}
+                          className="mr-2"
+                        >
+                          <PhoneIcon
+                            style={{
+                              color: !eachImg?.phone ? "inherit" : "white",
+                              fontSize: "14px",
+                            }}
+                          />
+                        </IconButton>
+
+                        <IconButton
+                          href={`mailto:${eachImg?.email}`}
+                          disabled={!eachImg?.email}
+                          className="mr-2"
+                        >
+                          <MailIcon
+                            style={{
+                              color: !eachImg?.email ? "inherit" : "white",
+                              fontSize: "16px",
+                            }}
+                          />
+                        </IconButton>
+
+                        <IconButton
+                          href={`mailto:${eachImg?.website}`}
+                          disabled={!eachImg?.website}
+                          className="mr-0"
+                        >
+                          <WebIcon
+                            style={{
+                              color: !eachImg?.website ? "inherit" : "white",
+                              fontSize: "16px",
+                            }}
+                          />
+                        </IconButton>
+                      </div>
+                    </div>
+                  }
+                >
                   <Avatar
                     key={index}
                     alt={eachImg?.name || "Remy Sharp"}
@@ -290,8 +388,8 @@ const ExperienceCard = (props) => {
                 </Tooltip>
               ))}
             </AvatarGroup>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </Box>
   );
@@ -300,6 +398,7 @@ const ExperienceCard = (props) => {
 const PortfolioIndex = () => {
   const navigate = useNavigate();
   const [showProfilePic, setShowProfilePic] = useState(false);
+  const [isLayman, setIsLayman] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
   const [loadingSkills, setLoadingSkills] = useState(true);
@@ -554,33 +653,78 @@ const PortfolioIndex = () => {
               />
             </h3>
 
-            <p
-              className="py-8"
-              style={{
-                // fontFamily: "'Open Sans'",
-                textAlign: "justify",
-                fontWeight: 600,
-                fontSize: "14px",
-                color: "var(--text-color)",
-                lineHeight: 2,
-                maxWidth: "650px",
-              }}
-            >
-              {`I am a Fullstack Software Developer with ${
-                new Date().getFullYear() - 2019
-              } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
-            </p>
+            {isLayman ? (
+              <Fade>
+                <p
+                  className="py-8"
+                  style={{
+                    // fontFamily: "'Open Sans'",
+                    textAlign: "justify",
+                    fontWeight: 600,
+                    fontSize: "14px",
+                    color: "var(--text-color)",
+                    lineHeight: 2,
+                    maxWidth: "650px",
+                  }}
+                >
+                  {`I am a Fullstack Software Developer with ${
+                    new Date().getFullYear() - 2019
+                  } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable full stack solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
+                </p>
+              </Fade>
+            ) : (
+              <Fade>
+                <p
+                  className="py-8"
+                  style={{
+                    // fontFamily: "'Open Sans'",
+                    textAlign: "justify",
+                    fontWeight: 600,
+                    fontSize: "14px",
+                    color: "var(--text-color)",
+                    lineHeight: 2,
+                    maxWidth: "650px",
+                  }}
+                >
+                  {`With an illustrious ${
+                    new Date().getFullYear() - 2019
+                  }-year journey as a Fullstack Software
+            Developer, I exude a charismatic blend of expertise in crafting
+            impeccable RESTful APIs using the formidable M.E.R.N. stack
+            (MongoDB, Express, ReactJS, NodeJS). My adeptness extends to
+            seamlessly navigating a diverse array of databases encompassing
+            NoSQL, ORM, Amazon RDS, and RDBMS, while consistently delivering
+            cutting-edge and scalable full stack solutions. As a testament to my
+            multifaceted nature, I also channel my creative prowess as a
+            part-time graphics designer and animator, all crowned by my recent
+            graduation from the esteemed University of Lagos.`}{" "}
+                  <span
+                    onClick={() => {
+                      setIsLayman(true);
+                    }}
+                    style={{
+                      cursor: "pointer",
+                      color: "var(--primary-color)",
+                      textDecoration: "underline",
+                      // fontWeight: 600,
+                    }}
+                  >
+                    Translate to English?
+                  </span>
+                </p>
+              </Fade>
+            )}
 
             <div
-              className="flex flex-row pt-10 mx-auto sm:mx-0"
+              className="flex flex-col sm:flex-row pt-10 sm:mx-0"
               style={{ paddingTop: "40px" }}
             >
               <a href="#skill-section">
                 <CustomButton
-                  className="border"
+                  className="border mb-3 w-full"
                   value={
                     <span
-                      className="flex flex-row items-center"
+                      className="flex flex-row items-center justify-center text-center uppercase"
                       style={{ color: "var(--text-color)" }}
                     >
                       <i
@@ -604,25 +748,25 @@ const PortfolioIndex = () => {
 
               <a href="tel:+2349059620514">
                 <CustomButton
-                  className="ml-9"
+                  className="mb-3 sm:ml-9 w-full"
                   value={
                     <span
-                      className="flex flex-row items-center"
+                      className="flex flex-row items-center justify-center text-center uppercase"
                       style={{ color: "#eee" }}
                     >
-                      <i
+                      <PhoneIcon
                         className="mr-3"
                         style={{
-                          fontSize: "26px",
+                          fontSize: "16px",
                         }}
-                      >
-                        <CallIcon />
-                      </i>
-                      <span>Contact Me!</span>
+                      />
+
+                      <span>Let's Chat!</span>
                     </span>
                   }
                   sx={{
-                    opacity: 0.95,
+                    border: '1px solid var(--primary-color)',
+                    // opacity: 0.95,
                     backgroundColor: "var(--primary-color)",
                     boxShadow: "none",
                   }}
@@ -707,10 +851,12 @@ const PortfolioIndex = () => {
               maxWidth: "650px",
             }}
           >
-            This sections shows all the skills acquired all through my tech
-            career. Search for the keywords to learn more about each warning.
-            Search for the keywords to learn more about each warning. Search for
-            the keywords to learn more about each warning.
+            This section showcases my technical expertise and proficiency in
+            programming languages, frameworks, tools, and technologies. It
+            demonstrates my problem-solving abilities, analytical skills, and
+            commitment to continuous learning. Explore this section to gain
+            insight into the technical knowledge and capabilities that enable me
+            to deliver innovative solutions.
           </span>
 
           <div className="flex flex-col flex-wrap sm:flex-nowrap w-full">

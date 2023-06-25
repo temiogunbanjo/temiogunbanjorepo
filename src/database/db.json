@@ -214,9 +214,7 @@
         {
           "name": "Problem Solving",
           "level": 9,
-          "tags": [
-            "Interpersonal Skill"
-          ],
+          "tags": ["Interpersonal Skill"],
           "color": "purple",
           "featured": true
         },
@@ -297,32 +295,32 @@
           "description": "I was responsible for building a Time Sheet Process application using Microsoft PowerApp, SharePoint Lists and Power Automate. I was able to learn the fundamentals of No-code development and due to the guidance from the Exec 200 Team",
           "references": [
             {
-              "name": "Remy Sharp",
-              "url": "/static/images/avatar/1.jpg"
+              "name": "Ogechi Uche",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
             },
             {
-              "name": "Travis Howard",
-              "url": "/static/images/avatar/2.jpg"
+              "name": "Chioma Onyeri",
+              "url": "/static/images/avatar/2.jpg",
+              "title": "Team Lead / Programme Manager",
+              "phone": null,
+              "email": "",
+              "website": null
             },
             {
-              "name": "Cindy Baker",
-              "url": "/static/images/avatar/3.jpg"
-            },
-            {
-              "name": "Agnes Walker",
-              "url": "/static/images/avatar/4.jpg"
-            },
-            {
-              "name": "Trevor Henderson",
-              "url": "/static/images/avatar/5.jpg"
+              "name": "Opeyemi Ajani",
+              "url": "/static/images/avatar/2.jpg",
+              "title": "Senior Developer",
+              "phone": null,
+              "email": "",
+              "website": null
             }
           ],
           "link": "https://www.linkedin.com/company/first-bank-of-nigeria-ltd/",
-          "relatedSkills": [
-            "UI Path",
-            "Microsoft Power Apps",
-            "MySQL"
-          ]
+          "relatedSkills": ["UI Path", "Microsoft Power Apps", "MySQL"]
         },
         {
           "company": "Lixom Technologies Ltd.",
@@ -331,33 +329,24 @@
           "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals, </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. </li><li>Documentation of the API endpoints. </li><li> Management and supervision of my engineers.</li></ol>",
           "references": [
             {
-              "name": "Remy Sharp",
-              "url": "/static/images/avatar/1.jpg"
+              "name": "Wisdom Okpewemeya",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Engineer",
+              "phone": null,
+              "email": "",
+              "website": null
             },
             {
-              "name": "Travis Howard",
-              "url": "/static/images/avatar/2.jpg"
-            },
-            {
-              "name": "Cindy Baker",
-              "url": "/static/images/avatar/3.jpg"
-            },
-            {
-              "name": "Agnes Walker",
-              "url": "/static/images/avatar/4.jpg"
-            },
-            {
-              "name": "Trevor Henderson",
-              "url": "/static/images/avatar/5.jpg"
+              "name": "Elijah Ade",
+              "url": "/static/images/avatar/2.jpg",
+              "title": "Mobile Developer",
+              "phone": null,
+              "email": "",
+              "website": null
             }
           ],
           "link": "",
-          "relatedSkills": [
-            "NodeJS",
-            "PosgreSQL",
-            "MySQL",
-            "Javascript (JS)"
-          ]
+          "relatedSkills": ["NodeJS", "PosgreSQL", "MySQL", "Javascript (JS)"]
         },
         {
           "company": "TradeBuza",
@@ -366,61 +355,23 @@
           "description": "<p>I was responsible for:</p><ol><li>Rewriting the legacy apps</li><li>Create security and data protection settings.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Developing the frontend web application for the various new agro-tech products in the suites</li><li>Collaboration with the team to brainstorm and generate ideas for improvements to the app suites</li></ol>",
           "references": [
             {
-              "name": "Remy Sharp",
-              "url": "/static/images/avatar/1.jpg"
-            },
-            {
-              "name": "Travis Howard",
-              "url": "/static/images/avatar/2.jpg"
-            },
-            {
-              "name": "Cindy Baker",
-              "url": "/static/images/avatar/3.jpg"
-            },
-            {
-              "name": "Agnes Walker",
-              "url": "/static/images/avatar/4.jpg"
-            },
-            {
-              "name": "Trevor Henderson",
-              "url": "/static/images/avatar/5.jpg"
+              "name": "Elijah Obominuru",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
             }
           ],
           "link": "https://www.tradebuza.com/",
-          "relatedSkills": [
-            "ReactJS",
-            "Typescript",
-            "Figma",
-            "Javascript (JS)"
-          ]
+          "relatedSkills": ["ReactJS", "Typescript", "Figma", "Javascript (JS)"]
         },
         {
           "company": "Jara Analytics",
           "timeframe": "May 2021 - Feb 2022",
           "role": "Fullstack Software Engineer • Full-Time",
           "description": "<p>I was responsible for:</p><ol><li>Design client-side and server-side architectures. </li><li>Develop effective APIs with standardized documentations.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Create security and data protection settings.</li></ol>",
-          "references": [
-            {
-              "name": "Remy Sharp",
-              "url": "/static/images/avatar/1.jpg"
-            },
-            {
-              "name": "Travis Howard",
-              "url": "/static/images/avatar/2.jpg"
-            },
-            {
-              "name": "Cindy Baker",
-              "url": "/static/images/avatar/3.jpg"
-            },
-            {
-              "name": "Agnes Walker",
-              "url": "/static/images/avatar/4.jpg"
-            },
-            {
-              "name": "Trevor Henderson",
-              "url": "/static/images/avatar/5.jpg"
-            }
-          ],
+          "references": [],
           "link": null
         }
       ]
@@ -439,8 +390,7 @@
             }
           ],
           "tag": "Animations & Motion Graphics",
-          "description":
-           "This product animation was created using Blender3D, photoshop and some other resources as an advertisement for my business (DeePlug) as at the time"
+          "description": "This product animation was created using Blender3D, photoshop and some other resources as an advertisement for my business (DeePlug) as at the time"
         },
         {
           "name": "Robin Virtual Assistant",
@@ -451,8 +401,7 @@
             }
           ],
           "tag": "Software Development",
-          "description":
-           "Robin was a python project I enjoyed working on. As at the time of building the project, I needed a way to automate my workspace, keep reminders and generally have a personal assistant to do the boring repetitive stuffs and so I decided to build a Virtual Assistant. Throughout the duration of the project, I gained experience working with Python, RegExp, Natural Language Processing (NLP), Machine Learning, multi-threading and a lot more."
+          "description": "Robin was a python project I enjoyed working on. As at the time of building the project, I needed a way to automate my workspace, keep reminders and generally have a personal assistant to do the boring repetitive stuffs and so I decided to build a Virtual Assistant. Throughout the duration of the project, I gained experience working with Python, RegExp, Natural Language Processing (NLP), Machine Learning, multi-threading and a lot more."
         },
         {
           "name": "Robin Virtual Assistant",

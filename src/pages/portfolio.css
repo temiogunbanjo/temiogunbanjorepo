@@ -375,6 +375,7 @@ body.dark-mode .background-illuminator {
   margin: 5px 15px 25px;
   flex-grow: 1;
   min-width: 210px;
+  max-width: calc(25% - 30px);
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 0 1px 20px #eee;
   border-radius: 10px;
@@ -543,6 +544,7 @@ footer {
 
   .skills .card {
     margin: 5px 15px 20px;
+    max-width: unset;
   }
 
   .center-headings,
