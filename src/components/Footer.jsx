@@ -16,7 +16,7 @@ const Footer = () => {
     <Fade left cascade>
       <footer className="w-full px-12">
         <h3
-          className="py-12 mb-2"
+          className="py-12 mb-2 uppercase"
           style={{
             color: "var(--header-text-color)",
             fontSize: "38px",
