@@ -121,6 +121,10 @@ body:not([class*="dark-mode"]) *.MuiTab-root.Mui-selected {
   border-radius: 5px 5px 0 0;
 }
 
+body:not([class*="dark-mode"]) *.MuiTabs-indicator {
+  background-color: var(--primary-color);
+}
+
 .hero {
   overflow: hidden;
   justify-content: space-between;
