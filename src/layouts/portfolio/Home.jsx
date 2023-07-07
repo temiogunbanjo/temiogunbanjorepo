@@ -766,7 +766,7 @@ const PortfolioIndex = () => {
                     style={{
                       cursor: "pointer",
                       color: "var(--primary-color)",
-                      textDecoration: "underline",
+                      // textDecoration: "underline",
                       // fontWeight: 600,
                     }}
                   >
