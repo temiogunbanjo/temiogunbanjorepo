@@ -67,17 +67,17 @@ const SkillCard = (props) => {
     switch (true) {
       case grade >= 0 && grade < 3.33:
         return "var(--light-text-color)";
-        // return "gold";
+      // return "gold";
       // return "#ff56cf";
 
       case grade >= 3.33 && grade < 6.67:
         return "var(--light-text-color)";
-        // return "gold";
+      // return "gold";
       // return "#ffdb56";
 
       case grade >= 6.67:
         return "var(--light-text-color)";
-        // return "gold";
+      // return "gold";
       // return "#79ff9f";
 
       default:
@@ -267,7 +267,7 @@ const ExperienceCard = (props) => {
             lineHeight: 1.8,
             fontSize: {
               xs: "14px",
-              md: "14px"
+              md: "14px",
             },
           }}
         >
@@ -518,7 +518,7 @@ const PortfolioIndex = () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
         setShowProfilePic(true);
       },
-    ]
+    ],
   ];
 
   const handleOpen = () => setOpenModal(true);
@@ -719,18 +719,7 @@ const PortfolioIndex = () => {
 
             {isLayman ? (
               <Fade>
-                <p
-                  className="py-8"
-                  style={{
-                    // fontFamily: "'Open Sans'",
-                    textAlign: "justify",
-                    fontWeight: 600,
-                    fontSize: "14px",
-                    color: "var(--text-color)",
-                    lineHeight: 2,
-                    maxWidth: "650px",
-                  }}
-                >
+                <p className="py-8" style={styles.bioStyle}>
                   {`I am a Fullstack Software Developer with ${
                     new Date().getFullYear() - 2019
                   } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable full stack solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
@@ -738,18 +727,7 @@ const PortfolioIndex = () => {
               </Fade>
             ) : (
               <Fade>
-                <p
-                  className="py-8"
-                  style={{
-                    // fontFamily: "'Open Sans'",
-                    textAlign: "justify",
-                    fontWeight: 500,
-                    fontSize: "14px",
-                    color: "var(--text-color)",
-                    lineHeight: 2,
-                    maxWidth: "650px",
-                  }}
-                >
+                <p className="py-8" style={styles.bioStyle}>
                   {`With an illustrious ${
                     new Date().getFullYear() - 2019
                   }-year journey as a Fullstack Software
@@ -769,8 +747,6 @@ const PortfolioIndex = () => {
                     style={{
                       cursor: "pointer",
                       color: "var(--primary-color)",
-                      // textDecoration: "underline",
-                      // fontWeight: 600,
                     }}
                   >
                     Translate to English?
@@ -1305,6 +1281,15 @@ const PortfolioIndex = () => {
 };
 
 const styles = {
+  bioStyle: {
+    // fontFamily: "'Open Sans'",
+    textAlign: "justify",
+    fontWeight: 500,
+    fontSize: "14px",
+    color: "var(--text-color)",
+    lineHeight: 2,
+    maxWidth: "650px",
+  },
   iconStyles: { fontSize: "20px", marginBottom: "10px" },
   tabStyles: {
     fontFamily: "Poppins, Roboto,'Open Sans', Montserrat, san-serif",

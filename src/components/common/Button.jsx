@@ -9,7 +9,7 @@ function CustomButton(props) {
       {...rest}
       style={{
         fontWeight: 600,
-        fontSize: "14px",
+        fontSize: "12px",
         textTransform: "capitalize",
         padding: "16px 24px",
         boxShadow: "0px 5px 20px rgba(108, 117, 125, 0.15)",
