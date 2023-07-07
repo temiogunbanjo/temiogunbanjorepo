@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ReactPlayer from "react-player";
 // import Timeline from "@mui/lab/Timeline";
 // import TimelineItem from "@mui/lab/TimelineItem";
@@ -18,10 +18,8 @@ import {
   Tabs,
   Tooltip,
 } from "@mui/material";
-import {
-  CgArrowLongDown as DownArrowIcon,
-  // CgPathOutline as CallIcon,
-} from "react-icons/cg";
+import { CgArrowLongDown as DownArrowIcon } from "react-icons/cg";
+import { AiFillSafetyCertificate } from "react-icons/ai";
 import {
   FaAngleDoubleDown,
   FaAngleDoubleUp,
@@ -34,7 +32,7 @@ import {
 // BsTelephoneFill
 import {
   HiExternalLink,
-  // HiOutlineLightningBolt as SkillBadgeIcon,
+  HiOutlineLightningBolt as SkillBadgeIcon,
   HiLightningBolt as FeaturedSkillBadgeIcon,
 } from "react-icons/hi";
 import { IoMail as MailIcon } from "react-icons/io5";
@@ -68,15 +66,18 @@ const SkillCard = (props) => {
   const getColor = (grade) => {
     switch (true) {
       case grade >= 0 && grade < 3.33:
-        return "var(--light-text-color)";
+        // return "var(--light-text-color)";
+        return "gold";
       // return "#ff56cf";
 
       case grade >= 3.33 && grade < 6.67:
-        return "var(--light-text-color)";
+        // return "var(--light-text-color)";
+        return "gold";
       // return "#ffdb56";
 
       case grade >= 6.67:
-        return "var(--light-text-color)";
+        // return "var(--light-text-color)";
+        return "gold";
       // return "#79ff9f";
 
       default:
@@ -106,9 +107,23 @@ const SkillCard = (props) => {
           >
             {props.data?.name}
           </b>
-          <span className="mt-3 capitalize text-left">
+          <span className="mt-3 text-lg capitalize text-left">
             {props.data?.tags[0]}
           </span>
+          {props.data?.certifications?.length > 0 && (
+            <span
+              className="flex flex-row items-center mt-3 uppercase text-left text-md"
+              style={{
+                color: "var(--light-text-color)",
+              }}
+            >
+              <AiFillSafetyCertificate
+                className="text-lg"
+                style={{ marginRight: "4px" }}
+              />
+              Certified Skill
+            </span>
+          )}
         </div>
 
         <div className="flex rounded-full">
@@ -127,7 +142,7 @@ const SkillCard = (props) => {
             //   fill: 'var(--text-color)'
             // }}
             paddingAngle={5}
-            lineWidth={25}
+            lineWidth={10}
             data={[
               {
                 title: "Mastered",
@@ -147,28 +162,37 @@ const SkillCard = (props) => {
       </div>
 
       <div
-        className="flex flex-row-reverse mb-8 w-full items-center justify-between px-3 py-2.5 rounded-lg"
+        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-4 py-4 rounded-lg shadow"
         style={{
           backgroundColor: "rgba(170, 170, 170, 0.15)",
         }}
       >
         {!props.data?.featured ? (
-          <FeaturedSkillBadgeIcon
+          <SkillBadgeIcon
             style={{
-              fontSize: "30px",
-              marginBottom: "6px",
-              marginTop: "6px",
+              fontSize: "23px",
+              marginBottom: "11px",
+              marginTop: "11px",
               color: "var(--light-text-color)",
             }}
           />
         ) : (
           <FeaturedSkillBadgeIcon
             style={{
-              fontSize: "32px",
-              marginBottom: "5px",
-              marginTop: "5px",
+              fontSize: "25px",
+              marginBottom: "10px",
+              marginTop: "10px",
               color: "gold",
             }}
+          />
+        )}
+
+        {props?.data?.icon && (
+          <img
+            src={props?.data?.icon}
+            alt={""}
+            height="30px"
+            style={{ objectFit: "contain", width: "auto", height: "35px" }}
           />
         )}
       </div>
@@ -482,13 +506,23 @@ const PortfolioIndex = () => {
         setShowProfilePic(true);
       },
     ],
+    [
+      "Survivorship bias is a common logical error that distorts our understanding of the world...",
+      quotePause,
+      "Survivorship bias is a common logical error that distorts our understanding of the world. It happens when we assume that success tells the whole story and when we don't adequately consider past failures.",
+      4000, // Waits 1s
+      () => {
+        console.log("Done typing!"); // Place optional callbacks anywhere in the array
+        setShowProfilePic(true);
+      },
+    ]
   ];
 
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => {
     setDialogContent(null);
     setOpenModal(false);
-  }
+  };
 
   const handleTabChange = (event, newValue) => {
     setTabIndex(newValue);
@@ -496,7 +530,7 @@ const PortfolioIndex = () => {
 
   const handleSkillClick = (data) => (ev) => {
     handleOpen(ev);
-    setDialogContent(<SkillInfo data={data}/>)
+    setDialogContent(<SkillInfo data={data} />);
   };
 
   useEffect(() => {
@@ -605,6 +639,26 @@ const PortfolioIndex = () => {
         return retValue;
     }
   };
+
+  const expIntoSkills = useMemo(() => {
+    const e2S = {};
+    experiences.forEach((exp) => {
+      if (exp.relatedSkills) {
+        exp.relatedSkills.forEach((skill) => {
+          skill = skill.toLowerCase();
+          if (!e2S[skill]) {
+            e2S[skill] = [exp];
+          } else {
+            e2S[skill].push(exp);
+          }
+        });
+      }
+    });
+
+    return e2S;
+  }, [experiences]);
+
+  // console.log(expIntoSkills);
 
   return (
     <>
@@ -728,7 +782,7 @@ const PortfolioIndex = () => {
             >
               <a href="#skill-section">
                 <CustomButton
-                  className="border mb-3 w-full"
+                  className="border mb-6 w-full"
                   value={
                     <span
                       className="flex flex-row items-center justify-center text-center uppercase"
@@ -755,7 +809,7 @@ const PortfolioIndex = () => {
 
               <a href="tel:+2349059620514">
                 <CustomButton
-                  className="mb-3 sm:ml-9 w-full"
+                  className="mb-6 sm:ml-9 w-full"
                   value={
                     <span
                       className="flex flex-row items-center justify-center text-center uppercase"
@@ -945,9 +999,13 @@ const PortfolioIndex = () => {
                     {(showAllSkills
                       ? filterSkills(tabIndex)
                       : filterSkills(tabIndex).slice(0, 9)
-                    ).map((eachSkill) => (
+                    ).map((eachSkill, i) => (
                       <SkillCard
+                        key={i}
                         data={eachSkill}
+                        experiences={
+                          expIntoSkills[eachSkill.name.toLowerCase()]
+                        }
                         onClick={handleSkillClick(eachSkill)}
                       />
                     ))}
@@ -1017,7 +1075,7 @@ const PortfolioIndex = () => {
           <div className="flex flex-col mt-2 pl-6">
             {!loadingExperiences ? (
               (showAllExperiences ? experiences : experiences.slice(0, 2)).map(
-                (each) => <ExperienceCard data={each} />
+                (each, i) => <ExperienceCard key={i} data={each} />
               )
             ) : (
               <div className="flex flex-col items-center justify-center">

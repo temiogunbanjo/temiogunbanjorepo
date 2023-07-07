@@ -372,7 +372,7 @@ body.dark-mode .background-illuminator {
 
 .skills .card {
   color: var(--light-text-color);
-  margin: 5px 15px 25px;
+  margin: 15px 15px 15px;
   flex-grow: 1;
   min-width: 215px;
   max-width: calc(25% - 30px);

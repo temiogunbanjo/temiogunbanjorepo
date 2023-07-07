@@ -74,7 +74,7 @@ const PortfolioAuth = () => {
             justifyContent: "center",
             width: "100%",
             minWidth: { xs: "unset", md: "505px" },
-            maxWidth: "600px",
+            maxWidth: "650px",
           }}
         >
           {/* <MuiFade in={(isDone && isValid)}> */}
@@ -142,11 +142,11 @@ const PortfolioAuth = () => {
               repeat: 0,
               className: "py-8 text-left",
               style: {
-                fontSize: "14px",
+                fontSize: "18px",
                 fontWeight: 600,
                 color: "var(--text-color)",
                 lineHeight: 2,
-                maxWidth: "500px",
+                maxWidth: "650px",
                 minHeight: "100px",
               },
             };
@@ -300,15 +300,15 @@ const PortfolioAuth = () => {
             return reaction;
           })()}
 
-          <div
-            className="flex flex-row pt-10 mx-auto sm:mx-0 items-start"
-            style={{ paddingTop: "40px" }}
+          <Collapse
+            orientation="horizontal"
+            in={canType}
+            timeout={600}
+            className=""
           >
-            <Collapse
-              orientation="horizontal"
-              in={canType}
-              timeout={600}
-              className=""
+            <div
+              className="flex flex-row pt-10 mx-auto sm:mx-0 items-start"
+              style={{ paddingTop: "40px" }}
             >
               <TextField
                 onChange={handleChange}
@@ -334,26 +334,26 @@ const PortfolioAuth = () => {
                 }}
                 disabled={!canType}
               />
-            </Collapse>
 
-            <CustomButton
-              className=""
-              sx={{
-                backgroundColor: "var(--tab-notice-bgcolor)",
-                boxShadow: "none",
-              }}
-              value={
-                <span
-                  className="flex flex-row items-center"
-                  style={{ color: "#fff" }}
-                >
-                  <span>{!isValid || !isTouched ? "Test" : "Let's Go!"}</span>
-                </span>
-              }
-              disabled={!isTouched}
-              onClick={handleSubmit}
-            />
-          </div>
+              <CustomButton
+                className=""
+                sx={{
+                  backgroundColor: "var(--tab-notice-bgcolor)",
+                  boxShadow: "none",
+                }}
+                value={
+                  <span
+                    className="flex flex-row items-center"
+                    style={{ color: "#fff" }}
+                  >
+                    <span>{!isValid || !isTouched ? "Test" : "Let's Go!"}</span>
+                  </span>
+                }
+                disabled={!isTouched}
+                onClick={handleSubmit}
+              />
+            </div>
+          </Collapse>
         </Box>
       </section>
     </>

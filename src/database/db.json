@@ -32,8 +32,27 @@
             "Web Development"
           ],
           "color": "purple",
-          "icon": "<CgCodeSlash style={iconStyles} />",
-          "featured": true
+          "icon": "https://nodejs.org/static/images/favicons/favicon.png",
+          "featured": true,
+          "description": "Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser. Ryan Dahl developed it in 2009, and its latest iteration, version 15.14, was released in April 2021. Developers use Node.js to create server-side web applications, and it is perfect for data-intensive applications since it uses an asynchronous, event-driven model.",
+          "certifications": [
+            {
+              "title": "Node (Basic)",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
+              "organization": "HackerRank",
+              "issue_date": "Nov. 2021",
+              "certificateId": "",
+              "verification_link": "https://www.hackerrank.com/certificates/97347fa78d58"
+            },
+            {
+              "title": "Passed LinkedIn Skill Assessment",
+              "organization_icon": "https://www.bettereurope.eu/wp-content/uploads/2021/06/logo-LinkedIn.png",
+              "organization": "LinkedIn",
+              "issue_date": "2020",
+              "certificateId": "",
+              "verification_link": "https://www.linkedin.com/in/temiloluwa-ogunbanjo-719731168/"
+            }
+          ]
         },
         {
           "name": "Javascript",
@@ -45,7 +64,34 @@
             "Web Development"
           ],
           "color": "purple",
-          "icon": "<CgCodeSlash style={iconStyles} />"
+          "icon": "https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/js-512.png",
+          "description": "JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc.",
+          "certifications": [
+            {
+              "title": "Problem Solving (Basic)",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
+              "organization": "HackerRank",
+              "issue_date": "Nov. 2021",
+              "certificateId": "",
+              "verification_link": "https://www.hackerrank.com/certificates/692c67642a36"
+            },
+            {
+              "title": "Programming With Javascript",
+              "organization_icon": "https://media.licdn.com/dms/image/C4E0BAQFdNatYGiBelg/company-logo_100_100/0/1636138753911?e=1696464000&v=beta&t=Y8YZS6ie8vacjAMZdht3kmzZSDuPPQRYEx4hUOAjt6g",
+              "organization": "Meta",
+              "issue_date": "Apr. 2023",
+              "certificateId": "",
+              "verification_link": "https://www.coursera.org/account/accomplishments/verify/V3H44HURAPHA"
+            },
+            {
+              "title": "Javascript Tutorial Course",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHER-dvTqh2tA/company-logo_100_100/0/1625174152948?e=1696464000&v=beta&t=9sIJNjZBL2f-11V6AAbnHuqbylAnlj5Pa_KdYVSu4PQ",
+              "organization": "SoloLearn",
+              "issue_date": "Feb. 2019",
+              "certificateId": "",
+              "verification_link": ""
+            }
+          ]
         },
         {
           "name": "ReactJS",
@@ -56,10 +102,30 @@
             "Web Development"
           ],
           "color": "purple",
-          "icon": "<CgCodeSlash style={iconStyles} />"
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+          "description": "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.",
+          "certifications": [
+            {
+              "title": "Programming With Javascript",
+              "organization_icon": "https://media.licdn.com/dms/image/C4E0BAQFdNatYGiBelg/company-logo_100_100/0/1636138753911?e=1696464000&v=beta&t=Y8YZS6ie8vacjAMZdht3kmzZSDuPPQRYEx4hUOAjt6g",
+              "organization": "Meta",
+              "issue_date": "Apr. 2023",
+              "certificateId": "",
+              "verification_link": "https://www.coursera.org/account/accomplishments/verify/V3H44HURAPHA"
+            },
+            {
+              "title": "Passed LinkedIn Skill Assessment",
+              "organization_icon": "https://www.bettereurope.eu/wp-content/uploads/2021/06/logo-LinkedIn.png",
+              "organization": "LinkedIn",
+              "issue_date": "2020",
+              "certificateId": "",
+              "verification_link": "https://www.linkedin.com/in/temiloluwa-ogunbanjo-719731168/"
+            }
+          ]
         },
         {
           "name": "React Native",
+          "description": "React Native is a JavaScript framework for building native mobile apps. It uses the React framework and offers large amount of inbuilt components and APIs.",
           "level": 5.5,
           "tags": [
             "Mobile Development",
@@ -68,7 +134,8 @@
             "Web Development"
           ],
           "color": "purple",
-          "icon": "<CgCodeSlash style={iconStyles} />"
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+          "certifications": []
         },
         {
           "name": "Typescript",
@@ -79,10 +146,12 @@
             "Web Development"
           ],
           "color": "purple",
-          "icon": "<CgCodeSlash style={iconStyles} />"
+          "icon": "https://w7.pngwing.com/pngs/915/519/png-transparent-typescript-hd-logo-thumbnail.png",
+          "certifications": []
         },
         {
           "name": "MySQL",
+          "description": "MySQL is a relational database management system based on the Structured Query Language, which is the popular language for accessing and managing the records in the database. MySQL is open-source and free software under the GNU license. It is supported by Oracle Company.",
           "level": 7.5,
           "tags": [
             "Database",
@@ -91,8 +160,9 @@
             "SQL"
           ],
           "color": "orange",
-          "icon": "<FaDatabase style={iconStyles} />",
-          "featured": true
+          "icon": "https://www.elearningworld.org/wp-content/uploads/2019/04/MySQL.svg.png",
+          "featured": true,
+          "certifications": []
         },
         {
           "name": "PostgreSQL",
@@ -104,7 +174,7 @@
             "SQL"
           ],
           "color": "orange",
-          "icon": "<FaDatabase style={iconStyles} />"
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png"
         },
         {
           "name": "RethinkDB",
@@ -116,7 +186,7 @@
             "NoSQL"
           ],
           "color": "orange",
-          "icon": "<FaDatabase style={iconStyles} />"
+          "icon": "https://pbs.twimg.com/profile_images/828490798480052225/Sp0fIxul_400x400.jpg"
         },
         {
           "name": "MongoDB",
@@ -128,7 +198,17 @@
             "NoSQL"
           ],
           "color": "orange",
-          "icon": "<FaDatabase style={iconStyles} />"
+          "icon": "https://miro.medium.com/v2/resize:fit:512/1*doAg1_fMQKWFoub-6gwUiQ.png",
+          "certifications": [
+            {
+              "title": "Passed LinkedIn Skill Assessment",
+              "organization_icon": "https://www.bettereurope.eu/wp-content/uploads/2021/06/logo-LinkedIn.png",
+              "organization": "LinkedIn",
+              "issue_date": "2020",
+              "certificateId": "",
+              "verification_link": "https://www.linkedin.com/in/temiloluwa-ogunbanjo-719731168/"
+            }
+          ]
         },
         {
           "name": "Git/GitHub",
@@ -139,8 +219,18 @@
             "Software Development"
           ],
           "color": "orange",
-          "icon": "<FaGithub style={iconStyles} />",
-          "featured": true
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          "featured": true,
+          "certifications": [
+            {
+              "title": "Version Control",
+              "organization_icon": "https://media.licdn.com/dms/image/C4E0BAQFdNatYGiBelg/company-logo_100_100/0/1636138753911?e=1696464000&v=beta&t=Y8YZS6ie8vacjAMZdht3kmzZSDuPPQRYEx4hUOAjt6g",
+              "organization": "Meta",
+              "issue_date": "Apr. 2023",
+              "certificateId": "",
+              "verification_link": ""
+            }
+          ]
         },
         {
           "name": "BitBucket",
@@ -151,7 +241,7 @@
             "Software Development"
           ],
           "color": "orange",
-          "icon": "<FaGithub style={iconStyles} />"
+          "icon": "https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_2ea5f7178028686921161d65d4be481a/bitbucket.png"
         },
         {
           "name": "REST API",
@@ -162,11 +252,53 @@
             "Web Development"
           ],
           "color": "orange",
-          "icon": "<FaNetworkWired style={iconStyles} />",
-          "featured": true
+          "icon": "https://lh3.googleusercontent.com/-XvJzhz3pfH0/XjYG_xWkESI/AAAAAAAAJ9c/AYlgAtRknEU2W5fMcFhQoL6rmO8EBtIDQCK8BGAsYHg/s0/2020-02-01.png",
+          "featured": true,
+          "certifications": [
+            {
+              "title": "Node (Basic)",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
+              "organization": "HackerRank",
+              "issue_date": "Nov. 2021",
+              "certificateId": "",
+              "verification_link": "https://www.hackerrank.com/certificates/97347fa78d58"
+            },
+            {
+              "title": "Problem Solving (Basic)",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
+              "organization": "HackerRank",
+              "issue_date": "Nov. 2021",
+              "certificateId": "",
+              "verification_link": "https://www.hackerrank.com/certificates/692c67642a36"
+            }
+          ]
+        },
+        {
+          "name": "Python",
+          "description": "Python is a popular general-purpose programming language. It is used in machine learning, web development, desktop applications, and many other fields. Fortunately for beginners, Python has a simple, easy-to-use syntax. This makes Python a great language to learn for beginners.",
+          "level": 7,
+          "tags": [
+            "Software Development",
+            "Back-End Development",
+            "Mobile Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
+          "certifications": [
+            {
+              "title": "Passed LinkedIn Skill Assessment",
+              "organization_icon": "https://www.bettereurope.eu/wp-content/uploads/2021/06/logo-LinkedIn.png",
+              "organization": "LinkedIn",
+              "issue_date": "2020",
+              "certificateId": "",
+              "verification_link": "https://www.linkedin.com/in/temiloluwa-ogunbanjo-719731168/"
+            }
+          ]
         },
         {
           "name": "GraphQL",
+          "description": "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.",
           "level": 2.5,
           "tags": [
             "Software Development",
@@ -174,7 +306,7 @@
             "Web Development"
           ],
           "color": "orange",
-          "icon": "<CgChart style={iconStyles} />"
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1200px-GraphQL_Logo.svg.png"
         },
         {
           "name": "AWS Services",
@@ -186,22 +318,11 @@
             "Web Development"
           ],
           "color": "orange",
-          "icon": "<FaAws style={iconStyles} />"
-        },
-        {
-          "name": "Python",
-          "level": 7,
-          "tags": [
-            "Software Development",
-            "Back-End Development",
-            "Mobile Development",
-            "Web Development"
-          ],
-          "color": "purple",
-          "icon": "<FaPython style={iconStyles} />"
+          "icon": "https://www.strongdm.com/hubfs/21126185/Technology%20Images/5f2b5a79107b5c59f1a00b16_AWS-1.png"
         },
         {
           "name": "Java",
+          "description": "Java is a widely-used programming language for coding web applications. It has been a popular choice among developers for over two decades, with millions of Java applications in use today. Java is a multi-platform, object-oriented, and network-centric language that can be used as a platform in itself.",
           "level": 4,
           "tags": [
             "Software Development",
@@ -209,7 +330,25 @@
             "Mobile Development"
           ],
           "color": "purple",
-          "icon": "<FaPython style={iconStyles} />"
+          "icon": "https://nerdysoft.com/wp-content/uploads/2021/11/java-14-1.svg",
+          "certifications": [
+            {
+              "title": "Java Tutorial Course",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHER-dvTqh2tA/company-logo_100_100/0/1625174152948?e=1696464000&v=beta&t=9sIJNjZBL2f-11V6AAbnHuqbylAnlj5Pa_KdYVSu4PQ",
+              "organization": "SoloLearn",
+              "issue_date": "Feb. 2019",
+              "certificateId": "",
+              "verification_link": ""
+            },
+            {
+              "title": "Java (Basic)",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
+              "organization": "HackerRank",
+              "issue_date": "Nov. 2021",
+              "certificateId": "",
+              "verification_link": "https://www.hackerrank.com/certificates/cbae5cfc24dc"
+            }
+          ]
         },
         {
           "name": "Problem Solving",
@@ -223,7 +362,7 @@
           "level": 5.5,
           "color": "orange",
           "tags": ["UI/UX Design & Prototyping"],
-          "icon": "<IoColorPaletteOutline style={iconStyles} />",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/640px-Figma-logo.svg.png",
           "featured": true
         },
         {
@@ -231,21 +370,21 @@
           "level": 3,
           "color": "orange",
           "tags": ["UI/UX Design & Prototyping"],
-          "icon": "<IoColorPaletteOutline style={iconStyles} />"
+          "icon": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/hjixnzui1nhq3trfcwx8"
         },
         {
           "name": "Adobe Photoshop",
           "level": 6.5,
           "color": "orange",
           "tags": ["graphics design"],
-          "icon": "<TbSlideshow style={iconStyles} />"
+          "icon": "https://static.vecteezy.com/system/resources/previews/019/016/822/non_2x/adobe-photoshop-express-editor-icon-free-png.png"
         },
         {
           "name": "Blender",
           "level": 7,
           "color": "orange",
           "tags": ["Animations & Motion Graphics"],
-          "icon": "<IoCube style={iconStyles} />",
+          "icon": "https://proyectoidis.org/wp-content/uploads/2015/07/Blender-Alpha_00000.png",
           "featured": true
         },
         {
@@ -253,26 +392,28 @@
           "level": 5,
           "color": "orange",
           "tags": ["Low-Code App Development"],
-          "icon": "<IoApps style={iconStyles} />"
+          "icon": "https://static.wixstatic.com/media/9d1732_bb250bfce7a348fdaa9cc011f988aec2~mv2.png/v1/fill/w_248,h_240,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20power%20apps.png"
         },
         {
           "name": "UI Path",
           "level": 3,
           "color": "orange",
           "tags": ["Process & Automations"],
-          "icon": "<SiMlflow style={iconStyles} />"
+          "icon": "https://upload.wikimedia.org/wikipedia/en/8/80/UiPath_2019_Corporate_Logo.png"
         },
         {
           "name": "Autodesk AutoCAD",
           "level": 5,
           "color": "orange",
-          "tags": ["machinery & Computer Aided Designs"]
+          "tags": ["machinery & Computer Aided Designs"],
+          "icon": "https://logos-world.net/wp-content/uploads/2020/12/Autocad-Logo.png"
         },
         {
           "name": "Autodesk Inventor",
           "level": 6,
           "color": "orange",
-          "tags": ["machinery & Computer Aided Designs"]
+          "tags": ["machinery & Computer Aided Designs"],
+          "icon": "https://www.cadac.com/globalassets/software/icons/autodesk-inventor-professional-icon.png"
         },
         {
           "name": "Welding & Fabrication",
@@ -404,14 +545,14 @@
           "description": "Robin was a python project I enjoyed working on. As at the time of building the project, I needed a way to automate my workspace, keep reminders and generally have a personal assistant to do the boring repetitive stuffs and so I decided to build a Virtual Assistant. Throughout the duration of the project, I gained experience working with Python, RegExp, Natural Language Processing (NLP), Machine Learning, multi-threading and a lot more."
         },
         {
-          "name": "Robin Virtual Assistant",
+          "name": "3D Video Resume - Visume",
           "content": [
             {
               "type": "video",
               "url": "https://www.youtube.com/embed/-huRykhjs6g"
             }
           ],
-          "tag": "Software Development",
+          "tag": "Animations & Motion Graphics",
           "description": ""
         }
       ]
