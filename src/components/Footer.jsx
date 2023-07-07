@@ -14,9 +14,9 @@ const Footer = () => {
 
   return (
     <Fade left cascade>
-      <footer className="w-full px-12 mt-12">
+      <footer className="w-full px-12 mt-8">
         <h3
-          className="py-8"
+          className="py-8 mb-4"
           style={{
             color: "var(--header-text-color)",
             fontSize: "38px",
