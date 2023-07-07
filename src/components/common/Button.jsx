@@ -8,7 +8,7 @@ function CustomButton(props) {
       variant="contained"
       {...rest}
       style={{
-        fontWeight: 600,
+        fontWeight: 700,
         fontSize: "12px",
         textTransform: "capitalize",
         padding: "16px 24px",

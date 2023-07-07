@@ -162,7 +162,7 @@ const SkillCard = (props) => {
       </div>
 
       <div
-        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-4 py-4 rounded-lg shadow"
+        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-4 py-4 rounded-lg"
         style={{
           backgroundColor: "rgba(170, 170, 170, 0.15)",
         }}
