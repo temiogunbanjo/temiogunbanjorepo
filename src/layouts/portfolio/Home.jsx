@@ -824,7 +824,7 @@ const PortfolioIndex = () => {
                 deletionSpeed={88}
                 cursor={true}
                 repeat={0}
-                className="user-details text-justify uppercase"
+                className="user-details text-justify"
                 style={{
                   fontFamily: "monospace",
                   fontSize: "14px",
