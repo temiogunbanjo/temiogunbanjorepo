@@ -69,7 +69,7 @@ export const SkillInfo = ({ data, experiences }) => {
           </Typography>
         </div>
 
-        <p className="mt-4" style={{ lineHeight: 2, fontSize: '14px' }}>
+        <p className="mt-4" style={{ lineHeight: 2, fontSize: '12px' }}>
           {data?.description ||
             "This section showcases my technical expertise and proficiency in programming languages, frameworks, tools, and technologies. It demonstrates my problem-solving abilities, analytical skills, and commitment to continuous learning. Explore this section to gain insight into the technical knowledge and capabilities that enable me to deliver innovative solutions."}
         </p>
