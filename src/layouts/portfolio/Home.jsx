@@ -740,7 +740,7 @@ const PortfolioIndex = () => {
                   style={{
                     // fontFamily: "'Open Sans'",
                     textAlign: "justify",
-                    fontWeight: 600,
+                    fontWeight: 500,
                     fontSize: "14px",
                     color: "var(--text-color)",
                     lineHeight: 2,
