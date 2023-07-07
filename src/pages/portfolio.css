@@ -491,7 +491,8 @@ footer {
   left: 0;
   height: 100vh;
   min-height: 500px;
-  color: var(--light-text-color);
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
