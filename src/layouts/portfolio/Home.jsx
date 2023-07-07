@@ -94,7 +94,7 @@ const SkillCard = (props) => {
       }}
       onClick={onClick}
     >
-      <div className="flex flex-row items-center justify-between w-full">
+      <div className="flex flex-row items-end justify-between w-full">
         <div className="flex flex-col w-full">
           <b
             className="text-left text-2xl uppercase"
