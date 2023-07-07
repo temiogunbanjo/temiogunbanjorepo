@@ -405,11 +405,11 @@ const ExperienceCard = (props) => {
                     alt={eachImg?.name || "Remy Sharp"}
                     src={eachImg?.url || ""}
                     sx={{
-                      borderColor: "var(--border-line-color) !important",
+                      borderColor: "var(--page-bg-color) !important",
                       fontSize: "12px",
                       width: 30,
                       height: 30,
-                      bgcolor: blueGrey[500],
+                      bgcolor: "#4A4453",
                     }}
                   />
                 </Tooltip>
