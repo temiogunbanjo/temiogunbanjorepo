@@ -62,10 +62,18 @@ function Header(props) {
             className="navigation-links hide-on-mobile"
             style={{ marginLeft: "20px", marginright: "20px" }}
           >
-            <Link to="/therapy" style={{ fontWeight: 600 }}>
+            <Link
+              to="/therapy"
+              className="uppercase"
+              style={{ fontWeight: 600 }}
+            >
               Need Therapy
             </Link>
-            <Link to="/issues" style={{ fontWeight: 600 }}>
+            <Link
+              to="/issues"
+              className="uppercase"
+              style={{ fontWeight: 600 }}
+            >
               Career Challenges
             </Link>
           </nav>

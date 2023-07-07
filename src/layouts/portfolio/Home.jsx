@@ -32,7 +32,7 @@ import {
 // BsTelephoneFill
 import {
   HiExternalLink,
-  HiOutlineLightningBolt as SkillBadgeIcon,
+  // HiOutlineLightningBolt as SkillBadgeIcon,
   HiLightningBolt as FeaturedSkillBadgeIcon,
 } from "react-icons/hi";
 import { IoMail as MailIcon } from "react-icons/io5";
@@ -66,18 +66,18 @@ const SkillCard = (props) => {
   const getColor = (grade) => {
     switch (true) {
       case grade >= 0 && grade < 3.33:
-        // return "var(--light-text-color)";
-        return "gold";
+        return "var(--light-text-color)";
+        // return "gold";
       // return "#ff56cf";
 
       case grade >= 3.33 && grade < 6.67:
-        // return "var(--light-text-color)";
-        return "gold";
+        return "var(--light-text-color)";
+        // return "gold";
       // return "#ffdb56";
 
       case grade >= 6.67:
-        // return "var(--light-text-color)";
-        return "gold";
+        return "var(--light-text-color)";
+        // return "gold";
       // return "#79ff9f";
 
       default:
@@ -142,7 +142,7 @@ const SkillCard = (props) => {
             //   fill: 'var(--text-color)'
             // }}
             paddingAngle={5}
-            lineWidth={10}
+            lineWidth={25}
             data={[
               {
                 title: "Mastered",
@@ -168,7 +168,7 @@ const SkillCard = (props) => {
         }}
       >
         {!props.data?.featured ? (
-          <SkillBadgeIcon
+          <FeaturedSkillBadgeIcon
             style={{
               fontSize: "23px",
               marginBottom: "11px",
