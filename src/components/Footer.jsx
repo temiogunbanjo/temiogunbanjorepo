@@ -18,7 +18,7 @@ const Footer = () => {
         <h3
           className="py-8"
           style={{
-            color: "var(--text-color)",
+            color: "var(--header-text-color)",
             fontSize: "38px",
             fontWeight: 700,
             letterSpacing: "1px",
