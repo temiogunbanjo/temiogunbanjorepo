@@ -259,17 +259,20 @@ const ExperienceCard = (props) => {
           )}
         </div>
 
-        <div
+        <Box
           className="mt-2 text-xl md:text-2xl sm:mt-2"
-          style={{
+          sx={{
             fontWeight: 400,
             color: "var(--text-color)",
             lineHeight: 1.8,
-            // fontSize: '14px'
+            fontSize: {
+              xs: "14px",
+              md: "14px"
+            },
           }}
         >
           {ReactHtmlParser(props?.data?.description)}
-        </div>
+        </Box>
 
         {props?.data?.relatedSkills &&
           props?.data?.relatedSkills.length > 0 && (
