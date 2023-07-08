@@ -132,14 +132,16 @@ body:not([class*="dark-mode"]) *.MuiTabs-indicator {
   background-position: bottom right;
 }
 
-body.dark-mode .hero, #about-section {
+body.dark-mode .hero,
+#about-section {
   background-image: linear-gradient(
     rgba(160, 160, 160, 0.1),
     rgba(160, 160, 160, 0.06)
   );
 }
 
-.main-text, .main-text * {
+.main-text,
+.main-text * {
   font-family: Montserrat, "Open Sans";
 }
 
@@ -443,13 +445,15 @@ body.dark-mode .experiences {
   );
 }
 
-body .experiences .card {
+body .experiences .card,
+body .education-container .card {
   position: relative;
   border-left: 2px solid #ddd;
   transition: all 0.3s ease-in;
 }
 
-body .experiences .card::after {
+body .experiences .card::after,
+body .education-container .card::after {
   content: "";
   top: -2px;
   left: 0;
@@ -464,24 +468,29 @@ body .experiences .card::after {
   transition: all 0.3s ease;
 }
 
-body.dark-mode .experiences .card {
+body.dark-mode .experiences .card,
+body.dark-mode .education-container .card {
   border-left: 2px solid #333;
 }
 
-body.dark-mode .experiences .card::after {
+body.dark-mode .experiences .card::after,
+body.dark-mode .education-container .card::after {
   background-color: #efefef;
 }
 
-body.dark-mode .experiences .card:hover {
+body.dark-mode .experiences .card:hover,
+body.dark-mode .education-container .card:hover {
   border-left-color: #efefef;
 }
 
-.experiences .timeline-section {
+.experiences .timeline-section,
+.education-container .timeline-section {
   width: 180px;
   flex: none;
 }
 
-.experiences img {
+.experiences img,
+.education-container img {
   height: 100px;
   width: 100%;
   object-fit: cover;
@@ -508,13 +517,16 @@ footer {
 /* For all mobile users only */
 @media only screen and (max-width: 768px) {
   .hero {
-    /* height: calc(100vh - 100px) !important; */
     min-height: 500px !important;
   }
 
   main > section {
     padding-left: 26px;
     padding-right: 26px;
+  }
+
+  .main-text {
+    font-size: 32px;
   }
 
   .user-profile-section .img-wrapper {
@@ -532,18 +544,8 @@ footer {
     margin-right: auto;
   }
 
-  /* .experiences .card {
-    border-left: none !important;
-    padding-left: 10px;
-  }
-
-  body .experiences .card {
-    border-bottom: 1px solid var(--border-line-color);
-    padding-bottom: 25px;
-    margin-bottom: 19px;
-  } */
-
-  body .experiences .card:last-child {
+  body .experiences .card:last-child,
+  body .education-container .card:last-child {
     border-bottom: none;
     padding-bottom: 25px;
     margin-bottom: 20px;
@@ -590,7 +592,8 @@ footer {
     bottom: 10px;
   }
 
-  .experiences .timeline-section {
+  .experiences .timeline-section,
+  .education-container .timeline-section {
     width: 100%;
     /* flex: none; */
   }

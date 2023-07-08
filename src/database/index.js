@@ -37,7 +37,7 @@ export const fetchUserSkills = async (userId) => {
 };
 
 export const fetchUserExperiences = async (userId) => {
-  const userskills = new Promise((resolve, reject) => {
+  const userExp = new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
         const result = db.experiences.find((each) => each.userId === userId);
@@ -51,7 +51,25 @@ export const fetchUserExperiences = async (userId) => {
       }
     }, 1500);
   });
-  return userskills;
+  return userExp;
+}
+
+export const fetchUserEducation = async (userId) => {
+  const userExp = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        const result = db.education.find((each) => each.userId === userId);
+        if (result) {
+          resolve(result.data);
+        } else {
+          resolve(null);
+        }
+      } catch (error) {
+        reject(error);
+      }
+    }, 1500);
+  });
+  return userExp;
 }
 
 export const fetchUserProject = async (userId) => {

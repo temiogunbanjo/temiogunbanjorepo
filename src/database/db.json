@@ -41,7 +41,7 @@
               "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
               "organization": "HackerRank",
               "issue_date": "Nov. 2021",
-              "certificateId": "",
+              "certificateId": "97347fa78d58",
               "verification_link": "https://www.hackerrank.com/certificates/97347fa78d58"
             },
             {
@@ -49,7 +49,7 @@
               "organization_icon": "https://www.bettereurope.eu/wp-content/uploads/2021/06/logo-LinkedIn.png",
               "organization": "LinkedIn",
               "issue_date": "2020",
-              "certificateId": "",
+              "certificateId": "719731168",
               "verification_link": "https://www.linkedin.com/in/temiloluwa-ogunbanjo-719731168/"
             }
           ]
@@ -72,7 +72,7 @@
               "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
               "organization": "HackerRank",
               "issue_date": "Nov. 2021",
-              "certificateId": "",
+              "certificateId": "692c67642a36",
               "verification_link": "https://www.hackerrank.com/certificates/692c67642a36"
             },
             {
@@ -178,6 +178,7 @@
         },
         {
           "name": "RethinkDB",
+          "description": "RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort.",
           "level": 3.5,
           "tags": [
             "Database",
@@ -209,6 +210,20 @@
               "verification_link": "https://www.linkedin.com/in/temiloluwa-ogunbanjo-719731168/"
             }
           ]
+        },
+        {
+          "name": "MeilliSearch",
+          "description": "An open-source, lightning-fast, and hyper-relevant search engine that fits effortlessly into your workflow. Meilisearch is a flexible and powerful user-focused search engine that can be added to any website or application.",
+          "level": 3,
+          "tags": [
+            "Database",
+            "Software Development",
+            "Back-End Development",
+            "NoSQL"
+          ],
+          "color": "orange",
+          "icon": "https://raw.githubusercontent.com/meilisearch/integration-guides/main/assets/logos/logo.svg",
+          "certifications": []
         },
         {
           "name": "Git/GitHub",
@@ -268,7 +283,7 @@
               "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
               "organization": "HackerRank",
               "issue_date": "Nov. 2021",
-              "certificateId": "",
+              "certificateId": "692c67642a36",
               "verification_link": "https://www.hackerrank.com/certificates/692c67642a36"
             }
           ]
@@ -359,6 +374,7 @@
         },
         {
           "name": "Figma",
+          "description": "Figma is a powerful web-based design tool that helps you create anything, websites, applications, logos, and much more.",
           "level": 5.5,
           "color": "orange",
           "tags": ["UI/UX Design & Prototyping"],
@@ -430,6 +446,7 @@
       "userId": 1,
       "data": [
         {
+          "icon": "https://www.firstbanknigeria.com/wp-content/uploads/2020/08/First-Bank-Logo_Symbol.svg",
           "company": "First Bank Of Nigeria",
           "timeframe": "Sep 2022 - March 2023",
           "role": "RPA Developer • Internship",
@@ -461,7 +478,12 @@
             }
           ],
           "link": "https://www.linkedin.com/company/first-bank-of-nigeria-ltd/",
-          "relatedSkills": ["UI Path", "Microsoft Power Apps", "MySQL"]
+          "relatedSkills": [
+            "UI Path",
+            "Microsoft Power Apps",
+            "MySQL",
+            "Problem Solving"
+          ]
         },
         {
           "company": "Lixom Technologies Ltd.",
@@ -487,9 +509,22 @@
             }
           ],
           "link": "",
-          "relatedSkills": ["NodeJS", "PosgreSQL", "MySQL", "Javascript (JS)"]
+          "relatedSkills": [
+            "NodeJS",
+            "REST API",
+            "PostgreSQL",
+            "MySQL",
+            "Javascript",
+            "Problem Solving",
+            "Git/GitHub",
+            "MeilliSearch",
+            "RethinkDB",
+            "Python",
+            "AWS Services"
+          ]
         },
         {
+          "icon": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/s0j2vm8hsmcx3fzyrd34",
           "company": "TradeBuza",
           "timeframe": "May 2022 - Present",
           "role": "Senior Front-End Developer • Full-Time",
@@ -502,18 +537,73 @@
               "phone": null,
               "email": "",
               "website": null
+            },
+            {
+              "name": "Similoluwa",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
             }
           ],
           "link": "https://www.tradebuza.com/",
-          "relatedSkills": ["ReactJS", "Typescript", "Figma", "Javascript (JS)"]
+          "relatedSkills": [
+            "ReactJS",
+            "Typescript",
+            "Figma",
+            "Javascript",
+            "Problem Solving",
+            "Git/GitHub"
+          ]
         },
         {
+          "icon": "",
           "company": "Jara Analytics",
           "timeframe": "May 2021 - Feb 2022",
           "role": "Fullstack Software Engineer • Full-Time",
           "description": "<p>I was responsible for:</p><ol><li>Design client-side and server-side architectures. </li><li>Develop effective APIs with standardized documentations.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Create security and data protection settings.</li></ol>",
+          "references": [
+            {
+              "name": "Monday Matsumu",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            },
+            {
+              "name": "Ayooluwa Olosunde",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            }
+          ],
+          "link": null,
+          "relatedSkills": [
+            "NodeJS",
+            "REST API",
+            "ReactJS",
+            "Typescript",
+            "Figma",
+            "Javascript",
+            "BitBucket",
+            "Problem Solving",
+            "AWS Services",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "icon": "",
+          "company": "A.D.C. Limousine Services",
+          "timeframe": "May 2021 - Feb 2022",
+          "role": "Graphics Designer • Contract",
+          "description": "<p>I was responsible for:</p><ol><li>Design client-side and server-side architectures. </li><li>Develop effective APIs with standardized documentations.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Create security and data protection settings.</li></ol>",
           "references": [],
-          "link": null
+          "link": null,
+          "relatedSkills": ["Adobe Photoshop"]
         }
       ]
     }
@@ -554,6 +644,51 @@
           ],
           "tag": "Animations & Motion Graphics",
           "description": ""
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "userId": 1,
+      "data": [
+        {
+          "icon": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/s0j2vm8hsmcx3fzyrd34",
+          "company": "University of Lagos",
+          "timeframe": "Jan. 2015 - Oct. 2023 (8 yrs)",
+          "role": "B.Sc. in Mechanical Engineering • College",
+          "description": "<p>I was responsible for:</p><ol><li>Rewriting the legacy apps</li><li>Create security and data protection settings.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Developing the frontend web application for the various new agro-tech products in the suites</li><li>Collaboration with the team to brainstorm and generate ideas for improvements to the app suites</li></ol>",
+          "references": [],
+          "link": "https://www.tradebuza.com/",
+          "acquiredSkills": [
+            "ReactJS",
+            "Typescript",
+            "Figma",
+            "Javascript",
+            "Problem Solving",
+            "Git/GitHub"
+          ]
+        },
+        {
+          "company": "SolidRock Model College",
+          "timeframe": "Mar. 2009 - Nov. 2014 (6 yrs)",
+          "role": "Department of Sciences • Secondary Institution",
+          "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals, </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. </li><li>Documentation of the API endpoints. </li><li> Management and supervision of my engineers.</li></ol>",
+          "references": [],
+          "link": "",
+          "acquiredSkills": [
+            "NodeJS",
+            "REST API",
+            "PostgreSQL",
+            "MySQL",
+            "Javascript",
+            "Problem Solving",
+            "Git/GitHub",
+            "MeilliSearch",
+            "RethinkDB",
+            "Python",
+            "AWS Services"
+          ]
         }
       ]
     }

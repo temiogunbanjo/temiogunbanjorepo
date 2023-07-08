@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 // import Timeline from "@mui/lab/Timeline";
 // import TimelineItem from "@mui/lab/TimelineItem";
@@ -61,7 +61,7 @@ import { SkillInfo } from "./ModalContents";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
-  const [skillPieWidth, skillPieHeight] = [25, 25];
+  const [skillPieWidth, skillPieHeight] = [14, 14];
 
   const getColor = (grade) => {
     switch (true) {
@@ -129,8 +129,8 @@ const SkillCard = (props) => {
         <div className="flex rounded-full">
           <PieChart
             totalValue={100}
-            radius={skillPieWidth / 2 - 2}
-            segmentsShift={(index) => (index !== 0 ? 0.5 : 0.5)}
+            radius={skillPieWidth / 2 - 1.5}
+            segmentsShift={(index) => (index !== 0 ? 0.3 : 0.3)}
             viewBoxSize={[skillPieWidth, skillPieHeight]}
             center={[skillPieWidth / 2, skillPieHeight / 2]}
             startAngle={-90}
@@ -142,7 +142,7 @@ const SkillCard = (props) => {
             //   fill: 'var(--text-color)'
             // }}
             paddingAngle={5}
-            lineWidth={25}
+            lineWidth={10}
             data={[
               {
                 title: "Mastered",
@@ -162,17 +162,15 @@ const SkillCard = (props) => {
       </div>
 
       <div
-        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-4 py-4 rounded-lg"
+        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-4 py-6 rounded-lg"
         style={{
-          backgroundColor: "rgba(170, 170, 170, 0.15)",
+          backgroundColor: "rgba(170, 170, 170, 0.10)",
         }}
       >
         {!props.data?.featured ? (
           <FeaturedSkillBadgeIcon
             style={{
               fontSize: "23px",
-              marginBottom: "11px",
-              marginTop: "11px",
               color: "var(--light-text-color)",
             }}
           />
@@ -180,8 +178,6 @@ const SkillCard = (props) => {
           <FeaturedSkillBadgeIcon
             style={{
               fontSize: "25px",
-              marginBottom: "10px",
-              marginTop: "10px",
               color: "gold",
             }}
           />
@@ -201,9 +197,13 @@ const SkillCard = (props) => {
 };
 
 const ExperienceCard = (props) => {
+  const experienceId = props?.data?.company
+    ?.replace(/['".()&]/gi, "")
+    .replace(/\s+/gi, "-");
   return (
     <Box
       component="div"
+      id={experienceId}
       className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
       sx={{}}
     >
@@ -260,7 +260,7 @@ const ExperienceCard = (props) => {
         </div>
 
         <Box
-          className="mt-2 text-xl md:text-2xl sm:mt-2"
+          className="mt-2 text-xl md:text-2xl sm:mt-2 text-justify"
           sx={{
             fontWeight: 400,
             color: "var(--text-color)",
@@ -331,6 +331,7 @@ const ExperienceCard = (props) => {
             >
               {props?.data?.references.map((eachImg, index) => (
                 <Tooltip
+                  key={index}
                   arrow={true}
                   placement="bottom-start"
                   title={
@@ -441,6 +442,8 @@ const PortfolioIndex = () => {
   const [loadingProjects, setLoadingProjects] = useState(true);
   const [projects, setProjects] = useState([]);
 
+  const [expIntoSkills, setExpIntoSkills] = useState({});
+
   const [tabIndex, setTabIndex] = useState(1);
 
   const quotePause = 1500;
@@ -531,9 +534,15 @@ const PortfolioIndex = () => {
     setTabIndex(newValue);
   };
 
-  const handleSkillClick = (data) => (ev) => {
+  const handleSkillClick = (data, expSkills) => (ev) => {
     handleOpen(ev);
-    setDialogContent(<SkillInfo data={data} />);
+    setDialogContent(
+      <SkillInfo
+        data={data}
+        experiences={expSkills}
+        closeHandler={handleClose}
+      />
+    );
   };
 
   useEffect(() => {
@@ -573,6 +582,24 @@ const PortfolioIndex = () => {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    const e2S = {};
+    experiences.forEach((exp) => {
+      if (exp.relatedSkills) {
+        exp.relatedSkills.forEach((skill) => {
+          skill = skill.toLowerCase();
+          if (!e2S[skill]) {
+            e2S[skill] = [exp];
+          } else {
+            e2S[skill].push(exp);
+          }
+        });
+      }
+    });
+
+    setExpIntoSkills(e2S);
+  }, [experiences]);
 
   const filterSkills = (tabI) => {
     let retValue = skills;
@@ -643,26 +670,6 @@ const PortfolioIndex = () => {
     }
   };
 
-  const expIntoSkills = useMemo(() => {
-    const e2S = {};
-    experiences.forEach((exp) => {
-      if (exp.relatedSkills) {
-        exp.relatedSkills.forEach((skill) => {
-          skill = skill.toLowerCase();
-          if (!e2S[skill]) {
-            e2S[skill] = [exp];
-          } else {
-            e2S[skill].push(exp);
-          }
-        });
-      }
-    });
-
-    return e2S;
-  }, [experiences]);
-
-  // console.log(expIntoSkills);
-
   return (
     <>
       <section className="hero flex flex-col sm:flex-row relative">
@@ -681,28 +688,26 @@ const PortfolioIndex = () => {
               </span>
             </h1>
             <h3
-              className="flex flex-row align-center mt-3"
+              className="inline mt-3"
               style={{ fontSize: "24px" }}
             >
               <span
-                className="mr-2"
-                style={{ letterSpacing: "0px", color: "var(light-text-color)" }}
+                className="mr-3"
+                style={{ letterSpacing: "0px", color: "var(--light-text-color)" }}
               >
                 I am a
               </span>
               <TypeAnimation
                 sequence={[
                   "Full Stack Developer!",
-                  1000, // Waits 1s
+                  1000,
                   "Graphics Designer!",
-                  1000, // Waits 2s
+                  1000,
                   "3D Animator!",
-                  1000, // Waits 2s
+                  1000,
                   "Part-time Therapist!",
                   3000,
-                  () => {
-                    console.log("Done typing!"); // Place optional callbacks anywhere in the array
-                  },
+                  () => {},
                 ]}
                 wrapper="span"
                 speed={35}
@@ -719,7 +724,7 @@ const PortfolioIndex = () => {
 
             {isLayman ? (
               <Fade>
-                <p className="py-8" style={styles.bioStyle}>
+                <p className="py-8 text-xl" style={styles.bioStyle}>
                   {`I am a Fullstack Software Developer with ${
                     new Date().getFullYear() - 2019
                   } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable full stack solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
@@ -727,7 +732,7 @@ const PortfolioIndex = () => {
               </Fade>
             ) : (
               <Fade>
-                <p className="py-8" style={styles.bioStyle}>
+                <p className="py-8 text-xl" style={styles.bioStyle}>
                   {`With an illustrious ${
                     new Date().getFullYear() - 2019
                   }-year journey as a Fullstack Software
@@ -759,9 +764,9 @@ const PortfolioIndex = () => {
               className="flex flex-col sm:flex-row pt-10 sm:mx-0"
               style={{ paddingTop: "40px" }}
             >
-              <a href="#skill-section">
+              <a href="#skill-section" className="mb-6 w-full inline-block">
                 <CustomButton
-                  className="border mb-6 w-full"
+                  className="border w-full"
                   value={
                     <span
                       className="flex flex-row items-center justify-center text-center uppercase"
@@ -786,9 +791,12 @@ const PortfolioIndex = () => {
                 />
               </a>
 
-              <a href="tel:+2349059620514">
+              <a
+                href="tel:+2349059620514"
+                className="mb-6 sm:ml-9 w-full inline-block"
+              >
                 <CustomButton
-                  className="mb-6 sm:ml-9 w-full"
+                  className="w-full h-full"
                   value={
                     <span
                       className="flex flex-row items-center justify-center text-center uppercase"
@@ -824,7 +832,7 @@ const PortfolioIndex = () => {
                 deletionSpeed={88}
                 cursor={true}
                 repeat={0}
-                className="user-details text-justify"
+                className="user-details text-center sm:text-justify"
                 style={{
                   fontFamily: "monospace",
                   fontSize: "14px",
@@ -982,10 +990,10 @@ const PortfolioIndex = () => {
                       <SkillCard
                         key={i}
                         data={eachSkill}
-                        experiences={
+                        onClick={handleSkillClick(
+                          eachSkill,
                           expIntoSkills[eachSkill.name.toLowerCase()]
-                        }
-                        onClick={handleSkillClick(eachSkill)}
+                        )}
                       />
                     ))}
                   </div>
@@ -1104,7 +1112,7 @@ const PortfolioIndex = () => {
         </section>
       </Fade>
 
-      {/* My Projects */}
+      {/* My PROJECTS */}
       <Fade bottom cascade>
         <section
           className="projects flex flex-col py-12 mb-10"
@@ -1130,13 +1138,13 @@ const PortfolioIndex = () => {
               (showAllProjects ? projects : projects.slice(0, 9)).map(
                 (eachProj, index) => (
                   <div
+                    key={index}
                     className={`flex py-12 mb-4 ${
                       index % 2 === 0
                         ? "flex-col sm:flex-row"
                         : "flex-col sm:flex-row-reverse"
                     } items-center md:items-center`}
                     style={{
-                      // borderRadius: "5px",
                       width: "100%",
                     }}
                   >
@@ -1284,9 +1292,10 @@ const styles = {
   bioStyle: {
     // fontFamily: "'Open Sans'",
     textAlign: "justify",
-    fontWeight: 500,
-    fontSize: "14px",
-    color: "var(--text-color)",
+    fontWeight: 400,
+    // fontSize: "14px",
+    // color: "rgb(116, 116, 116)",
+    color: "var(--light-text-color)",
     lineHeight: 2,
     maxWidth: "650px",
   },

@@ -63,11 +63,11 @@ function Header(props) {
             style={{ marginLeft: "20px", marginright: "20px" }}
           >
             <Link
-              to="/therapy"
+              to="/home/education-history"
               className="uppercase"
               style={{ fontWeight: 600 }}
             >
-              Need Therapy
+              Education History
             </Link>
             <Link
               to="/issues"
@@ -75,6 +75,13 @@ function Header(props) {
               style={{ fontWeight: 600 }}
             >
               Career Challenges
+            </Link>
+            <Link
+              to="/therapy"
+              className="uppercase"
+              style={{ fontWeight: 600 }}
+            >
+              Need Therapy
             </Link>
           </nav>
 

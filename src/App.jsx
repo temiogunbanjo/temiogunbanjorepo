@@ -22,6 +22,7 @@ import Portfolio from "./pages/Portfolio";
 
 import Therapy from "./layouts/therapy/Therapy";
 import PortfolioIndex from "./layouts/portfolio/Home";
+import PortfolioEducation from "./layouts/portfolio/Education";
 import PortfolioAuth from "./layouts/portfolio/Auth";
 import PortfolioIssues from "./layouts/portfolio/Issues";
 import Projects from "./layouts/portfolio/Projects";
@@ -36,6 +37,10 @@ function App(props) {
               <Route path="/" element={<Portfolio />}>
                 <Route index element={<PortfolioAuth />} />
                 <Route path="home" element={<PortfolioIndex />} />
+                <Route
+                  path="home/education-history"
+                  element={<PortfolioEducation />}
+                />
                 <Route path="issues" element={<PortfolioIssues />} />
                 <Route path="therapy" element={<Therapy />} />
               </Route>
