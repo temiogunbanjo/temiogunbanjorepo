@@ -41,7 +41,6 @@ const PortfolioEducation = () => {
   const [loadingExperiences, setLoadingExperiences] = useState(true);
   const [experiences, setExperiences] = useState([]);
 
-
   const handleClose = () => {
     setDialogContent(null);
     setOpenModal(false);
@@ -184,7 +183,7 @@ const PortfolioEducation = () => {
 
           <div className="flex flex-col mt-2 pl-6">
             {!loadingExperiences ? (
-              (showAllExperiences ? experiences : experiences.slice(0, 2)).map(
+              (showAllExperiences ? experiences : experiences.slice(0, 4)).map(
                 (each, i) => {
                   const experienceId = each?.company
                     ?.replace(/['".()&]/gi, "")
@@ -225,7 +224,7 @@ const PortfolioEducation = () => {
                         className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
                         style={{ maxWidth: "800px" }}
                       >
-                        <div className="flex flex-row items-center justify-start mb-3 sm:mb-4">
+                        <div className="flex flex-row items-center justify-start">
                           <span
                             className="text-3xl sm:text-3xl"
                             style={{
@@ -249,20 +248,22 @@ const PortfolioEducation = () => {
                           )}
                         </div>
 
-                        <Box
-                          className="mt-2 text-xl md:text-2xl sm:mt-2 sm:text-justify"
-                          sx={{
-                            fontWeight: 400,
-                            color: "var(--light-text-color)",
-                            lineHeight: 1.8,
-                            fontSize: {
-                              xs: "14px",
-                              md: "14px",
-                            },
-                          }}
-                        >
-                          {ReactHtmlParser(each?.description)}
-                        </Box>
+                        {each?.description && (
+                          <Box
+                            className="text-xl md:text-2xl mt-5 sm:mt-6 sm:text-justify"
+                            sx={{
+                              fontWeight: 400,
+                              color: "var(--light-text-color)",
+                              lineHeight: 1.8,
+                              fontSize: {
+                                xs: "14px",
+                                md: "14px",
+                              },
+                            }}
+                          >
+                            {ReactHtmlParser(each?.description)}
+                          </Box>
+                        )}
 
                         {each?.acquiredSkills &&
                           each?.acquiredSkills.length > 0 && (
@@ -436,7 +437,7 @@ const PortfolioEducation = () => {
             )}
           </div>
 
-          {experiences.length > 2 && (
+          {experiences.length > 4 && (
             <CustomButton
               onClick={() => {
                 setShowAllExperiences((prev) => !prev);

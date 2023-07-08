@@ -87,14 +87,58 @@ const SkillCard = (props) => {
 
   return (
     <div
-      className="card flex flex-col-reverse mx-4 items-center"
+      className="card flex flex-col mx-4 items-center"
       style={{
         borderRadius: "8px",
-        padding: "15px",
+        padding: "2px",
       }}
       onClick={onClick}
     >
-      <div className="flex flex-row items-end justify-between w-full">
+      <div
+        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-6 py-6 rounded-lg"
+        style={{
+          borderRadius: "7px",
+          backgroundColor: "rgba(170, 170, 170, 0.10)",
+        }}
+      >
+        {!props.data?.featured ? (
+          <FeaturedSkillBadgeIcon
+            style={{
+              fontSize: "23px",
+              color: "var(--light-text-color)",
+            }}
+          />
+        ) : (
+          <FeaturedSkillBadgeIcon
+            style={{
+              fontSize: "25px",
+              color: "gold",
+            }}
+          />
+        )}
+
+        {props?.data?.icon && (
+          <img
+            src={props?.data?.icon}
+            alt={""}
+            height="30px"
+            style={{
+              objectFit: "contain",
+              width: "auto",
+              height: "35px",
+              borderRadius: "8px",
+            }}
+          />
+        )}
+      </div>
+
+      <div
+        className="flex flex-row items-end justify-between w-full"
+        style={{
+          // borderRadius: "8px",
+          padding: "15px",
+        }}
+      >
         <div className="flex flex-col w-full">
           <b
             className="text-left text-2xl uppercase"
@@ -160,38 +204,6 @@ const SkillCard = (props) => {
           />
         </div>
       </div>
-
-      <div
-        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-4 py-6 rounded-lg"
-        style={{
-          backgroundColor: "rgba(170, 170, 170, 0.10)",
-        }}
-      >
-        {!props.data?.featured ? (
-          <FeaturedSkillBadgeIcon
-            style={{
-              fontSize: "23px",
-              color: "var(--light-text-color)",
-            }}
-          />
-        ) : (
-          <FeaturedSkillBadgeIcon
-            style={{
-              fontSize: "25px",
-              color: "gold",
-            }}
-          />
-        )}
-
-        {props?.data?.icon && (
-          <img
-            src={props?.data?.icon}
-            alt={""}
-            height="30px"
-            style={{ objectFit: "contain", width: "auto", height: "35px" }}
-          />
-        )}
-      </div>
     </div>
   );
 };
@@ -235,7 +247,7 @@ const ExperienceCard = (props) => {
         className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
         style={{ maxWidth: "800px" }}
       >
-        <div className="flex flex-row items-center justify-start mb-3 sm:mb-4">
+        <div className="flex flex-row items-center justify-start">
           <span
             className="text-3xl sm:text-3xl"
             style={{
@@ -259,24 +271,37 @@ const ExperienceCard = (props) => {
           )}
         </div>
 
-        <Box
-          className="mt-2 text-xl md:text-2xl sm:mt-2 sm:text-justify"
-          sx={{
-            fontWeight: 400,
-            color: "var(--text-color)",
-            lineHeight: 1.8,
-            fontSize: {
-              xs: "14px",
-              md: "14px",
-            },
-          }}
-        >
-          {ReactHtmlParser(props?.data?.description)}
+        <Box className="mt-5 sm:mt-6">
+          <span
+            className="inline-block text-xl mb-2"
+            style={{
+              color: "#888",
+              fontWeight: 700,
+              letterSpacing: "0.5px",
+            }}
+          >
+            Role Description:
+          </span>
+          <Box
+            className="text-xl md:text-2xl sm:text-justify"
+            sx={{
+              fontWeight: 500,
+              color: "var(--text-color)",
+              lineHeight: 1.8,
+              letterSpacing: "0.5px",
+              fontSize: {
+                xs: "12px",
+                md: "12px",
+              },
+            }}
+          >
+            {ReactHtmlParser(props?.data?.description)}
+          </Box>
         </Box>
 
         {props?.data?.relatedSkills &&
           props?.data?.relatedSkills.length > 0 && (
-            <div className="flex flex-col justify-start items-start mt-4 sm:mt-6 mb-2">
+            <div className="flex flex-col justify-start items-start mt-6 sm:mt-7 mb-2">
               <span
                 className="text-xl mb-2"
                 style={{
@@ -288,11 +313,16 @@ const ExperienceCard = (props) => {
                 Related Skills:
               </span>
               <span
-                className="text-lg"
+                className="text-lg uppercase"
                 style={{
-                  color: "#888",
-                  fontWeight: 400,
+                  color: "var(--text-color)",
+                  fontWeight: 500,
+                  lineHeight: 1.8,
                   letterSpacing: "0.5px",
+                  fontSize: {
+                    xs: "12px",
+                    md: "12px",
+                  },
                 }}
               >
                 {props?.data?.relatedSkills.join(" • ")}
@@ -301,7 +331,7 @@ const ExperienceCard = (props) => {
           )}
 
         {props?.data?.references && props?.data?.references.length > 0 && (
-          <div className="flex flex-col mt-2 sm:mt-4 w-full">
+          <div className="flex flex-col mt-4 sm:mt-5 w-full">
             <span
               className="text-xl capitalize"
               style={{
@@ -687,13 +717,13 @@ const PortfolioIndex = () => {
                 ?
               </span>
             </h1>
-            <h3
-              className="inline mt-3"
-              style={{ fontSize: "24px" }}
-            >
+            <h3 className="inline mt-3" style={{ fontSize: "24px" }}>
               <span
                 className="mr-3"
-                style={{ letterSpacing: "0px", color: "var(--light-text-color)" }}
+                style={{
+                  letterSpacing: "0px",
+                  color: "var(--light-text-color)",
+                }}
               >
                 I am a
               </span>

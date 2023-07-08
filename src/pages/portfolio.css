@@ -498,7 +498,7 @@ body.dark-mode .education-container .card:hover {
 
 .experiences p + ol,
 .education-container p + ol {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 #contact-container .icon {

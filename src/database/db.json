@@ -490,7 +490,7 @@
           "company": "Lixom Technologies Ltd.",
           "timeframe": "Nov 2021 - Present",
           "role": "Senior Back-End/Game Engineer • Full-Time",
-          "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals, </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. </li><li>Documentation of the API endpoints. </li><li> Management and supervision of my engineers.</li></ol>",
+          "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring.</li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals.</li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li> Management and supervision of my engineers.</li><li>Documentation of the API endpoints. </li></ol>",
           "references": [
             {
               "name": "Wisdom Okpewemeya",
@@ -658,37 +658,36 @@
           "company": "University of Lagos",
           "timeframe": "Jan. 2015 - Oct. 2023 (8 yrs)",
           "role": "B.Sc. in Mechanical Engineering • College",
-          "description": "<p>I was responsible for:</p><ol><li>Rewriting the legacy apps</li><li>Create security and data protection settings.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Developing the frontend web application for the various new agro-tech products in the suites</li><li>Collaboration with the team to brainstorm and generate ideas for improvements to the app suites</li></ol>",
+          "description": "",
           "references": [],
-          "link": "https://www.tradebuza.com/",
+          "link": "",
           "acquiredSkills": [
-            "ReactJS",
-            "Typescript",
-            "Figma",
-            "Javascript",
+            "Welding & Fabrication",
+            "Technical Drawing & Communication",
             "Problem Solving",
-            "Git/GitHub"
+            "Python"
           ]
         },
         {
           "company": "SolidRock Model College",
           "timeframe": "Mar. 2009 - Nov. 2014 (6 yrs)",
           "role": "Department of Sciences • Secondary Institution",
-          "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals, </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring. </li><li>Documentation of the API endpoints. </li><li> Management and supervision of my engineers.</li></ol>",
+          "description": "",
           "references": [],
           "link": "",
           "acquiredSkills": [
-            "NodeJS",
-            "REST API",
-            "PostgreSQL",
-            "MySQL",
-            "Javascript",
-            "Problem Solving",
-            "Git/GitHub",
-            "MeilliSearch",
-            "RethinkDB",
-            "Python",
-            "AWS Services"
+            "Basic Reasoning"
+          ]
+        },
+        {
+          "company": "Akesan Royal Model",
+          "timeframe": "Mar. 2002 - Nov. 2009 (6 yrs)",
+          "role": "Primary Institution",
+          "description": "",
+          "references": [],
+          "link": "",
+          "acquiredSkills": [
+            "Basic Reasoning"
           ]
         }
       ]
