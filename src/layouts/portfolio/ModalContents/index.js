@@ -31,7 +31,11 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
           <div className="flex flex-row items-center">
             <Typography
               component="h2"
-              style={{ fontSize: "24px", fontWeight: 700 }}
+              style={{
+                fontSize: "24px",
+                fontWeight: 700,
+                fontFamily: "Poppins",
+              }}
             >
               {data?.name}
             </Typography>
@@ -147,10 +151,11 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                       <Typography
                         component="h2"
                         style={{
-                          textTransform: "capitalize",
+                          fontFamily: "Poppins",
                           fontSize: "1.4rem",
-                          fontWeight: 500,
-                          letterSpacing: "0.5px",
+                          fontWeight: 600,
+                          textTransform: "capitalize",
+                          // letterSpacing: "0.5px",
                         }}
                       >
                         {exp?.company}
@@ -159,7 +164,6 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                       <span
                         className="text-sm mt-1 uppercase"
                         style={{
-                          // fontFamily: "'Open Sans'",
                           fontWeight: 500,
                           color: "var(--primary-color)",
                           letterSpacing: "0.5px",
@@ -224,26 +228,15 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                     <Typography
                       component="h2"
                       sx={{
+                        fontFamily: "Poppins",
                         fontSize: "1.4rem",
-                        fontWeight: 500,
+                        fontWeight: 600,
                         textTransform: "capitalize",
-                        letterSpacing: "0.5px",
+                        // letterSpacing: "0.5px",
                       }}
                     >
                       {certificate?.title}
                     </Typography>
-                    {/* {certificate?.verification_link && (
-                      <a
-                        href={certificate?.verification_link}
-                        className="text-xl ml-3"
-                        style={{
-                          fontWeight: 700,
-                          color: "var(--primary-color)",
-                        }}
-                      >
-                        <HiExternalLink />
-                      </a>
-                    )} */}
                   </div>
 
                   <span

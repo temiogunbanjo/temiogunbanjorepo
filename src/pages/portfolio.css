@@ -496,6 +496,11 @@ body.dark-mode .education-container .card:hover {
   object-fit: cover;
 }
 
+.experiences p + ol,
+.education-container p + ol {
+  margin-top: 10px;
+}
+
 #contact-container .icon {
   color: #aaaaaa;
 }
