@@ -41,7 +41,6 @@ const PortfolioEducation = () => {
   const [loadingExperiences, setLoadingExperiences] = useState(true);
   const [experiences, setExperiences] = useState([]);
 
-  // const [expIntoSkills, setExpIntoSkills] = useState({});
 
   const handleClose = () => {
     setDialogContent(null);
@@ -251,7 +250,7 @@ const PortfolioEducation = () => {
                         </div>
 
                         <Box
-                          className="mt-2 text-xl md:text-2xl sm:mt-2 text-justify"
+                          className="mt-2 text-xl md:text-2xl sm:mt-2 sm:text-justify"
                           sx={{
                             fontWeight: 400,
                             color: "var(--light-text-color)",

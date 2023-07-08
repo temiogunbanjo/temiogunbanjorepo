@@ -260,7 +260,7 @@ const ExperienceCard = (props) => {
         </div>
 
         <Box
-          className="mt-2 text-xl md:text-2xl sm:mt-2 text-justify"
+          className="mt-2 text-xl md:text-2xl sm:mt-2 sm:text-justify"
           sx={{
             fontWeight: 400,
             color: "var(--text-color)",
