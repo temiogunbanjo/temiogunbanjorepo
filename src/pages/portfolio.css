@@ -485,7 +485,7 @@ body.dark-mode .education-container .card:hover {
 
 .experiences .timeline-section,
 .education-container .timeline-section {
-  width: 180px;
+  width: 200px;
   flex: none;
 }
 
