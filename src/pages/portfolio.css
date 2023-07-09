@@ -3,7 +3,7 @@ header,
 header .rows,
 header + nav.mobile-navigation-menu .rows {
   align-items: center;
-  color: 'white';
+  color: "white";
 }
 
 body.dark-mode header,
@@ -138,7 +138,7 @@ body:not([class*="dark-mode"]) *.MuiTabs-indicator {
   background-position: bottom right;
 }
 
-img.user-profile-picture{
+img.user-profile-picture {
   border-radius: 8px;
 }
 
@@ -361,7 +361,8 @@ body.dark-mode .background-illuminator {
   min-width: 215px;
   max-width: calc(25% - 30px);
   background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 1px 20px #eee;
+  /* background-image: linear-gradient(rgba(151, 151, 151, 0.05), rgba(151, 151, 151, 0.1)); */
+  box-shadow: 0 3px 10px 2px #eee;
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
@@ -371,6 +372,7 @@ body.dark-mode .background-illuminator {
 body.dark-mode .skills .card {
   color: var(--light-text-color);
   background-color: rgba(145, 145, 145, 0.23);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   border: none;
   box-shadow: none;
 }

@@ -192,6 +192,7 @@
         },
         {
           "name": "MongoDB",
+          "description": "MongoDB is an open source NoSQL database management program. NoSQL (Not only SQL) is used as an alternative to traditional relational databases. MongoDB is a document database. It stores data in a type of JSON format called BSON",
           "level": 5,
           "tags": [
             "Database",
@@ -228,6 +229,7 @@
         },
         {
           "name": "Git/GitHub",
+          "description": "GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere",
           "level": 7,
           "tags": [
             "Version Control System (VCS)",
@@ -326,6 +328,7 @@
         },
         {
           "name": "AWS Services",
+          "description": "Amazon Web Services, Inc. (AWS) is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis.",
           "level": 4,
           "tags": [
             "Cloud Provider",
@@ -334,7 +337,19 @@
             "Web Development"
           ],
           "color": "orange",
-          "icon": "https://www.strongdm.com/hubfs/21126185/Technology%20Images/5f2b5a79107b5c59f1a00b16_AWS-1.png"
+          "icon": "https://static-00.iconduck.com/assets.00/general-awscloud-icon-2048x2048-3trjae80.png"
+        },
+        {
+          "name": "Digital Ocean",
+          "level": 4,
+          "tags": [
+            "Cloud Provider",
+            "Software Development",
+            "Back-End Development",
+            "Web Development"
+          ],
+          "color": "orange",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/DigitalOcean_logo.svg/1200px-DigitalOcean_logo.svg.png"
         },
         {
           "name": "Java",
@@ -398,6 +413,7 @@
         },
         {
           "name": "Blender",
+          "description": "Blender is a free and open-source 3D computer graphics software tool set used for creating animated films, visual effects, art, 3D-printed models, motion graphics, interactive 3D applications, virtual reality, and, formerly, video games",
           "level": 7,
           "color": "orange",
           "tags": ["Animations & Motion Graphics"],
@@ -521,7 +537,8 @@
             "MeilliSearch",
             "RethinkDB",
             "Python",
-            "AWS Services"
+            "AWS Services",
+            "Digital Ocean"
           ]
         },
         {

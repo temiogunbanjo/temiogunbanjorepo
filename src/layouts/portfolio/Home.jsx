@@ -654,7 +654,16 @@ const PortfolioIndex = () => {
           return relatedTags.length > 0;
         });
 
-      case 2: // Database
+        case 2: // Cloud Provider
+        return retValue.filter((each) => {
+          const relatedTags = each.tags
+            .map((tag) => tag.toLowerCase())
+            .filter((tag) => tag.search(/cloud/gi) >= 0);
+
+          return relatedTags.length > 0;
+        });
+
+      case 3: // Database
         return retValue.filter((each) => {
           const relatedTags = each.tags
             .map((tag) => tag.toLowerCase())
@@ -663,7 +672,7 @@ const PortfolioIndex = () => {
           return relatedTags.length > 0;
         });
 
-      case 3: // Version Control
+      case 4: // Version Control
         return retValue.filter((each) => {
           const relatedTags = each.tags
             .map((tag) => tag.toLowerCase())
@@ -672,7 +681,7 @@ const PortfolioIndex = () => {
           return relatedTags.length > 0;
         });
 
-      case 4: // Graphics design & Animations
+      case 5: // Graphics design & Animations
         return retValue.filter((each) => {
           const relatedTags = each.tags
             .map((tag) => tag.toLowerCase())
@@ -683,7 +692,7 @@ const PortfolioIndex = () => {
           return relatedTags.length > 0;
         });
 
-      case 5: // others
+      case 6: // others
         return retValue.filter((each) => {
           const relatedTags = each.tags
             .map((tag) => tag.toLowerCase())
@@ -709,7 +718,7 @@ const PortfolioIndex = () => {
     try {
       // data = require(filePath)?.default;
       data = filePath;
-      console.log({ data });
+      // console.log({ data });
       return data;
     } catch (error) {
       console.log({ error });
@@ -1004,6 +1013,7 @@ const PortfolioIndex = () => {
                 sx={{ ...styles.tabStyles, display: "none" }}
               />
               <Tab label="Web Development" sx={styles.tabStyles} />
+              <Tab label="Cloud Provider" sx={styles.tabStyles} />
               <Tab label="Database Management" sx={styles.tabStyles} />
               <Tab label="Version Controls" sx={styles.tabStyles} />
               <Tab
@@ -1034,6 +1044,7 @@ const PortfolioIndex = () => {
                 sx={{ ...styles.tabStyles, display: "none" }}
               />
               <Tab label="Web Development" sx={styles.tabStyles} />
+              <Tab label="Cloud Provider" sx={styles.tabStyles} />
               <Tab label="Database Management" sx={styles.tabStyles} />
               <Tab label="Version Controls" sx={styles.tabStyles} />
               <Tab
@@ -1048,7 +1059,7 @@ const PortfolioIndex = () => {
         index={value}
         onChangeIndex={handleChangeIndex}
       > */}
-            {[0, 1, 2, 3, 4, 5].map((each, index) => (
+            {[0, 1, 2, 3, 4, 5, 6].map((each, index) => (
               <TabPanel
                 key={index}
                 index={each}
@@ -1138,7 +1149,7 @@ const PortfolioIndex = () => {
 
           <div className="flex flex-col mt-2 pl-6">
             {!loadingExperiences ? (
-              (showAllExperiences ? experiences : experiences.slice(0, 2)).map(
+              (showAllExperiences ? experiences : experiences.slice(0, 3)).map(
                 (each, i) => <ExperienceCard key={i} data={each} />
               )
             ) : (
@@ -1148,7 +1159,7 @@ const PortfolioIndex = () => {
             )}
           </div>
 
-          {experiences.length > 2 && (
+          {experiences.length > 3 && (
             <CustomButton
               onClick={() => {
                 setShowAllExperiences((prev) => !prev);
