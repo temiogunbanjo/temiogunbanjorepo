@@ -3,6 +3,12 @@ header,
 header .rows,
 header + nav.mobile-navigation-menu .rows {
   align-items: center;
+  color: 'white';
+}
+
+body.dark-mode header,
+body.dark-mode header .rows,
+body.dark-mode header + nav.mobile-navigation-menu .rows {
   color: var(--icon-color);
 }
 
@@ -132,6 +138,10 @@ body:not([class*="dark-mode"]) *.MuiTabs-indicator {
   background-position: bottom right;
 }
 
+img.user-profile-picture{
+  border-radius: 8px;
+}
+
 body.dark-mode .hero,
 #about-section {
   background-image: linear-gradient(
@@ -239,35 +249,44 @@ main > section:hover .left-headings::before {
   color: var(--text-color);
   width: 38vw;
   min-height: 550px;
-  min-width: 200px;
+  min-width: 250px;
   max-width: 360px;
   max-height: 750px;
   align-items: center;
-  /* padding: 1.1rem 1.6rem; */
-  padding: 3rem 2.5rem 5rem 2.5rem;
-  border-radius: 10px;
+  padding: 3rem 1rem 5rem;
+  border-radius: 8px;
+  height: auto;
+  z-index: +220;
   /* backdrop-filter: blur(10px); */
   /* background-color: rgba(12, 12, 12, 0.1); */
   /* background-image: linear-gradient(rgba(12, 12, 12, 0), rgba(12, 12, 12, 0)); */
   /* box-shadow: 6px 16px 25px rgba(27, 27, 27, 0.25); */
-  height: auto;
-  z-index: +220;
+}
+
+body.dark-mode .user-profile-section {
+  border: 1px solid;
+  border-color: var(--border-line-color);
+  padding: 3rem 3rem 5rem;
+  /* backdrop-filter: blur(10px); */
+  /* background-image: linear-gradient(
+    rgba(177, 177, 177, 0),
+    rgba(177, 177, 177, 0)
+  ); */
+  /* box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3); */
 }
 
 .user-profile-section .img-wrapper {
-  align-items: center;
   position: relative;
-  align-items: flex-start;
-  flex-direction: column !important;
+  max-height: 200px;
 }
 
 .user-profile-section img {
+  display: block;
   object-fit: cover;
   object-position: top;
-  width: 200px;
-  height: 200px;
-  margin-right: 0;
-  margin: 0 auto 1.3rem !important;
+  /* width: 200px; */
+  /* margin-right: 0; */
+  /* margin: 0 auto 1.3rem !important; */
 }
 
 .user-profile-section input {
@@ -277,50 +296,6 @@ main > section:hover .left-headings::before {
 .user-profile-section button {
   font-size: 1.4rem;
   border: 1px solid var(--border-line-color);
-}
-
-.user-profile-section button.user-status {
-  color: orange;
-  background-color: #444;
-  width: 40px;
-  height: 40px;
-  border: none;
-}
-
-body.dark-mode .user-profile-section {
-  border-radius: 10px;
-  /* backdrop-filter: blur(10px); */
-  /* background-image: linear-gradient(
-    rgba(177, 177, 177, 0),
-    rgba(177, 177, 177, 0)
-  ); */
-  /* box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3); */
-}
-
-body.dark-mode .user-profile-section button {
-  color: white;
-  background-color: var(--moon-dark-color);
-  border-color: var(--moon-dark-color);
-  box-shadow: 0px 3px 5px rgba(30, 30, 30, 0.5);
-}
-
-body.dark-mode .user-profile-section button.user-status {
-  color: var(--tab-border-color);
-  background-color: rgba(85, 85, 95, 0.3);
-}
-
-.user-profile-section .user-details {
-  color: var(--light-text-color);
-  font-size: 1.6rem;
-  font-weight: 300;
-  line-height: 1.6;
-  max-height: 400px;
-  overflow-y: auto;
-  width: 100%;
-}
-
-body.dark-mode .user-profile-section .user-details {
-  color: #fff;
 }
 
 .background-illuminator {
@@ -429,7 +404,8 @@ body.dark-mode .skills .card .img-wrapper {
   border: none;
 }
 
-body .experiences {
+body .experiences,
+body .education-container:nth-child(2n - 1) {
   background-image: linear-gradient(
     92deg,
     rgba(240, 240, 240, 0.5),
@@ -437,7 +413,8 @@ body .experiences {
   );
 }
 
-body.dark-mode .experiences {
+body.dark-mode .experiences,
+body .education-container:nth-child(2n - 1) {
   background-image: linear-gradient(
     -45deg,
     rgba(160, 160, 160, 0.1),
@@ -534,9 +511,9 @@ footer {
     font-size: 32px;
   }
 
-  .user-profile-section .img-wrapper {
-    padding-bottom: 10px;
-  }
+  /* .user-profile-section {
+    
+  } */
 
   .user-profile-section button {
     font-size: 1.4rem;
@@ -586,6 +563,9 @@ footer {
     max-width: unset;
     margin-top: 80px;
     min-height: 480px;
+    padding: 3rem 3rem 5rem;
+    border: 2px solid;
+    border-color: var(--primary-color);
   }
 
   .user-profile-section img {

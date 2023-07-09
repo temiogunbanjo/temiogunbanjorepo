@@ -53,10 +53,6 @@ body.dark-mode{
   --pointer-color: red;
 }
 
-img.user-profile-picture{
-  border-radius: 50%;
-}
-
 .material {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
 }

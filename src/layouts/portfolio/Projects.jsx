@@ -1,29 +1,28 @@
 import React, { Suspense, useRef } from "react";
-// import { TextureLoader } from "three";
+import { TextureLoader, BackSide } from "three";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import {
-  Canvas,
-  useFrame,
-  // useLoader
-} from "@react-three/fiber";
-import {
+  CameraControls,
+  Environment,
   Loader,
-  // OrbitControls,
+  OrbitControls,
   PresentationControls,
-  Scroll,
-  ScrollControls,
+  // Scroll,
+  // ScrollControls,
   Stars,
+  // useTexture,
   // Text,
 } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 
-// import texture from "../../assets/textures/wood_planks_grey/wood_planks_grey_rough_4k.jpg";
+import texture from "../../assets/textures/simple_backyard/anime_a_simple_modern_backyard_a_wide_lawn.jpg";
 
 // import Box from "../../components/3D/Box";
 // import Plane from "../../components/3D/Plane";
 import Store from "../../components/3D/Store";
 // import Test from "../../components/3D/Test";
 // import Sphere from "../../components/3D/Sphere";
-// import Axis from "../../components/3D/Axis";
+import Axis from "../../components/3D/Axis";
 // import GPSMonitoring from "../../components/3D/GPSMonitoring";
 
 const World = () => {
@@ -79,9 +78,9 @@ const World = () => {
         >
           <group position-y={-0.75} dispose={null}>
             <Store
-              position={[8, 0.1, 2]}
-              rotation={[0, -Math.PI / 4, 0]}
-              size={[1, 1, 1]}
+              position={[-18, -20, -28]}
+              rotation={[-0.16, -Math.PI / 4, 0.05]}
+              size={[4.8, 4.8, 4.8]}
               physicsOptions={{ mass: 0 }}
               northWallProp={{
                 color: "teal",
@@ -94,7 +93,7 @@ const World = () => {
               }}
               shelves={{
                 northWall: {
-                  show: false,
+                  show: true,
                   color: "gold",
                 },
                 westWall: {
@@ -102,12 +101,11 @@ const World = () => {
                   color: "gold",
                 },
               }}
-            >
-            </Store>
+            ></Store>
           </group>
         </PresentationControls>
 
-        <PresentationControls
+        {/* <PresentationControls
           snap
           zoom={0.8}
           polar={[-Math.PI / 4, Math.PI / 4]}
@@ -140,11 +138,39 @@ const World = () => {
               }}
             />
           </group>
-        </PresentationControls>
+        </PresentationControls> */}
 
         {/* <Plane color="#23174d" size={[500, 500]} castShadow/> */}
         {/* </Debug> */}
       </Physics>
+    </>
+  );
+};
+
+const World2 = () => {
+  const cameraRef = useRef();
+  const colorMap = useLoader(TextureLoader, texture);
+  // const colorMap = useTexture(
+  //   "resources/textures/anime_a_simple_backyard_with_a_swimming_pool.jpg"
+  // );
+
+  useFrame(() => {});
+
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      {/* <Environment preset="sunset" /> */}
+      <CameraControls
+        ref={cameraRef}
+        maxPolarAngle={Math.PI / 1.6}
+        minPolarAngle={Math.PI / 6}
+        // minZoom={1}
+        // maxZoom={2}
+      />
+      <mesh position={[0, 0, 0]} rotation={[0, Math.PI / 6, 0]}>
+        <sphereGeometry args={[50, 64, 64]} />
+        <meshStandardMaterial map={colorMap} side={BackSide} />
+      </mesh>
     </>
   );
 };
@@ -178,15 +204,16 @@ const Projects = () => {
     aspectRatio: 1,
     near: 0.1,
     far: 10000,
-    position: [10, 20, 60],
+    position: [10, 0, 60],
   };
   return (
     <>
       <Suspense fallback={<Loader />}>
         <div className="h-screen">
           <Canvas
-            // style={{ height: "100vh" }}
+            shadows
             camera={cameraProps}
+            // style={{ height: "100vh" }}
             // gl={{
             // pixelRatio: 2,
             // physicallyCorrectLights: true,
@@ -195,12 +222,13 @@ const Projects = () => {
           >
             {/* <color attach="background" args={["#23174d"]} /> */}
             <color attach="background" args={["#000"]} />
-            <ScrollControls pages={6} damping={0.25}>
+            <World2 />
+            <Axis scale={3} />
+            {/* <ScrollControls pages={6} damping={0.25}>
               <Scroll>
                 <ambientLight />
                 <World />
-                {/* <Axis scale={3} /> */}
-                {/* <OrbitControls enableZoom={false} enableRotate={true} /> */}
+            {/* <OrbitControls enableZoom={false} enableRotate={true} /> 
               </Scroll>
 
               <Scroll html style={{ width: "100%" }}>
@@ -240,7 +268,7 @@ const Projects = () => {
                   </div>
                 </PageSection>
               </Scroll>
-            </ScrollControls>
+            </ScrollControls> */}
 
             {/* <CameraHelper {...cameraProps} /> */}
             {/* <pointLight position={[0, 16, 2]} intensity={2} /> */}

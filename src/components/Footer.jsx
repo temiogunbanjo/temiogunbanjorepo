@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <Fade left cascade>
+    <Fade bottom cascade>
       <footer className="w-full px-12">
         <h3
           className="py-12 mb-2 uppercase text-center sm:text-left"
@@ -26,7 +26,7 @@ const Footer = () => {
             letterSpacing: "1px",
           }}
         >
-          Check Out More...
+          Check Out More
         </h3>
 
         <div className="flex flex-row flex-wrap gap-12">

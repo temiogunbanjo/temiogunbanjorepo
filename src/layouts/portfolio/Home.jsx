@@ -476,18 +476,20 @@ const PortfolioIndex = () => {
 
   const [tabIndex, setTabIndex] = useState(1);
 
-  const quotePause = 1500;
+  const QUOTE_PAUSE_DURATION = 1500;
+  const MAX_SKILLS_DISPLAYED = 6;
+
   const quoteSequence = [
     [
       "A wise man once said:",
-      quotePause,
-      "A wise man once said: 'Someone to love",
-      quotePause,
-      "A wise man once said: 'Someone to love, something to hope for",
-      quotePause,
-      "A wise man once said: 'Someone to love, something to hope for and something to do",
-      quotePause,
-      "A wise man once said: 'Someone to love, something to hope for and something to do are the 3 essence of true happiness'.",
+      QUOTE_PAUSE_DURATION,
+      "A wise man once said: \"Someone to love",
+      QUOTE_PAUSE_DURATION,
+      "A wise man once said: \"Someone to love, something to hope for",
+      QUOTE_PAUSE_DURATION,
+      "A wise man once said: \"Someone to love, something to hope for and something to do",
+      QUOTE_PAUSE_DURATION,
+      "A wise man once said: \"Someone to love, something to hope for and something to do are the 3 essence of true happiness\".",
       4000, // Waits 1s
       () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
@@ -496,13 +498,13 @@ const PortfolioIndex = () => {
     ],
     [
       "In the quest for learning...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "In the quest for learning, we should not neglect the importance of unlearning...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is, the harder it will be to re-learn.",
       3000, // Waits 1s
       () => {
@@ -512,13 +514,13 @@ const PortfolioIndex = () => {
     ],
     [
       "The expectations of an outcome...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "The expectations of an outcome produces a manifestation...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "The expectations of an outcome produces a manifestation that would, in time, become your new reality.",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might as it would surely produce something with whatever you put into it.",
       2000, // Waits 1s
       () => {
@@ -528,13 +530,13 @@ const PortfolioIndex = () => {
     ],
     [
       "If GOD isn't real...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "If GOD isn't real, and these whole universe was just born from pure randomness including us...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts?",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic?",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic? Therefore, GOD is REAl!",
       2000, // Waits 1s
       () => {
@@ -544,7 +546,7 @@ const PortfolioIndex = () => {
     ],
     [
       "Survivorship bias is a common logical error that distorts our understanding of the world...",
-      quotePause,
+      QUOTE_PAUSE_DURATION,
       "Survivorship bias is a common logical error that distorts our understanding of the world. It happens when we assume that success tells the whole story and when we don't adequately consider past failures.",
       4000, // Waits 1s
       () => {
@@ -700,72 +702,87 @@ const PortfolioIndex = () => {
     }
   };
 
+  const loadLocalFile = (filePath) => {
+    let data = null;
+    console.log({ url: filePath });
+
+    try {
+      // data = require(filePath)?.default;
+      data = filePath;
+      console.log({ data });
+      return data;
+    } catch (error) {
+      console.log({ error });
+      return null;
+    }
+  };
+
   return (
     <>
       <section className="hero flex flex-col sm:flex-row relative">
-        <Fade cascade>
-          <div
-            className="cols"
-            style={{ justifyContent: "center", padding: "10px" }}
-          >
-            <h1 className="main-text" style={{ fontSize: "50px" }}>
-              <span style={{ fontSize: "28px", lineHeight: 0.5 }}>Who is </span>
-              <br />
-              <span style={{}}>Temiloluwa Ogunbanjo </span>
-              <span className="" style={{ color: "var(--primary-color)" }}>
-                {" "}
-                ?
-              </span>
-            </h1>
-            <h3 className="inline mt-3" style={{ fontSize: "24px" }}>
-              <span
-                className="mr-3"
-                style={{
-                  letterSpacing: "0px",
-                  color: "var(--light-text-color)",
-                }}
-              >
-                I am a
-              </span>
-              <TypeAnimation
-                sequence={[
-                  "Full Stack Developer!",
-                  1000,
-                  "Graphics Designer!",
-                  1000,
-                  "3D Animator!",
-                  1000,
-                  "Part-time Therapist!",
-                  3000,
-                  () => {},
-                ]}
-                wrapper="span"
-                speed={35}
-                deletionSpeed={68}
-                cursor={true}
-                repeat={Infinity}
-                className=""
-                style={{
-                  color: "var(--primary-color)",
-                  letterSpacing: "1px",
-                }}
-              />
-            </h3>
+        <div
+          className="cols sm:mr-8"
+          style={{ justifyContent: "center", padding: "10px" }}
+        >
+          <h1 className="main-text" style={{ fontSize: "50px" }}>
+            <span style={{ fontSize: "28px", lineHeight: 0.5 }}>Who is </span>
+            <br />
+            <span style={{}}>Temiloluwa Ogunbanjo </span>
+            <span className="" style={{ color: "var(--primary-color)" }}>
+              {" "}
+              ?
+            </span>
+          </h1>
 
-            {isLayman ? (
-              <Fade>
-                <p className="py-8 text-xl" style={styles.bioStyle}>
-                  {`I am a Fullstack Software Developer with ${
-                    new Date().getFullYear() - 2019
-                  } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable full stack solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
-                </p>
-              </Fade>
-            ) : (
-              <Fade>
-                <p className="py-8 text-xl" style={styles.bioStyle}>
-                  {`With an illustrious ${
-                    new Date().getFullYear() - 2019
-                  }-year journey as a Fullstack Software
+          <h3 className="inline mt-3" style={{ fontSize: "24px" }}>
+            <span
+              className="mr-3"
+              style={{
+                letterSpacing: "0px",
+                color: "var(--light-text-color)",
+              }}
+            >
+              I am a
+            </span>
+            <TypeAnimation
+              sequence={[
+                "Full Stack Developer!",
+                1000,
+                "Graphics Designer!",
+                1000,
+                "3D Animator!",
+                1000,
+                "Part-time Therapist!",
+                3000,
+                () => {},
+              ]}
+              wrapper="span"
+              speed={35}
+              deletionSpeed={68}
+              cursor={true}
+              repeat={Infinity}
+              className=""
+              style={{
+                color: "var(--primary-color)",
+                letterSpacing: "1px",
+              }}
+            />
+          </h3>
+
+          {isLayman ? (
+            <Fade>
+              <p className="py-8 text-xl" style={styles.bioStyle}>
+                {`I am a Fullstack Software Developer with ${
+                  new Date().getFullYear() - 2019
+                } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable full stack solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
+              </p>
+            </Fade>
+          ) : (
+            <Fade>
+              <p className="py-8 text-xl" style={styles.bioStyle}>
+                {`With an illustrious ${
+                  new Date().getFullYear() - 2019
+                }-year journey as a Fullstack Software
             Developer, I exude a charismatic blend of expertise in crafting
             impeccable RESTful APIs using the formidable M.E.R.N. stack
             (MongoDB, Express, ReactJS, NodeJS). My adeptness extends to
@@ -775,86 +792,119 @@ const PortfolioIndex = () => {
             multifaceted nature, I also channel my creative prowess as a
             part-time graphics designer and animator, all crowned by my recent
             graduation from the esteemed University of Lagos.`}{" "}
-                  <span
-                    onClick={() => {
-                      setIsLayman(true);
-                    }}
-                    style={{
-                      cursor: "pointer",
-                      color: "var(--primary-color)",
-                    }}
-                  >
-                    Translate to English?
-                  </span>
-                </p>
-              </Fade>
-            )}
+                <span
+                  onClick={() => {
+                    setIsLayman(true);
+                  }}
+                  style={{
+                    cursor: "pointer",
+                    color: "var(--primary-color)",
+                  }}
+                >
+                  Translate to English?
+                </span>
+              </p>
+            </Fade>
+          )}
 
-            <div
-              className="flex flex-col sm:flex-row pt-10 sm:mx-0"
-              style={{ paddingTop: "40px" }}
+          <div
+            className="flex flex-col sm:flex-row pt-10 sm:mx-0"
+            style={{ paddingTop: "40px" }}
+          >
+            <a
+              href="tel:+2349059620514"
+              className="mb-6 sm:mr-12 w-full sm:w-1/3 block"
+              style={{ minWidth: "150px" }}
             >
-              <a href="#skill-section" className="mb-6 w-full inline-block">
-                <CustomButton
-                  className="border w-full"
-                  value={
-                    <span
-                      className="flex flex-row items-center justify-center text-center uppercase"
-                      style={{ color: "var(--text-color)" }}
-                    >
-                      <i
-                        className="mr-3 animate-bounce"
-                        style={{
-                          fontSize: "26px",
-                          // color: "#78ffdf"
-                        }}
-                      >
-                        <DownArrowIcon />
-                      </i>
-                      <span>Scroll Down</span>
-                    </span>
-                  }
-                  sx={{
-                    boxShadow: "none",
-                    color: "#393A4A",
-                  }}
-                />
-              </a>
+              <CustomButton
+                className="w-full h-full"
+                value={
+                  <span
+                    className="flex flex-row items-center justify-center text-center uppercase"
+                    style={{ color: "#eee" }}
+                  >
+                    <PhoneIcon
+                      className="mr-3"
+                      style={{
+                        fontSize: "16px",
+                      }}
+                    />
 
-              <a
-                href="tel:+2349059620514"
-                className="mb-6 sm:ml-9 w-full inline-block"
-              >
-                <CustomButton
-                  className="w-full h-full"
-                  value={
-                    <span
-                      className="flex flex-row items-center justify-center text-center uppercase"
-                      style={{ color: "#eee" }}
-                    >
-                      <PhoneIcon
-                        className="mr-3"
-                        style={{
-                          fontSize: "16px",
-                        }}
-                      />
+                    <span>Let's Chat!</span>
+                  </span>
+                }
+                sx={{
+                  border: "2px solid var(--primary-color)",
+                  // opacity: 0.95,
+                  backgroundColor: "var(--primary-color)",
+                  boxShadow: "none",
+                }}
+              />
+            </a>
 
-                      <span>Let's Chat!</span>
-                    </span>
-                  }
-                  sx={{
-                    border: "1px solid var(--primary-color)",
-                    // opacity: 0.95,
-                    backgroundColor: "var(--primary-color)",
-                    boxShadow: "none",
-                  }}
-                />
-              </a>
-            </div>
+            <a
+              href="#skill-section"
+              className="mb-6 w-full sm:w-1/3 block"
+              style={{ minWidth: "150px" }}
+            >
+              <CustomButton
+                className="border-2 w-full"
+                value={
+                  <span
+                    className="flex flex-row items-center justify-center text-center uppercase"
+                    style={{ color: "var(--primary-color)" }}
+                  >
+                    <i
+                      className="mr-3 animate-bounce"
+                      style={{
+                        fontSize: "26px",
+                        // color: "#78ffdf"
+                      }}
+                    >
+                      <DownArrowIcon />
+                    </i>
+                    <span>Scroll Down</span>
+                  </span>
+                }
+                sx={{
+                  boxShadow: "none",
+                  color: "#393A4A",
+                  borderColor: "var(--primary-color)",
+                }}
+              />
+            </a>
           </div>
+        </div>
 
+        <Fade right cascade>
           <div className="flex flex-col user-profile-section">
-            <blockquote>
+            <div
+              className="w-full flex flex-row img-wrapper mt-0 mb-12 transition-all ease-in"
+              style={{
+                opacity: showProfilePic ? 1 : 0,
+              }}
+            >
+              <img
+                className="user-profile-picture"
+                src={require("../../assets/images/Me.jpeg")}
+                alt="Temiloluwa"
+                width="100%"
+                height="100%"
+              />
+            </div>
+
+            <h2
+              className="text-3xl capitalize text-left w-full mb-6"
+              style={{
+                fontFamily: 'Poppins, "Open Sans"',
+                letterSpacing: "0px",
+                color: "var(--text-color)",
+                fontWeight: 500,
+              }}
+            >
+              Thought of the Day:
+            </h2>
+            <blockquote className="w-full">
               <TypeAnimation
                 sequence={getRandomItem(quoteSequence)}
                 wrapper="span"
@@ -862,13 +912,12 @@ const PortfolioIndex = () => {
                 deletionSpeed={88}
                 cursor={true}
                 repeat={0}
-                className="user-details text-center sm:text-justify"
+                className="text-center sm:text-justify"
                 style={{
-                  fontFamily: "monospace",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  lineHeight: 1.8,
-                  margin: "1.8rem 0 0",
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  lineHeight: 2,
+                  margin: "1rem 0 0",
                 }}
               />
             </blockquote>
@@ -876,33 +925,25 @@ const PortfolioIndex = () => {
               orientation="vertical"
               in={showProfilePic}
               timeout={600}
-              className=""
+              className="w-full mt-auto"
             >
-              <div
-                className="flex flex-row img-wrapper mt-14 transition-all ease-in"
+              <i
+                className="inline-block text-right"
                 style={{
+                  margin: "2.8rem 0 0",
+                  fontSize: "1rem",
+                  fontWeight: 500,
+                  color: 'var(--light-text-color)',
+                  width: "100%",
                   opacity: showProfilePic ? 1 : 0,
                 }}
               >
-                <img
-                  className="user-profile-picture"
-                  src={require("../../assets/images/Me.jpeg")}
-                  alt="Temiloluwa"
-                  width="120"
-                  height="120"
-                />
-              </div>
+                {`Last updated on ${new Date(2023, 1, 6).toDateString()}`}
+              </i>
             </Collapse>
-
-            <i
-              className="user-last-seen text-center"
-              style={{ margin: "1.8rem 0 0", fontSize: "1rem", width: "100%" }}
-            >
-              {`Last updated on ${new Date(2023, 1, 6).toDateString()}`}
-            </i>
           </div>
-          {/* <div className="background-illuminator"></div> */}
         </Fade>
+        {/* <div className="background-illuminator"></div> */}
       </section>
 
       {/* MY SKILLS */}
@@ -1015,7 +1056,7 @@ const PortfolioIndex = () => {
                   <div className="flex flex-row justify-center flex-wrap w-4/7">
                     {(showAllSkills
                       ? filterSkills(tabIndex)
-                      : filterSkills(tabIndex).slice(0, 9)
+                      : filterSkills(tabIndex).slice(0, MAX_SKILLS_DISPLAYED)
                     ).map((eachSkill, i) => (
                       <SkillCard
                         key={i}
@@ -1036,27 +1077,29 @@ const PortfolioIndex = () => {
             ))}
           </div>
 
-          {filterSkills(tabIndex).length > 9 && (
+          {filterSkills(tabIndex).length > MAX_SKILLS_DISPLAYED && (
             <CustomButton
               onClick={() => {
                 setShowAllSkills((prev) => !prev);
               }}
-              className="border mt-8"
+              className="mt-16"
               value={
                 <span
                   className="flex flex-row items-center text-center uppercase"
-                  style={{ color: "var(--text-color)" }}
+                  style={{ color: "#FFF" }}
                 >
                   <span>
                     {!showAllSkills
-                      ? `Show ${filterSkills(tabIndex).length - 9} more`
+                      ? `Show ${
+                          filterSkills(tabIndex).length - MAX_SKILLS_DISPLAYED
+                        } more`
                       : "Show less"}
                   </span>
                   <i
                     className="ml-3 animate-bounce"
                     style={{
                       fontSize: "16px",
-                      color: "var(--light-text-color)",
+                      color: "#fff",
                     }}
                   >
                     {!showAllSkills ? (
@@ -1068,8 +1111,9 @@ const PortfolioIndex = () => {
                 </span>
               }
               sx={{
+                backgroundColor: "var(--primary-color)",
                 boxShadow: "none",
-                color: "#393A4A",
+                color: "#fff",
               }}
             />
           )}
@@ -1166,111 +1210,129 @@ const PortfolioIndex = () => {
           <div className="flex flex-row flex-wrap justify-center">
             {!loadingProjects ? (
               (showAllProjects ? projects : projects.slice(0, 9)).map(
-                (eachProj, index) => (
-                  <div
-                    key={index}
-                    className={`flex py-12 mb-4 ${
-                      index % 2 === 0
-                        ? "flex-col sm:flex-row"
-                        : "flex-col sm:flex-row-reverse"
-                    } items-center md:items-center`}
-                    style={{
-                      width: "100%",
-                    }}
-                  >
-                    <Box
-                      className={`${
-                        index % 2 === 0 ? "mr-0 sm:mr-12" : "ml-0 sm:ml-12"
-                      } mb-10 sm:mb-0`}
-                      sx={{
-                        width: {
-                          xs: "100%",
-                          md: "50vw",
-                        },
-                        height: "250px",
-                        maxWidth: {
-                          xs: "unset",
-                          sm: "400px",
-                        },
-                        borderRadius: "8px",
-                        overflow: "hidden",
-                        border: {
-                          sm: "1px solid var(--border-line-color)",
-                          xs: "1px solid #555",
-                        },
-                        backgroundColor: "var(--border-line-color)",
+                (eachProj, index) => {
+                  const isLocalImage =
+                    eachProj?.content?.[0]?.type === "image" &&
+                    eachProj?.content?.[0]?.url &&
+                    !eachProj?.content?.[0]?.url.includes("http");
+
+                  return (
+                    <div
+                      key={index}
+                      className={`flex py-12 mb-4 ${
+                        index % 2 === 0
+                          ? "flex-col sm:flex-row"
+                          : "flex-col sm:flex-row-reverse"
+                      } items-center md:items-center`}
+                      style={{
+                        width: "100%",
                       }}
                     >
-                      {eachProj?.content?.[0]?.type === "video" && (
-                        <ReactPlayer
-                          url={eachProj?.content?.[0]?.url || ""}
-                          controls={true}
-                          width={"100%"}
-                          height={"100%"}
-                          // style={{ width: "250px", height: "250px" }}
-                        />
-                      )}
+                      <Box
+                        className={`${
+                          index % 2 === 0 ? "mr-0 sm:mr-12" : "ml-0 sm:ml-12"
+                        } mb-10 sm:mb-0`}
+                        sx={{
+                          width: {
+                            xs: "100%",
+                            md: "50vw",
+                          },
+                          height: "250px",
+                          maxWidth: {
+                            xs: "unset",
+                            sm: "400px",
+                          },
+                          borderRadius: "8px",
+                          overflow: "hidden",
+                          border: {
+                            sm: "1px solid var(--border-line-color)",
+                            xs: "1px solid #555",
+                          },
+                          backgroundColor: "var(--border-line-color)",
+                        }}
+                      >
+                        {eachProj?.content?.[0]?.type === "video" && (
+                          <ReactPlayer
+                            url={eachProj?.content?.[0]?.url || ""}
+                            controls={true}
+                            width={"100%"}
+                            height={"100%"}
+                            // style={{ width: "250px", height: "250px" }}
+                          />
+                        )}
 
-                      {eachProj?.content?.[0]?.type === "image" && (
-                        <img
-                          src={eachProj?.content?.[0]?.url || ""}
-                          alt={eachProj.name}
-                          style={{ width: "calc(100% - 1px)", height: "100%" }}
-                        />
-                      )}
-                    </Box>
+                        {eachProj?.content?.[0]?.type === "image" && (
+                          <img
+                            src={
+                              isLocalImage
+                                ? loadLocalFile(eachProj?.content?.[0]?.url) ||
+                                  ""
+                                : eachProj?.content?.[0]?.url || ""
+                            }
+                            alt={eachProj.name}
+                            style={{
+                              width: "calc(100% - 1px)",
+                              height: "100%",
+                            }}
+                          />
+                        )}
+                      </Box>
 
-                    <div className="flex flex-col w-full px-6 pb-6">
-                      <div className="rows img-wrapper">
-                        <b
-                          className="text-4xl"
+                      <div className="flex flex-col w-full px-6 pb-6">
+                        <div className="rows img-wrapper">
+                          <b
+                            className="text-4xl"
+                            style={{
+                              margin: 0,
+                              color: "var(--text-color)",
+                              fontWeight: 400,
+                            }}
+                          >
+                            {eachProj.name}
+                          </b>
+                        </div>
+                        <span
+                          className="mt-3 capitalize"
                           style={{
-                            margin: 0,
-                            color: "var(--text-color)",
-                            fontWeight: 400,
+                            color: "var(--light-text-color)",
+                            fontWeight: 600,
+                            opacity: 0.8,
                           }}
                         >
-                          {eachProj.name}
-                        </b>
-                      </div>
-                      <span
-                        className="mt-3 capitalize"
-                        style={{
-                          color: "var(--light-text-color)",
-                          fontWeight: 600,
-                          opacity: 0.8,
-                        }}
-                      >
-                        {eachProj.tag}
-                      </span>
-                      <p
-                        className="mt-3 text-xl md:text-2xl"
-                        style={{
-                          color: "var(--text-color)",
-                          fontWeight: 400,
-                          lineHeight: 1.8,
-                          maxWidth: "600px",
-                        }}
-                      >
-                        {eachProj.description}
-                      </p>
+                          {eachProj.tag}
+                        </span>
+                        <p
+                          className="mt-3 text-xl md:text-2xl"
+                          style={{
+                            color: "var(--text-color)",
+                            fontWeight: 400,
+                            lineHeight: 1.8,
+                            maxWidth: "600px",
+                          }}
+                        >
+                          {eachProj.description}
+                        </p>
 
-                      <Link
-                        className="flex flex-row items-center text-xl mt-3"
-                        style={{
-                          // fontFamily: "'Open Sans'",
-                          fontWeight: 600,
-                          color: "var(--primary-color)",
-                          lineHeight: 2,
-                          textDecoration: "none",
-                        }}
-                      >
-                        Read more{" "}
-                        <FaAngleRight style={{ verticalAlign: "middle" }} />
-                      </Link>
+                        {eachProj.link && (
+                          <Link
+                            href={eachProj.link}
+                            className="flex flex-row items-center text-xl mt-3"
+                            style={{
+                              // fontFamily: "'Open Sans'",
+                              fontWeight: 600,
+                              color: "var(--primary-color)",
+                              lineHeight: 2,
+                              textDecoration: "none",
+                            }}
+                          >
+                            Read more{" "}
+                            <FaAngleRight style={{ verticalAlign: "middle" }} />
+                          </Link>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                )
+                  );
+                }
               )
             ) : (
               <Spinner />
@@ -1280,7 +1342,7 @@ const PortfolioIndex = () => {
       </Fade>
 
       {/* ABOUT SITE */}
-      <Fade bottom cascade>
+      {/* <Fade bottom cascade>
         <section id="about-section" className="skills flex flex-col">
           <h2
             className="subtitle center-headings"
@@ -1309,7 +1371,7 @@ const PortfolioIndex = () => {
             the keywords to learn more about each warning.
           </span>
         </section>
-      </Fade>
+      </Fade> */}
 
       <Dialog open={openModal} onClose={handleClose}>
         {dialogContent}
@@ -1320,11 +1382,8 @@ const PortfolioIndex = () => {
 
 const styles = {
   bioStyle: {
-    // fontFamily: "'Open Sans'",
     textAlign: "justify",
     fontWeight: 400,
-    // fontSize: "14px",
-    // color: "rgb(116, 116, 116)",
     color: "var(--light-text-color)",
     lineHeight: 2,
     maxWidth: "650px",

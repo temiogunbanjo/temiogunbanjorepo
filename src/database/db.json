@@ -622,7 +622,7 @@
             }
           ],
           "tag": "Animations & Motion Graphics",
-          "description": "This product animation was created using Blender3D, photoshop and some other resources as an advertisement for my business (DeePlug) as at the time"
+          "description": "This product animation was created using Blender3D, photoshop and some other resources as an advertisement for my business (DeePlug) as at the time."
         },
         {
           "name": "Robin Virtual Assistant",
@@ -634,6 +634,18 @@
           ],
           "tag": "Software Development",
           "description": "Robin was a python project I enjoyed working on. As at the time of building the project, I needed a way to automate my workspace, keep reminders and generally have a personal assistant to do the boring repetitive stuffs and so I decided to build a Virtual Assistant. Throughout the duration of the project, I gained experience working with Python, RegExp, Natural Language Processing (NLP), Machine Learning, multi-threading and a lot more."
+        },
+        {
+          "name": "My 3D Portfolio",
+          "content": [
+            {
+              "type": "image",
+              "url": "/resources/images/AD.png"
+            }
+          ],
+          "tag": "Web 3D & Animations",
+          "description": "I designed this portfolio using react-three-fiber, react-spring, react-three-cannon and other 3D library which are all 3D packages.",
+          "link": "/projects"
         },
         {
           "name": "3D Video Resume - Visume",
@@ -659,7 +671,7 @@
           "timeframe": "Jan. 2015 - Oct. 2023 (8 yrs)",
           "role": "B.Sc. in Mechanical Engineering • College",
           "description": "",
-          "references": [],
+          "tags": ["formal"],
           "link": "",
           "acquiredSkills": [
             "Welding & Fabrication",
@@ -673,7 +685,7 @@
           "timeframe": "Mar. 2009 - Nov. 2014 (6 yrs)",
           "role": "Department of Sciences • Secondary Institution",
           "description": "",
-          "references": [],
+          "tags": ["formal"],
           "link": "",
           "acquiredSkills": [
             "Basic Reasoning"
@@ -684,10 +696,47 @@
           "timeframe": "Mar. 2002 - Nov. 2009 (6 yrs)",
           "role": "Primary Institution",
           "description": "",
-          "references": [],
+          "tags": ["formal"],
           "link": "",
           "acquiredSkills": [
             "Basic Reasoning"
+          ]
+        },
+        {
+          "company": "PMP Certification Program",
+          "timeframe": "Mar. 2019 (2 Weeks)",
+          "role": "Software Development • STEM",
+          "description": "PMP® certification is a globally-recognized project management certification. It proves you have the ability to lead projects for any organization and in any industry.",
+          "tags": ["self"],
+          "link": "",
+          "acquiredSkills": [
+            "Project Management",
+            "Time Management"
+          ]
+        },
+        {
+          "company": "General Programming (YouTube, Google, PluralSight & Others)",
+          "timeframe": "Mar. 2016 - Present (7 yrs)",
+          "role": "Full Stack Software Developer",
+          "description": "I began my journey as a Full Stack developer in 2016 by self-learning on YouTube and Google. I also enrolled in various learning programs such as the ALC program, Udemy Courses and tutorials. I also enrolled on HackerRank.",
+          "tags": ["self"],
+          "link": "",
+          "acquiredSkills": [
+            "Full Stack Software Development",
+            "Analytical Thinking",
+            "Problem Solving"
+          ]
+        },
+        {
+          "company": "Human Psychology & Management",
+          "timeframe": "Since 2005 - Present (18 Yrs)",
+          "role": "Management",
+          "description": "Human psychology encompasses the scientific study of the mind and behavior and the application of these principles to help, understand and manage the human experience fully.",
+          "tags": ["self"],
+          "link": "",
+          "acquiredSkills": [
+            "People Management",
+            "Emotional Intelligience"
           ]
         }
       ]

@@ -11,12 +11,12 @@ import { setDarkMode } from "../../utils";
 const Issues = () => {
   const navigate = useNavigate();
   const [experiences] = useState([
-    {
-      title: "How I got my first tech job!",
-      timeframe: "Posted on Mar, 2023",
-      role: "Freelance Developer • Internship at Jara Analytics",
-      content: "-- --",
-    },
+    // {
+    //   title: "How I got my first tech job!",
+    //   timeframe: "Posted on Mar, 2023",
+    //   role: "Freelance Developer • Internship at Jara Analytics",
+    //   content: "-- --",
+    // },
   ]);
 
   useEffect(() => {
@@ -50,10 +50,10 @@ const Issues = () => {
               marginBottom: "38px",
             }}
           >
-            <a href="/" className="-ml-3">
+            <a href="/home" className="-ml-3">
               <LeftIcon />
             </a>
-            <span className="ml-5">🐞🔨 Career Challenges Catalogue</span>
+            <span className="ml-5">Career Challenges Catalogue</span>
           </h1>
           <div className="flex flex-col flex-wrap">
             {experiences.map((each) => (
