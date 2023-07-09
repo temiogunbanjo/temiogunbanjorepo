@@ -704,9 +704,7 @@
           "description": "",
           "tags": ["formal"],
           "link": "",
-          "acquiredSkills": [
-            "Basic Reasoning"
-          ]
+          "acquiredSkills": ["Basic Reasoning"]
         },
         {
           "company": "Akesan Royal Model",
@@ -715,9 +713,7 @@
           "description": "",
           "tags": ["formal"],
           "link": "",
-          "acquiredSkills": [
-            "Basic Reasoning"
-          ]
+          "acquiredSkills": ["Basic Reasoning"]
         },
         {
           "company": "PMP Certification Program",
@@ -726,10 +722,7 @@
           "description": "PMP® certification is a globally-recognized project management certification. It proves you have the ability to lead projects for any organization and in any industry.",
           "tags": ["self"],
           "link": "",
-          "acquiredSkills": [
-            "Project Management",
-            "Time Management"
-          ]
+          "acquiredSkills": ["Project Management", "Time Management"]
         },
         {
           "company": "General Programming (YouTube, Google, PluralSight & Others)",
@@ -751,10 +744,7 @@
           "description": "Human psychology encompasses the scientific study of the mind and behavior and the application of these principles to help, understand and manage the human experience fully.",
           "tags": ["self"],
           "link": "",
-          "acquiredSkills": [
-            "People Management",
-            "Emotional Intelligience"
-          ]
+          "acquiredSkills": ["People Management", "Emotional Intelligience"]
         }
       ]
     }
