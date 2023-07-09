@@ -529,15 +529,15 @@ const PortfolioIndex = () => {
       },
     ],
     [
-      "If GOD isn't real...",
+      "If God isn't real...",
       QUOTE_PAUSE_DURATION,
-      "If GOD isn't real, and these whole universe was just born from pure randomness including us...",
+      "If God isn't real, and these whole universe was just born from pure randomness including us...",
       QUOTE_PAUSE_DURATION,
-      "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts?",
+      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts?",
       QUOTE_PAUSE_DURATION,
-      "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic?",
+      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic?",
       QUOTE_PAUSE_DURATION,
-      "If GOD isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic? Therefore, GOD is REAl!",
+      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic? Therefore, GOD is REAl!",
       2000, // Waits 1s
       () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
@@ -734,7 +734,7 @@ const PortfolioIndex = () => {
             </span>
           </h1>
 
-          <h3 className="inline mt-3" style={{ fontSize: "24px" }}>
+          <h3 className="inline-block mt-3" style={{ fontSize: "24px" }}>
             <span
               className="mr-3"
               style={{
@@ -877,7 +877,7 @@ const PortfolioIndex = () => {
         </div>
 
         <Fade right cascade>
-          <div className="flex flex-col user-profile-section">
+          <div className="flex flex-col user-profile-section shadow-md sm:shadow-none">
             <div
               className="w-full flex flex-row img-wrapper mt-0 mb-12 transition-all ease-in"
               style={{
@@ -885,7 +885,7 @@ const PortfolioIndex = () => {
               }}
             >
               <img
-                className="user-profile-picture"
+                className="user-profile-picture shadow-md sm:shadow-none"
                 src={require("../../assets/images/Me.jpeg")}
                 alt="Temiloluwa"
                 width="100%"
@@ -897,7 +897,6 @@ const PortfolioIndex = () => {
               className="text-3xl capitalize text-left w-full mb-6"
               style={{
                 fontFamily: 'Poppins, "Open Sans"',
-                letterSpacing: "0px",
                 color: "var(--text-color)",
                 fontWeight: 500,
               }}
@@ -915,7 +914,7 @@ const PortfolioIndex = () => {
                 className="text-center sm:text-justify"
                 style={{
                   fontSize: '14px',
-                  fontWeight: 400,
+                  fontWeight: 500,
                   lineHeight: 2,
                   margin: "1rem 0 0",
                 }}
@@ -1246,7 +1245,7 @@ const PortfolioIndex = () => {
                           overflow: "hidden",
                           border: {
                             sm: "1px solid var(--border-line-color)",
-                            xs: "1px solid #555",
+                            xs: "1px solid var(--border-line-color)",
                           },
                           backgroundColor: "var(--border-line-color)",
                         }}

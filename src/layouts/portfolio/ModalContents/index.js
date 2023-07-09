@@ -9,7 +9,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
   // console.log(experiences);
   return (
     <Stack sx={{ color: "var(--text-color)" }}>
-      <Stack direction="row" className="mb-8">
+      <Stack direction="row" className="mb-8 flex-wrap sm:flex-nowrap">
         <div
           className="flex flex-row-reverse w-full items-center justify-center px-5 py-4.5 rounded-lg mr-8"
           style={{
@@ -27,7 +27,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
           />
         </div>
 
-        <div>
+        <div className="mt-4 sm:mt-0">
           <div className="flex flex-row items-center">
             <Typography
               component="h2"

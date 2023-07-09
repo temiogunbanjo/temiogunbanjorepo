@@ -558,19 +558,28 @@ footer {
 
 @media only screen and (max-width: 640px) {
   .user-profile-section {
-    color: var(--text-color);
+    color: white;
     width: 100%;
     max-width: unset;
-    margin-top: 80px;
+    margin-top: 45px;
     min-height: 480px;
     padding: 3rem 3rem 5rem;
     border: 2px solid;
     border-color: var(--primary-color);
+    background-color: var(--primary-color);
+  }
+
+  .user-profile-section * {
+    color: white !important;
+  }
+
+  body.dark-mode .user-profile-section {
+    background-color: #303030;
   }
 
   .user-profile-section img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
 
   .background-illuminator {
