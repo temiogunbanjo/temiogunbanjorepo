@@ -156,7 +156,8 @@ body.dark-mode .hero,
 }
 
 .main-text {
-  font-size: 44px;
+  line-height: 1.15;
+  font-size: 50px;
   font-weight: 700;
   margin: 0;
   color: var(--text-color);
@@ -509,11 +510,8 @@ footer {
 
   .main-text {
     font-size: 32px;
+    line-height: 1.15;
   }
-
-  /* .user-profile-section {
-    
-  } */
 
   .user-profile-section button {
     font-size: 1.4rem;
@@ -590,5 +588,11 @@ footer {
   .education-container .timeline-section {
     width: 100%;
     /* flex: none; */
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .main-text + h3 {
+    height: 60px;
   }
 }

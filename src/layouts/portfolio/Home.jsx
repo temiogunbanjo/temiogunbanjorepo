@@ -483,13 +483,13 @@ const PortfolioIndex = () => {
     [
       "A wise man once said:",
       QUOTE_PAUSE_DURATION,
-      "A wise man once said: \"Someone to love",
+      'A wise man once said: "Someone to love',
       QUOTE_PAUSE_DURATION,
-      "A wise man once said: \"Someone to love, something to hope for",
+      'A wise man once said: "Someone to love, something to hope for',
       QUOTE_PAUSE_DURATION,
-      "A wise man once said: \"Someone to love, something to hope for and something to do",
+      'A wise man once said: "Someone to love, something to hope for and something to do',
       QUOTE_PAUSE_DURATION,
-      "A wise man once said: \"Someone to love, something to hope for and something to do are the 3 essence of true happiness\".",
+      'A wise man once said: "Someone to love, something to hope for and something to do are the 3 essence of true happiness".',
       4000, // Waits 1s
       () => {
         console.log("Done typing!"); // Place optional callbacks anywhere in the array
@@ -725,7 +725,11 @@ const PortfolioIndex = () => {
           style={{ justifyContent: "center", padding: "10px" }}
         >
           <h1 className="main-text" style={{ fontSize: "50px" }}>
-            <span style={{ fontSize: "28px", lineHeight: 0.5 }}>Who is </span>
+            <span
+              style={{ fontSize: "28px", fontWeight: 600 }}
+            >
+              Who is{" "}
+            </span>
             <br />
             <span style={{}}>Temiloluwa Ogunbanjo </span>
             <span className="" style={{ color: "var(--primary-color)" }}>
@@ -734,7 +738,7 @@ const PortfolioIndex = () => {
             </span>
           </h1>
 
-          <h3 className="inline-block mt-3" style={{ fontSize: "24px" }}>
+          <h3 className="inline-block mt-8 sm:mt-6" style={{ fontSize: "24px" }}>
             <span
               className="mr-3"
               style={{
@@ -913,7 +917,7 @@ const PortfolioIndex = () => {
                 repeat={0}
                 className="text-center sm:text-justify"
                 style={{
-                  fontSize: '14px',
+                  fontSize: "14px",
                   fontWeight: 500,
                   lineHeight: 2,
                   margin: "1rem 0 0",
@@ -932,7 +936,7 @@ const PortfolioIndex = () => {
                   margin: "2.8rem 0 0",
                   fontSize: "1rem",
                   fontWeight: 500,
-                  color: 'var(--light-text-color)',
+                  color: "var(--light-text-color)",
                   width: "100%",
                   opacity: showProfilePic ? 1 : 0,
                 }}
