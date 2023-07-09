@@ -3,149 +3,149 @@ import { TextureLoader, BackSide } from "three";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import {
   CameraControls,
-  Environment,
+  // Environment,
   Loader,
-  OrbitControls,
-  PresentationControls,
+  // OrbitControls,
+  // PresentationControls,
   // Scroll,
   // ScrollControls,
-  Stars,
+  // Stars,
   // useTexture,
   // Text,
 } from "@react-three/drei";
-import { Physics } from "@react-three/cannon";
+// import { Physics } from "@react-three/cannon";
 
 import texture from "../../assets/textures/simple_backyard/anime_a_simple_modern_backyard_a_wide_lawn.jpg";
 
 // import Box from "../../components/3D/Box";
 // import Plane from "../../components/3D/Plane";
-import Store from "../../components/3D/Store";
+// import Store from "../../components/3D/Store";
 // import Test from "../../components/3D/Test";
 // import Sphere from "../../components/3D/Sphere";
 import Axis from "../../components/3D/Axis";
 // import GPSMonitoring from "../../components/3D/GPSMonitoring";
 
-const World = () => {
-  // const colorMap = useLoader(TextureLoader, texture);
-  const stars = useRef();
+// const World = () => {
+//   // const colorMap = useLoader(TextureLoader, texture);
+//   const stars = useRef();
 
-  useFrame((_, delta) => {
-    // console.log(stars.current.position.z);
-    stars.current.rotation.z += delta / 50;
-  });
+//   useFrame((_, delta) => {
+//     // console.log(stars.current.position.z);
+//     stars.current.rotation.z += delta / 50;
+//   });
 
-  const lightPosition1 = [5, 10, 0];
-  const lightPosition2 = [5, 10, 5];
+//   const lightPosition1 = [5, 10, 0];
+//   const lightPosition2 = [5, 10, 5];
 
-  return (
-    <>
-      <Stars ref={stars} />
-      <Physics>
-        {/* <Debug color="black" scale={1}> */}
-        {/* <Sphere position={lightPosition2} color={"white"} size={[0.5]} /> */}
-        <pointLight position={lightPosition2} intensity={1} />
+//   return (
+//     <>
+//       <Stars ref={stars} />
+//       <Physics>
+//         {/* <Debug color="black" scale={1}> */}
+//         {/* <Sphere position={lightPosition2} color={"white"} size={[0.5]} /> */}
+//         <pointLight position={lightPosition2} intensity={1} />
 
-        {/* <Sphere position={lightPosition1} color={"dodgerblue"} size={[0.5]} /> */}
-        <pointLight
-          position={lightPosition1}
-          intensity={1}
-          // penumbra={0.8}
-          // angle={Math.PI / 4}
-          color={"white"}
-        />
+//         {/* <Sphere position={lightPosition1} color={"dodgerblue"} size={[0.5]} /> */}
+//         <pointLight
+//           position={lightPosition1}
+//           intensity={1}
+//           // penumbra={0.8}
+//           // angle={Math.PI / 4}
+//           color={"white"}
+//         />
 
-        {/* <PresentationControls
-          // config={{ mass: 2, tension: 500 }}
-          snap={{ mass: 4, tension: 1500 }}
-          zoom={0.8}
-          polar={[0, Math.PI / 4]}
-          azimuth={[-Math.PI / 4, Math.PI / 4]}
-        >
-          <GPSMonitoring
-            position={[8, 0.1, 2]}
-            color="green"
-            rotation={[-6, 120, 0]}
-            size={[2.5]}
-            map={colorMap}
-            physicsOptions={{ mass: 0 }}
-          />
-        </PresentationControls> */}
-        <PresentationControls
-          snap
-          zoom={0.8}
-          polar={[0, Math.PI / 4]}
-          azimuth={[-Math.PI / 4, Math.PI / 4]}
-        >
-          <group position-y={-0.75} dispose={null}>
-            <Store
-              position={[-18, -20, -28]}
-              rotation={[-0.16, -Math.PI / 4, 0.05]}
-              size={[4.8, 4.8, 4.8]}
-              physicsOptions={{ mass: 0 }}
-              northWallProp={{
-                color: "teal",
-              }}
-              westWallProp={{
-                color: "teal",
-              }}
-              floorProp={{
-                color: "brown",
-              }}
-              shelves={{
-                northWall: {
-                  show: true,
-                  color: "gold",
-                },
-                westWall: {
-                  show: false,
-                  color: "gold",
-                },
-              }}
-            ></Store>
-          </group>
-        </PresentationControls>
+//         {/* <PresentationControls
+//           // config={{ mass: 2, tension: 500 }}
+//           snap={{ mass: 4, tension: 1500 }}
+//           zoom={0.8}
+//           polar={[0, Math.PI / 4]}
+//           azimuth={[-Math.PI / 4, Math.PI / 4]}
+//         >
+//           <GPSMonitoring
+//             position={[8, 0.1, 2]}
+//             color="green"
+//             rotation={[-6, 120, 0]}
+//             size={[2.5]}
+//             map={colorMap}
+//             physicsOptions={{ mass: 0 }}
+//           />
+//         </PresentationControls> */}
+//         <PresentationControls
+//           snap
+//           zoom={0.8}
+//           polar={[0, Math.PI / 4]}
+//           azimuth={[-Math.PI / 4, Math.PI / 4]}
+//         >
+//           <group position-y={-0.75} dispose={null}>
+//             <Store
+//               position={[-18, -20, -28]}
+//               rotation={[-0.16, -Math.PI / 4, 0.05]}
+//               size={[4.8, 4.8, 4.8]}
+//               physicsOptions={{ mass: 0 }}
+//               northWallProp={{
+//                 color: "teal",
+//               }}
+//               westWallProp={{
+//                 color: "teal",
+//               }}
+//               floorProp={{
+//                 color: "brown",
+//               }}
+//               shelves={{
+//                 northWall: {
+//                   show: true,
+//                   color: "gold",
+//                 },
+//                 westWall: {
+//                   show: false,
+//                   color: "gold",
+//                 },
+//               }}
+//             ></Store>
+//           </group>
+//         </PresentationControls>
 
-        {/* <PresentationControls
-          snap
-          zoom={0.8}
-          polar={[-Math.PI / 4, Math.PI / 4]}
-          azimuth={[-Math.PI / 1.4, Math.PI / 2]}
-        >
-          <group position-y={-0.75} dispose={null}>
-            <Store
-              position={[-6, -15, 4]}
-              rotation={[0, 0, 0]}
-              size={[1, 1, 1]}
-              physicsOptions={{ mass: 0 }}
-              northWallProp={{
-                color: "pink",
-              }}
-              westWallProp={{
-                color: "pink",
-              }}
-              floorProp={{
-                color: "teal",
-              }}
-              shelves={{
-                northWall: {
-                  show: false,
-                  color: "gold",
-                },
-                westWall: {
-                  show: false,
-                  color: "gold",
-                },
-              }}
-            />
-          </group>
-        </PresentationControls> */}
+//         {/* <PresentationControls
+//           snap
+//           zoom={0.8}
+//           polar={[-Math.PI / 4, Math.PI / 4]}
+//           azimuth={[-Math.PI / 1.4, Math.PI / 2]}
+//         >
+//           <group position-y={-0.75} dispose={null}>
+//             <Store
+//               position={[-6, -15, 4]}
+//               rotation={[0, 0, 0]}
+//               size={[1, 1, 1]}
+//               physicsOptions={{ mass: 0 }}
+//               northWallProp={{
+//                 color: "pink",
+//               }}
+//               westWallProp={{
+//                 color: "pink",
+//               }}
+//               floorProp={{
+//                 color: "teal",
+//               }}
+//               shelves={{
+//                 northWall: {
+//                   show: false,
+//                   color: "gold",
+//                 },
+//                 westWall: {
+//                   show: false,
+//                   color: "gold",
+//                 },
+//               }}
+//             />
+//           </group>
+//         </PresentationControls> */}
 
-        {/* <Plane color="#23174d" size={[500, 500]} castShadow/> */}
-        {/* </Debug> */}
-      </Physics>
-    </>
-  );
-};
+//         {/* <Plane color="#23174d" size={[500, 500]} castShadow/> */}
+//         {/* </Debug> */}
+//       </Physics>
+//     </>
+//   );
+// };
 
 const World2 = () => {
   const cameraRef = useRef();
@@ -190,13 +190,13 @@ const World2 = () => {
 //   );
 // };
 
-const PageSection = ({ children, style = {}, className = "" }) => {
-  return (
-    <section className={`h-screen w-screen ${className}`} style={style}>
-      {children}
-    </section>
-  );
-};
+// const PageSection = ({ children, style = {}, className = "" }) => {
+//   return (
+//     <section className={`h-screen w-screen ${className}`} style={style}>
+//       {children}
+//     </section>
+//   );
+// };
 
 const Projects = () => {
   const cameraProps = {
