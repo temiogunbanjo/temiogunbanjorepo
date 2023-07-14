@@ -105,7 +105,7 @@ main {
   /* overflow-y: auto; */
 }
 
-main > section {
+main > section, main > * > section {
   /* flex: none; */
   margin-bottom: 3.5rem;
   min-height: 600px;
@@ -505,7 +505,7 @@ footer {
     min-height: 500px !important;
   }
 
-  main > section {
+  main > section, main > * > section {
     padding-left: 26px;
     padding-right: 26px;
   }
