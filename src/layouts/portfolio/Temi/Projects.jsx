@@ -15,14 +15,14 @@ import {
 } from "@react-three/drei";
 // import { Physics } from "@react-three/cannon";
 
-import texture from "../../assets/textures/simple_backyard/anime_a_simple_modern_backyard_a_wide_lawn.jpg";
+import texture from "../../../assets/textures/simple_backyard/anime_a_simple_modern_backyard_a_wide_lawn.jpg";
 
 // import Box from "../../components/3D/Box";
 // import Plane from "../../components/3D/Plane";
 // import Store from "../../components/3D/Store";
 // import Test from "../../components/3D/Test";
 // import Sphere from "../../components/3D/Sphere";
-import Axis from "../../components/3D/Axis";
+import Axis from "../../../components/3D/Axis";
 // import GPSMonitoring from "../../components/3D/GPSMonitoring";
 
 // const World = () => {

@@ -13,7 +13,7 @@ export const fetchUserProfile = async (userId) => {
       } catch (error) {
         reject(error);
       }
-    }, 500);
+    }, 22500);
   });
   return profile;
 };

@@ -45,20 +45,20 @@ import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
-import CustomButton from "../../components/common/Button";
-import TabPanel from "../../components/common/TabPanel";
-import Spinner from "../../components/common/Spinner";
-import Dialog from "../../components/common/Dialog";
+import CustomButton from "../../../components/common/Button";
+import TabPanel from "../../../components/common/TabPanel";
+import Spinner from "../../../components/common/Spinner";
+import Dialog from "../../../components/common/Dialog";
+import StyledAvatar from "../../../components/common/StyledAvatar";
 
 import {
   fetchUserExperiences,
   fetchUserProject,
   fetchUserSkills,
-} from "../../database";
-import { getRandomItem, setDarkMode } from "../../utils";
-import StyledAvatar from "../../components/common/StyledAvatar";
+  fetchUserProfile
+} from "../../../database";
+import { getRandomItem, setDarkMode } from "../../../utils";
 import { SkillInfo } from "./ModalContents";
-import { fetchUserProfile } from "../../../database";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -744,46 +744,42 @@ const PortfolioIndex = () => {
     <>
       <section className="hero flex flex-col sm:flex-row relative">
         <div
-          className="cols sm:mr-8"
+          className="cols sm:mr-8 w-full"
           style={{ justifyContent: "center", padding: "10px" }}
         >
-          <h1 className="main-text" style={{ fontSize: "50px" }}>
-            <span style={{ fontSize: "28px", fontWeight: 600 }}>Please wait </span>
+          <h1 className="main-text text-center" style={{ fontSize: "50px" }}>
+            <span style={{ fontSize: "26px", fontWeight: 600 }}>Please wait </span>
             <br />
-            <span className="capitalize">loading profile</span>
+            <span className="capitalize mt-4">Loading profile</span>
           </h1>
 
           <h3
-            className="inline-block mt-8 sm:mt-6"
+            className="inline-block mt-8 sm:mt-6 text-center"
             style={{ fontSize: "24px" }}
           >
-            <span
-              className="mr-3"
-              style={{
-                letterSpacing: "0px",
-                color: "var(--light-text-color)",
-              }}
-            >
-              I am a
-            </span>
             <TypeAnimation
+              key={1}
               sequence={[
-                "Full Stack Developer!",
-                1000,
-                "Graphics Designer!",
-                1000,
-                "3D Animator!",
-                1000,
-                "Part-time Therapist!",
-                3000,
+                "Loading all assets...",
+                2500,
+                "Sorting information...",
+                2500,
+                "Recalling dates and time...",
+                2500,
+                "Decorating pages...",
+                2500,
+                "Finalizing...",
+                3500,
+                "Rendering pages...",
+                500,
                 () => {},
               ]}
               wrapper="span"
-              speed={35}
+              speed={65}
               deletionSpeed={68}
               cursor={true}
-              repeat={Infinity}
-              className=""
+              // repeat={Infinity}
+              className="animate-bounce"
               style={{
                 color: "var(--primary-color)",
                 letterSpacing: "1px",
@@ -791,77 +787,10 @@ const PortfolioIndex = () => {
             />
           </h3>
         </div>
-
-        <Fade right cascade>
-          <div className="flex flex-col user-profile-section shadow-md sm:shadow-none">
-            <div
-              className="w-full flex flex-row img-wrapper mt-0 mb-12 transition-all ease-in"
-              style={{
-                opacity: showProfilePic ? 1 : 0,
-              }}
-            >
-              <img
-                className="user-profile-picture shadow-md sm:shadow-none"
-                src={require("../../assets/images/Me.jpeg")}
-                alt="Temiloluwa"
-                width="100%"
-                height="100%"
-              />
-            </div>
-
-            <h2
-              className="text-3xl capitalize text-left w-full mb-6"
-              style={{
-                fontFamily: 'Poppins, "Open Sans"',
-                color: "var(--text-color)",
-                fontWeight: 500,
-              }}
-            >
-              Thought of the Day:
-            </h2>
-            <blockquote className="w-full">
-              <TypeAnimation
-                sequence={getRandomItem(quoteSequence)}
-                wrapper="span"
-                speed={35}
-                deletionSpeed={88}
-                cursor={true}
-                repeat={0}
-                className="text-center sm:text-justify"
-                style={{
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  lineHeight: 2,
-                  margin: "1rem 0 0",
-                }}
-              />
-            </blockquote>
-            <Collapse
-              orientation="vertical"
-              in={showProfilePic}
-              timeout={600}
-              className="w-full mt-auto"
-            >
-              <i
-                className="inline-block text-right"
-                style={{
-                  margin: "2.8rem 0 0",
-                  fontSize: "1rem",
-                  fontWeight: 500,
-                  color: "var(--light-text-color)",
-                  width: "100%",
-                  opacity: showProfilePic ? 1 : 0,
-                }}
-              >
-                {`Last updated on ${new Date(2023, 1, 6).toDateString()}`}
-              </i>
-            </Collapse>
-          </div>
-        </Fade>
       </section>
     </>
   ) : (
-    <>
+    <Fade>
       <section className="hero flex flex-col sm:flex-row relative">
         <div
           className="cols sm:mr-8"
@@ -891,6 +820,7 @@ const PortfolioIndex = () => {
               I am a
             </span>
             <TypeAnimation
+              key={2}
               sequence={[
                 "Full Stack Developer!",
                 1000,
@@ -1032,7 +962,7 @@ const PortfolioIndex = () => {
             >
               <img
                 className="user-profile-picture shadow-md sm:shadow-none"
-                src={require("../../assets/images/Me.jpeg")}
+                src={require("../../../assets/images/Me.jpeg")}
                 alt="Temiloluwa"
                 width="100%"
                 height="100%"
@@ -1269,7 +1199,7 @@ const PortfolioIndex = () => {
 
       {/* EXPERIENCES */}
       <Fade bottom cascade>
-        <section className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8">
+        <section id="experiences-section" className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8">
           <h2
             className="mb-10 right-headings"
             style={{
@@ -1523,7 +1453,7 @@ const PortfolioIndex = () => {
       <Dialog open={openModal} onClose={handleClose}>
         {dialogContent}
       </Dialog>
-    </>
+    </Fade>
   );
 };
 

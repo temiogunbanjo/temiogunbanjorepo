@@ -5,8 +5,8 @@ import Fade from "@successtar/react-reveal/Fade";
 import { CgEye } from "react-icons/cg";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
-import CustomButton from "../../components/common/Button";
-import { setDarkMode } from "../../utils";
+import CustomButton from "../../../components/common/Button";
+import { setDarkMode } from "../../../utils";
 
 const Issues = () => {
   const navigate = useNavigate();

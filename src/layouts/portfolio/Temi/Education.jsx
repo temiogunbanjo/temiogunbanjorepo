@@ -23,14 +23,14 @@ import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
-import CustomButton from "../../components/common/Button";
-import Spinner from "../../components/common/Spinner";
-import Dialog from "../../components/common/Dialog";
+import CustomButton from "../../../components/common/Button";
+import Spinner from "../../../components/common/Spinner";
+import Dialog from "../../../components/common/Dialog";
+import StyledAvatar from "../../../components/common/StyledAvatar";
 
-import { fetchUserEducation } from "../../database";
-import { setDarkMode } from "../../utils";
+import { fetchUserEducation } from "../../../database";
+import { setDarkMode } from "../../../utils";
 import { blueGrey } from "@mui/material/colors";
-import StyledAvatar from "../../components/common/StyledAvatar";
 
 const PortfolioEducation = () => {
   const navigate = useNavigate();

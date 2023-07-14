@@ -70,14 +70,14 @@ function Header(props) {
               Home
             </Link>
             <Link
-              to="/temi/home#skills"
+              to="/temi/home#skill-section"
               className="uppercase"
               style={{ fontWeight: 600 }}
             >
               Skills
             </Link>
             <Link
-              to="/temi/home"
+              to="/temi/home#experiences-section"
               className="uppercase"
               style={{ fontWeight: 600 }}
             >
@@ -95,7 +95,7 @@ function Header(props) {
               className="uppercase"
               style={{ fontWeight: 600 }}
             >
-              Career Challenges
+              Challenges
             </Link>
             {/* <Link
               to="/therapy"
