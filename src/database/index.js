@@ -1,6 +1,8 @@
 const db = require('./db.json');
 
 export const fetchUserProfile = async (userId) => {
+  const time = Math.round((Math.random() * 3500)) + 19000;
+  console.log(time);
   const profile = new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
@@ -13,7 +15,7 @@ export const fetchUserProfile = async (userId) => {
       } catch (error) {
         reject(error);
       }
-    }, 22500);
+    }, time);
   });
   return profile;
 };

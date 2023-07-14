@@ -727,12 +727,9 @@ const PortfolioIndex = () => {
 
   const loadLocalFile = (filePath) => {
     let data = null;
-    console.log({ url: filePath });
 
     try {
-      // data = require(filePath)?.default;
       data = filePath;
-      // console.log({ data });
       return data;
     } catch (error) {
       console.log({ error });
