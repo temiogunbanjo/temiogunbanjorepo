@@ -18,6 +18,7 @@ import {
   Tabs,
   Tooltip,
 } from "@mui/material";
+import { blueGrey } from "@mui/material/colors";
 import { CgArrowLongDown as DownArrowIcon } from "react-icons/cg";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import {
@@ -55,9 +56,9 @@ import {
   fetchUserSkills,
 } from "../../database";
 import { getRandomItem, setDarkMode } from "../../utils";
-import { blueGrey } from "@mui/material/colors";
 import StyledAvatar from "../../components/common/StyledAvatar";
 import { SkillInfo } from "./ModalContents";
+import { fetchUserProfile } from "../../../database";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -455,10 +456,13 @@ const ExperienceCard = (props) => {
 
 const PortfolioIndex = () => {
   const navigate = useNavigate();
-  const [showProfilePic, setShowProfilePic] = useState(false);
-  const [isLayman, setIsLayman] = useState(false);
+  const [isLayman, setIsLayman] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [dialogContent, setDialogContent] = useState(null);
+
+  const [showProfilePic, setShowProfilePic] = useState(false);
+  const [loadingProfile, setLoadingProfile] = useState(true);
+  const [profile, setProfile] = useState({});
 
   const [loadingSkills, setLoadingSkills] = useState(true);
   const [showAllSkills, setShowAllSkills] = useState(false);
@@ -594,26 +598,36 @@ const PortfolioIndex = () => {
 
   useEffect(() => {
     (async () => {
+      const profileResponse = await fetchUserProfile(2);
+      if (profileResponse) {
+        setLoadingProfile(false);
+        setProfile(profileResponse);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
       // setLoadingProjects(false);
-      const projResponse = await fetchUserProject(1);
+      const projResponse = await fetchUserProject(profile?.id);
       if (projResponse) {
         setLoadingProjects(false);
         setProjects(projResponse);
       }
 
-      const skillResponse = await fetchUserSkills(1);
+      const skillResponse = await fetchUserSkills(profile?.id);
       if (skillResponse) {
         setLoadingSkills(false);
         setSkills(skillResponse);
       }
 
-      const expResponse = await fetchUserExperiences(1);
+      const expResponse = await fetchUserExperiences(profile?.id);
       if (expResponse) {
         setLoadingExperiences(false);
         setExperiences(expResponse);
       }
     })();
-  }, []);
+  }, [profile?.id]);
 
   useEffect(() => {
     const e2S = {};

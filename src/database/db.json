@@ -17,6 +17,14 @@
       "profession": "Fullstack Software Developer",
       "bio": "I am a Fullstack Software Developer with 6 years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.",
       "bioArray": []
+    },
+    {
+      "id": 2,
+      "name": "Moyinoluwa ogunbanjo",
+      "avatar": "../resources/images/Me.jpeg",
+      "profession": "Content Creator",
+      "bio": "I am a Fullstack Software Developer with 6 years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.",
+      "bioArray": []
     }
   ],
   "skills": [
@@ -456,6 +464,50 @@
           "icon": "<AiOutlineTool style={iconStyles} />"
         }
       ]
+    },
+    {
+      "userId": 2,
+      "data": [
+        {
+          "name": "Javascript",
+          "level": 9.2,
+          "tags": [
+            "Software Development",
+            "Back-End Development",
+            "Front-End Development",
+            "Web Development"
+          ],
+          "color": "purple",
+          "icon": "https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/js-512.png",
+          "description": "JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc.",
+          "certifications": [
+            {
+              "title": "Problem Solving (Basic)",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHYemd2p7TxeQ/company-logo_100_100/0/1673333565608?e=1696464000&v=beta&t=3FrCkqzsp_iyrbVC0eJbxHaY6WDsJBOmfIFjNWRXpCU",
+              "organization": "HackerRank",
+              "issue_date": "Nov. 2021",
+              "certificateId": "692c67642a36",
+              "verification_link": "https://www.hackerrank.com/certificates/692c67642a36"
+            },
+            {
+              "title": "Programming With Javascript",
+              "organization_icon": "https://media.licdn.com/dms/image/C4E0BAQFdNatYGiBelg/company-logo_100_100/0/1636138753911?e=1696464000&v=beta&t=Y8YZS6ie8vacjAMZdht3kmzZSDuPPQRYEx4hUOAjt6g",
+              "organization": "Meta",
+              "issue_date": "Apr. 2023",
+              "certificateId": "",
+              "verification_link": "https://www.coursera.org/account/accomplishments/verify/V3H44HURAPHA"
+            },
+            {
+              "title": "Javascript Tutorial Course",
+              "organization_icon": "https://media.licdn.com/dms/image/C4D0BAQHER-dvTqh2tA/company-logo_100_100/0/1625174152948?e=1696464000&v=beta&t=9sIJNjZBL2f-11V6AAbnHuqbylAnlj5Pa_KdYVSu4PQ",
+              "organization": "SoloLearn",
+              "issue_date": "Feb. 2019",
+              "certificateId": "",
+              "verification_link": ""
+            }
+          ]
+        }
+      ]
     }
   ],
   "experiences": [
@@ -624,6 +676,45 @@
           "relatedSkills": ["Adobe Photoshop"]
         }
       ]
+    },
+    {
+      "userId": 2,
+      "data": [
+        {
+          "icon": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/s0j2vm8hsmcx3fzyrd34",
+          "company": "TradeBuza",
+          "timeframe": "May 2022 - Present",
+          "role": "Senior Front-End Developer • Full-Time",
+          "description": "<p>I was responsible for:</p><ol><li>Rewriting the legacy apps</li><li>Create security and data protection settings.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Developing the frontend web application for the various new agro-tech products in the suites</li><li>Collaboration with the team to brainstorm and generate ideas for improvements to the app suites</li></ol>",
+          "references": [
+            {
+              "name": "Elijah Obominuru",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            },
+            {
+              "name": "Similoluwa",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            }
+          ],
+          "link": "https://www.tradebuza.com/",
+          "relatedSkills": [
+            "ReactJS",
+            "Typescript",
+            "Figma",
+            "Javascript",
+            "Problem Solving",
+            "Git/GitHub"
+          ]
+        }
+      ]
     }
   ],
   "projects": [
@@ -676,11 +767,96 @@
           "description": ""
         }
       ]
+    },
+    {
+      "userId": 2,
+      "data": [
+        {
+          "name": "Robin Virtual Assistant",
+          "content": [
+            {
+              "type": "video",
+              "url": "/videos/Robin.mp4"
+            }
+          ],
+          "tag": "Software Development",
+          "description": "Robin was a python project I enjoyed working on. As at the time of building the project, I needed a way to automate my workspace, keep reminders and generally have a personal assistant to do the boring repetitive stuffs and so I decided to build a Virtual Assistant. Throughout the duration of the project, I gained experience working with Python, RegExp, Natural Language Processing (NLP), Machine Learning, multi-threading and a lot more."
+        }
+      ]
     }
   ],
   "education": [
     {
       "userId": 1,
+      "data": [
+        {
+          "icon": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/s0j2vm8hsmcx3fzyrd34",
+          "company": "University of Lagos",
+          "timeframe": "Jan. 2015 - Oct. 2023 (8 yrs)",
+          "role": "B.Sc. in Mechanical Engineering • College",
+          "description": "",
+          "tags": ["formal"],
+          "link": "",
+          "acquiredSkills": [
+            "Welding & Fabrication",
+            "Technical Drawing & Communication",
+            "Problem Solving",
+            "Python"
+          ]
+        },
+        {
+          "company": "SolidRock Model College",
+          "timeframe": "Mar. 2009 - Nov. 2014 (6 yrs)",
+          "role": "Department of Sciences • Secondary Institution",
+          "description": "",
+          "tags": ["formal"],
+          "link": "",
+          "acquiredSkills": ["Basic Reasoning"]
+        },
+        {
+          "company": "Akesan Royal Model",
+          "timeframe": "Mar. 2002 - Nov. 2009 (6 yrs)",
+          "role": "Primary Institution",
+          "description": "",
+          "tags": ["formal"],
+          "link": "",
+          "acquiredSkills": ["Basic Reasoning"]
+        },
+        {
+          "company": "PMP Certification Program",
+          "timeframe": "Mar. 2019 (2 Weeks)",
+          "role": "Software Development • STEM",
+          "description": "PMP® certification is a globally-recognized project management certification. It proves you have the ability to lead projects for any organization and in any industry.",
+          "tags": ["self"],
+          "link": "",
+          "acquiredSkills": ["Project Management", "Time Management"]
+        },
+        {
+          "company": "General Programming (YouTube, Google, PluralSight & Others)",
+          "timeframe": "Mar. 2016 - Present (7 yrs)",
+          "role": "Full Stack Software Developer",
+          "description": "I began my journey as a Full Stack developer in 2016 by self-learning on YouTube and Google. I also enrolled in various learning programs such as the ALC program, Udemy Courses and tutorials. I also enrolled on HackerRank.",
+          "tags": ["self"],
+          "link": "",
+          "acquiredSkills": [
+            "Full Stack Software Development",
+            "Analytical Thinking",
+            "Problem Solving"
+          ]
+        },
+        {
+          "company": "Human Psychology & Management",
+          "timeframe": "Since 2005 - Present (18 Yrs)",
+          "role": "Management",
+          "description": "Human psychology encompasses the scientific study of the mind and behavior and the application of these principles to help, understand and manage the human experience fully.",
+          "tags": ["self"],
+          "link": "",
+          "acquiredSkills": ["People Management", "Emotional Intelligience"]
+        }
+      ]
+    },
+    {
+      "userId": 2,
       "data": [
         {
           "icon": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/s0j2vm8hsmcx3fzyrd34",

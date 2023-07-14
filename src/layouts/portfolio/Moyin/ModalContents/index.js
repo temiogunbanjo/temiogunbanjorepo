@@ -3,7 +3,7 @@ import {
   HiLightningBolt as FeaturedSkillBadgeIcon,
   HiExternalLink,
 } from "react-icons/hi";
-import Status from "../../../components/common/StatusIndicator";
+import Status from "../../../../components/common/StatusIndicator";
 
 export const SkillInfo = ({ data, experiences, closeHandler }) => {
   // console.log(experiences);

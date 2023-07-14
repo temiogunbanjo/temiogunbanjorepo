@@ -63,21 +63,35 @@ function Header(props) {
             style={{ marginLeft: "20px", marginright: "20px" }}
           >
             <Link
-              to="/home"
+              to="/temi/home"
               className="uppercase"
               style={{ fontWeight: 600 }}
             >
               Home
             </Link>
             <Link
-              to="/home/education-history"
+              to="/temi/home#skills"
               className="uppercase"
               style={{ fontWeight: 600 }}
             >
-              Education History
+              Skills
             </Link>
             <Link
-              to="/issues"
+              to="/temi/home"
+              className="uppercase"
+              style={{ fontWeight: 600 }}
+            >
+              Work
+            </Link>
+            <Link
+              to="/temi/education-history"
+              className="uppercase"
+              style={{ fontWeight: 600 }}
+            >
+              Education
+            </Link>
+            <Link
+              to="/temi/issues"
               className="uppercase"
               style={{ fontWeight: 600 }}
             >

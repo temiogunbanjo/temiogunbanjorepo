@@ -40,7 +40,7 @@ const PortfolioAuth = () => {
 
     if (test === true) {
       window.localStorage.setItem("visitor_name", value);
-      navigate("/home");
+      navigate("/temi/home");
     }
     // alert(submitCount);
   };
@@ -51,7 +51,7 @@ const PortfolioAuth = () => {
 
     if (vName) {
       setValue(vName);
-      navigate("/home");
+      navigate("/temi/home");
     }
 
     if (isDarkMode !== null) {

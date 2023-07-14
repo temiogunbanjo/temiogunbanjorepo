@@ -51,13 +51,13 @@ const Footer = () => {
             <h4 className="capitalize text-4xl mb-8">Quick Links</h4>
             <div className="flex flex-col text-2xl">
               <a
-                href="/home/education-history"
+                href="/temi/education-history"
                 className="transition-all ease-in-out mb-6 text-xl capitalize hover:text-2xl"
               >
                 Education History
               </a>
               <a
-                href="/issues"
+                href="/temi/issues"
                 className="transition-all ease-in-out mb-6 text-xl capitalize hover:text-2xl"
               >
                 Issues Catelogue
