@@ -5,7 +5,7 @@ import { IoMailOpen } from "react-icons/io5";
 import { FaAngleRight } from "react-icons/fa";
 import { BsTelephoneFill as PhoneIcon } from "react-icons/bs";
 
-import { setDarkMode } from "../../utils";
+// import { setDarkMode } from "../../utils";
 import { fetchAllProfiles } from "../../database";
 import Spinner from "../../components/common/Spinner";
 // import { HiLightningBolt as FeaturedSkillBadgeIcon } from "react-icons/hi";
@@ -150,7 +150,7 @@ const ProfileCard = (props) => {
 const PortfolioAuth = () => {
   const navigate = useNavigate();
 
-  const [value, setValue] = useState("Guest 1");
+  // const [value, setValue] = useState("Guest 1");
   const [profiles, setProfiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 

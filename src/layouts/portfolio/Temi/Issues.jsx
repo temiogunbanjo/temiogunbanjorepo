@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import ReactHtmlParser from "html-react-parser";
 import Fade from "@successtar/react-reveal/Fade";
 import { CgEye } from "react-icons/cg";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
 import CustomButton from "../../../components/common/Button";
-import { setDarkMode } from "../../../utils";
+// import { setDarkMode } from "../../../utils";
 
 const Issues = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [experiences] = useState([
     // {
     //   title: "How I got my first tech job!",

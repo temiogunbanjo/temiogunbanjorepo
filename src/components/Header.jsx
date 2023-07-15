@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import logo from "../assets/images/DeeplugTEO.png";
+// import logo from "../assets/images/DeeplugTEO.png";
 import PointerBox from "./common/Pointer";
 import { IconButton } from "@mui/material";
 // import "./header.css";
@@ -31,12 +31,12 @@ const toggleNavigationDrawer = (ev) => {
 };
 
 function Header(props) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const logout = () => {
-    window.localStorage.removeItem("visitor_name");
-    navigate("/");
-  };
+  // const logout = () => {
+  //   window.localStorage.removeItem("visitor_name");
+  //   navigate("/");
+  // };
 
   return (
     <React.Fragment>

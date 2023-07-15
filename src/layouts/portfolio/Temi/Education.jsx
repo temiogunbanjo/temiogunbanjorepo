@@ -29,7 +29,7 @@ import Dialog from "../../../components/common/Dialog";
 import StyledAvatar from "../../../components/common/StyledAvatar";
 
 import { fetchUserEducation } from "../../../database";
-import { setDarkMode } from "../../../utils";
+// import { setDarkMode } from "../../../utils";
 import { blueGrey } from "@mui/material/colors";
 
 const PortfolioEducation = () => {
