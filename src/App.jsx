@@ -19,6 +19,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import NoPage from "./components/404Page";
 
 import Portfolio from "./pages/Portfolio";
+import MoyinPortfolio from "./pages/Moyin/Portfolio";
+import TemiPortfolio from "./pages/Temi/Portfolio";
 
 import Therapy from "./layouts/therapy/Therapy";
 import PortfolioIndex from "./layouts/portfolio/Temi/Home";
@@ -26,6 +28,9 @@ import PortfolioEducation from "./layouts/portfolio/Temi/Education";
 import PortfolioAuth from "./layouts/portfolio/Auth";
 import PortfolioIssues from "./layouts/portfolio/Temi/Issues";
 import Projects from "./layouts/portfolio/Temi/Projects";
+
+import MoyinPortfolioIndex from "./layouts/portfolio/Moyin/Home";
+import MoyinPortfolioEducation from "./layouts/portfolio/Moyin/Education";
 
 function App(props) {
   return (
@@ -36,16 +41,30 @@ function App(props) {
             <Switch>
               <Route path="/" element={<Portfolio />}>
                 <Route index element={<PortfolioAuth />} />
-                <Route path="temi/home" element={<PortfolioIndex />} />
+              </Route>
+
+              <Route path="/temi" element={<TemiPortfolio />}>
+                <Route index element={<PortfolioIndex />} />
+                <Route path="home" element={<PortfolioIndex />} />
                 <Route
-                  path="temi/education-history"
+                  path="education-history"
                   element={<PortfolioEducation />}
                 />
-                <Route path="temi/issues" element={<PortfolioIssues />} />
+                <Route path="issues" element={<PortfolioIssues />} />
                 <Route path="therapy" element={<Therapy />} />
               </Route>
 
+              {/* TEMI 3D PROJECT */}
               <Route path="/temi/projects" element={<Projects />} />
+
+              <Route path="/moyin" element={<MoyinPortfolio />}>
+                <Route index element={<MoyinPortfolioIndex />} />
+                <Route path="home" element={<MoyinPortfolioIndex />} />
+                <Route
+                  path="education-history"
+                  element={<MoyinPortfolioEducation />}
+                />
+              </Route>
 
               <Route path="*" element={<NoPage />} />
             </Switch>

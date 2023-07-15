@@ -13,18 +13,40 @@
     {
       "id": 1,
       "name": "temiloluwa ogunbanjo",
-      "avatar": "../resources/images/Me.jpeg",
-      "profession": "Fullstack Software Developer",
+      "avatar": "/resources/images/Me.jpeg",
+      "redirectTo": "/temi",
+      "professions": [
+        "Full Stack Software Developer",
+        "Graphics Designer",
+        "3D Animator",
+        "Part-time Therapist"
+      ],
+      "mobile": ["+2349059620514"],
       "bio": "I am a Fullstack Software Developer with 6 years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.",
-      "bioArray": []
+      "bioArray": [],
+      "skillTags": [
+        { "name": "Interpersonal Skills" },
+        { "name": "Web Development" },
+        { "name": "Cloud Provider" },
+        { "name": "Database Management" },
+        { "name": "Version Controls" },
+        { "name": "3D Animation & Graphics Design" },
+        { "name": "Others" }
+      ]
     },
     {
       "id": 2,
       "name": "Moyinoluwa ogunbanjo",
-      "avatar": "../resources/images/Me.jpeg",
-      "profession": "Content Creator",
+      "avatar": "/resources/images/AD.png",
+      "redirectTo": "/moyin",
+      "professions": ["Content Creator"],
+      "mobile": ["+2348057773715"],
       "bio": "I am a Fullstack Software Developer with 6 years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.",
-      "bioArray": []
+      "bioArray": [],
+      "skillTags": [
+        { "name": "Interpersonal Skills" },
+        { "name": "Others" }
+      ]
     }
   ],
   "skills": [

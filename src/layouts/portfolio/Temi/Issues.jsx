@@ -19,21 +19,6 @@ const Issues = () => {
     // },
   ]);
 
-  useEffect(() => {
-    const vName = window.localStorage.getItem("visitor_name");
-    const isDarkMode = window.localStorage.getItem("dark_mode");
-
-    if (!vName) {
-      navigate("/");
-    }
-
-    if (isDarkMode !== null) {
-      setDarkMode(isDarkMode);
-    } else {
-      setDarkMode(true);
-    }
-  });
-
   return (
     <>
       <Fade bottom cascade>
@@ -50,7 +35,7 @@ const Issues = () => {
               marginBottom: "38px",
             }}
           >
-            <a href="/home" className="-ml-3">
+            <a href="/temi/home" className="-ml-3">
               <LeftIcon />
             </a>
             <span className="ml-5">Career Challenges Catalogue</span>

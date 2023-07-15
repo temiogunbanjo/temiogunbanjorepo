@@ -47,18 +47,18 @@ const PortfolioEducation = () => {
   };
 
   useEffect(() => {
-    const vName = window.localStorage.getItem("visitor_name");
-    const isDarkMode = window.localStorage.getItem("dark_mode");
+    // const vName = window.localStorage.getItem("visitor_name");
+    // const isDarkMode = window.localStorage.getItem("dark_mode");
 
-    if (!vName) {
-      navigate("/");
-    }
+    // if (!vName) {
+    //   navigate("/");
+    // }
 
-    if (isDarkMode !== null) {
-      setDarkMode(isDarkMode);
-    } else {
-      setDarkMode(true);
-    }
+    // if (isDarkMode !== null) {
+    //   setDarkMode(isDarkMode);
+    // } else {
+    //   setDarkMode(true);
+    // }
   }, [navigate]);
 
   useEffect(() => {
@@ -70,24 +70,6 @@ const PortfolioEducation = () => {
       }
     })();
   }, []);
-
-  // useEffect(() => {
-  //   const e2S = {};
-  //   experiences.forEach((exp) => {
-  //     if (exp.relatedSkills) {
-  //       exp.relatedSkills.forEach((skill) => {
-  //         skill = skill.toLowerCase();
-  //         if (!e2S[skill]) {
-  //           e2S[skill] = [exp];
-  //         } else {
-  //           e2S[skill].push(exp);
-  //         }
-  //       });
-  //     }
-  //   });
-
-  //   setExpIntoSkills(e2S);
-  // }, [experiences]);
 
   return (
     <>
@@ -104,7 +86,7 @@ const PortfolioEducation = () => {
                 marginBottom: "18px",
               }}
             >
-              <a href="/home" className="-ml-3 my-3 sm:my-5 inline-block">
+              <a href="/temi/home" className="-ml-3 my-3 sm:my-5 inline-block">
                 <LeftIcon />
               </a>
               <span className="ml-5 inline-block">My Education</span>

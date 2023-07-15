@@ -45,20 +45,21 @@ import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
-import CustomButton from "../../components/common/Button";
-import TabPanel from "../../components/common/TabPanel";
-import Spinner from "../../components/common/Spinner";
-import Dialog from "../../components/common/Dialog";
+import CustomButton from "../../../components/common/Button";
+import TabPanel from "../../../components/common/TabPanel";
+import Spinner from "../../../components/common/Spinner";
+import Dialog from "../../../components/common/Dialog";
+import StyledAvatar from "../../../components/common/StyledAvatar";
 
 import {
   fetchUserExperiences,
   fetchUserProject,
   fetchUserSkills,
-} from "../../database";
-import { getRandomItem, setDarkMode } from "../../utils";
-import StyledAvatar from "../../components/common/StyledAvatar";
+  fetchUserProfile,
+} from "../../../database";
+import { getRandomItem, setDarkMode } from "../../../utils";
 import { SkillInfo } from "./ModalContents";
-import { fetchUserProfile } from "../../../database";
+import LoadingProfile from "../LoadingProfile";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -485,22 +486,6 @@ const PortfolioIndex = () => {
 
   const quoteSequence = [
     [
-      "A wise man once said:",
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love',
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love, something to hope for',
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love, something to hope for and something to do',
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love, something to hope for and something to do are the 3 essence of true happiness".',
-      4000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
-    [
       "In the quest for learning...",
       QUOTE_PAUSE_DURATION,
       "In the quest for learning, we should not neglect the importance of unlearning...",
@@ -532,32 +517,6 @@ const PortfolioIndex = () => {
         setShowProfilePic(true);
       },
     ],
-    [
-      "If God isn't real...",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us...",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts?",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic?",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic? Therefore, GOD is REAl!",
-      2000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
-    [
-      "Survivorship bias is a common logical error that distorts our understanding of the world...",
-      QUOTE_PAUSE_DURATION,
-      "Survivorship bias is a common logical error that distorts our understanding of the world. It happens when we assume that success tells the whole story and when we don't adequately consider past failures.",
-      4000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
   ];
 
   const handleOpen = () => setOpenModal(true);
@@ -582,12 +541,7 @@ const PortfolioIndex = () => {
   };
 
   useEffect(() => {
-    const vName = window.localStorage.getItem("visitor_name");
     const isDarkMode = window.localStorage.getItem("dark_mode");
-
-    if (!vName) {
-      navigate("/");
-    }
 
     if (isDarkMode !== null) {
       setDarkMode(isDarkMode);
@@ -668,7 +622,7 @@ const PortfolioIndex = () => {
           return relatedTags.length > 0;
         });
 
-        case 2: // Cloud Provider
+      case 2: // Cloud Provider
         return retValue.filter((each) => {
           const relatedTags = each.tags
             .map((tag) => tag.toLowerCase())
@@ -727,12 +681,9 @@ const PortfolioIndex = () => {
 
   const loadLocalFile = (filePath) => {
     let data = null;
-    console.log({ url: filePath });
 
     try {
-      // data = require(filePath)?.default;
       data = filePath;
-      // console.log({ data });
       return data;
     } catch (error) {
       console.log({ error });
@@ -740,28 +691,29 @@ const PortfolioIndex = () => {
     }
   };
 
-  return (
-    <>
+  return loadingProfile ? (
+   <LoadingProfile />
+  ) : (
+    <Fade>
       <section className="hero flex flex-col sm:flex-row relative">
         <div
           className="cols sm:mr-8"
           style={{ justifyContent: "center", padding: "10px" }}
         >
           <h1 className="main-text" style={{ fontSize: "50px" }}>
-            <span
-              style={{ fontSize: "28px", fontWeight: 600 }}
-            >
-              Who is{" "}
-            </span>
+            <span style={{ fontSize: "28px", fontWeight: 600 }}>Who is </span>
             <br />
-            <span style={{}}>Temiloluwa Ogunbanjo </span>
+            <span className="capitalize">{profile?.name}</span>
             <span className="" style={{ color: "var(--primary-color)" }}>
               {" "}
               ?
             </span>
           </h1>
 
-          <h3 className="inline-block mt-8 sm:mt-6" style={{ fontSize: "24px" }}>
+          <h3
+            className="inline-block mt-8 sm:mt-6"
+            style={{ fontSize: "24px" }}
+          >
             <span
               className="mr-3"
               style={{
@@ -772,23 +724,14 @@ const PortfolioIndex = () => {
               I am a
             </span>
             <TypeAnimation
-              sequence={[
-                "Full Stack Developer!",
-                1000,
-                "Graphics Designer!",
-                1000,
-                "3D Animator!",
-                1000,
-                "Part-time Therapist!",
-                3000,
-                () => {},
-              ]}
+              key={2}
+              sequence={[profile?.professions[0], 1000, () => {}]}
               wrapper="span"
               speed={35}
               deletionSpeed={68}
               cursor={true}
               repeat={Infinity}
-              className=""
+              className="capitalize"
               style={{
                 color: "var(--primary-color)",
                 letterSpacing: "1px",
@@ -799,26 +742,13 @@ const PortfolioIndex = () => {
           {isLayman ? (
             <Fade>
               <p className="py-8 text-xl" style={styles.bioStyle}>
-                {`I am a Fullstack Software Developer with ${
-                  new Date().getFullYear() - 2019
-                } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable full stack solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
+                {`${profile?.bio || "No bio"}`}
               </p>
             </Fade>
           ) : (
             <Fade>
               <p className="py-8 text-xl" style={styles.bioStyle}>
-                {`With an illustrious ${
-                  new Date().getFullYear() - 2019
-                }-year journey as a Fullstack Software
-            Developer, I exude a charismatic blend of expertise in crafting
-            impeccable RESTful APIs using the formidable M.E.R.N. stack
-            (MongoDB, Express, ReactJS, NodeJS). My adeptness extends to
-            seamlessly navigating a diverse array of databases encompassing
-            NoSQL, ORM, Amazon RDS, and RDBMS, while consistently delivering
-            cutting-edge and scalable full stack solutions. As a testament to my
-            multifaceted nature, I also channel my creative prowess as a
-            part-time graphics designer and animator, all crowned by my recent
-            graduation from the esteemed University of Lagos.`}{" "}
+                {` `}{" "}
                 <span
                   onClick={() => {
                     setIsLayman(true);
@@ -911,13 +841,15 @@ const PortfolioIndex = () => {
                 opacity: showProfilePic ? 1 : 0,
               }}
             >
-              <img
-                className="user-profile-picture shadow-md sm:shadow-none"
-                src={require("../../assets/images/Me.jpeg")}
-                alt="Temiloluwa"
-                width="100%"
-                height="100%"
-              />
+              {profile?.avatar && (
+                <img
+                  className="user-profile-picture shadow-md sm:shadow-none"
+                  src={profile?.avatar}
+                  alt={profile?.name}
+                  width="100%"
+                  height="100%"
+                />
+              )}
             </div>
 
             <h2
@@ -1022,19 +954,16 @@ const PortfolioIndex = () => {
                 borderBottom: "1px solid var(--border-line-color)",
               }}
             >
-              <Tab
-                label="Inter-Personal Skills"
-                sx={{ ...styles.tabStyles, display: "none" }}
-              />
-              <Tab label="Web Development" sx={styles.tabStyles} />
-              <Tab label="Cloud Provider" sx={styles.tabStyles} />
-              <Tab label="Database Management" sx={styles.tabStyles} />
-              <Tab label="Version Controls" sx={styles.tabStyles} />
-              <Tab
-                label="3D Animations & Graphics Design"
-                sx={styles.tabStyles}
-              />
-              <Tab label="Others" sx={styles.tabStyles} />
+              {profile?.skillTags?.map((heading, ind) => (
+                <Tab
+                  key={ind}
+                  label={heading?.name}
+                  sx={{
+                    ...styles.tabStyles,
+                    // display: ind === 0 ? "none" : "flex",
+                  }}
+                />
+              ))}
             </Tabs>
 
             <Tabs
@@ -1150,7 +1079,10 @@ const PortfolioIndex = () => {
 
       {/* EXPERIENCES */}
       <Fade bottom cascade>
-        <section className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8">
+        <section
+          id="experiences-section"
+          className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8"
+        >
           <h2
             className="mb-10 right-headings"
             style={{
@@ -1404,7 +1336,7 @@ const PortfolioIndex = () => {
       <Dialog open={openModal} onClose={handleClose}>
         {dialogContent}
       </Dialog>
-    </>
+    </Fade>
   );
 };
 

@@ -23,14 +23,14 @@ import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
-import CustomButton from "../../components/common/Button";
-import Spinner from "../../components/common/Spinner";
-import Dialog from "../../components/common/Dialog";
+import CustomButton from "../../../components/common/Button";
+import Spinner from "../../../components/common/Spinner";
+import Dialog from "../../../components/common/Dialog";
+import StyledAvatar from "../../../components/common/StyledAvatar";
 
-import { fetchUserEducation } from "../../database";
-import { setDarkMode } from "../../utils";
+import { fetchUserEducation } from "../../../database";
+import { setDarkMode } from "../../../utils";
 import { blueGrey } from "@mui/material/colors";
-import StyledAvatar from "../../components/common/StyledAvatar";
 
 const PortfolioEducation = () => {
   const navigate = useNavigate();
@@ -63,31 +63,13 @@ const PortfolioEducation = () => {
 
   useEffect(() => {
     (async () => {
-      const expResponse = await fetchUserEducation(1);
+      const expResponse = await fetchUserEducation(2);
       if (expResponse) {
         setLoadingExperiences(false);
         setExperiences(expResponse);
       }
     })();
   }, []);
-
-  // useEffect(() => {
-  //   const e2S = {};
-  //   experiences.forEach((exp) => {
-  //     if (exp.relatedSkills) {
-  //       exp.relatedSkills.forEach((skill) => {
-  //         skill = skill.toLowerCase();
-  //         if (!e2S[skill]) {
-  //           e2S[skill] = [exp];
-  //         } else {
-  //           e2S[skill].push(exp);
-  //         }
-  //       });
-  //     }
-  //   });
-
-  //   setExpIntoSkills(e2S);
-  // }, [experiences]);
 
   return (
     <>

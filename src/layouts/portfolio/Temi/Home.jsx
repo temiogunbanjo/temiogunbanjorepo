@@ -55,10 +55,11 @@ import {
   fetchUserExperiences,
   fetchUserProject,
   fetchUserSkills,
-  fetchUserProfile
+  fetchUserProfile,
 } from "../../../database";
-import { getRandomItem, setDarkMode } from "../../../utils";
+import { getRandomItem } from "../../../utils";
 import { SkillInfo } from "./ModalContents";
+import LoadingProfile from "../LoadingProfile";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -582,18 +583,18 @@ const PortfolioIndex = () => {
   };
 
   useEffect(() => {
-    const vName = window.localStorage.getItem("visitor_name");
-    const isDarkMode = window.localStorage.getItem("dark_mode");
+    // const vName = window.localStorage.getItem("visitor_name");
+    // const isDarkMode = window.localStorage.getItem("dark_mode");
 
-    if (!vName) {
-      navigate("/");
-    }
+    // if (!vName) {
+    //   navigate("/");
+    // }
 
-    if (isDarkMode !== null) {
-      setDarkMode(isDarkMode);
-    } else {
-      setDarkMode(true);
-    }
+    // if (isDarkMode !== null) {
+    //   setDarkMode(isDarkMode);
+    // } else {
+    //   setDarkMode(true);
+    // }
   }, [navigate]);
 
   useEffect(() => {
@@ -738,54 +739,7 @@ const PortfolioIndex = () => {
   };
 
   return loadingProfile ? (
-    <>
-      <section className="hero flex flex-col sm:flex-row relative">
-        <div
-          className="cols sm:mr-8 w-full"
-          style={{ justifyContent: "center", padding: "10px" }}
-        >
-          <h1 className="main-text text-center" style={{ fontSize: "50px" }}>
-            <span style={{ fontSize: "26px", fontWeight: 600 }}>Please wait </span>
-            <br />
-            <span className="capitalize mt-4">Loading profile</span>
-          </h1>
-
-          <h3
-            className="inline-block mt-8 sm:mt-6 text-center"
-            style={{ fontSize: "24px" }}
-          >
-            <TypeAnimation
-              key={1}
-              sequence={[
-                "Loading all assets...",
-                2500,
-                "Sorting information...",
-                2500,
-                "Recalling dates and time...",
-                2500,
-                "Decorating pages...",
-                2500,
-                "Finalizing...",
-                3500,
-                "Rendering pages...",
-                500,
-                () => {},
-              ]}
-              wrapper="span"
-              speed={65}
-              deletionSpeed={68}
-              cursor={true}
-              // repeat={Infinity}
-              className="animate-bounce"
-              style={{
-                color: "var(--primary-color)",
-                letterSpacing: "1px",
-              }}
-            />
-          </h3>
-        </div>
-      </section>
-    </>
+    <LoadingProfile />
   ) : (
     <Fade>
       <section className="hero flex flex-col sm:flex-row relative">
@@ -819,13 +773,13 @@ const PortfolioIndex = () => {
             <TypeAnimation
               key={2}
               sequence={[
-                "Full Stack Developer!",
+                profile?.professions[0],
                 1000,
-                "Graphics Designer!",
+                profile?.professions[1],
                 1000,
-                "3D Animator!",
+                profile?.professions[2],
                 1000,
-                "Part-time Therapist!",
+                profile?.professions[3],
                 3000,
                 () => {},
               ]}
@@ -959,8 +913,8 @@ const PortfolioIndex = () => {
             >
               <img
                 className="user-profile-picture shadow-md sm:shadow-none"
-                src={require("../../../assets/images/Me.jpeg")}
-                alt="Temiloluwa"
+                src={profile?.avatar}
+                alt={profile?.name}
                 width="100%"
                 height="100%"
               />
@@ -1068,19 +1022,16 @@ const PortfolioIndex = () => {
                 borderBottom: "1px solid var(--border-line-color)",
               }}
             >
-              <Tab
-                label="Inter-Personal Skills"
-                sx={{ ...styles.tabStyles, display: "none" }}
-              />
-              <Tab label="Web Development" sx={styles.tabStyles} />
-              <Tab label="Cloud Provider" sx={styles.tabStyles} />
-              <Tab label="Database Management" sx={styles.tabStyles} />
-              <Tab label="Version Controls" sx={styles.tabStyles} />
-              <Tab
-                label="3D Animations & Graphics Design"
-                sx={styles.tabStyles}
-              />
-              <Tab label="Others" sx={styles.tabStyles} />
+              {profile?.skillTags?.map((heading, ind) => (
+                <Tab
+                  key={ind}
+                  label={heading?.name}
+                  sx={{
+                    ...styles.tabStyles,
+                    display: ind === 0 ? "none" : "flex",
+                  }}
+                />
+              ))}
             </Tabs>
 
             <Tabs
@@ -1196,7 +1147,10 @@ const PortfolioIndex = () => {
 
       {/* EXPERIENCES */}
       <Fade bottom cascade>
-        <section id="experiences-section" className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8">
+        <section
+          id="experiences-section"
+          className="experiences flex flex-col items-left pb-12 pt-12 md:pt-8"
+        >
           <h2
             className="mb-10 right-headings"
             style={{
