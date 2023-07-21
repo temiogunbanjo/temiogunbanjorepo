@@ -14,7 +14,7 @@
       "id": 1,
       "name": "temiloluwa ogunbanjo",
       "avatar": "/resources/images/Me.jpeg",
-      "redirectTo": "/temi",
+      "redirectTo": "/temi/home",
       "professions": [
         "Full Stack Software Developer",
         "Graphics Designer",
@@ -38,7 +38,7 @@
       "id": 2,
       "name": "Moyinoluwa ogunbanjo",
       "avatar": "/resources/images/AD.png",
-      "redirectTo": "/moyin",
+      "redirectTo": "/moyin/home",
       "professions": ["Content Creator"],
       "mobile": ["+2348057773715"],
       "bio": "I am a Fullstack Software Developer with 6 years of professional experience using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, building RESTful APIs, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable frontend solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.",
