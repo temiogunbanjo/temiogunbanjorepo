@@ -57,7 +57,7 @@ import {
 import { getRandomItem, setDarkMode } from "../../utils";
 import { blueGrey } from "@mui/material/colors";
 import StyledAvatar from "../../components/common/StyledAvatar";
-import { SkillInfo } from "./ModalContents";
+import { SkillInfo, VisitorAuth } from "./ModalContents";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -123,6 +123,8 @@ const SkillCard = (props) => {
             alt={""}
             height="30px"
             style={{
+              // backgroundColor: "#3334",
+              // padding: '5px',
               objectFit: "contain",
               width: "auto",
               height: "35px",
@@ -582,7 +584,10 @@ const PortfolioIndex = () => {
     const isDarkMode = window.localStorage.getItem("dark_mode");
 
     if (!vName) {
-      navigate("/");
+      setDialogContent(<VisitorAuth closeHandler={handleClose} />);
+      window.setTimeout(() => {
+        handleOpen();
+      }, 4000)
     }
 
     if (isDarkMode !== null) {
@@ -654,7 +659,7 @@ const PortfolioIndex = () => {
           return relatedTags.length > 0;
         });
 
-        case 2: // Cloud Provider
+      case 2: // Cloud Provider
         return retValue.filter((each) => {
           const relatedTags = each.tags
             .map((tag) => tag.toLowerCase())
@@ -734,11 +739,7 @@ const PortfolioIndex = () => {
           style={{ justifyContent: "center", padding: "10px" }}
         >
           <h1 className="main-text" style={{ fontSize: "50px" }}>
-            <span
-              style={{ fontSize: "28px", fontWeight: 600 }}
-            >
-              Who is{" "}
-            </span>
+            <span style={{ fontSize: "28px", fontWeight: 600 }}>Who is </span>
             <br />
             <span style={{}}>Temiloluwa Ogunbanjo </span>
             <span className="" style={{ color: "var(--primary-color)" }}>
@@ -747,7 +748,10 @@ const PortfolioIndex = () => {
             </span>
           </h1>
 
-          <h3 className="inline-block mt-8 sm:mt-6" style={{ fontSize: "24px" }}>
+          <h3
+            className="inline-block mt-8 sm:mt-6"
+            style={{ fontSize: "24px" }}
+          >
             <span
               className="mr-3"
               style={{
@@ -834,7 +838,7 @@ const PortfolioIndex = () => {
                 value={
                   <span
                     className="flex flex-row items-center justify-center text-center uppercase"
-                    style={{ color: "#eee" }}
+                    style={{ color: "var(--contrast-text-color)" }}
                   >
                     <PhoneIcon
                       className="mr-3"
@@ -890,7 +894,7 @@ const PortfolioIndex = () => {
         </div>
 
         <Fade right cascade>
-          <div className="flex flex-col user-profile-section shadow-md sm:shadow-none">
+          <div className="flex flex-col user-profile-section overflow-hidden shadow-md sm:shadow-none">
             <div
               className="w-full flex flex-row img-wrapper mt-0 mb-12 transition-all ease-in"
               style={{
@@ -927,7 +931,7 @@ const PortfolioIndex = () => {
                 className="text-center sm:text-justify"
                 style={{
                   fontSize: "14px",
-                  fontWeight: 500,
+                  fontWeight: 400,
                   lineHeight: 2,
                   margin: "1rem 0 0",
                 }}
@@ -1100,7 +1104,7 @@ const PortfolioIndex = () => {
               value={
                 <span
                   className="flex flex-row items-center text-center uppercase"
-                  style={{ color: "#FFF" }}
+                  style={{ color: "var(--contrast-text-color)" }}
                 >
                   <span>
                     {!showAllSkills
@@ -1113,7 +1117,7 @@ const PortfolioIndex = () => {
                     className="ml-3 animate-bounce"
                     style={{
                       fontSize: "16px",
-                      color: "#fff",
+                      color: "var(--contrast-text-color)",
                     }}
                   >
                     {!showAllSkills ? (
@@ -1168,7 +1172,7 @@ const PortfolioIndex = () => {
               value={
                 <span
                   className="flex flex-row items-center text-center uppercase"
-                  style={{ color: "#fff" }}
+                  style={{ color: "var(--contrast-text-color)" }}
                 >
                   <span>
                     {!showAllExperiences
@@ -1179,7 +1183,6 @@ const PortfolioIndex = () => {
                     className="ml-3 animate-bounce"
                     style={{
                       fontSize: "16px",
-                      color: "#fff",
                     }}
                   >
                     {!showAllExperiences ? (
@@ -1193,7 +1196,7 @@ const PortfolioIndex = () => {
               sx={{
                 backgroundColor: "var(--primary-color)",
                 boxShadow: "none",
-                color: "#fff",
+                color: "var(--contrast-text-color)",
               }}
             />
           )}
@@ -1318,7 +1321,8 @@ const PortfolioIndex = () => {
                         <p
                           className="mt-3 text-xl md:text-2xl"
                           style={{
-                            color: "var(--text-color)",
+                            fontSize: '14px',
+                            color: "var(--light-text-color)",
                             fontWeight: 400,
                             lineHeight: 1.8,
                             maxWidth: "600px",
@@ -1396,6 +1400,7 @@ const PortfolioIndex = () => {
 
 const styles = {
   bioStyle: {
+    fontSize: '14px',
     textAlign: "justify",
     fontWeight: 400,
     color: "var(--light-text-color)",

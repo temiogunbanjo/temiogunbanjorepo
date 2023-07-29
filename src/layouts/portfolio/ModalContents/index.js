@@ -1,8 +1,15 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+// import { TypeAnimation } from "react-type-animation";
+// import Fade from "@successtar/react-reveal/Fade";
+import { Box, Stack, Typography, Collapse, TextField } from "@mui/material";
 import {
   HiLightningBolt as FeaturedSkillBadgeIcon,
   HiExternalLink,
 } from "react-icons/hi";
+
+import { setDarkMode } from "../../../utils";
+import CustomButton from "../../../components/common/Button";
 import Status from "../../../components/common/StatusIndicator";
 
 export const SkillInfo = ({ data, experiences, closeHandler }) => {
@@ -276,6 +283,199 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
           </Stack>
         </Stack>
       )}
+    </Stack>
+  );
+};
+
+export const VisitorAuth = ({ closeHandler }) => {
+  const navigate = useNavigate();
+
+  const [value, setValue] = useState("Guest 1");
+  const [isValid, setIsValid] = useState(true);
+  const [isTouched, setTouched] = useState(false);
+  const [isDone, setIsDone] = useState(false);
+
+  const handleFocus = (event) => {
+    if (!isTouched) {
+      setTouched(true);
+    }
+    setIsDone(false);
+    // setValue(event.target.value);
+  };
+  const testPattern = /^(([A-Za-z]{1,})(\s*))+$/gi;
+  const handleChange = (event) => {
+    const test = event.target.value.match(testPattern) !== null;
+    setIsValid(test);
+    setValue(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    const test = value.match(testPattern) !== null;
+    setIsValid(test);
+    setIsDone(true);
+    // setSubmitCount((prev) => prev + 1);
+
+    if (test === true) {
+      window.localStorage.setItem("visitor_name", value);
+      closeHandler(event);
+    }
+    // alert(submitCount);
+  };
+
+  useEffect(() => {
+    const vName = window.localStorage.getItem("visitor_name");
+    const isDarkMode = window.localStorage.getItem("dark_mode");
+
+    if (vName) {
+      setValue(vName);
+      navigate("/home");
+    }
+
+    if (isDarkMode !== null) {
+      setDarkMode(isDarkMode);
+    } else {
+      setDarkMode(true);
+    }
+  }, [navigate]);
+
+  return (
+    <Stack
+      direction="row"
+      className="mt-5 items-start"
+      style={{
+        justifyContent: "center",
+        width: "500px",
+        minWidth: { xs: "unset", md: "505px" },
+        maxWidth: "750px",
+      }}
+    >
+      {/* <MuiFade in={(isDone && isValid)}> */}
+      <figure
+        className="p-5 mr-10 flex flex-row items-center justify-center"
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "8px",
+          // width: "100px",
+          // height: "100px",
+        }}
+      >
+        {(() => {
+          let face = "😋";
+          switch (true) {
+            case !isTouched:
+              face = "😋";
+              break;
+
+            case isTouched && value.length === 0 && !isDone:
+              face = "🙂";
+              break;
+
+            case isTouched && value.length > 0 && value.length <= 20 && !isDone:
+              face = "👀";
+              break;
+
+            case isTouched && value.length > 20 && !isDone:
+              face = "😳";
+              break;
+
+            case isTouched && value.length > 0 && isDone && isValid:
+              face = "👍";
+              break;
+
+            case isTouched && value.length > 0 && isDone && !isValid:
+              face = "🙄";
+              break;
+
+            default:
+              face = "😋";
+              break;
+          }
+          return <span className="text-6xl">{face}</span>;
+        })()}
+      </figure>
+
+      <div className="flex flex-col">
+        <h3
+          className="text-4xl text-left capitalize"
+          style={{ color: "var(--text-color)", fontWeight: 500 }}
+        >
+          Hey Buddy, quick one...
+        </h3>
+
+        {/* </MuiFade> */}
+        <p
+          className="py-8 mb-5 text-left"
+          style={{
+            fontSize: "14px",
+            fontWeight: 400,
+            color: "var(--text-color)",
+            lineHeight: 2,
+            maxWidth: "550px",
+            minHeight: "100px",
+          }}
+        >
+          Before we go in, please introduce yourself so that I can remember who
+          paid me a visit. Pheww, don't mind me, I tend to forget little things
+          pretty fast.
+        </p>
+
+        <Collapse orientation="horizontal" in={true} timeout={600}>
+          <TextField
+            onChange={handleChange}
+            onFocus={handleFocus}
+            focused={true}
+            value={value}
+            placeholder="Please enter your name"
+            variant="outlined"
+            className="text-xl my-2 block"
+            InputProps={{
+              sx: {
+                fontSize: "1.45rem",
+                px: 1.3,
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                color: "var(--text-color)",
+              },
+            }}
+            sx={{
+              minWidth: { xs: "150px", md: "300px" },
+              width: "100%",
+              "& .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: "transparent",
+                },
+            }}
+          />
+        </Collapse>
+
+        <div className="flex flex-row justify-end flex-wrap mt-20">
+          <CustomButton
+            sx={{
+              ml: 4,
+              backgroundColor: "var(--border-line-color)",
+              color: "#fff",
+              boxShadow: "none",
+            }}
+            value={"Be Anonymous"}
+            disabled={false}
+            onClick={() => {
+              setValue("Anonymous User");
+              window.localStorage.setItem("visitor_name", value);
+              closeHandler();
+            }}
+          />
+
+          <CustomButton
+            sx={{
+              backgroundColor: "var(--primary-color)",
+              boxShadow: "none",
+              color: "var(--contrast-text-color)",
+            }}
+            value={"Save & Close"}
+            disabled={!isTouched}
+            onClick={handleSubmit}
+          />
+        </div>
+      </div>
     </Stack>
   );
 };

@@ -23,7 +23,7 @@ import Portfolio from "./pages/Portfolio";
 import Therapy from "./layouts/therapy/Therapy";
 import PortfolioIndex from "./layouts/portfolio/Home";
 import PortfolioEducation from "./layouts/portfolio/Education";
-import PortfolioAuth from "./layouts/portfolio/Auth";
+// import PortfolioAuth from "./layouts/portfolio/Auth";
 import PortfolioIssues from "./layouts/portfolio/Issues";
 import Projects from "./layouts/portfolio/Projects";
 
@@ -35,7 +35,7 @@ function App(props) {
           <Router>
             <Switch>
               <Route path="/" element={<Portfolio />}>
-                <Route index element={<PortfolioAuth />} />
+                <Route index element={<PortfolioIndex />} />
                 <Route path="home" element={<PortfolioIndex />} />
                 <Route
                   path="home/education-history"

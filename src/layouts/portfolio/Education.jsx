@@ -8,6 +8,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import { blueGrey } from "@mui/material/colors";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import {
@@ -19,18 +20,18 @@ import { IoMail as MailIcon } from "react-icons/io5";
 
 import ReactHtmlParser from "html-react-parser";
 import { TypeAnimation } from "react-type-animation";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
+import StyledAvatar from "../../components/common/StyledAvatar";
 import CustomButton from "../../components/common/Button";
 import Spinner from "../../components/common/Spinner";
 import Dialog from "../../components/common/Dialog";
 
 import { fetchUserEducation } from "../../database";
 import { setDarkMode } from "../../utils";
-import { blueGrey } from "@mui/material/colors";
-import StyledAvatar from "../../components/common/StyledAvatar";
+import { VisitorAuth } from "./ModalContents";
 
 const PortfolioEducation = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const PortfolioEducation = () => {
   const [loadingExperiences, setLoadingExperiences] = useState(true);
   const [experiences, setExperiences] = useState([]);
 
+  const handleOpen = () => setOpenModal(true);
   const handleClose = () => {
     setDialogContent(null);
     setOpenModal(false);
@@ -51,7 +53,8 @@ const PortfolioEducation = () => {
     const isDarkMode = window.localStorage.getItem("dark_mode");
 
     if (!vName) {
-      navigate("/");
+      setDialogContent(<VisitorAuth closeHandler={handleClose} />);
+      handleOpen();
     }
 
     if (isDarkMode !== null) {
@@ -71,24 +74,6 @@ const PortfolioEducation = () => {
     })();
   }, []);
 
-  // useEffect(() => {
-  //   const e2S = {};
-  //   experiences.forEach((exp) => {
-  //     if (exp.relatedSkills) {
-  //       exp.relatedSkills.forEach((skill) => {
-  //         skill = skill.toLowerCase();
-  //         if (!e2S[skill]) {
-  //           e2S[skill] = [exp];
-  //         } else {
-  //           e2S[skill].push(exp);
-  //         }
-  //       });
-  //     }
-  //   });
-
-  //   setExpIntoSkills(e2S);
-  // }, [experiences]);
-
   return (
     <>
       <section className="hero flex flex-col sm:flex-row relative">
@@ -104,9 +89,9 @@ const PortfolioEducation = () => {
                 marginBottom: "18px",
               }}
             >
-              <a href="/home" className="-ml-3 my-3 sm:my-5 inline-block">
+              <Link to="/home" className="-ml-3 my-3 sm:my-5 inline-block">
                 <LeftIcon />
-              </a>
+              </Link>
               <span className="ml-5 inline-block">My Education</span>
             </h1>
             <Typography
@@ -833,11 +818,8 @@ const styles = {
   bioStyle: {
     textAlign: "justify",
     fontWeight: 400,
-    // fontSize: "16px",
     color: "var(--light-text-color)",
-    // color: "rgb(116, 116, 116)",
     lineHeight: 2.25,
-    // maxWidth: "1050px",
   },
   iconStyles: { fontSize: "20px", marginBottom: "10px" },
   tabStyles: {

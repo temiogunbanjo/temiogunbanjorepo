@@ -35,7 +35,7 @@ header .logo {
 }
 
 header .left-elements > * {
-  margin: auto 0.6rem;
+  margin: auto 1rem;
 }
 
 /* header .octicon {
@@ -121,9 +121,17 @@ main > section {
   width: 100%;
 }
 
-body:not([class*="dark-mode"]) *.MuiTab-root.Mui-selected {
+body *.MuiTab-root.Mui-selected {
+  color: var(--primary-color);
+}
+
+body *.MuiTabs-indicator {
   background-color: var(--primary-color);
-  color: white;
+}
+
+body:not([class*="dark-mode"]) *.MuiTab-root.Mui-selected {
+  background-color: var(--primary-color-light);
+  color: var(--contrast-text-color);
   border-radius: 5px 5px 0 0;
 }
 
@@ -563,7 +571,7 @@ footer {
     max-width: unset;
     margin-top: 45px;
     min-height: 480px;
-    padding: 3rem 3rem 5rem;
+    padding: 2rem 2rem 5rem;
     border: 2px solid;
     border-color: var(--primary-color);
     background-color: var(--primary-color);

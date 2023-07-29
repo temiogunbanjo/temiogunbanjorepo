@@ -3,6 +3,8 @@ export const getRandomItem = (array) => {
   return array[itemIndex];
 };
 
+export const availableThemes = ['theme-1', 'theme-2'];
+
 export const setDarkMode = (isDarkMode = true) => {
   if (typeof isDarkMode === 'string') {
     isDarkMode = JSON.parse(isDarkMode);
@@ -18,4 +20,13 @@ export const setDarkMode = (isDarkMode = true) => {
   }
 
   document.body.classList.toggle("dark-mode", isDarkMode);
+};
+
+export const setTheme = (themeName = availableThemes[0]) => {
+  if (!availableThemes.includes(themeName)) {
+    themeName = availableThemes[0];
+  }
+  console.log('setting to ' + themeName);
+  const isInDarkMode = document.body.classList.contains('dark-mode');
+  document.body.className = isInDarkMode ? `${themeName} dark-mode` : `${themeName}`;
 };

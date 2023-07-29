@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/DeeplugTEO.png";
 import PointerBox from "./common/Pointer";
 import { IconButton } from "@mui/material";
+import { availableThemes, setTheme } from "../utils";
 // import "./header.css";
 
 const toggleDarkMode = (ev) => {
@@ -69,13 +70,23 @@ function Header(props) {
             >
               Home
             </Link>
+
+            <Link
+              to="/home#skill-section"
+              className="uppercase"
+              style={{ fontWeight: 600 }}
+            >
+              Skills
+            </Link>
+
             <Link
               to="/home/education-history"
               className="uppercase"
               style={{ fontWeight: 600 }}
             >
-              Education History
+              Education
             </Link>
+
             <Link
               to="/issues"
               className="uppercase"
@@ -110,6 +121,7 @@ function Header(props) {
 
         <div className="rows left-elements">
           <IconButton
+            title="Toggle Dark/Light Mode"
             className="strip-btn view-mode-element"
             style={{
               appearance: "none",
@@ -124,6 +136,28 @@ function Header(props) {
           </IconButton>
 
           <IconButton
+            title="Change Color Theme Randomly"
+            className="strip-btn view-mode-element"
+            style={{
+              appearance: "none",
+              color: "inherit",
+            }}
+            onClick={() =>
+              setTheme(
+                availableThemes[
+                  Math.floor(Math.random() * availableThemes.length)
+                ]
+              )
+            }
+          >
+            <i
+              className="mode-btn icofont-paint"
+              style={{ fontSize: "20px" }}
+            ></i>
+          </IconButton>
+
+          <IconButton
+            title="Reset user"
             className="strip-btn view-mode-element"
             style={{
               appearance: "none",
@@ -136,25 +170,6 @@ function Header(props) {
               style={{ fontSize: "20px" }}
             ></i>
           </IconButton>
-
-          {/* <span className="add-element hide-on-mobile">
-            <span
-              className="icofont-plus"
-              style={{ fontSize: "1.2rem" }}
-            ></span>
-            <span
-              className="icofont-caret-down"
-              style={{ fontSize: "1.1rem" }}
-            ></span>
-          </span> */}
-
-          {/* <span className="rows user-profile hide-on-mobile">
-            <img className="user-profile-picture" src={props.avatar} alt="" />
-            <span
-              className="icofont-caret-down"
-              style={{ fontSize: "1.1rem" }}
-            ></span>
-          </span> */}
         </div>
       </header>
       {/* <nav className="cols show-on-mobile mobile-navigation-menu closed">
