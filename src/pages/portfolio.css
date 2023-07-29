@@ -3,7 +3,7 @@ header,
 header .rows,
 header + nav.mobile-navigation-menu .rows {
   align-items: center;
-  color: "white";
+  color: var(--icon-color);
 }
 
 body.dark-mode header,

@@ -54,7 +54,7 @@ import {
   fetchUserProject,
   fetchUserSkills,
 } from "../../database";
-import { getRandomItem, setDarkMode } from "../../utils";
+import { getRandomItem, setDarkMode, setTheme } from "../../utils";
 import { blueGrey } from "@mui/material/colors";
 import StyledAvatar from "../../components/common/StyledAvatar";
 import { SkillInfo, VisitorAuth } from "./ModalContents";
@@ -581,6 +581,7 @@ const PortfolioIndex = () => {
 
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
+    const lastUsedTheme = window.localStorage.getItem("theme");
     const isDarkMode = window.localStorage.getItem("dark_mode");
 
     if (!vName) {
@@ -594,6 +595,10 @@ const PortfolioIndex = () => {
       setDarkMode(isDarkMode);
     } else {
       setDarkMode(true);
+    }
+
+    if (lastUsedTheme !== null) {
+      setTheme(lastUsedTheme);
     }
   }, [navigate]);
 

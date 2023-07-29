@@ -6,7 +6,7 @@ import { CgEye } from "react-icons/cg";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
 import CustomButton from "../../components/common/Button";
-import { setDarkMode } from "../../utils";
+import { setDarkMode, setTheme } from "../../utils";
 
 const Issues = () => {
   const navigate = useNavigate();
@@ -21,6 +21,7 @@ const Issues = () => {
 
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
+    const lastUsedTheme = window.localStorage.getItem("theme");
     const isDarkMode = window.localStorage.getItem("dark_mode");
 
     if (!vName) {
@@ -31,6 +32,10 @@ const Issues = () => {
       setDarkMode(isDarkMode);
     } else {
       setDarkMode(true);
+    }
+
+    if (lastUsedTheme !== null) {
+      setTheme(lastUsedTheme);
     }
   });
 

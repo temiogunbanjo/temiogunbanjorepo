@@ -29,4 +29,5 @@ export const setTheme = (themeName = availableThemes[0]) => {
   console.log('setting to ' + themeName);
   const isInDarkMode = document.body.classList.contains('dark-mode');
   document.body.className = isInDarkMode ? `${themeName} dark-mode` : `${themeName}`;
+  localStorage.setItem('theme', themeName);
 };

@@ -30,7 +30,7 @@ import Spinner from "../../components/common/Spinner";
 import Dialog from "../../components/common/Dialog";
 
 import { fetchUserEducation } from "../../database";
-import { setDarkMode } from "../../utils";
+import { setDarkMode, setTheme } from "../../utils";
 import { VisitorAuth } from "./ModalContents";
 
 const PortfolioEducation = () => {
@@ -50,6 +50,7 @@ const PortfolioEducation = () => {
 
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
+    const lastUsedTheme = window.localStorage.getItem("theme");
     const isDarkMode = window.localStorage.getItem("dark_mode");
 
     if (!vName) {
@@ -61,6 +62,10 @@ const PortfolioEducation = () => {
       setDarkMode(isDarkMode);
     } else {
       setDarkMode(true);
+    }
+
+    if (lastUsedTheme !== null) {
+      setTheme(lastUsedTheme);
     }
   }, [navigate]);
 
