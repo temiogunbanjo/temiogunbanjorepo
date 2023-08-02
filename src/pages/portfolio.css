@@ -445,7 +445,7 @@ body .education-container .card {
 body .experiences .card::after,
 body .education-container .card::after {
   content: "";
-  top: -2px;
+  top: 0;
   left: 0;
   transform: translateX(-50.5%);
   position: absolute;
@@ -458,9 +458,14 @@ body .education-container .card::after {
   transition: all 0.3s ease;
 }
 
+body .experiences .card:hover::after,
+body .education-container .card:hover::after {
+  background-color: var(--primary-color);
+}
+
 body.dark-mode .experiences .card,
 body.dark-mode .education-container .card {
-  border-left: 2px solid #333;
+  border-left: 1px solid #333;
 }
 
 body.dark-mode .experiences .card::after,
@@ -470,7 +475,8 @@ body.dark-mode .education-container .card::after {
 
 body.dark-mode .experiences .card:hover,
 body.dark-mode .education-container .card:hover {
-  border-left-color: #efefef;
+  /* border-left-color: #efefef; */
+  border-left-color: #555;
 }
 
 .experiences .timeline-section,

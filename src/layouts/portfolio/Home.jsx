@@ -743,7 +743,7 @@ const PortfolioIndex = () => {
           className="cols sm:mr-16"
           style={{ justifyContent: "center", padding: "10px" }}
         >
-          <h1 className="main-text" style={{ fontSize: "50px" }}>
+          <h1 className="main-text" style={{ fontSize: "5rem" }}>
             <span style={{ fontSize: "28px", fontWeight: 600 }}>Who is </span>
             <br />
             <span style={{}}>Temiloluwa Ogunbanjo ?</span>
@@ -1406,7 +1406,7 @@ const styles = {
     fontWeight: 400,
     color: "var(--light-text-color)",
     lineHeight: 2,
-    maxWidth: "650px",
+    maxWidth: "712px",
   },
   iconStyles: { fontSize: "20px", marginBottom: "10px" },
   tabStyles: {
