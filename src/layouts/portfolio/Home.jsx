@@ -740,7 +740,7 @@ const PortfolioIndex = () => {
     <>
       <section className="hero flex flex-col sm:flex-row relative">
         <div
-          className="cols sm:mr-16"
+          className="cols sm:mr-12"
           style={{ justifyContent: "center", padding: "10px" }}
         >
           <h1 className="main-text" style={{ fontSize: "5rem" }}>
