@@ -144,6 +144,8 @@ body:not([class*="dark-mode"]) *.MuiTabs-indicator {
   justify-content: space-between;
   background-repeat: no-repeat;
   background-position: bottom right;
+  margin-left: 4% !important;
+  margin-right: 4% !important;
 }
 
 img.user-profile-picture {

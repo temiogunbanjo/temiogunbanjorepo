@@ -740,17 +740,13 @@ const PortfolioIndex = () => {
     <>
       <section className="hero flex flex-col sm:flex-row relative">
         <div
-          className="cols sm:mr-8"
+          className="cols sm:mr-16"
           style={{ justifyContent: "center", padding: "10px" }}
         >
           <h1 className="main-text" style={{ fontSize: "50px" }}>
             <span style={{ fontSize: "28px", fontWeight: 600 }}>Who is </span>
             <br />
-            <span style={{}}>Temiloluwa Ogunbanjo </span>
-            <span className="" style={{ color: "var(--primary-color)" }}>
-              {" "}
-              ?
-            </span>
+            <span style={{}}>Temiloluwa Ogunbanjo ?</span>
           </h1>
 
           <h3
