@@ -906,9 +906,9 @@ const PortfolioIndex = () => {
           {isLayman ? (
             <Fade>
               <p className="py-8 text-xl" style={styles.bioStyle}>
-                {`I am a Fullstack Software Developer with ${
+                {`Meet a dynamic Full Stack Software Developer with a passion for innovation and ${
                   new Date().getFullYear() - 2019
-                } years of professional experience building RESTful APIs, using M.E.R.N. (MongoDB, Express, ReactJS, NodeJS) stack, managing various databases (NoSQL, ORM, Amazon RDS, and RDBMS) and building modern and scalable full stack solutions. I am also a part-time graphics designer, animator, and finally, a recent graduate of the University of Lagos.`}
+                } years of hands-on experience crafting robust RESTful APIs using the powerful M.E.R.N (MongoDB, ExpressJS, React.Js, NodeJS) stack. With an artistic flair as a part-time graphics designer and animator, I bring creativity and adaptability to every project. A recent graduate of the esteemed University of Lagos, I am eager to leverage my skills to build cutting-edge, scalable solutions that leave a lasting impact. Let's code the future together!`}
               </p>
             </Fade>
           ) : (
