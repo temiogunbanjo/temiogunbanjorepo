@@ -124,6 +124,7 @@ const SkillCard = (props) => {
               objectFit: "contain",
               width: "auto",
               height: "35px",
+              minWidth: "35px"
             }}
           />
         )}
