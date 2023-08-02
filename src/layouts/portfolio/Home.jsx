@@ -87,16 +87,16 @@ const SkillCard = (props) => {
 
   return (
     <div
-      className="card flex flex-row mx-4 items-center"
+      className="card flex flex-row sm:flex-col mx-4 items-center"
       style={{
         borderRadius: "8px",
       }}
       onClick={onClick}
     >
       <div
-        className="card-header flex flex-col-reverse mb-0 w-full items-center justify-between px-6 py-6 rounded-lg"
+        className="card-header flex sm:flex-row-reverse flex-col-reverse sm:mb-10 h-full sm:h-auto sm:w-full items-center justify-between px-6 py-6 rounded-lg"
         style={{
-          width: "130px",
+          // width: "130px",
           borderRadius: "7px",
         }}
       >
