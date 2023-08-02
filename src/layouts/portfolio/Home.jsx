@@ -95,17 +95,16 @@ const SkillCard = (props) => {
       onClick={onClick}
     >
       <div
-        className="flex flex-row-reverse mb-10 w-full items-center justify-between px-6 py-6 rounded-lg"
+        className="card-header flex flex-row-reverse mb-10 w-full items-center justify-between px-6 py-6 rounded-lg"
         style={{
           borderRadius: "7px",
-          backgroundColor: "rgba(170, 170, 170, 0.10)",
         }}
       >
         {!props.data?.featured ? (
           <FeaturedSkillBadgeIcon
             style={{
               fontSize: "23px",
-              color: "var(--light-text-color)",
+              color: "var(--contrast-text-color)",
             }}
           />
         ) : (
@@ -123,12 +122,9 @@ const SkillCard = (props) => {
             alt={""}
             height="30px"
             style={{
-              // backgroundColor: "#3334",
-              // padding: '5px',
               objectFit: "contain",
               width: "auto",
               height: "35px",
-              borderRadius: "8px",
             }}
           />
         )}
@@ -137,7 +133,6 @@ const SkillCard = (props) => {
       <div
         className="flex flex-row items-end justify-between w-full"
         style={{
-          // borderRadius: "8px",
           padding: "15px",
         }}
       >

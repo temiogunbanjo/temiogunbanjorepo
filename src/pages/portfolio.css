@@ -392,8 +392,14 @@ body.dark-mode .skills .card {
   cursor: pointer;
 }
 
-.skills .card .img-wrapper {
-  margin-bottom: 0;
+.skills .card .card-header {
+  background-color: var(--primary-color-light);
+}
+
+.skills .card .card-header img {
+  border-radius: 50%;
+  padding: 5px;
+  background-color: var(--contrast-text-color);
 }
 
 .skills em {
@@ -401,20 +407,19 @@ body.dark-mode .skills .card {
   margin-top: 0.5rem;
 }
 
-.skills .card .img-wrapper img {
-  width: auto;
-  height: 30px;
-  object-fit: contain;
-  max-width: 100%;
-}
-
 .skills .date {
   font-size: 12px;
   line-height: 2;
 }
 
-body.dark-mode .skills .card .img-wrapper {
-  border: none;
+body.dark-mode .skills .card .card-header {
+  background-color: rgba(170, 170, 170, 0.10);
+}
+
+body.dark-mode .skills .card .card-header img {
+  border-radius: 8px;
+  padding: 0;
+  background-color: transparent;
 }
 
 body .experiences,
