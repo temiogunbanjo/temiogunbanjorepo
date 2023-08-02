@@ -149,7 +149,7 @@ body:not([class*="dark-mode"]) *.MuiTabs-indicator {
 }
 
 img.user-profile-picture {
-  border-radius: 8px;
+  border-radius: 25px;
 }
 
 body.dark-mode .hero,
@@ -588,7 +588,7 @@ footer {
     max-width: unset;
     margin-top: 45px;
     min-height: 480px;
-    padding: 2rem 2rem 5rem;
+    padding: 3rem 2.7rem 5rem;
     border: 2px solid;
     border-color: var(--primary-color);
     background-color: var(--primary-color);
