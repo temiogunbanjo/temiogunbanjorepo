@@ -94,7 +94,7 @@ const SkillCard = (props) => {
       onClick={onClick}
     >
       <div
-        className="card-header flex sm:flex-row-reverse flex-col-reverse sm:mb-10 h-full sm:h-auto sm:w-full items-center justify-between px-6 py-6 rounded-lg"
+        className="card-header flex sm:flex-row-reverse flex-col-reverse sm:mb-10 h-full sm:h-auto sm:w-full items-center justify-between px-10 sm:px-6 py-6 rounded-lg"
         style={{
           // width: "130px",
           borderRadius: "7px",
