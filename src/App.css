@@ -19,7 +19,7 @@ body.theme-1 {
   --tab-notice-bgcolor: var(--primary-color);
   --tab-border-color: var(--primary-color);
   --tab-notice-textcolor: #222;
-  --footer-bg-color: #eee;
+  --footer-bg-color: var(--header-bg-color);
   --moon-light-color: rgba(255, 209, 123, 0.87);
   --moon-dark-color: rgb(255, 91, 132);
   --pointer-color: var(--moon-dark-color);
@@ -53,7 +53,7 @@ body.theme-1.dark-mode {
   --tab-notice-bgcolor: var(--primary-color);
   --tab-border-color: var(--primary-color);
   --tab-notice-textcolor: black;
-  --footer-bg-color: #eee;
+  --footer-bg-color: var(--header-bg-color);
   --moon-light-color: rgba(255, 149, 220, 0.87);
   --moon-dark-color: rgba(75, 65, 223, 0.659);
   --pointer-color: #9C0038;
@@ -76,19 +76,55 @@ body.theme-2.dark-mode {
 
 /* THEME 3 */
 body.theme-3 {
+  --page-bg-color: wheat;
   --primary-color: #FF7377;
   --primary-color-light: #42567A;
   --header-bg-color: #42567A;
   --contrast-text-color: #fff;
   --icon-color: #FFF;
+  --header-text-color: #FFF;
+  --border-line-color: var(--primary-color-light);
 }
 
 body.theme-3.dark-mode {
+  --page-bg-color: #271b1b;
+  /* --page-bg-color: #2f1c1c; */
   --primary-color: #FF7377;
   --primary-color-light: rgba(222, 184, 135, 0.65);
-  --header-bg-color: #3D4856;
+  --header-bg-color: transparent;
+  --border-line-color: #2F4858;
+  --footer-bg-color: #2F4858;
   --contrast-text-color: #fff;
-  --icon-color: #b17371;
+  /* --icon-color: #b17371; */
+  --icon-color: #FF7377;
+  --header-text-color: #FFF;
+}
+
+/* THEME 4 */
+body.theme-4 {
+  /* --page-bg-color: #FFEECB; */
+  --primary-color: #00cba2;
+  --primary-color-light: #85d1c2;
+  --header-bg-color: #00cba2;
+  /* --text-color:  var(--primary-color-light); */
+  --contrast-text-color: #fff;
+  --header-text-color: var(--contrast-text-color);
+  --icon-color: var(--header-text-color);
+  /* --border-line-color: var(--primary-color-light); */
+}
+
+body.theme-4.dark-mode {
+  --page-bg-color: #101118;
+  --primary-color: #D9A21B;
+  --primary-color-light: rgba(222, 184, 135, 0.65);
+  --header-bg-color: transparent;
+  --footer-bg-color: var(--primary-color);
+  --border-line-color: #333;
+  --text-color:  var(--primary-color);
+  --light-text-color: #eee;
+  --header-text-color: #FFF;
+  --contrast-text-color: black;
+  --icon-color: var(--primary-color);
 }
 
 .material {

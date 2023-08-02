@@ -215,10 +215,10 @@ const ExperienceCard = (props) => {
     <Box
       component="div"
       id={experienceId}
-      className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
+      className={`card flex flex-col sm:flex-row-reverse sm:justify-between mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
       sx={{}}
     >
-      <div className="flex flex-col mr-8 h-auto timeline-section">
+      <div className="flex flex-col mr-8 sm:ml-12 h-auto timeline-section">
         <span
           className="text-xl sm:text-xl"
           style={{
@@ -240,10 +240,129 @@ const ExperienceCard = (props) => {
         >
           {props?.data?.role}
         </span>
+
+        {props?.data?.references && props?.data?.references.length > 0 && (
+          <div className="hidden sm:flex flex-col mt-4 sm:mt-5 w-full">
+            <span
+              className="text-xl capitalize"
+              style={{
+                color: "#888",
+                fontWeight: 700,
+                letterSpacing: "0.5px",
+              }}
+            >
+              {`References at ${props?.data?.company}:`}
+            </span>
+
+            <AvatarGroup
+              max={4}
+              spacing="medium"
+              sx={{
+                my: 1,
+                justifyContent: "left",
+                border: "none",
+                "& [class*=MuiAvatar-root-MuiAvatarGroup-avatar]": {
+                  fontSize: "12px",
+                  backgroundColor: "black",
+                  borderColor: "var(--border-line-color) !important",
+                  width: 30,
+                  height: 30,
+                },
+              }}
+            >
+              {props?.data?.references.map((eachImg, index) => (
+                <Tooltip
+                  key={index}
+                  arrow={true}
+                  placement="bottom-start"
+                  title={
+                    <div className="p-5">
+                      <div className="flex flex-row items-center">
+                        <StyledAvatar
+                          alt={eachImg?.name || "Remy Sharp"}
+                          src={eachImg?.url || ""}
+                          sx={{
+                            borderColor: "var(--border-line-color) !important",
+                            fontSize: "12px",
+                            width: 28,
+                            height: 28,
+                            bgcolor: blueGrey[500],
+                          }}
+                        />
+                        <Stack className="ml-5">
+                          <span className="text-xl" style={{ fontWeight: 700 }}>
+                            {eachImg.name}
+                          </span>
+                          <span className="text-lg" style={{ fontWeight: 400 }}>
+                            {eachImg?.title || "-- --"}
+                          </span>
+                        </Stack>
+                      </div>
+
+                      <div className="flex flex-row items-center justify-between border-b-2 border-t-2 p-2 mt-4">
+                        <IconButton
+                          href={`tel:${eachImg?.phone}`}
+                          disabled={!eachImg?.phone}
+                          className="mr-2"
+                        >
+                          <PhoneIcon
+                            style={{
+                              color: !eachImg?.phone ? "inherit" : "white",
+                              fontSize: "14px",
+                            }}
+                          />
+                        </IconButton>
+
+                        <IconButton
+                          href={`mailto:${eachImg?.email}`}
+                          disabled={!eachImg?.email}
+                          className="mr-2"
+                        >
+                          <MailIcon
+                            style={{
+                              color: !eachImg?.email ? "inherit" : "white",
+                              fontSize: "16px",
+                            }}
+                          />
+                        </IconButton>
+
+                        <IconButton
+                          href={`mailto:${eachImg?.website}`}
+                          disabled={!eachImg?.website}
+                          className="mr-0"
+                        >
+                          <WebIcon
+                            style={{
+                              color: !eachImg?.website ? "inherit" : "white",
+                              fontSize: "16px",
+                            }}
+                          />
+                        </IconButton>
+                      </div>
+                    </div>
+                  }
+                >
+                  <Avatar
+                    key={index}
+                    alt={eachImg?.name || "Remy Sharp"}
+                    src={eachImg?.url || ""}
+                    sx={{
+                      borderColor: "var(--page-bg-color) !important",
+                      fontSize: "12px",
+                      width: 30,
+                      height: 30,
+                      bgcolor: "#4A4453",
+                    }}
+                  />
+                </Tooltip>
+              ))}
+            </AvatarGroup>
+          </div>
+        )}
       </div>
 
       <div
-        className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
+        className="flex flex-col flew-grow sm:ml-8 mt-4 sm:mt-0 text-2xl w-full"
         style={{ maxWidth: "800px" }}
       >
         <div className="flex flex-row items-center justify-start">
@@ -275,7 +394,7 @@ const ExperienceCard = (props) => {
             className="inline-block text-xl mb-2"
             style={{
               color: "#888",
-              fontWeight: 700,
+              fontWeight: 600,
               letterSpacing: "0.5px",
             }}
           >
@@ -285,7 +404,7 @@ const ExperienceCard = (props) => {
             className="text-xl md:text-2xl sm:text-justify"
             sx={{
               fontWeight: 500,
-              color: "var(--text-color)",
+              color: "var(--light-text-color)",
               lineHeight: 1.8,
               letterSpacing: "0.5px",
               fontSize: {
@@ -305,7 +424,7 @@ const ExperienceCard = (props) => {
                 className="text-xl mb-2"
                 style={{
                   color: "#888",
-                  fontWeight: 700,
+                  fontWeight: 600,
                   letterSpacing: "0.5px",
                 }}
               >
@@ -330,7 +449,7 @@ const ExperienceCard = (props) => {
           )}
 
         {props?.data?.references && props?.data?.references.length > 0 && (
-          <div className="flex flex-col mt-4 sm:mt-5 w-full">
+          <div className="sm:hidden flex flex-col mt-4 sm:mt-5 w-full">
             <span
               className="text-xl capitalize"
               style={{

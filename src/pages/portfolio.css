@@ -257,7 +257,7 @@ main > section:hover .left-headings::before {
 }
 
 .user-profile-section {
-  color: var(--text-color);
+  color: var(--light-text-color);
   width: 38vw;
   min-height: 550px;
   min-width: 250px;
@@ -371,9 +371,9 @@ body.dark-mode .background-illuminator {
   flex-grow: 1;
   min-width: 215px;
   max-width: calc(25% - 30px);
-  background-color: rgba(255, 255, 255, 1);
-  /* background-image: linear-gradient(rgba(151, 151, 151, 0.05), rgba(151, 151, 151, 0.1)); */
-  box-shadow: 0 3px 10px 2px #eee;
+  background-color: var(--page-bg-color);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
@@ -490,7 +490,7 @@ body.dark-mode .education-container .card:hover {
 
 .experiences .timeline-section,
 .education-container .timeline-section {
-  width: 200px;
+  width: 250px;
   flex: none;
 }
 
@@ -516,7 +516,7 @@ footer {
   left: 0;
   height: 100vh;
   min-height: 500px;
-  background-color: var(--header-bg-color);
+  background-color: var(--footer-bg-color);
   color: var(--header-text-color);
   background-attachment: fixed;
   background-repeat: no-repeat;

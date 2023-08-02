@@ -258,7 +258,7 @@ const PortfolioEducation = () => {
                             className="text-xl md:text-2xl sm:text-justify"
                             sx={{
                               fontWeight: 500,
-                              color: "var(--text-color)",
+                              color: "var(--light-text-color)",
                               lineHeight: 1.8,
                               letterSpacing: "0.5px",
                               fontSize: {
