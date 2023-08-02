@@ -546,7 +546,7 @@
           "company": "TradeBuza",
           "timeframe": "May 2022 - Present",
           "role": "Senior Front-End Developer • Full-Time",
-          "description": "<p>I was responsible for:</p><ol><li>Rewriting the legacy apps</li><li>Create security and data protection settings.</li><li>Test software to ensure responsiveness & efficiency.</li><li>Developing the frontend web application for the various new agro-tech products in the suites</li><li>Collaboration with the team to brainstorm and generate ideas for improvements to the app suites</li></ol>",
+          "description": "<p>I was responsible for:</p><ol><li>Spearheading the rewrite of the company's entire legacy codebase by leveraging ReactJS and TypeScript together with the Front-end, Back End and Quality Assurance (QA) team to keep the codebase up-to-date with the recent technology trends.</li><li>Successfully completing the migration of an entire application to TypeScript, improving overall code quality and maintainability.</li><li>Initiating and leading the development of 3 new projects, resulting in a user base of over 100,000 and continuous growth.</li><li>Providing exceptional technical support to team members, drawing on expertise in debugging various codebases in the early days of my career.</li><li>Implementing safe coding practices to safeguard frontend applications against known security vulnerabilities, utilizing extensive knowledge of OWASP standards.</li></ol>",
           "references": [
             {
               "name": "Elijah Obominuru",
