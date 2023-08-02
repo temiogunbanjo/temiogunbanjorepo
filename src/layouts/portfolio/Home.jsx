@@ -90,7 +90,6 @@ const SkillCard = (props) => {
       className="card flex flex-col mx-4 items-center"
       style={{
         borderRadius: "8px",
-        padding: "2px",
       }}
       onClick={onClick}
     >

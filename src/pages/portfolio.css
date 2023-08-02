@@ -365,6 +365,7 @@ body.dark-mode .background-illuminator {
 }
 
 .skills .card {
+  padding: 0;
   color: var(--light-text-color);
   margin: 15px 15px 15px;
   flex-grow: 1;
@@ -380,6 +381,7 @@ body.dark-mode .background-illuminator {
 }
 
 body.dark-mode .skills .card {
+  padding: 2px;
   color: var(--light-text-color);
   background-color: rgba(145, 145, 145, 0.23);
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
