@@ -102,6 +102,7 @@ const SkillCard = (props) => {
       >
         {!props.data?.featured ? (
           <FeaturedSkillBadgeIcon
+            className="mt-4 sm:mt-0"
             style={{
               fontSize: "23px",
               color: "var(--contrast-text-color)",
