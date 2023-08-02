@@ -87,15 +87,16 @@ const SkillCard = (props) => {
 
   return (
     <div
-      className="card flex flex-col mx-4 items-center"
+      className="card flex flex-row mx-4 items-center"
       style={{
         borderRadius: "8px",
       }}
       onClick={onClick}
     >
       <div
-        className="card-header flex flex-row-reverse mb-10 w-full items-center justify-between px-6 py-6 rounded-lg"
+        className="card-header flex flex-col-reverse mb-0 w-full items-center justify-between px-6 py-6 rounded-lg"
         style={{
+          width: "130px",
           borderRadius: "7px",
         }}
       >
@@ -124,7 +125,7 @@ const SkillCard = (props) => {
               objectFit: "contain",
               width: "auto",
               height: "35px",
-              minWidth: "35px"
+              minWidth: "35px",
             }}
           />
         )}
@@ -583,7 +584,7 @@ const PortfolioIndex = () => {
       setDialogContent(<VisitorAuth closeHandler={handleClose} />);
       window.setTimeout(() => {
         handleOpen();
-      }, 4000)
+      }, 4000);
     }
 
     if (isDarkMode !== null) {
@@ -1317,7 +1318,7 @@ const PortfolioIndex = () => {
                         <p
                           className="mt-3 text-xl md:text-2xl"
                           style={{
-                            fontSize: '14px',
+                            fontSize: "14px",
                             color: "var(--light-text-color)",
                             fontWeight: 400,
                             lineHeight: 1.8,
@@ -1396,7 +1397,7 @@ const PortfolioIndex = () => {
 
 const styles = {
   bioStyle: {
-    fontSize: '14px',
+    fontSize: "14px",
     textAlign: "justify",
     fontWeight: 400,
     color: "var(--light-text-color)",
