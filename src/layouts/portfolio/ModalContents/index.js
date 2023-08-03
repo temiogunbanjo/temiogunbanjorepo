@@ -18,15 +18,31 @@ import {
 import { setDarkMode } from "../../../utils";
 import CustomButton from "../../../components/common/Button";
 import Status from "../../../components/common/StatusIndicator";
-import { AiOutlineClose } from "react-icons/ai";
+import { IoCloseOutline } from "react-icons/io5";
 
 export const SkillInfo = ({ data, experiences, closeHandler }) => {
   // console.log(experiences);
   const hasMore = true;
 
   return (
-    <Stack sx={{ color: "var(--text-color)" }}>
-      <Stack direction="row" className="mb-8 flex-wrap sm:flex-nowrap">
+    <Stack sx={{ color: "var(--text-color)" }} className="mb-4">
+      <IconButton
+        className="self-end -mr-4 -top-4 -right-4"
+        onClick={closeHandler}
+        sx={{
+          fontSize: "14px",
+          fontWeight: 600,
+          color: "var(--primary-color)",
+          borderRadius: "8px",
+        }}
+      >
+        <IoCloseOutline
+          style={{ fontSize: "24px", color: "var(--primary-color)" }}
+        />
+        {/* <span className="ml-1">close</span> */}
+      </IconButton>
+
+      <Stack direction="row" className="-mt-5 mb-8 flex-wrap sm:flex-nowrap">
         <div
           className="flex flex-row-reverse w-full items-center justify-center px-5 py-4.5 rounded-lg mr-8"
           style={{
@@ -363,7 +379,7 @@ export const VisitorAuth = ({ closeHandler }) => {
         className="self-end -mr-4 -top-3 -right-4"
         onClick={closeHandler}
       >
-        <AiOutlineClose
+        <IoCloseOutline
           style={{ fontSize: "24px", color: "var(--primary-color)" }}
         />
       </IconButton>

@@ -17,40 +17,47 @@ import { ThemeProvider as MTP, theme as muiTheme } from "./context/MuiTheme";
 // import react components
 import ErrorBoundary from "./components/ErrorBoundary";
 import NoPage from "./components/404Page";
+import SuspenseFallback from "./components/SuspenseFallback";
 
 import Portfolio from "./pages/Portfolio";
 
 import Therapy from "./layouts/therapy/Therapy";
-import PortfolioIndex from "./layouts/portfolio/Home";
-import PortfolioEducation from "./layouts/portfolio/Education";
+// import PortfolioEducation from "./layouts/portfolio/Education";
 // import PortfolioAuth from "./layouts/portfolio/Auth";
-import PortfolioIssues from "./layouts/portfolio/Issues";
-import Projects from "./layouts/portfolio/Projects";
+// import PortfolioIssues from "./layouts/portfolio/Issues";
+// import Projects from "./layouts/portfolio/Projects";
+
+const PortfolioIndex = React.lazy(() => import("./layouts/portfolio/Home"));
+const PortfolioEducation = React.lazy(() => import("./layouts/portfolio/Education"));
+const PortfolioIssues = React.lazy(() => import("./layouts/portfolio/Issues"));
+const Projects = React.lazy(() => import("./layouts/portfolio/Projects"));
 
 function App(props) {
   return (
     <MTP theme={muiTheme}>
       <AppContextProvider>
-        <ErrorBoundary>
-          <Router>
-            <Switch>
-              <Route path="/" element={<Portfolio />}>
-                <Route index element={<PortfolioIndex />} />
-                <Route path="home" element={<PortfolioIndex />} />
-                <Route
-                  path="home/education-history"
-                  element={<PortfolioEducation />}
-                />
-                <Route path="issues" element={<PortfolioIssues />} />
-                <Route path="therapy" element={<Therapy />} />
-              </Route>
+        <React.Suspense fallback={<SuspenseFallback />}>
+          <ErrorBoundary>
+            <Router>
+              <Switch>
+                <Route path="/" element={<Portfolio />}>
+                  <Route index element={<PortfolioIndex />} />
+                  <Route path="home" element={<PortfolioIndex />} />
+                  <Route
+                    path="home/education-history"
+                    element={<PortfolioEducation />}
+                  />
+                  <Route path="issues" element={<PortfolioIssues />} />
+                  <Route path="therapy" element={<Therapy />} />
+                </Route>
 
-              <Route path="/projects" element={<Projects />} />
+                <Route path="/projects" element={<Projects />} />
 
-              <Route path="*" element={<NoPage />} />
-            </Switch>
-          </Router>
-        </ErrorBoundary>
+                <Route path="*" element={<NoPage />} />
+              </Switch>
+            </Router>
+          </ErrorBoundary>
+        </React.Suspense>
       </AppContextProvider>
     </MTP>
   );
