@@ -73,9 +73,10 @@ const Status = (props) => {
 
     case "neutral":
     default:
-      wrapperStyle.backgroundColor = "#E5E5EA";
-      wrapperStyle.borderColor = "#1E0A3C";
-      textStyle.color = "#1E0A3C";
+      wrapperStyle.backgroundColor = "var(--primary-color)";
+      wrapperStyle.borderColor = "transparent";
+      textStyle.color = "var(--contrast-text-color)";
+      textStyle.fontWeight = 600;
       break;
   }
 

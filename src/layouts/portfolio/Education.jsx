@@ -310,126 +310,6 @@ const PortfolioEducation = () => {
                           >
                             {`References at ${each?.company}:`}
                           </span>
-
-                          <AvatarGroup
-                            max={4}
-                            spacing="medium"
-                            sx={{
-                              my: 1,
-                              justifyContent: "left",
-                              border: "none",
-                              "& [class*=MuiAvatar-root-MuiAvatarGroup-avatar]":
-                                {
-                                  fontSize: "12px",
-                                  backgroundColor: "black",
-                                  borderColor:
-                                    "var(--border-line-color) !important",
-                                  width: 30,
-                                  height: 30,
-                                },
-                            }}
-                          >
-                            {each?.references.map((eachImg, rIndex) => (
-                              <Tooltip
-                                key={rIndex}
-                                arrow={true}
-                                placement="bottom-start"
-                                title={
-                                  <div className="p-5">
-                                    <div className="flex flex-row items-center">
-                                      <StyledAvatar
-                                        alt={eachImg?.name || "Remy Sharp"}
-                                        src={eachImg?.url || ""}
-                                        sx={{
-                                          borderColor:
-                                            "var(--border-line-color) !important",
-                                          fontSize: "12px",
-                                          width: 28,
-                                          height: 28,
-                                          bgcolor: blueGrey[500],
-                                        }}
-                                      />
-                                      <Stack className="ml-5">
-                                        <span
-                                          className="text-xl"
-                                          style={{ fontWeight: 700 }}
-                                        >
-                                          {eachImg.name}
-                                        </span>
-                                        <span
-                                          className="text-lg"
-                                          style={{ fontWeight: 400 }}
-                                        >
-                                          {eachImg?.title || "-- --"}
-                                        </span>
-                                      </Stack>
-                                    </div>
-
-                                    <div className="flex flex-row items-center justify-between border-b-2 border-t-2 p-2 mt-4">
-                                      <IconButton
-                                        href={`tel:${eachImg?.phone}`}
-                                        disabled={!eachImg?.phone}
-                                        className="mr-2"
-                                      >
-                                        <PhoneIcon
-                                          style={{
-                                            color: !eachImg?.phone
-                                              ? "inherit"
-                                              : "white",
-                                            fontSize: "14px",
-                                          }}
-                                        />
-                                      </IconButton>
-
-                                      <IconButton
-                                        href={`mailto:${eachImg?.email}`}
-                                        disabled={!eachImg?.email}
-                                        className="mr-2"
-                                      >
-                                        <MailIcon
-                                          style={{
-                                            color: !eachImg?.email
-                                              ? "inherit"
-                                              : "white",
-                                            fontSize: "16px",
-                                          }}
-                                        />
-                                      </IconButton>
-
-                                      <IconButton
-                                        href={`mailto:${eachImg?.website}`}
-                                        disabled={!eachImg?.website}
-                                        className="mr-0"
-                                      >
-                                        <WebIcon
-                                          style={{
-                                            color: !eachImg?.website
-                                              ? "inherit"
-                                              : "white",
-                                            fontSize: "16px",
-                                          }}
-                                        />
-                                      </IconButton>
-                                    </div>
-                                  </div>
-                                }
-                              >
-                                <Avatar
-                                  key={rIndex}
-                                  alt={eachImg?.name || "Remy Sharp"}
-                                  src={eachImg?.url || ""}
-                                  sx={{
-                                    borderColor:
-                                      "var(--page-bg-color) !important",
-                                    fontSize: "12px",
-                                    width: 30,
-                                    height: 30,
-                                    bgcolor: "#4A4453",
-                                  }}
-                                />
-                              </Tooltip>
-                            ))}
-                          </AvatarGroup>
                         </div>
                       )}
                     </div>
@@ -487,7 +367,10 @@ const PortfolioEducation = () => {
 
       {/* EXPERIENCES */}
       <Fade>
-        <section className="education-container flex flex-col items-left pb-12 pt-8 md:pt-8">
+        <section
+          className="education-container flex flex-col items-left pb-12 pt-8 md:pt-8"
+          style={{ marginBottom: 0 }}
+        >
           <h2
             className="mb-10 left-headings"
             style={{

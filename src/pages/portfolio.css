@@ -265,7 +265,7 @@ main > section:hover .left-headings::before {
   max-height: 750px;
   align-items: center;
   padding: 3rem 1rem 5rem;
-  border-radius: 8px;
+  border-radius: 10px;
   height: auto;
   z-index: +220;
   /* backdrop-filter: blur(10px); */
@@ -275,15 +275,16 @@ main > section:hover .left-headings::before {
 }
 
 body.dark-mode .user-profile-section {
-  border: 1px solid;
+  /* border: 1px solid; */
   border-color: var(--border-line-color);
+  background-color: var(--page-bg-color);
   padding: 3rem 3rem 5rem;
-  /* backdrop-filter: blur(10px); */
+  backdrop-filter: blur(10px);
   /* background-image: linear-gradient(
     rgba(177, 177, 177, 0),
     rgba(177, 177, 177, 0)
   ); */
-  /* box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.3); */
+  box-shadow: 10px 10px 30px rgba(10, 10, 10, 0.3);
 }
 
 .user-profile-section .img-wrapper {

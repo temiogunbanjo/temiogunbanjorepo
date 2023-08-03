@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import ReactHtmlParser from "html-react-parser";
 import Fade from "@successtar/react-reveal/Fade";
 import { CgEye } from "react-icons/cg";
@@ -7,9 +7,20 @@ import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
 import CustomButton from "../../components/common/Button";
 import { setDarkMode, setTheme } from "../../utils";
+import { VisitorAuth } from "./ModalContents";
+import Dialog from "../../components/common/Dialog";
 
 const Issues = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+  const [openModal, setOpenModal] = useState(false);
+  const [dialogContent, setDialogContent] = useState(null);
+
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => {
+    setDialogContent(null);
+    setOpenModal(false);
+  };
   const [experiences] = useState([
     // {
     //   title: "How I got my first tech job!",
@@ -25,7 +36,10 @@ const Issues = () => {
     const isDarkMode = window.localStorage.getItem("dark_mode");
 
     if (!vName) {
-      navigate("/");
+      setDialogContent(<VisitorAuth closeHandler={handleClose} />);
+      window.setTimeout(() => {
+        handleOpen();
+      }, 4000);
     }
 
     if (isDarkMode !== null) {
@@ -37,7 +51,7 @@ const Issues = () => {
     if (lastUsedTheme !== null) {
       setTheme(lastUsedTheme);
     }
-  });
+  }, []);
 
   return (
     <>
@@ -45,6 +59,8 @@ const Issues = () => {
         <section
           className="experiences flex flex-col items-left p-5 "
           style={{
+            backgroundImage: 'none',
+            marginBottom: "0",
             marginTop: "0",
           }}
         >
@@ -202,6 +218,10 @@ const Issues = () => {
           </div>
         </section>
       </Fade>
+
+      <Dialog open={openModal} onClose={handleClose}>
+        {dialogContent}
+      </Dialog>
     </>
   );
 };

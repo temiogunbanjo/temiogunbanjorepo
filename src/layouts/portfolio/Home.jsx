@@ -1071,7 +1071,7 @@ const PortfolioIndex = () => {
                   opacity: showProfilePic ? 1 : 0,
                 }}
               >
-                {`Last updated on ${new Date(2023, 1, 6).toDateString()}`}
+                {`Last updated on ${new Date(2023, 7, 2).toDateString()}`}
               </i>
             </Collapse>
           </div>
@@ -1326,8 +1326,6 @@ const PortfolioIndex = () => {
           className="projects flex flex-col py-12 mb-10"
           style={{
             minHeight: "unset",
-            // backgroundImage:
-            //   "radial-gradient(ellipse, rgb(182, 49, 82) 40%, var(--tab-border-color))",
           }}
         >
           <h2

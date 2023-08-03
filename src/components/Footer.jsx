@@ -60,7 +60,7 @@ const Footer = () => {
                 href="/issues"
                 className="transition-all ease-in-out mb-6 text-xl capitalize hover:text-2xl"
               >
-                Issues Catelogue
+                Issues Catalogue
               </a>
               <a
                 href="/#"
