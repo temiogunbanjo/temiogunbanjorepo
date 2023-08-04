@@ -136,7 +136,7 @@ function Header(props) {
           </IconButton>
 
           <IconButton
-            title="Change Color Theme Randomly"
+            title="Randomly Change Color Theme"
             className="strip-btn view-mode-element"
             style={{
               appearance: "none",

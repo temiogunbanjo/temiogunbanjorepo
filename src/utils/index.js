@@ -3,7 +3,7 @@ export const getRandomItem = (array) => {
   return array[itemIndex];
 };
 
-export const availableThemes = ["theme-1", "theme-2", "theme-3", "theme-"];
+export const availableThemes = ["theme-1", "theme-2", "theme-3", "theme-5"];
 
 export const setDarkMode = (isDarkMode = true) => {
   if (typeof isDarkMode === "string") {

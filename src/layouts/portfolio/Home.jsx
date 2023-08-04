@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 // import Timeline from "@mui/lab/Timeline";
 // import TimelineItem from "@mui/lab/TimelineItem";
@@ -16,25 +16,33 @@ import {
   Stack,
   Tab,
   Tabs,
+  TextField,
   Tooltip,
 } from "@mui/material";
+
 import { CgArrowLongDown as DownArrowIcon } from "react-icons/cg";
-import { AiFillSafetyCertificate } from "react-icons/ai";
+
+import { AiFillSafetyCertificate, AiOutlineSearch } from "react-icons/ai";
+
+import { BiFilter as FilterIcon } from "react-icons/bi";
+
 import {
   FaAngleDoubleDown,
   FaAngleDoubleUp,
   FaAngleRight,
 } from "react-icons/fa";
+
 import {
   BsTelephoneFill as PhoneIcon,
   BsGlobe as WebIcon,
 } from "react-icons/bs";
-// BsTelephoneFill
+
 import {
   HiExternalLink,
   // HiOutlineLightningBolt as SkillBadgeIcon,
   HiLightningBolt as FeaturedSkillBadgeIcon,
 } from "react-icons/hi";
+
 import { IoMail as MailIcon } from "react-icons/io5";
 
 import { PieChart } from "react-minimal-pie-chart";
@@ -46,7 +54,6 @@ import Fade from "@successtar/react-reveal/Fade";
 
 import CustomButton from "../../components/common/Button";
 import TabPanel from "../../components/common/TabPanel";
-import Spinner from "../../components/common/Spinner";
 import Dialog from "../../components/common/Dialog";
 
 import {
@@ -54,10 +61,13 @@ import {
   fetchUserProject,
   fetchUserSkills,
 } from "../../database";
+
 import { getRandomItem, setDarkMode, setTheme } from "../../utils";
 import { blueGrey } from "@mui/material/colors";
 import StyledAvatar from "../../components/common/StyledAvatar";
 import { SkillInfo, VisitorAuth } from "./ModalContents";
+import CustomSelect from "../../components/common/Select";
+import EmptyState from "../../components/common/EmptyState";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -406,7 +416,7 @@ const ExperienceCard = (props) => {
               fontWeight: 500,
               color: "var(--light-text-color)",
               lineHeight: 1.8,
-              letterSpacing: "0.5px",
+              // letterSpacing: "0.5px",
               fontSize: {
                 xs: "12px",
                 md: "12px",
@@ -581,6 +591,8 @@ const PortfolioIndex = () => {
   const [loadingSkills, setLoadingSkills] = useState(true);
   const [showAllSkills, setShowAllSkills] = useState(false);
   const [skills, setSkills] = useState([]);
+  const [skillSearchQuery, setSkillSearchQuery] = useState("");
+  const skillSearchRef = useRef();
 
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   const [loadingExperiences, setLoadingExperiences] = useState(true);
@@ -739,6 +751,8 @@ const PortfolioIndex = () => {
         setExperiences(expResponse);
       }
     })();
+
+    console.log(skillSearchRef);
   }, []);
 
   useEffect(() => {
@@ -759,83 +773,110 @@ const PortfolioIndex = () => {
     setExpIntoSkills(e2S);
   }, [experiences]);
 
-  const filterSkills = (tabI) => {
-    let retValue = skills;
-    switch (tabI) {
-      case 0: // Interpersonal Skilss
-        return retValue.filter((each) => {
-          const relatedTags = each.tags
-            .map((tag) => tag.toLowerCase())
-            .filter((tag) => tag.search(/interpersonal/gi) >= 0);
+  const filterSkills = useCallback(
+    (tabI) => {
+      let retValue = skills;
+      const queryFilterCallback = (each) => {
+        // Search by keyword
+        const query = skillSearchQuery.replace(/\.js/gi, "js");
+        const isAMatch =
+          each?.name?.toLowerCase()?.match(new RegExp(`${query}`, "gi")) !==
+          null;
+        return isAMatch;
+      };
 
-          return relatedTags.length > 0;
-        });
+      switch (tabI) {
+        case 0: // Interpersonal Skilss
+          return retValue
+            .filter((each) => {
+              const relatedTags = each.tags
+                .map((tag) => tag.toLowerCase())
+                .filter((tag) => tag.search(/interpersonal/gi) >= 0);
 
-      case 1: // Web Development
-        return retValue.filter((each) => {
-          const relatedTags = each.tags
-            .map((tag) => tag.toLowerCase())
-            .filter((tag) => tag.search(/web development/gi) >= 0);
+              return relatedTags.length > 0;
+            })
+            .filter(queryFilterCallback);
 
-          return relatedTags.length > 0;
-        });
+        case 1: // Mobile & Web Development
+          return retValue
+            .filter((each) => {
+              const relatedTags = each.tags
+                .map((tag) => tag.toLowerCase())
+                .filter((tag) => tag.search(/web development|mobile/gi) >= 0);
 
-      case 2: // Cloud Provider
-        return retValue.filter((each) => {
-          const relatedTags = each.tags
-            .map((tag) => tag.toLowerCase())
-            .filter((tag) => tag.search(/cloud/gi) >= 0);
+              return relatedTags.length > 0;
+            })
+            .filter(queryFilterCallback);
 
-          return relatedTags.length > 0;
-        });
+        case 2: // Cloud Provider
+          return retValue
+            .filter((each) => {
+              const relatedTags = each.tags
+                .map((tag) => tag.toLowerCase())
+                .filter((tag) => tag.search(/cloud/gi) >= 0);
 
-      case 3: // Database
-        return retValue.filter((each) => {
-          const relatedTags = each.tags
-            .map((tag) => tag.toLowerCase())
-            .filter((tag) => tag.search(/database/gi) >= 0);
+              return relatedTags.length > 0;
+            })
+            .filter(queryFilterCallback);
 
-          return relatedTags.length > 0;
-        });
+        case 3: // Database
+          return retValue
+            .filter((each) => {
+              const relatedTags = each.tags
+                .map((tag) => tag.toLowerCase())
+                .filter((tag) => tag.search(/database/gi) >= 0);
 
-      case 4: // Version Control
-        return retValue.filter((each) => {
-          const relatedTags = each.tags
-            .map((tag) => tag.toLowerCase())
-            .filter((tag) => tag.search(/vcs/gi) >= 0);
+              return relatedTags.length > 0;
+            })
+            .filter(queryFilterCallback);
 
-          return relatedTags.length > 0;
-        });
+        case 4: // Version Control
+          return retValue
+            .filter((each) => {
+              const relatedTags = each.tags
+                .map((tag) => tag.toLowerCase())
+                .filter((tag) => tag.search(/vcs/gi) >= 0);
 
-      case 5: // Graphics design & Animations
-        return retValue.filter((each) => {
-          const relatedTags = each.tags
-            .map((tag) => tag.toLowerCase())
-            .filter(
-              (tag) => tag.search(/graphics|graphics design|animation/gi) >= 0
-            );
+              return relatedTags.length > 0;
+            })
+            .filter(queryFilterCallback);
 
-          return relatedTags.length > 0;
-        });
+        case 5: // Graphics design & Animations
+          return retValue
+            .filter((each) => {
+              const relatedTags = each.tags
+                .map((tag) => tag.toLowerCase())
+                .filter(
+                  (tag) =>
+                    tag.search(/graphics|graphics design|animation/gi) >= 0
+                );
 
-      case 6: // others
-        return retValue.filter((each) => {
-          const relatedTags = each.tags
-            .map((tag) => tag.toLowerCase())
-            .filter(
-              (tag) =>
-                tag.search(
-                  /interpersonal|web development|database|vcs|graphics|graphics design|animation/gi
-                ) >= 0
-            );
+              return relatedTags.length > 0;
+            })
+            .filter(queryFilterCallback);
 
-          return relatedTags.length === 0;
-        });
+        case 6: // others
+          return retValue
+            .filter((each) => {
+              const relatedTags = each.tags
+                .map((tag) => tag.toLowerCase())
+                .filter(
+                  (tag) =>
+                    tag.search(
+                      /interpersonal|web development|database|vcs|graphics|graphics design|animation/gi
+                    ) >= 0
+                );
 
-      default:
-        return retValue;
-    }
-  };
+              return relatedTags.length === 0;
+            })
+            .filter(queryFilterCallback);
+
+        default:
+          return retValue.filter(queryFilterCallback);
+      }
+    },
+    [skillSearchQuery, skills]
+  );
 
   const loadLocalFile = (filePath) => {
     let data = null;
@@ -1112,7 +1153,7 @@ const PortfolioIndex = () => {
           </span>
 
           <div className="flex flex-col flex-wrap sm:flex-nowrap w-full">
-            {/* <div className="w-1/2"></div> */}
+            {/* LARGE SCREENS */}
             <Tabs
               value={tabIndex}
               onChange={handleTabChange}
@@ -1133,7 +1174,7 @@ const PortfolioIndex = () => {
                 label="Inter-Personal Skills"
                 sx={{ ...styles.tabStyles, display: "none" }}
               />
-              <Tab label="Web Development" sx={styles.tabStyles} />
+              <Tab label="Mobile & Web Development" sx={styles.tabStyles} />
               <Tab label="Cloud Provider" sx={styles.tabStyles} />
               <Tab label="Database Management" sx={styles.tabStyles} />
               <Tab label="Version Controls" sx={styles.tabStyles} />
@@ -1144,6 +1185,7 @@ const PortfolioIndex = () => {
               <Tab label="Others" sx={styles.tabStyles} />
             </Tabs>
 
+            {/* SMALLER SCREENS */}
             <Tabs
               value={tabIndex}
               onChange={handleTabChange}
@@ -1164,7 +1206,7 @@ const PortfolioIndex = () => {
                 label="Inter-Personal Skills"
                 sx={{ ...styles.tabStyles, display: "none" }}
               />
-              <Tab label="Web Development" sx={styles.tabStyles} />
+              <Tab label="Mobile & Web Development" sx={styles.tabStyles} />
               <Tab label="Cloud Provider" sx={styles.tabStyles} />
               <Tab label="Database Management" sx={styles.tabStyles} />
               <Tab label="Version Controls" sx={styles.tabStyles} />
@@ -1175,11 +1217,6 @@ const PortfolioIndex = () => {
               <Tab label="Others" sx={styles.tabStyles} />
             </Tabs>
 
-            {/* <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      > */}
             {[0, 1, 2, 3, 4, 5, 6].map((each, index) => (
               <TabPanel
                 key={index}
@@ -1187,7 +1224,69 @@ const PortfolioIndex = () => {
                 currentTabIndex={tabIndex}
                 sx={{ display: each === 0 ? "none" : "initial" }}
               >
-                {!loadingSkills ? (
+                <Stack
+                  direction="row"
+                  justifyContent={"space-between"}
+                  alignItems="center"
+                  sx={{
+                    margin: { xs: "10px 14px 20px", sm: "10px 17px 20px" },
+                  }}
+                  className="bordr"
+                >
+                  <TextField
+                    ref={skillSearchRef}
+                    onChange={(ev) => setSkillSearchQuery(ev.target.value)}
+                    // onFocus={() => }
+                    value={skillSearchQuery}
+                    placeholder="Search for a skill"
+                    variant="outlined"
+                    className="text-xl block py-0"
+                    InputProps={{
+                      endAdornment: (
+                        <AiOutlineSearch style={{ fontSize: "20px" }} />
+                      ),
+                      sx: {
+                        color: "var(--text-color)",
+                        backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      },
+                      inputProps: {
+                        style: {
+                          fontSize: "1.45rem",
+                          padding: "12px 18px",
+                        },
+                      },
+                    }}
+                    sx={{
+                      maxWidth: "450px",
+                      minWidth: { xs: "150px", md: "300px" },
+                      width: "100%",
+                      "& .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                        {
+                          borderColor: "transparent",
+                        },
+                    }}
+                  />
+
+                  <Stack direction="row" alignItems={"center"} sx={{ ml: 4 }}>
+                    <FilterIcon
+                      style={{
+                        fontSize: "24px",
+                        marginRight: "10px",
+                        color: "var(--light-text-color)",
+                      }}
+                    />
+                    <CustomSelect
+                      height="34px"
+                      sx={{
+                        border: "1px solid var(--border-line-color)",
+                        backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      }}
+                      options={[]}
+                    />
+                  </Stack>
+                </Stack>
+
+                {!loadingSkills && filterSkills(tabIndex).length > 0 ? (
                   <div className="flex flex-row justify-center flex-wrap w-4/7">
                     {(showAllSkills
                       ? filterSkills(tabIndex)
@@ -1204,9 +1303,10 @@ const PortfolioIndex = () => {
                     ))}
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center justify-center w-4/7">
-                    <Spinner />
-                  </div>
+                  <EmptyState
+                    className="flex flex-col items-center justify-center w-4/7"
+                    isLoading={loadingSkills}
+                  />
                 )}
               </TabPanel>
             ))}
@@ -1269,14 +1369,15 @@ const PortfolioIndex = () => {
           </h2>
 
           <div className="flex flex-col mt-2 pl-6">
-            {!loadingExperiences ? (
+            {!loadingExperiences && experiences.length > 0 ? (
               (showAllExperiences ? experiences : experiences.slice(0, 3)).map(
                 (each, i) => <ExperienceCard key={i} data={each} />
               )
             ) : (
-              <div className="flex flex-col items-center justify-center">
-                <Spinner />
-              </div>
+              <EmptyState
+                className="flex flex-col items-center justify-center"
+                isLoading={loadingExperiences}
+              />
             )}
           </div>
 
@@ -1340,7 +1441,7 @@ const PortfolioIndex = () => {
           </h2>
 
           <div className="flex flex-row flex-wrap justify-center">
-            {!loadingProjects ? (
+            {!loadingProjects && projects.length > 0 ? (
               (showAllProjects ? projects : projects.slice(0, 9)).map(
                 (eachProj, index) => {
                   const isLocalImage =
@@ -1468,7 +1569,10 @@ const PortfolioIndex = () => {
                 }
               )
             ) : (
-              <Spinner />
+              <EmptyState
+                className="flex flex-col items-center justify-center"
+                isLoading={loadingProjects}
+              />
             )}
           </div>
         </section>

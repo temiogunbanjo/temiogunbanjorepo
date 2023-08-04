@@ -1,3 +1,4 @@
+/* THEME 1 */
 body,
 body.theme-1 {
   /* color: #a600a6; */
@@ -8,6 +9,8 @@ body.theme-1 {
   --page-dialog-bg-color: var(--page-bg-color);
   --header-bg-color: var(--primary-color);
   --header-text-color: #fff;
+  --footer-bg-color: var(--header-bg-color);
+  --footer-text-color: var(--header-text-color);
   --icon-color: #fff;
   --contrast-text-color: #fff;
   --text-color: #222;
@@ -19,7 +22,6 @@ body.theme-1 {
   --tab-notice-bgcolor: var(--primary-color);
   --tab-border-color: var(--primary-color);
   --tab-notice-textcolor: #222;
-  --footer-bg-color: var(--header-bg-color);
   --moon-light-color: rgba(255, 209, 123, 0.87);
   --moon-dark-color: rgb(255, 91, 132);
   --pointer-color: var(--moon-dark-color);
@@ -41,7 +43,9 @@ body.theme-1.dark-mode {
   --page-dialog-bg-color: rgb(30, 30, 30);
   --page-link-color: var(--primary-color);
   --header-bg-color: transparent;
+  --footer-bg-color: var(--header-bg-color);
   --header-text-color: #dfdfdf;
+  --footer-text-color: var(--header-text-color);
   --icon-color: #61BAAD;
   --text-color: #dfdfdf;
   --contrast-text-color: #fff;
@@ -53,7 +57,6 @@ body.theme-1.dark-mode {
   --tab-notice-bgcolor: var(--primary-color);
   --tab-border-color: var(--primary-color);
   --tab-notice-textcolor: black;
-  --footer-bg-color: var(--header-bg-color);
   --moon-light-color: rgba(255, 149, 220, 0.87);
   --moon-dark-color: rgba(75, 65, 223, 0.659);
   --pointer-color: #9C0038;
@@ -70,7 +73,9 @@ body.theme-2 {
 body.theme-2.dark-mode {
   --primary-color: #DEB887;
   --primary-color-light: rgba(222, 184, 135, 0.65);
+  --footer-bg-color: var(--primary-color);
   --contrast-text-color: #000;
+  --footer-text-color: var(--contrast-text-color);
   --icon-color: #DEB887;
 }
 
@@ -89,12 +94,13 @@ body.theme-3.dark-mode {
   --page-bg-color: #271b1b;
   --page-dialog-bg-color: var(--page-bg-color);
   --primary-color: #FF7377;
-  --primary-color-light: rgba(222, 184, 135, 0.65);
+  --primary-color-light: #f99b9f;
   --header-bg-color: transparent;
   --footer-bg-color: #2F4858;
+  --light-text-color: #dadada;
   --contrast-text-color: #271b1b;
-  --icon-color: #FF7377;
   --header-text-color: #FFF;
+  --icon-color: #FF7377;
   --pointer-color: #2F4858;
 }
 
@@ -123,6 +129,42 @@ body.theme-4.dark-mode {
   --header-text-color: #FFF;
   --contrast-text-color: black;
   --icon-color: var(--primary-color);
+}
+
+/* THEME 5 */
+body.theme-5 {
+  --primary-color: #d93052;
+  --primary-color-light: #da546f;
+  --page-bg-color: #fefeff;
+  --page-dialog-bg-color: var(--page-bg-color);
+  --header-bg-color: var(--primary-color);
+  --header-text-color: #fff;
+  --icon-color: #fff;
+  --contrast-text-color: #fff;
+  --text-color: #222;
+  --light-text-color: #222;
+  --footer-text-color: var(--header-text-color);
+  --border-line-color: rgba(170, 170, 170, 0.5);
+  --footer-bg-color: var(--header-bg-color);
+  --pointer-color: var(--moon-dark-color);
+}
+
+body.theme-5.dark-mode {
+  --primary-color: #8e65ff;
+  --primary-color-light: #a280ff;
+  --page-bg-color: #08090c;
+  --page-dialog-bg-color: rgb(30, 30, 30);
+  --page-link-color: var(--primary-color);
+  --header-bg-color: transparent;
+  --header-text-color: var(--primary-color-light);
+  --footer-bg-color: var(--header-bg-color);
+  --footer-text-color: var(--header-text-color);
+  --icon-color: var(--primary-color-light);
+  --text-color: #dfdfdf;
+  --contrast-text-color: #fff;
+  --light-text-color: #bdbdbd;
+  --border-line-color: #333;
+  --pointer-color: #9C0038;
 }
 
 .material {

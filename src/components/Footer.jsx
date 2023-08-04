@@ -20,7 +20,7 @@ const Footer = () => {
         <h3
           className="py-12 mb-2 uppercase text-center sm:text-left"
           style={{
-            color: "var(--header-text-color)",
+            // color: "var(--contrast-text-color)",
             fontSize: "38px",
             fontWeight: 700,
             letterSpacing: "1px",
