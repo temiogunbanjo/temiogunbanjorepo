@@ -1060,7 +1060,7 @@ const PortfolioIndex = () => {
               }}
             >
               <img
-                className="user-profile-picture shadow-md sm:shadow-none"
+                className="user-profile-picture shadow-lg sm:shadow-none"
                 src={require("../../assets/images/Me.jpeg")}
                 alt="Temiloluwa"
                 width="100%"
@@ -1262,7 +1262,8 @@ const PortfolioIndex = () => {
                       width: "100%",
                       "& .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline":
                         {
-                          borderColor: "transparent",
+                          borderColor: "var(--border-line-color)",
+                          borderWidth: "1px"
                         },
                     }}
                   />

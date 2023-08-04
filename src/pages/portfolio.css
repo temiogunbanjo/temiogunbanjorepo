@@ -451,7 +451,7 @@ body .education-container:nth-child(2n - 1) {
 body .experiences .card,
 body .education-container .card {
   position: relative;
-  border-left: 2px solid #ddd;
+  border-left: 1px solid #ddd;
   transition: all 0.3s ease-in;
 }
 

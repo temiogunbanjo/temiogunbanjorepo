@@ -134,7 +134,7 @@ body.theme-4.dark-mode {
 /* THEME 5 */
 body.theme-5 {
   --primary-color: #d93052;
-  --primary-color-light: #da546f;
+  --primary-color-light: #ea9999;
   --page-bg-color: #fefeff;
   --page-dialog-bg-color: var(--page-bg-color);
   --header-bg-color: var(--primary-color);
