@@ -5,6 +5,7 @@ import { IoMailOpen } from "react-icons/io5";
 import { SiWhatsapp } from "react-icons/si";
 import logo from "../assets/images/DeeplugTEO.png";
 import { Link } from "react-router-dom";
+import Image from "./common/Image";
 
 const Footer = () => {
   const footerSMIcons = {
@@ -32,7 +33,7 @@ const Footer = () => {
         <div className="flex flex-row flex-wrap gap-12">
           <div className="flex flex-col w-full items-center sm:items-start sm:w-1/4 lg:w-1/4 sm:border-r-2" style={{ borderColor: 'var(--border-line-color)'}}>
             <Link to="/" className="my-icon">
-              <img
+              <Image
                 src={logo}
                 alt=""
                 height="32px"

@@ -13,10 +13,10 @@ const toggleDarkMode = (ev) => {
   );
   if (toggleModeButtonIcon.classList.contains("icofont-sun") === true) {
     toggleModeButtonIcon.classList.replace("icofont-sun", "icofont-moon");
-    window.sessionStorage.setItem("dark_mode", true);
+    window.sessionStorage.setItem("dark_mode", false);
   } else {
     toggleModeButtonIcon.classList.replace("icofont-moon", "icofont-sun");
-    window.sessionStorage.setItem("dark_mode", false);
+    window.sessionStorage.setItem("dark_mode", true);
   }
 
   document.body.classList.toggle("dark-mode");

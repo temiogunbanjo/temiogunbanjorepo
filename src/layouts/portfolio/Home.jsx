@@ -51,6 +51,7 @@ import ResponsiveTab from "../../components/common/ResponsiveTab";
 import ExperienceCard from "../../components/Cards/ExperienceCard";
 
 import { quoteSequence } from "../../database/globals";
+import Image from "../../components/common/Image";
 
 const PortfolioIndex = () => {
   const navigate = useNavigate();
@@ -435,12 +436,13 @@ const PortfolioIndex = () => {
                 opacity: showProfilePic ? 1 : 0,
               }}
             >
-              <img
+              <Image
                 className="user-profile-picture shadow-lg sm:shadow-none"
                 src={require("../../assets/images/Me.jpeg")}
                 alt="Temiloluwa"
                 width="100%"
                 height="100%"
+                loading="lazy"
               />
             </div>
 
@@ -838,7 +840,7 @@ const PortfolioIndex = () => {
                         )}
 
                         {eachProj?.content?.[0]?.type === "image" && (
-                          <img
+                          <Image
                             src={
                               isLocalImage
                                 ? loadLocalFile(eachProj?.content?.[0]?.url)

@@ -19,6 +19,7 @@ import CustomButton from "../../../components/common/Button";
 import Status from "../../../components/common/StatusIndicator";
 
 import { getSavedMode, setDarkMode } from "../../../utils";
+import Image from "../../../components/common/Image";
 
 export const SkillInfo = ({ data, experiences, closeHandler }) => {
   const hasMore = true;
@@ -34,11 +35,12 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
           color: "var(--primary-color)",
           borderRadius: "8px",
         }}
+        title="close skill modal"
       >
         <IoCloseOutline
           style={{ fontSize: "24px", color: "var(--primary-color)" }}
         />
-        {/* <span className="ml-1">close</span> */}
+        <span className="ml-1">close</span>
       </IconButton>
 
       <Stack direction="row" className="-mt-5 mb-8 flex-wrap sm:flex-nowrap">
@@ -50,7 +52,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
             backgroundColor: "rgba(170, 170, 170, 0.15)",
           }}
         >
-          <img
+          <Image
             src={data?.icon}
             alt={""}
             width="100%"
@@ -167,7 +169,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                         backgroundColor: "rgba(170, 170, 170, 0.15)",
                       }}
                     >
-                      <img
+                      <Image
                         src={
                           exp?.icon ||
                           "https://cdn.onlinewebfonts.com/svg/img_404146.png"
@@ -251,7 +253,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                     backgroundColor: "rgba(170, 170, 170, 0.15)",
                   }}
                 >
-                  <img
+                  <Image
                     src={certificate?.organization_icon}
                     alt={""}
                     width="100%"

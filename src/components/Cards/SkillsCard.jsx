@@ -1,11 +1,12 @@
 import { AiFillSafetyCertificate } from "react-icons/ai";
+import { PieChart } from "react-minimal-pie-chart";
 
 import {
   // HiOutlineLightningBolt as SkillBadgeIcon,
   HiLightningBolt as FeaturedSkillBadgeIcon,
 } from "react-icons/hi";
 
-import { PieChart } from "react-minimal-pie-chart";
+import Image from "../common/Image";
 
 const SkillCard = (props) => {
   const { onClick = () => {} } = props;
@@ -66,7 +67,7 @@ const SkillCard = (props) => {
         )}
 
         {props?.data?.icon && (
-          <img
+          <Image
             src={props?.data?.icon}
             alt={""}
             height="30px"
