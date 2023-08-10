@@ -6,25 +6,11 @@ import ReactPlayer from "react-player";
 // import TimelineConnector from "@mui/lab/TimelineConnector";
 // import TimelineContent from "@mui/lab/TimelineContent";
 // import TimelineDot from "@mui/lab/TimelineDot";
-import {
-  Avatar,
-  AvatarGroup,
-  Box,
-  Collapse,
-  IconButton,
-  Link,
-  Stack,
-  Tab,
-  Tabs,
-  TextField,
-  Tooltip,
-} from "@mui/material";
+import { Box, Collapse, Link, Stack, Tab, TextField } from "@mui/material";
 
-import { CgArrowLongDown as DownArrowIcon } from "react-icons/cg";
-
-import { AiFillSafetyCertificate, AiOutlineSearch } from "react-icons/ai";
-
+import { AiOutlineSearch } from "react-icons/ai";
 import { BiFilter as FilterIcon } from "react-icons/bi";
+import { CgArrowLongDown as DownArrowIcon } from "react-icons/cg";
 
 import {
   FaAngleDoubleDown,
@@ -32,29 +18,12 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 
-import {
-  BsTelephoneFill as PhoneIcon,
-  BsGlobe as WebIcon,
-} from "react-icons/bs";
+import { BsTelephoneFill as PhoneIcon } from "react-icons/bs";
 
-import {
-  HiExternalLink,
-  // HiOutlineLightningBolt as SkillBadgeIcon,
-  HiLightningBolt as FeaturedSkillBadgeIcon,
-} from "react-icons/hi";
-
-import { IoMail as MailIcon } from "react-icons/io5";
-
-import { PieChart } from "react-minimal-pie-chart";
-import ReactHtmlParser from "html-react-parser";
-import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
+import { TypeAnimation } from "react-type-animation";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
-
-import CustomButton from "../../components/common/Button";
-import TabPanel from "../../components/common/TabPanel";
-import Dialog from "../../components/common/Dialog";
 
 import {
   fetchUserExperiences,
@@ -62,541 +31,42 @@ import {
   fetchUserSkills,
 } from "../../database";
 
-import { getRandomItem, setDarkMode, setTheme } from "../../utils";
-import { blueGrey } from "@mui/material/colors";
-import StyledAvatar from "../../components/common/StyledAvatar";
 import { SkillInfo, VisitorAuth } from "./ModalContents";
+
+import {
+  getRandomItem,
+  loadLocalFile,
+  setDarkMode,
+  setTheme,
+} from "../../utils";
+
+import Dialog from "../../components/common/Dialog";
+import TabPanel from "../../components/common/TabPanel";
+import CustomButton from "../../components/common/Button";
 import CustomSelect from "../../components/common/Select";
+import SkillCard from "../../components/Cards/SkillsCard";
 import EmptyState from "../../components/common/EmptyState";
+import ResponsiveTab from "../../components/common/ResponsiveTab";
+import ExperienceCard from "../../components/Cards/ExperienceCard";
 
-const SkillCard = (props) => {
-  const { onClick = () => {} } = props;
-  const [skillPieWidth, skillPieHeight] = [14, 14];
-
-  const getColor = (grade) => {
-    switch (true) {
-      case grade >= 0 && grade < 3.33:
-        return "var(--light-text-color)";
-      // return "gold";
-      // return "#ff56cf";
-
-      case grade >= 3.33 && grade < 6.67:
-        return "var(--light-text-color)";
-      // return "gold";
-      // return "#ffdb56";
-
-      case grade >= 6.67:
-        return "var(--light-text-color)";
-      // return "gold";
-      // return "#79ff9f";
-
-      default:
-        return grade.color || "#E38627";
-    }
-  };
-
-  return (
-    <div
-      className="card flex flex-row sm:flex-col mx-4 items-center"
-      style={{
-        borderRadius: "8px",
-      }}
-      onClick={onClick}
-    >
-      <div
-        className="card-header flex sm:flex-row-reverse flex-col-reverse sm:mb-10 h-full sm:h-auto sm:w-full items-center justify-between px-10 sm:px-6 py-6 rounded-lg"
-        style={{
-          // width: "130px",
-          borderRadius: "7px",
-        }}
-      >
-        {!props.data?.featured ? (
-          <FeaturedSkillBadgeIcon
-            className="mt-4 sm:mt-0"
-            style={{
-              fontSize: "23px",
-              color: "var(--contrast-text-color)",
-            }}
-          />
-        ) : (
-          <FeaturedSkillBadgeIcon
-            style={{
-              fontSize: "25px",
-              color: "gold",
-            }}
-          />
-        )}
-
-        {props?.data?.icon && (
-          <img
-            src={props?.data?.icon}
-            alt={""}
-            height="30px"
-            style={{
-              objectFit: "contain",
-              width: "auto",
-              height: "35px",
-              minWidth: "35px",
-            }}
-          />
-        )}
-      </div>
-
-      <div
-        className="flex flex-row items-end justify-between w-full"
-        style={{
-          padding: "15px",
-        }}
-      >
-        <div className="flex flex-col w-full">
-          <b
-            className="text-left text-2xl uppercase"
-            style={{
-              margin: 0,
-              fontWeight: 700,
-              color: "var(--text-color)",
-              // fontSize: "15px",
-            }}
-          >
-            {props.data?.name}
-          </b>
-          <span className="mt-3 text-lg capitalize text-left">
-            {props.data?.tags[0]}
-          </span>
-          {props.data?.certifications?.length > 0 && (
-            <span
-              className="flex flex-row items-center mt-3 uppercase text-left text-md"
-              style={{
-                color: "var(--light-text-color)",
-              }}
-            >
-              <AiFillSafetyCertificate
-                className="text-lg"
-                style={{ marginRight: "4px" }}
-              />
-              Certified Skill
-            </span>
-          )}
-        </div>
-
-        <div className="flex rounded-full">
-          <PieChart
-            totalValue={100}
-            radius={skillPieWidth / 2 - 1.5}
-            segmentsShift={(index) => (index !== 0 ? 0.3 : 0.3)}
-            viewBoxSize={[skillPieWidth, skillPieHeight]}
-            center={[skillPieWidth / 2, skillPieHeight / 2]}
-            startAngle={-90}
-            animate
-            // lengthAngle={90}
-            // label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
-            // labelStyle={{
-            //   fontSize: '6px',
-            //   fill: 'var(--text-color)'
-            // }}
-            paddingAngle={5}
-            lineWidth={10}
-            data={[
-              {
-                title: "Mastered",
-                value: props.data?.level * 10,
-                color: getColor(props.data?.level),
-              },
-              {
-                title: "Unmastered",
-                value: 100 - props.data?.level * 10,
-                color: "var(--border-line-color)",
-              },
-              // { title: 'Three', value: 10, color: '#6A2135' },
-            ]}
-            style={{ height: "58px" }}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ExperienceCard = (props) => {
-  const experienceId = props?.data?.company
-    ?.replace(/['".()&]/gi, "")
-    .replace(/\s+/gi, "-");
-  return (
-    <Box
-      component="div"
-      id={experienceId}
-      className={`card flex flex-col sm:flex-row-reverse sm:justify-between mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
-      sx={{}}
-    >
-      <div className="flex flex-col mr-8 sm:ml-12 h-auto timeline-section">
-        <span
-          className="text-xl sm:text-xl"
-          style={{
-            fontWeight: 600,
-            color: "var(--text-color)",
-          }}
-        >
-          {props?.data?.timeframe}
-        </span>
-        <span
-          className="text-lg mt-2 sm:mt-5"
-          style={{
-            fontFamily: "'Open Sans'",
-            fontWeight: 600,
-            color: "var(--primary-color)",
-            letterSpacing: "0.5px",
-            lineHeight: 2,
-          }}
-        >
-          {props?.data?.role}
-        </span>
-
-        {props?.data?.references && props?.data?.references.length > 0 && (
-          <div className="hidden sm:flex flex-col mt-4 sm:mt-5 w-full">
-            <span
-              className="text-xl capitalize"
-              style={{
-                color: "#888",
-                fontWeight: 700,
-                letterSpacing: "0.5px",
-              }}
-            >
-              {`References at ${props?.data?.company}:`}
-            </span>
-
-            <AvatarGroup
-              max={4}
-              spacing="medium"
-              sx={{
-                my: 1,
-                justifyContent: "left",
-                border: "none",
-                "& [class*=MuiAvatar-root-MuiAvatarGroup-avatar]": {
-                  fontSize: "12px",
-                  backgroundColor: "black",
-                  borderColor: "var(--border-line-color) !important",
-                  width: 30,
-                  height: 30,
-                },
-              }}
-            >
-              {props?.data?.references.map((eachImg, index) => (
-                <Tooltip
-                  key={index}
-                  arrow={true}
-                  placement="bottom-start"
-                  title={
-                    <div className="p-5">
-                      <div className="flex flex-row items-center">
-                        <StyledAvatar
-                          alt={eachImg?.name || "Remy Sharp"}
-                          src={eachImg?.url || ""}
-                          sx={{
-                            borderColor: "var(--border-line-color) !important",
-                            fontSize: "12px",
-                            width: 28,
-                            height: 28,
-                            bgcolor: blueGrey[500],
-                          }}
-                        />
-                        <Stack className="ml-5">
-                          <span className="text-xl" style={{ fontWeight: 700 }}>
-                            {eachImg.name}
-                          </span>
-                          <span className="text-lg" style={{ fontWeight: 400 }}>
-                            {eachImg?.title || "-- --"}
-                          </span>
-                        </Stack>
-                      </div>
-
-                      <div className="flex flex-row items-center justify-between border-b-2 border-t-2 p-2 mt-4">
-                        <IconButton
-                          href={`tel:${eachImg?.phone}`}
-                          disabled={!eachImg?.phone}
-                          className="mr-2"
-                        >
-                          <PhoneIcon
-                            style={{
-                              color: !eachImg?.phone ? "inherit" : "white",
-                              fontSize: "14px",
-                            }}
-                          />
-                        </IconButton>
-
-                        <IconButton
-                          href={`mailto:${eachImg?.email}`}
-                          disabled={!eachImg?.email}
-                          className="mr-2"
-                        >
-                          <MailIcon
-                            style={{
-                              color: !eachImg?.email ? "inherit" : "white",
-                              fontSize: "16px",
-                            }}
-                          />
-                        </IconButton>
-
-                        <IconButton
-                          href={`mailto:${eachImg?.website}`}
-                          disabled={!eachImg?.website}
-                          className="mr-0"
-                        >
-                          <WebIcon
-                            style={{
-                              color: !eachImg?.website ? "inherit" : "white",
-                              fontSize: "16px",
-                            }}
-                          />
-                        </IconButton>
-                      </div>
-                    </div>
-                  }
-                >
-                  <Avatar
-                    key={index}
-                    alt={eachImg?.name || "Remy Sharp"}
-                    src={eachImg?.url || ""}
-                    sx={{
-                      borderColor: "var(--page-bg-color) !important",
-                      fontSize: "12px",
-                      width: 30,
-                      height: 30,
-                      bgcolor: "#4A4453",
-                    }}
-                  />
-                </Tooltip>
-              ))}
-            </AvatarGroup>
-          </div>
-        )}
-      </div>
-
-      <div
-        className="flex flex-col flew-grow sm:ml-8 mt-4 sm:mt-0 text-2xl w-full"
-        style={{ maxWidth: "800px" }}
-      >
-        <div className="flex flex-row items-center justify-start">
-          <span
-            className="text-3xl sm:text-3xl"
-            style={{
-              fontWeight: 700,
-              color: "var(--text-color)",
-            }}
-          >
-            {props?.data?.company}
-          </span>
-          {props?.data?.link && (
-            <a
-              href={props?.data?.link}
-              className="text-2xl ml-2"
-              style={{
-                fontWeight: 700,
-                color: "var(--primary-color)",
-              }}
-            >
-              <HiExternalLink />
-            </a>
-          )}
-        </div>
-
-        <Box className="mt-5 sm:mt-6">
-          <span
-            className="inline-block text-xl mb-2"
-            style={{
-              color: "#888",
-              fontWeight: 600,
-              letterSpacing: "0.5px",
-            }}
-          >
-            Role Description:
-          </span>
-          <Box
-            className="text-xl md:text-2xl sm:text-justify"
-            sx={{
-              fontWeight: 500,
-              color: "var(--light-text-color)",
-              lineHeight: 1.8,
-              // letterSpacing: "0.5px",
-              fontSize: {
-                xs: "12px",
-                md: "12px",
-              },
-            }}
-          >
-            {ReactHtmlParser(props?.data?.description)}
-          </Box>
-        </Box>
-
-        {props?.data?.relatedSkills &&
-          props?.data?.relatedSkills.length > 0 && (
-            <div className="flex flex-col justify-start items-start mt-6 sm:mt-7 mb-2">
-              <span
-                className="text-xl mb-2"
-                style={{
-                  color: "#888",
-                  fontWeight: 600,
-                  letterSpacing: "0.5px",
-                }}
-              >
-                Related Skills:
-              </span>
-              <span
-                className="text-lg uppercase"
-                style={{
-                  color: "var(--text-color)",
-                  fontWeight: 500,
-                  lineHeight: 1.8,
-                  letterSpacing: "0.5px",
-                  fontSize: {
-                    xs: "12px",
-                    md: "12px",
-                  },
-                }}
-              >
-                {props?.data?.relatedSkills.join(" • ")}
-              </span>
-            </div>
-          )}
-
-        {props?.data?.references && props?.data?.references.length > 0 && (
-          <div className="sm:hidden flex flex-col mt-4 sm:mt-5 w-full">
-            <span
-              className="text-xl capitalize"
-              style={{
-                color: "#888",
-                fontWeight: 700,
-                letterSpacing: "0.5px",
-              }}
-            >
-              {`References at ${props?.data?.company}:`}
-            </span>
-
-            <AvatarGroup
-              max={4}
-              spacing="medium"
-              sx={{
-                my: 1,
-                justifyContent: "left",
-                border: "none",
-                "& [class*=MuiAvatar-root-MuiAvatarGroup-avatar]": {
-                  fontSize: "12px",
-                  backgroundColor: "black",
-                  borderColor: "var(--border-line-color) !important",
-                  width: 30,
-                  height: 30,
-                },
-              }}
-            >
-              {props?.data?.references.map((eachImg, index) => (
-                <Tooltip
-                  key={index}
-                  arrow={true}
-                  placement="bottom-start"
-                  title={
-                    <div className="p-5">
-                      <div className="flex flex-row items-center">
-                        <StyledAvatar
-                          alt={eachImg?.name || "Remy Sharp"}
-                          src={eachImg?.url || ""}
-                          sx={{
-                            borderColor: "var(--border-line-color) !important",
-                            fontSize: "12px",
-                            width: 28,
-                            height: 28,
-                            bgcolor: blueGrey[500],
-                          }}
-                        />
-                        <Stack className="ml-5">
-                          <span className="text-xl" style={{ fontWeight: 700 }}>
-                            {eachImg.name}
-                          </span>
-                          <span className="text-lg" style={{ fontWeight: 400 }}>
-                            {eachImg?.title || "-- --"}
-                          </span>
-                        </Stack>
-                      </div>
-
-                      <div className="flex flex-row items-center justify-between border-b-2 border-t-2 p-2 mt-4">
-                        <IconButton
-                          href={`tel:${eachImg?.phone}`}
-                          disabled={!eachImg?.phone}
-                          className="mr-2"
-                        >
-                          <PhoneIcon
-                            style={{
-                              color: !eachImg?.phone ? "inherit" : "white",
-                              fontSize: "14px",
-                            }}
-                          />
-                        </IconButton>
-
-                        <IconButton
-                          href={`mailto:${eachImg?.email}`}
-                          disabled={!eachImg?.email}
-                          className="mr-2"
-                        >
-                          <MailIcon
-                            style={{
-                              color: !eachImg?.email ? "inherit" : "white",
-                              fontSize: "16px",
-                            }}
-                          />
-                        </IconButton>
-
-                        <IconButton
-                          href={`mailto:${eachImg?.website}`}
-                          disabled={!eachImg?.website}
-                          className="mr-0"
-                        >
-                          <WebIcon
-                            style={{
-                              color: !eachImg?.website ? "inherit" : "white",
-                              fontSize: "16px",
-                            }}
-                          />
-                        </IconButton>
-                      </div>
-                    </div>
-                  }
-                >
-                  <Avatar
-                    key={index}
-                    alt={eachImg?.name || "Remy Sharp"}
-                    src={eachImg?.url || ""}
-                    sx={{
-                      borderColor: "var(--page-bg-color) !important",
-                      fontSize: "12px",
-                      width: 30,
-                      height: 30,
-                      bgcolor: "#4A4453",
-                    }}
-                  />
-                </Tooltip>
-              ))}
-            </AvatarGroup>
-          </div>
-        )}
-      </div>
-    </Box>
-  );
-};
+import { quoteSequence } from "../../database/globals";
 
 const PortfolioIndex = () => {
   const navigate = useNavigate();
-  const [showProfilePic, setShowProfilePic] = useState(false);
   const [isLayman, setIsLayman] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [dialogContent, setDialogContent] = useState(null);
+  const [showProfilePic, setShowProfilePic] = useState(false);
 
+  const [skills, setSkills] = useState([]);
   const [loadingSkills, setLoadingSkills] = useState(true);
   const [showAllSkills, setShowAllSkills] = useState(false);
-  const [skills, setSkills] = useState([]);
   const [skillSearchQuery, setSkillSearchQuery] = useState("");
   const skillSearchRef = useRef();
 
+  const [experiences, setExperiences] = useState([]);
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   const [loadingExperiences, setLoadingExperiences] = useState(true);
-  const [experiences, setExperiences] = useState([]);
 
   const [showAllProjects] = useState(false);
   const [loadingProjects, setLoadingProjects] = useState(true);
@@ -606,85 +76,7 @@ const PortfolioIndex = () => {
 
   const [tabIndex, setTabIndex] = useState(1);
 
-  const QUOTE_PAUSE_DURATION = 1500;
   const MAX_SKILLS_DISPLAYED = 6;
-
-  const quoteSequence = [
-    [
-      "A wise man once said:",
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love',
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love, something to hope for',
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love, something to hope for and something to do',
-      QUOTE_PAUSE_DURATION,
-      'A wise man once said: "Someone to love, something to hope for and something to do are the 3 essence of true happiness".',
-      4000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
-    [
-      "In the quest for learning...",
-      QUOTE_PAUSE_DURATION,
-      "In the quest for learning, we should not neglect the importance of unlearning...",
-      QUOTE_PAUSE_DURATION,
-      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute...",
-      QUOTE_PAUSE_DURATION,
-      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is...",
-      QUOTE_PAUSE_DURATION,
-      "In the quest for learning, we should not neglect the importance of unlearning. For knowledge is never complete or absolute and the more we believe it is, the harder it will be to re-learn.",
-      3000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
-    [
-      "The expectations of an outcome...",
-      QUOTE_PAUSE_DURATION,
-      "The expectations of an outcome produces a manifestation...",
-      QUOTE_PAUSE_DURATION,
-      "The expectations of an outcome produces a manifestation that would, in time, become your new reality.",
-      QUOTE_PAUSE_DURATION,
-      "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might...",
-      QUOTE_PAUSE_DURATION,
-      "The expectations of an outcome produces a manifestation that would, in time, become your new reality. We should guard our heart and minds with all our might as it would surely produce something with whatever you put into it.",
-      2000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
-    [
-      "If God isn't real...",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us...",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts?",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic?",
-      QUOTE_PAUSE_DURATION,
-      "If God isn't real, and these whole universe was just born from pure randomness including us, then how can we trust our own thoughts? How can we be so sure of the consistency of our logic? Therefore, GOD is REAl!",
-      2000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
-    [
-      "Survivorship bias is a common logical error that distorts our understanding of the world...",
-      QUOTE_PAUSE_DURATION,
-      "Survivorship bias is a common logical error that distorts our understanding of the world. It happens when we assume that success tells the whole story and when we don't adequately consider past failures.",
-      4000, // Waits 1s
-      () => {
-        console.log("Done typing!"); // Place optional callbacks anywhere in the array
-        setShowProfilePic(true);
-      },
-    ],
-  ];
 
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => {
@@ -752,7 +144,7 @@ const PortfolioIndex = () => {
       }
     })();
 
-    console.log(skillSearchRef);
+    // console.log(skillSearchRef);
   }, []);
 
   useEffect(() => {
@@ -877,21 +269,6 @@ const PortfolioIndex = () => {
     },
     [skillSearchQuery, skills]
   );
-
-  const loadLocalFile = (filePath) => {
-    let data = null;
-    console.log({ url: filePath });
-
-    try {
-      // data = require(filePath)?.default;
-      data = filePath;
-      // console.log({ data });
-      return data;
-    } catch (error) {
-      console.log({ error });
-      return null;
-    }
-  };
 
   return (
     <>
@@ -1080,7 +457,12 @@ const PortfolioIndex = () => {
             </h2>
             <blockquote className="w-full">
               <TypeAnimation
-                sequence={getRandomItem(quoteSequence)}
+                sequence={getRandomItem(
+                  quoteSequence(() => {
+                    console.log("Done typing!");
+                    setShowProfilePic(true);
+                  })
+                )}
                 wrapper="span"
                 speed={35}
                 deletionSpeed={88}
@@ -1153,19 +535,12 @@ const PortfolioIndex = () => {
           </span>
 
           <div className="flex flex-col flex-wrap sm:flex-nowrap w-full">
-            {/* LARGE SCREENS */}
-            <Tabs
+            <ResponsiveTab
               value={tabIndex}
               onChange={handleTabChange}
-              aria-label="Skills Tab"
-              orientation="horizontal"
-              variant="standard"
-              scrollButtons="auto"
-              centered={true}
               sx={{
-                display: { xs: "none", md: "flex" },
-                width: "100%",
                 mb: 2,
+                width: "100%",
                 color: "var(--text-color)",
                 borderBottom: "1px solid var(--border-line-color)",
               }}
@@ -1183,39 +558,7 @@ const PortfolioIndex = () => {
                 sx={styles.tabStyles}
               />
               <Tab label="Others" sx={styles.tabStyles} />
-            </Tabs>
-
-            {/* SMALLER SCREENS */}
-            <Tabs
-              value={tabIndex}
-              onChange={handleTabChange}
-              aria-label="Skills Tab"
-              orientation="horizontal"
-              variant="scrollable"
-              scrollButtons="auto"
-              centered={false}
-              sx={{
-                display: { xs: "flex", md: "none" },
-                width: "100%",
-                mb: 2,
-                color: "var(--text-color)",
-                borderBottom: "1px solid var(--border-line-color)",
-              }}
-            >
-              <Tab
-                label="Inter-Personal Skills"
-                sx={{ ...styles.tabStyles, display: "none" }}
-              />
-              <Tab label="Mobile & Web Development" sx={styles.tabStyles} />
-              <Tab label="Cloud Provider" sx={styles.tabStyles} />
-              <Tab label="Database Management" sx={styles.tabStyles} />
-              <Tab label="Version Controls" sx={styles.tabStyles} />
-              <Tab
-                label="3D Animations & Graphics Design"
-                sx={styles.tabStyles}
-              />
-              <Tab label="Others" sx={styles.tabStyles} />
-            </Tabs>
+            </ResponsiveTab>
 
             {[0, 1, 2, 3, 4, 5, 6].map((each, index) => (
               <TabPanel
@@ -1263,7 +606,7 @@ const PortfolioIndex = () => {
                       "& .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline":
                         {
                           borderColor: "var(--border-line-color)",
-                          borderWidth: "1px"
+                          borderWidth: "1px",
                         },
                     }}
                   />
@@ -1499,8 +842,7 @@ const PortfolioIndex = () => {
                           <img
                             src={
                               isLocalImage
-                                ? loadLocalFile(eachProj?.content?.[0]?.url) ||
-                                  ""
+                                ? loadLocalFile(eachProj?.content?.[0]?.url)
                                 : eachProj?.content?.[0]?.url || ""
                             }
                             alt={eachProj.name}

@@ -1,9 +1,9 @@
+export const availableThemes = ["theme-1", "theme-2", "theme-3", "theme-5"];
+
 export const getRandomItem = (array) => {
   const itemIndex = Math.floor(Math.random() * array.length);
   return array[itemIndex];
 };
-
-export const availableThemes = ["theme-1", "theme-2", "theme-3", "theme-5"];
 
 export const setDarkMode = (isDarkMode = true) => {
   if (typeof isDarkMode === "string") {
@@ -32,4 +32,19 @@ export const setTheme = (themeName = availableThemes[0]) => {
     ? `${themeName} dark-mode`
     : `${themeName}`;
   localStorage.setItem("theme", themeName);
+};
+
+export const loadLocalFile = (filePath) => {
+  let data = null;
+  console.log({ url: filePath });
+
+  try {
+    // data = require(filePath)?.default;
+    data = filePath;
+    // console.log({ data });
+    return data;
+  } catch (error) {
+    console.log({ error });
+    return '';
+  }
 };
