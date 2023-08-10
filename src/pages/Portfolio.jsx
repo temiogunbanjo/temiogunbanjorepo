@@ -10,7 +10,7 @@ const Portfolio = () => {
     const curDate = new Date();
     const isNightTime =
       curDate.getHours() > 18 ||
-      (curDate.getHours() >= 0 && curDate.getHours() <= 7);
+      (curDate.getHours() >= 0 && curDate.getHours() <= 6);
     console.log({ isNightTime });
     setDarkMode(isNightTime);
   }, []);
