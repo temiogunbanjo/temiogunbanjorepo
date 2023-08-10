@@ -47,9 +47,9 @@ body.theme-1.dark-mode {
   --header-text-color: #dfdfdf;
   --footer-text-color: var(--header-text-color);
   --icon-color: #61BAAD;
-  --text-color: #efefef;
-  --light-text-color: #cdcdcd;
-  --contrast-text-color: #fff;
+  --text-color: #ffffff;
+  --light-text-color: #efefef;
+  --contrast-text-color: #ffffff;
   --lazy-light-color: rgba(223, 223, 223, 0.8);
   --lazy-dark-color: #d9d9d9;
   --border-line-color: #333;
@@ -84,7 +84,7 @@ body.theme-2.dark-mode {
 
 /* THEME 3 */
 body.theme-3 {
-  --page-bg-color: wheat;
+  --page-bg-color: #f5deb3;
   --primary-color: #FF7377;
   --primary-color-light: #42567A;
   --header-bg-color: #42567A;
@@ -100,10 +100,10 @@ body.theme-3.dark-mode {
   --primary-color-light: #f99b9f;
   --header-bg-color: transparent;
   --footer-bg-color: #2F4858;
-  --light-text-color: #dadada;
-  --contrast-text-color: #271b1b;
+  --light-text-color: #efefef;
+  --contrast-text-color: var(--page-bg-color);
   --header-text-color: #FFF;
-  --icon-color: #FF7377;
+  --icon-color: var(--primary-color);
   --pointer-color: #2F4858;
 }
 
