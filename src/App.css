@@ -44,7 +44,7 @@ body.theme-1.dark-mode {
   --page-link-color: var(--primary-color);
   --header-bg-color: transparent;
   --footer-bg-color: var(--header-bg-color);
-  --header-text-color: #dfdfdf;
+  --header-text-color: #efefef;
   --footer-text-color: var(--header-text-color);
   --icon-color: #61BAAD;
   --text-color: #ffffff;
