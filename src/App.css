@@ -163,7 +163,7 @@ body.theme-5.dark-mode {
   --footer-bg-color: var(--header-bg-color);
   --footer-text-color: var(--header-text-color);
   --icon-color: var(--primary-color-light);
-  --text-color: #dfdfdf;
+  --text-color: #efefef;
   --contrast-text-color: #fff;
   --light-text-color: #bdbdbd;
   --border-line-color: #333;
