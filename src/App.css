@@ -156,16 +156,16 @@ body.theme-5.dark-mode {
   --primary-color: #8e65ff;
   --primary-color-light: #a280ff;
   --page-bg-color: #08090c;
-  --page-dialog-bg-color: rgb(30, 30, 30);
+  --page-dialog-bg-color: #1e1e1e;
   --page-link-color: var(--primary-color);
   --header-bg-color: transparent;
   --header-text-color: #fff;
   --footer-bg-color: var(--header-bg-color);
   --footer-text-color: var(--header-text-color);
   --icon-color: var(--primary-color-light);
-  --text-color: #efefef;
-  --contrast-text-color: #fff;
-  --light-text-color: #bdbdbd;
+  --text-color: #fafafa;
+  --contrast-text-color: var(--text-color);
+  --light-text-color: #dfdfdf;
   --border-line-color: #333;
   --pointer-color: #9C0038;
 }
