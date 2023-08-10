@@ -36,15 +36,12 @@ export const setTheme = (themeName = availableThemes[0]) => {
 
 export const loadLocalFile = (filePath) => {
   let data = null;
-  console.log({ url: filePath });
 
   try {
-    // data = require(filePath)?.default;
     data = filePath;
-    // console.log({ data });
     return data;
   } catch (error) {
-    console.log({ error });
+    console.error({ error });
     return '';
   }
 };
