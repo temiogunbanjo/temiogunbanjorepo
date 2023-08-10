@@ -60,8 +60,6 @@ const PortfolioEducation = () => {
 
     if (isDarkMode !== null) {
       setDarkMode(isDarkMode);
-    } else {
-      setDarkMode(true);
     }
 
     if (lastUsedTheme !== null) {
