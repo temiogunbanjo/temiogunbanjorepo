@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-// import { TypeAnimation } from "react-type-animation";
-// import Fade from "@successtar/react-reveal/Fade";
+
 import {
   Box,
   Stack,
@@ -14,14 +13,14 @@ import {
   HiLightningBolt as FeaturedSkillBadgeIcon,
   HiExternalLink,
 } from "react-icons/hi";
-
-import { setDarkMode } from "../../../utils";
-import CustomButton from "../../../components/common/Button";
-import Status from "../../../components/common/StatusIndicator";
 import { IoCloseOutline } from "react-icons/io5";
 
+import CustomButton from "../../../components/common/Button";
+import Status from "../../../components/common/StatusIndicator";
+
+import { getSavedMode, setDarkMode } from "../../../utils";
+
 export const SkillInfo = ({ data, experiences, closeHandler }) => {
-  // console.log(experiences);
   const hasMore = true;
 
   return (
@@ -359,7 +358,7 @@ export const VisitorAuth = ({ closeHandler }) => {
 
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
-    const isDarkMode = window.localStorage.getItem("dark_mode");
+    const isDarkMode = getSavedMode();
 
     if (vName) {
       setValue(vName);
@@ -368,8 +367,6 @@ export const VisitorAuth = ({ closeHandler }) => {
 
     if (isDarkMode !== null) {
       setDarkMode(isDarkMode);
-    } else {
-      setDarkMode(true);
     }
   }, [navigate]);
 

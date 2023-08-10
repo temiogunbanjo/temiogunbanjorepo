@@ -5,6 +5,10 @@ export const getRandomItem = (array) => {
   return array[itemIndex];
 };
 
+export const getSavedMode = () => {
+  return window.sessionStorage.getItem("dark_mode");
+};
+
 export const setDarkMode = (isDarkMode = true) => {
   if (typeof isDarkMode === "string") {
     isDarkMode = JSON.parse(isDarkMode);

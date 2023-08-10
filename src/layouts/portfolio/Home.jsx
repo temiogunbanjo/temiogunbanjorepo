@@ -35,6 +35,7 @@ import { SkillInfo, VisitorAuth } from "./ModalContents";
 
 import {
   getRandomItem,
+  getSavedMode,
   loadLocalFile,
   setDarkMode,
   setTheme,
@@ -102,7 +103,7 @@ const PortfolioIndex = () => {
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
     const lastUsedTheme = window.localStorage.getItem("theme");
-    const isDarkMode = window.localStorage.getItem("dark_mode");
+    const isDarkMode = getSavedMode();
 
     if (!vName) {
       setDialogContent(<VisitorAuth closeHandler={handleClose} />);

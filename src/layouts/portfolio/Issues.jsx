@@ -6,7 +6,7 @@ import { CgEye } from "react-icons/cg";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
 import CustomButton from "../../components/common/Button";
-import { setDarkMode, setTheme } from "../../utils";
+import { getSavedMode, setDarkMode, setTheme } from "../../utils";
 import { VisitorAuth } from "./ModalContents";
 import Dialog from "../../components/common/Dialog";
 
@@ -33,7 +33,7 @@ const Issues = () => {
   useEffect(() => {
     const vName = window.localStorage.getItem("visitor_name");
     const lastUsedTheme = window.localStorage.getItem("theme");
-    const isDarkMode = window.localStorage.getItem("dark_mode");
+    const isDarkMode = getSavedMode();
 
     if (!vName) {
       setDialogContent(<VisitorAuth closeHandler={handleClose} />);
