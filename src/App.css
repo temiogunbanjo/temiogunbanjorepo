@@ -159,7 +159,7 @@ body.theme-5.dark-mode {
   --page-dialog-bg-color: rgb(30, 30, 30);
   --page-link-color: var(--primary-color);
   --header-bg-color: transparent;
-  --header-text-color: var(--primary-color-light);
+  --header-text-color: #fff;
   --footer-bg-color: var(--header-bg-color);
   --footer-text-color: var(--header-text-color);
   --icon-color: var(--primary-color-light);
