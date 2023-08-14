@@ -455,6 +455,7 @@ body .education-container .card {
   border: 1px solid var(--border-line-color);
   transition: all 0.3s ease-in;
   background-color: var(--page-bg-color);
+  border-radius: 15px;
 }
 
 body.dark-mode .experiences .card,
