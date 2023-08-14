@@ -22,12 +22,13 @@ const Issues = () => {
     setOpenModal(false);
   };
   const [experiences] = useState([
-    // {
-    //   title: "How I got my first tech job!",
-    //   timeframe: "Posted on Mar, 2023",
-    //   role: "Freelance Developer • Internship at Jara Analytics",
-    //   content: "-- --",
-    // },
+    {
+      title: "How to resolve the Javascript memory heap out issue that occurs while building the React application",
+      timeframe: "Posted on Aug, 2023",
+      role: "Web development • Internship at Jara Analytics",
+      content: "-- --",
+      links: ["https://help.boldreports.com/embedded-reporting/react-reporting/how-to/how-to-resolve-the-javascript-memory-heap-out-issue/#how-to-resolve-the-javascript-memory-heap-out-issue-that-occurs-while-building-the-react-application"]
+    },
   ]);
 
   useEffect(() => {
@@ -57,7 +58,7 @@ const Issues = () => {
         <section
           className="experiences flex flex-col items-left p-5 "
           style={{
-            backgroundImage: 'none',
+            backgroundImage: "none",
             marginBottom: "0",
             marginTop: "0",
           }}

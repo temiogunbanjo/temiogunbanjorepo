@@ -435,7 +435,7 @@ body .education-container:nth-child(2n - 1) {
   background-image: linear-gradient(
     92deg,
     rgba(240, 240, 240, 0.5),
-    rgba(251, 251, 255, 0.3) 80%
+    rgba(240, 240, 240, 0.5) 80%
   );
 }
 
@@ -450,13 +450,32 @@ body .education-container:nth-child(2n - 1) {
 
 body .experiences .card,
 body .education-container .card {
+  padding: 30px 15px;
   position: relative;
-  border-left: 1px solid #ddd;
+  border: 1px solid var(--border-line-color);
   transition: all 0.3s ease-in;
+  background-color: var(--page-bg-color);
+}
+
+body.dark-mode .experiences .card,
+body.dark-mode .education-container .card {
+  border: 1px solid #333;
+}
+
+/* body.dark-mode .experiences .card:hover,
+body.dark-mode .education-container .card:hover {
+  border-left-color: #555;
+} */
+
+body.dark-mode .experiences .card:hover,
+body.dark-mode .education-container .card:hover {
+  border-left-color: var(--primary-color-light);
+  border-right-color: var(--primary-color-light);
 }
 
 body .experiences .card::after,
 body .education-container .card::after {
+  display: none;
   content: "";
   top: 0;
   left: 0;
@@ -478,24 +497,9 @@ body.dark-mode .education-container .card:hover:after {
   background-color: var(--primary-color);
 }
 
-body.dark-mode .experiences .card,
-body.dark-mode .education-container .card {
-  border-left: 1px solid #333;
-}
-
 body.dark-mode .experiences .card::after,
 body.dark-mode .education-container .card::after {
   background-color: #efefef;
-}
-
-/* body.dark-mode .experiences .card:hover,
-body.dark-mode .education-container .card:hover {
-  border-left-color: #555;
-} */
-
-body.dark-mode .experiences .card:hover,
-body.dark-mode .education-container .card:hover {
-  border-left-color: var(--primary-color-light);
 }
 
 .experiences .timeline-section,
