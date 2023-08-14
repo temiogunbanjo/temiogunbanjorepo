@@ -130,8 +130,8 @@ body *.MuiTabs-indicator {
 }
 
 body:not([class*="dark-mode"]) *.MuiTab-root.Mui-selected {
-  background-color: var(--primary-color-light);
-  color: var(--contrast-text-color);
+  /* background-color: var(--primary-color-light); */
+  /* color: var(--primary-color); */
   border-radius: 5px 5px 0 0;
 }
 
