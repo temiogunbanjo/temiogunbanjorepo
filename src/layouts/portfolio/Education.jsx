@@ -30,7 +30,7 @@ const EducationCard = (props) => {
       className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
       sx={{}}
     >
-      <div className="flex flex-col ml-8 h-auto timeline-section">
+      <div className="flex flex-col ml-6 h-auto timeline-section">
         <span
           className="text-xl sm:text-xl"
           style={{
@@ -55,7 +55,7 @@ const EducationCard = (props) => {
       </div>
 
       <div
-        className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
+        className="flex flex-col flew-grow sm:ml-6 sm:mr-6 mt-2 sm:mt-0 text-2xl w-full"
         style={{ maxWidth: "800px" }}
       >
         <div className="flex flex-row items-center justify-start">
