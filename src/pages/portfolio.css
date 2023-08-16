@@ -583,6 +583,12 @@ body.theme-3.dark-mode footer h3 {
     margin-right: auto;
   }
 
+  body .experiences .card,
+  body .education-container .card {
+    padding: 25px;
+    border-radius: 10px;
+  }
+
   body .experiences .card:last-child,
   body .education-container .card:last-child {
     border-bottom: none;
