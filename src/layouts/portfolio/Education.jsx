@@ -307,7 +307,7 @@ const PortfolioEducation = () => {
       <Fade>
         <section className="education-container flex flex-col items-left pb-12 pt-8 md:pt-8">
           <h2
-            className="mb-10 right-headings"
+            className="mb-10 left-headings"
             style={{
               color: "var(--text-color)",
               fontWeight: 700,
@@ -382,7 +382,7 @@ const PortfolioEducation = () => {
           style={{ marginBottom: 0 }}
         >
           <h2
-            className="mb-10 left-headings"
+            className="mb-10 right-headings"
             style={{
               color: "var(--text-color)",
               fontWeight: 700,
