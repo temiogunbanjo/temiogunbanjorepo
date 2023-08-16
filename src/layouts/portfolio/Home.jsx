@@ -634,7 +634,7 @@ const PortfolioIndex = () => {
                 {!loadingSkills && filterSkills(tabIndex).length > 0 ? (
                   <div
                     className="flex flex-row justify-start flex-wrap w-full"
-                    style={{ marginRight: "-10px", width: "calc(100% + 20px)" }}
+                    style={{ marginLeft: "-10px", width: "calc(100% + 20px)" }}
                   >
                     {(showAllSkills
                       ? filterSkills(tabIndex)
