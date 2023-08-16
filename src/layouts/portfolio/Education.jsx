@@ -1,22 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  Avatar,
-  AvatarGroup,
-  Box,
-  IconButton,
-  Stack,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import { blueGrey } from "@mui/material/colors";
+import { Box, IconButton, Typography } from "@mui/material";
+
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
-import {
-  BsTelephoneFill as PhoneIcon,
-  BsGlobe as WebIcon,
-} from "react-icons/bs";
 import { HiExternalLink } from "react-icons/hi";
-import { IoMail as MailIcon } from "react-icons/io5";
 
 import ReactHtmlParser from "html-react-parser";
 import { TypeAnimation } from "react-type-animation";
@@ -24,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
-import StyledAvatar from "../../components/common/StyledAvatar";
 import CustomButton from "../../components/common/Button";
 import Spinner from "../../components/common/Spinner";
 import Dialog from "../../components/common/Dialog";
@@ -32,6 +18,144 @@ import Dialog from "../../components/common/Dialog";
 import { fetchUserEducation } from "../../database";
 import { getSavedMode, setDarkMode, setTheme } from "../../utils";
 import { VisitorAuth } from "./ModalContents";
+
+const EducationCard = (props) => {
+  const experienceId = props?.data?.company
+    ?.replace(/['".()&]/gi, "")
+    .replace(/\s+/gi, "-");
+  return (
+    <Box
+      component="div"
+      id={experienceId}
+      className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
+      sx={{}}
+    >
+      <div className="flex flex-col ml-8 h-auto timeline-section">
+        <span
+          className="text-xl sm:text-xl"
+          style={{
+            fontWeight: 600,
+            color: "var(--text-color)",
+          }}
+        >
+          {props?.data?.timeframe}
+        </span>
+        <span
+          className="text-lg mt-2 sm:mt-5"
+          style={{
+            fontFamily: "'Open Sans'",
+            fontWeight: 600,
+            color: "var(--primary-color)",
+            letterSpacing: "0.5px",
+            lineHeight: 2,
+          }}
+        >
+          {props?.data?.role}
+        </span>
+      </div>
+
+      <div
+        className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
+        style={{ maxWidth: "800px" }}
+      >
+        <div className="flex flex-row items-center justify-start">
+          <span
+            className="text-3xl sm:text-3xl"
+            style={{
+              fontWeight: 700,
+              color: "var(--text-color)",
+            }}
+          >
+            {props?.data?.company}
+          </span>
+          {props?.data?.link && (
+            <a
+              href={props?.data?.link}
+              className="text-2xl ml-2"
+              style={{
+                fontWeight: 700,
+                color: "var(--primary-color)",
+              }}
+            >
+              <HiExternalLink />
+            </a>
+          )}
+        </div>
+
+        {props?.data?.description && (
+          <Box className="mt-5 sm:mt-6">
+            <span
+              className="inline-block text-xl mb-2"
+              style={{
+                color: "#888",
+                fontWeight: 700,
+                letterSpacing: "0.5px",
+              }}
+            >
+              Description:
+            </span>
+            <Box
+              className="text-xl md:text-2xl sm:text-justify"
+              sx={{
+                fontWeight: 500,
+                color: "var(--light-text-color)",
+                lineHeight: 1.8,
+                letterSpacing: "0.5px",
+                fontSize: {
+                  xs: "12px",
+                  md: "12px",
+                },
+              }}
+            >
+              {ReactHtmlParser(props?.data?.description)}
+            </Box>
+          </Box>
+        )}
+
+        {props?.data?.acquiredSkills &&
+          props?.data?.acquiredSkills.length > 0 && (
+            <div className="flex flex-col justify-start items-start mt-4 sm:mt-6 mb-2">
+              <span
+                className="text-xl mb-2"
+                style={{
+                  color: "#888",
+                  fontWeight: 700,
+                  letterSpacing: "0.5px",
+                }}
+              >
+                Acquired Skills:
+              </span>
+              <span
+                className="text-lg"
+                style={{
+                  color: "var(--text-color)",
+                  fontWeight: 400,
+                  letterSpacing: "0.5px",
+                }}
+              >
+                {props?.data?.acquiredSkills.join(" • ")}
+              </span>
+            </div>
+          )}
+
+        {props?.data?.references && props?.data?.references.length > 0 && (
+          <div className="flex flex-col mt-2 sm:mt-4 w-full">
+            <span
+              className="text-xl capitalize"
+              style={{
+                color: "#888",
+                fontWeight: 700,
+                letterSpacing: "0.5px",
+              }}
+            >
+              {`References at ${props?.data?.company}:`}
+            </span>
+          </div>
+        )}
+      </div>
+    </Box>
+  );
+};
 
 const PortfolioEducation = () => {
   const navigate = useNavigate();
@@ -200,142 +324,7 @@ const PortfolioEducation = () => {
                     .filter((exp) => exp.tags.includes("formal"))
                     .slice(0, 4)
               ).map((each, i) => {
-                const experienceId = each?.company
-                  ?.replace(/['".()&]/gi, "")
-                  .replace(/\s+/gi, "-");
-                return (
-                  <Box
-                    key={i}
-                    component="div"
-                    id={experienceId}
-                    className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
-                    sx={{}}
-                  >
-                    <div className="flex flex-col ml-8 h-auto timeline-section">
-                      <span
-                        className="text-xl sm:text-xl"
-                        style={{
-                          fontWeight: 600,
-                          color: "var(--text-color)",
-                        }}
-                      >
-                        {each?.timeframe}
-                      </span>
-                      <span
-                        className="text-lg mt-2 sm:mt-5"
-                        style={{
-                          fontFamily: "'Open Sans'",
-                          fontWeight: 600,
-                          color: "var(--primary-color)",
-                          letterSpacing: "0.5px",
-                          lineHeight: 2,
-                        }}
-                      >
-                        {each?.role}
-                      </span>
-                    </div>
-
-                    <div
-                      className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
-                      style={{ maxWidth: "800px" }}
-                    >
-                      <div className="flex flex-row items-center justify-start">
-                        <span
-                          className="text-3xl sm:text-3xl"
-                          style={{
-                            fontWeight: 700,
-                            color: "var(--text-color)",
-                          }}
-                        >
-                          {each?.company}
-                        </span>
-                        {each?.link && (
-                          <a
-                            href={each?.link}
-                            className="text-2xl ml-2"
-                            style={{
-                              fontWeight: 700,
-                              color: "var(--primary-color)",
-                            }}
-                          >
-                            <HiExternalLink />
-                          </a>
-                        )}
-                      </div>
-
-                      {each?.description && (
-                        <Box className="mt-5 sm:mt-6">
-                          <span
-                            className="inline-block text-xl mb-2"
-                            style={{
-                              color: "#888",
-                              fontWeight: 700,
-                              letterSpacing: "0.5px",
-                            }}
-                          >
-                            Description:
-                          </span>
-                          <Box
-                            className="text-xl md:text-2xl sm:text-justify"
-                            sx={{
-                              fontWeight: 500,
-                              color: "var(--light-text-color)",
-                              lineHeight: 1.8,
-                              letterSpacing: "0.5px",
-                              fontSize: {
-                                xs: "12px",
-                                md: "12px",
-                              },
-                            }}
-                          >
-                            {ReactHtmlParser(each?.description)}
-                          </Box>
-                        </Box>
-                      )}
-
-                      {each?.acquiredSkills &&
-                        each?.acquiredSkills.length > 0 && (
-                          <div className="flex flex-col justify-start items-start mt-4 sm:mt-6 mb-2">
-                            <span
-                              className="text-xl mb-2"
-                              style={{
-                                color: "#888",
-                                fontWeight: 700,
-                                letterSpacing: "0.5px",
-                              }}
-                            >
-                              Acquired Skills:
-                            </span>
-                            <span
-                              className="text-lg"
-                              style={{
-                                color: "var(--text-color)",
-                                fontWeight: 400,
-                                letterSpacing: "0.5px",
-                              }}
-                            >
-                              {each?.acquiredSkills.join(" • ")}
-                            </span>
-                          </div>
-                        )}
-
-                      {each?.references && each?.references.length > 0 && (
-                        <div className="flex flex-col mt-2 sm:mt-4 w-full">
-                          <span
-                            className="text-xl capitalize"
-                            style={{
-                              color: "#888",
-                              fontWeight: 700,
-                              letterSpacing: "0.5px",
-                            }}
-                          >
-                            {`References at ${each?.company}:`}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  </Box>
-                );
+                return <EducationCard key={i} data={each} />;
               })
             ) : (
               <div className="flex flex-col items-center justify-center">
@@ -409,264 +398,7 @@ const PortfolioEducation = () => {
                 : experiences
                     .filter((exp) => exp.tags.includes("self"))
                     .slice(0, 4)
-              ).map((each, i) => {
-                const experienceId = each?.company
-                  ?.replace(/['".()&]/gi, "")
-                  .replace(/\s+/gi, "-");
-                return (
-                  <Box
-                    key={i}
-                    component="div"
-                    id={experienceId}
-                    className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
-                    sx={{}}
-                  >
-                    <div className="flex flex-col mr-8 h-auto timeline-section">
-                      <span
-                        className="text-xl sm:text-xl"
-                        style={{
-                          fontWeight: 600,
-                          color: "var(--text-color)",
-                        }}
-                      >
-                        {each?.timeframe}
-                      </span>
-                      <span
-                        className="text-lg mt-2 sm:mt-5"
-                        style={{
-                          fontFamily: "'Open Sans'",
-                          fontWeight: 600,
-                          color: "var(--primary-color)",
-                          letterSpacing: "0.5px",
-                          lineHeight: 2,
-                        }}
-                      >
-                        {each?.role}
-                      </span>
-                    </div>
-
-                    <div
-                      className="flex flex-col flew-grow sm:ml-8 mt-2 sm:mt-0 text-2xl w-full"
-                      style={{ maxWidth: "800px" }}
-                    >
-                      <div className="flex flex-row items-center justify-start">
-                        <span
-                          className="text-3xl sm:text-3xl"
-                          style={{
-                            fontWeight: 700,
-                            color: "var(--text-color)",
-                          }}
-                        >
-                          {each?.company}
-                        </span>
-                        {each?.link && (
-                          <a
-                            href={each?.link}
-                            className="text-2xl ml-2"
-                            style={{
-                              fontWeight: 700,
-                              color: "var(--primary-color)",
-                            }}
-                          >
-                            <HiExternalLink />
-                          </a>
-                        )}
-                      </div>
-
-                      {each?.description && (
-                        <Box className="mt-5 sm:mt-6">
-                          <span
-                            className="inline-block text-xl mb-2"
-                            style={{
-                              color: "#888",
-                              fontWeight: 700,
-                              letterSpacing: "0.5px",
-                            }}
-                          >
-                            Description:
-                          </span>
-                          <Box
-                            className="text-xl md:text-2xl sm:text-justify"
-                            sx={{
-                              fontWeight: 500,
-                              color: "var(--text-color)",
-                              lineHeight: 1.8,
-                              letterSpacing: "0.5px",
-                              fontSize: {
-                                xs: "12px",
-                                md: "12px",
-                              },
-                            }}
-                          >
-                            {ReactHtmlParser(each?.description)}
-                          </Box>
-                        </Box>
-                      )}
-
-                      {each?.acquiredSkills &&
-                        each?.acquiredSkills.length > 0 && (
-                          <div className="flex flex-col justify-start items-start mt-4 sm:mt-6 mb-2">
-                            <span
-                              className="text-xl mb-2"
-                              style={{
-                                color: "#888",
-                                fontWeight: 700,
-                                letterSpacing: "0.5px",
-                              }}
-                            >
-                              Acquired Skills:
-                            </span>
-                            <span
-                              className="text-lg"
-                              style={{
-                                color: "var(--text-color)",
-                                fontWeight: 400,
-                                letterSpacing: "0.5px",
-                              }}
-                            >
-                              {each?.acquiredSkills.join(" • ")}
-                            </span>
-                          </div>
-                        )}
-
-                      {each?.references && each?.references.length > 0 && (
-                        <div className="flex flex-col mt-2 sm:mt-4 w-full">
-                          <span
-                            className="text-xl capitalize"
-                            style={{
-                              color: "#888",
-                              fontWeight: 700,
-                              letterSpacing: "0.5px",
-                            }}
-                          >
-                            {`References at ${each?.company}:`}
-                          </span>
-
-                          <AvatarGroup
-                            max={4}
-                            spacing="medium"
-                            sx={{
-                              my: 1,
-                              justifyContent: "left",
-                              border: "none",
-                              "& [class*=MuiAvatar-root-MuiAvatarGroup-avatar]":
-                                {
-                                  fontSize: "12px",
-                                  backgroundColor: "black",
-                                  borderColor:
-                                    "var(--border-line-color) !important",
-                                  width: 30,
-                                  height: 30,
-                                },
-                            }}
-                          >
-                            {each?.references.map((eachImg, rIndex) => (
-                              <Tooltip
-                                key={rIndex}
-                                arrow={true}
-                                placement="bottom-start"
-                                title={
-                                  <div className="p-5">
-                                    <div className="flex flex-row items-center">
-                                      <StyledAvatar
-                                        alt={eachImg?.name || "Remy Sharp"}
-                                        src={eachImg?.url || ""}
-                                        sx={{
-                                          borderColor:
-                                            "var(--border-line-color) !important",
-                                          fontSize: "12px",
-                                          width: 28,
-                                          height: 28,
-                                          bgcolor: blueGrey[500],
-                                        }}
-                                      />
-                                      <Stack className="ml-5">
-                                        <span
-                                          className="text-xl"
-                                          style={{ fontWeight: 700 }}
-                                        >
-                                          {eachImg.name}
-                                        </span>
-                                        <span
-                                          className="text-lg"
-                                          style={{ fontWeight: 400 }}
-                                        >
-                                          {eachImg?.title || "-- --"}
-                                        </span>
-                                      </Stack>
-                                    </div>
-
-                                    <div className="flex flex-row items-center justify-between border-b-2 border-t-2 p-2 mt-4">
-                                      <IconButton
-                                        href={`tel:${eachImg?.phone}`}
-                                        disabled={!eachImg?.phone}
-                                        className="mr-2"
-                                      >
-                                        <PhoneIcon
-                                          style={{
-                                            color: !eachImg?.phone
-                                              ? "inherit"
-                                              : "white",
-                                            fontSize: "14px",
-                                          }}
-                                        />
-                                      </IconButton>
-
-                                      <IconButton
-                                        href={`mailto:${eachImg?.email}`}
-                                        disabled={!eachImg?.email}
-                                        className="mr-2"
-                                      >
-                                        <MailIcon
-                                          style={{
-                                            color: !eachImg?.email
-                                              ? "inherit"
-                                              : "white",
-                                            fontSize: "16px",
-                                          }}
-                                        />
-                                      </IconButton>
-
-                                      <IconButton
-                                        href={`mailto:${eachImg?.website}`}
-                                        disabled={!eachImg?.website}
-                                        className="mr-0"
-                                      >
-                                        <WebIcon
-                                          style={{
-                                            color: !eachImg?.website
-                                              ? "inherit"
-                                              : "white",
-                                            fontSize: "16px",
-                                          }}
-                                        />
-                                      </IconButton>
-                                    </div>
-                                  </div>
-                                }
-                              >
-                                <Avatar
-                                  key={rIndex}
-                                  alt={eachImg?.name || "Remy Sharp"}
-                                  src={eachImg?.url || ""}
-                                  sx={{
-                                    borderColor:
-                                      "var(--page-bg-color) !important",
-                                    fontSize: "12px",
-                                    width: 30,
-                                    height: 30,
-                                    bgcolor: "#4A4453",
-                                  }}
-                                />
-                              </Tooltip>
-                            ))}
-                          </AvatarGroup>
-                        </div>
-                      )}
-                    </div>
-                  </Box>
-                );
-              })
+              ).map((each, i) => <EducationCard key={i} data={each} />)
             ) : (
               <div className="flex flex-col items-center justify-center">
                 <Spinner />
