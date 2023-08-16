@@ -87,9 +87,9 @@ body.theme-2.dark-mode {
 /* THEME 3 */
 body.theme-3 {
   --page-bg-color: #f5deb3;
-  --primary-color: #FF7377;
-  --primary-color-light: #42567A;
-  --header-bg-color: #42567A;
+  --primary-color: #C0564B;
+  --primary-color-light: #2F4858;
+  --header-bg-color: var(--primary-color-light);
   --contrast-text-color: #fff;
   --icon-color: #FFF;
   --header-text-color: #FFF;
