@@ -27,7 +27,7 @@ const EducationCard = (props) => {
     <Box
       component="div"
       id={experienceId}
-      className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
+      className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4 shadow-lg`}
       sx={{}}
     >
       <div className="flex flex-col ml-6 h-auto timeline-section">
