@@ -122,21 +122,20 @@ main > section {
 }
 
 body *.MuiTab-root.Mui-selected {
-  color: var(--primary-color);
+  color: var(--tab-border-color);
+  font-weight: 600;
 }
 
 body *.MuiTabs-indicator {
-  background-color: var(--primary-color);
+  background-color: var(--tab-border-color);
 }
 
 body:not([class*="dark-mode"]) *.MuiTab-root.Mui-selected {
-  /* background-color: var(--primary-color-light); */
-  /* color: var(--primary-color); */
   border-radius: 5px 5px 0 0;
 }
 
 body:not([class*="dark-mode"]) *.MuiTabs-indicator {
-  background-color: var(--primary-color);
+  background-color: var(--tab-border-color);
 }
 
 .hero {
@@ -368,16 +367,17 @@ body.dark-mode .background-illuminator {
 .skills .card {
   padding: 0;
   color: var(--light-text-color);
-  margin: 15px 15px 15px;
+  margin: 10px 10px 10px;
   flex-grow: 1;
+  width: calc(25% - 20px);
   min-width: 215px;
-  max-width: calc(25% - 30px);
+  max-width: 305px;
   background-color: var(--page-bg-color);
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0.2)
   );
-  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.07);
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
@@ -394,7 +394,7 @@ body.dark-mode .skills .card {
 }
 
 .skills .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   cursor: pointer;
 }
 
@@ -452,7 +452,7 @@ body .experiences .card,
 body .education-container .card {
   padding: 30px 15px;
   position: relative;
-  border: 1px solid var(--border-line-color);
+  /* border: 1px solid var(--border-line-color); */
   transition: all 0.3s ease-in;
   background-color: var(--page-bg-color);
   border-radius: 15px;
@@ -468,11 +468,11 @@ body.dark-mode .education-container .card:hover {
   border-left-color: #555;
 } */
 
-body.dark-mode .experiences .card:hover,
+/* body.dark-mode .experiences .card:hover,
 body.dark-mode .education-container .card:hover {
   border-left-color: var(--primary-color-light);
   border-right-color: var(--primary-color-light);
-}
+} */
 
 body .experiences .card::after,
 body .education-container .card::after {

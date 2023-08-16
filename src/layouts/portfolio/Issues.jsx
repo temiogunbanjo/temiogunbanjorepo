@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { Box, IconButton, Link } from "@mui/material";
 import ReactHtmlParser from "html-react-parser";
 import Fade from "@successtar/react-reveal/Fade";
-import { CgEye } from "react-icons/cg";
+// import { CgEye } from "react-icons/cg";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
-import CustomButton from "../../components/common/Button";
+// import CustomButton from "../../components/common/Button";
 import { getSavedMode, setDarkMode, setTheme } from "../../utils";
 import { VisitorAuth } from "./ModalContents";
 import Dialog from "../../components/common/Dialog";
+import Image from "../../components/common/Image";
 
 const Issues = () => {
   // const navigate = useNavigate();
@@ -21,17 +22,52 @@ const Issues = () => {
     setDialogContent(null);
     setOpenModal(false);
   };
-  const [experiences] = useState([
+  const [posts] = useState([
     {
-      title: "How to resolve the Javascript memory heap out issue that occurs while building the React application",
+      title:
+        'How to resolve the typescript "memory heap out" issue that occurs while building the React application',
       timeframe: "Posted on Aug, 2023",
       role: "Web development • Internship at Jara Analytics",
-      content: "-- --",
-      links: ["https://help.boldreports.com/embedded-reporting/react-reporting/how-to/how-to-resolve-the-javascript-memory-heap-out-issue/#how-to-resolve-the-javascript-memory-heap-out-issue-that-occurs-while-building-the-react-application"]
+      tags: ["Web development", "Internship at Jara Analytics"],
+      content: `<p>
+      The memory heap out issue occurs when the heap size is not sufficient to run the application. To resolve this issue, open the package.json file, which can be found in the root folder of React application and use --max_old_space_size=4096 as like in the below code snippet...
+      </p>`,
+      links: [
+        "https://help.boldreports.com/embedded-reporting/react-reporting/how-to/how-to-resolve-the-javascript-memory-heap-out-issue/#how-to-resolve-the-javascript-memory-heap-out-issue-that-occurs-while-building-the-react-application",
+      ],
+    },
+    {
+      posterImage:
+        "https://community-cdn-digitalocean-com.global.ssl.fastly.net/HUzrphKfp1MP4cMb7HcAQCyT",
+      title:
+        "Setting up an nginx server for the first time on Digital Ocean - My experience",
+      timeframe: "Posted on Aug, 2023",
+      role: "Backend Engineering • Full Stack Software Developer at Lixom Technologies",
+      tags: ["Web development", "Internship at Jara Analytics"],
+      content: `<p>
+      Nginx is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. It is a lightweight choice that can be used as either a web server or reverse proxy.
+      In this guide, we'll discuss how to install Nginx on your Ubuntu 20.04 server, adjust the firewall, manage the Nginx process, and set up server blocks for hosting more than one domain from a single server...
+      </p>`,
+      links: [
+        "https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04",
+      ],
+    },
+    {
+      title: "How I learnt Java Springboot in 3 days!",
+      timeframe: "Posted on Jul, 2023",
+      role: "Web development • Internship at Jara Analytics",
+      tags: ["Web development", "Internship at Jara Analytics"],
+      content: `<p>
+      ---
+      </p>`,
+      links: [
+        "https://help.boldreports.com/embedded-reporting/react-reporting/how-to/how-to-resolve-the-javascript-memory-heap-out-issue/#how-to-resolve-the-javascript-memory-heap-out-issue-that-occurs-while-building-the-react-application",
+      ],
     },
   ]);
 
   useEffect(() => {
+    document.title = "Career Challenges";
     const vName = window.localStorage.getItem("visitor_name");
     const lastUsedTheme = window.localStorage.getItem("theme");
     const isDarkMode = getSavedMode();
@@ -56,36 +92,55 @@ const Issues = () => {
     <>
       <Fade bottom cascade>
         <section
-          className="experiences flex flex-col items-left p-5 "
+          className="experiences flex flex-col items-left justify-start px-8 py-5"
           style={{
             backgroundImage: "none",
             marginBottom: "0",
             marginTop: "0",
           }}
         >
+          <IconButton
+            href="/home"
+            className="flex flex-row items-center rounded-md"
+            sx={{
+              mr: "auto",
+              borderRadius: "8px",
+              color: "var(--primary-color-light)",
+            }}
+          >
+            <LeftIcon />
+            <span className="ml-5">Back to profile</span>
+          </IconButton>
           <h1
-            className="mb-8 main-text flex flex-row items-center"
+            className="mb-8 main-text flex flex-col items-start"
             style={{
-              marginTop: "28px",
+              fontSize: "44px",
+              marginTop: "12px",
               marginBottom: "38px",
             }}
           >
-            <a href="/home" className="-ml-3">
-              <LeftIcon />
-            </a>
-            <span className="ml-5">Career Challenges Catalogue</span>
+            <span className="ml-5">Career Challenges</span>
           </h1>
-          <div className="flex flex-col flex-wrap">
-            {experiences.map((each) => (
-              <div className="flex flex-row mb-12 my-3">
-                <div
+
+          <div className="flex flex-col flex-wrap px-3">
+            {posts.map((each) => (
+              <div className="flex flex-col md:flex-row mb-14 my-3">
+                <Box
+                  component="div"
                   className="flex flex-col mr-8 h-auto"
-                  style={{ width: "180px", flex: "none" }}
+                  sx={{ width: { xs: "100%", md: "190px" }, flex: "none" }}
                 >
+                  <Image
+                    src={
+                      each?.posterImage ||
+                      require("../../assets/images/3638095.png")
+                    }
+                    alt=""
+                    className="rounded-lg bg-slate-500"
+                  />
                   <span
-                    className="text-2xl"
+                    className="text-2xl mt-5 sm:font-bold font-medium"
                     style={{
-                      fontWeight: 700,
                       color: "var(--light-text-color)",
                     }}
                   >
@@ -101,22 +156,30 @@ const Issues = () => {
                   >
                     {each.role}
                   </span>
-                </div>
+                </Box>
 
                 <div
-                  className="flex flex-col flew-grow ml-8 text-2xl"
-                  style={{
-                    marginRight: "100px",
-                  }}
+                  className="flex flex-col flew-grow md:ml-8 mt-4 md:mt-0 text-2xl"
+                  style={
+                    {
+                      // marginRight: "100px",
+                    }
+                  }
                 >
-                  <span
-                    className="text-3xl mb-8 capitalize"
-                    style={{ fontWeight: 700, color: "var(--text-color)" }}
-                  >
-                    {each.title}
-                  </span>
+                  <Link href={each?.links[0]} className="inline-block">
+                    <span
+                      className="text-3xl capitalize"
+                      style={{
+                        fontWeight: 700,
+                        color: "var(--text-color)",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {each.title}
+                    </span>
+                  </Link>
                   <div
-                    // className="text-2xl"
+                    className="line-clamp-5 mt-7"
                     style={{
                       fontSize: "14px",
                       fontWeight: 500,
@@ -125,11 +188,25 @@ const Issues = () => {
                     }}
                   >
                     {ReactHtmlParser(each.content)}
-                    {/* {each.content} */}
                   </div>
+                  <span
+                    className="text-lg mt-5"
+                    style={{
+                      fontWeight: 500,
+                      color: "var(--tab-border-color)",
+                      letterSpacing: "0.5px",
+                    }}
+                  >
+                    {each.tags.map((tag) =>
+                      `#${tag
+                        .toLowerCase()
+                        .replace(/[^A-Z]/gi, "-")
+                        .replace(/\s+/gi, "-")}  `
+                    )}
+                  </span>
                 </div>
 
-                <CustomButton
+                {/* <CustomButton
                   className="border self-start ml-auto"
                   value={
                     <span
@@ -152,68 +229,9 @@ const Issues = () => {
                     color: "#393A4A",
                     flex: "none",
                   }}
-                />
+                /> */}
               </div>
             ))}
-
-            {/* <div
-              className="card flex flex-col mx-6"
-              style={{
-                // backgroundColor: "rgba(255, 255, 255, 0.1)",
-                borderRadius: "8px",
-              }}
-            >
-              <div className="rows img-wrapper">
-                <img
-                  src={require("../../assets/images/e.png")}
-                  alt="teh"
-                  width={220}
-                  height={30}
-                  // style={{ mixBlendMode: "luminosity" }}
-                />
-              </div>
-              <em className="mt-4">Agro-Tech & Fin-Tech</em>
-            </div> */}
-
-            {/* <div
-              className="card flex flex-col mx-6"
-              style={{
-                borderRadius: "8px",
-              }}
-            >
-              <div className="rows img-wrapper">
-                <b
-                  className="text-center"
-                  style={{
-                    margin: 0,
-                    color: "var(--text-color)",
-                    fontSize: "20px",
-                  }}
-                >
-                  Lixom Technologies
-                </b>
-              </div>
-              <em className="mt-4">Gaming & Lottery</em>
-            </div> */}
-
-            {/* <div
-              className="card flex flex-col mx-6"
-              style={{
-                // backgroundColor: "rgba(255, 255, 255, 0.1)",
-                borderRadius: "8px",
-                mixBlendMode: "luminosity",
-              }}
-            >
-              <div className="rows img-wrapper">
-                <img
-                  src={require("../../assets/images/Jara.ico")}
-                  alt="teh"
-                  width={160}
-                  height={40}
-                />
-              </div>
-              <em className="mt-4">e-Commerce & Fin-Tech</em>
-            </div> */}
           </div>
         </section>
       </Fade>

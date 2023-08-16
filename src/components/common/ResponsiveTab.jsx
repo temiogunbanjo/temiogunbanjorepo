@@ -8,11 +8,14 @@ const ResponsiveTab = ({ children, sx = {}, ...props }) => {
       <Tabs
         aria-label="Skills Tab"
         orientation="horizontal"
-        variant="standard"
+        variant="scrollable"
         scrollButtons="auto"
         centered={true}
         sx={{
           display: { xs: "none", md: "flex" },
+          "& .MuiTabs-scroller > .MuiTabs-flexContainer": {
+            justifyContent: "center"
+          },
           ...sx,
         }}
         {...props}

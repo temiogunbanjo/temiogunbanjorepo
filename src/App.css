@@ -20,8 +20,8 @@ body.theme-1 {
   --border-line-color: rgba(170, 170, 170, 0.5);
   --separation-line-color: #dfdfdf;
   --tab-notice-bgcolor: var(--primary-color);
-  --tab-border-color: var(--primary-color);
   --tab-notice-textcolor: #222;
+  --tab-border-color: var(--primary-color);
   --moon-light-color: rgba(255, 209, 123, 0.87);
   --moon-dark-color: rgb(255, 91, 132);
   --pointer-color: var(--moon-dark-color);
@@ -91,6 +91,7 @@ body.theme-3 {
   --contrast-text-color: #fff;
   --icon-color: #FFF;
   --header-text-color: #FFF;
+  --tab-border-color: var(--primary-color-light);
 }
 
 body.theme-3.dark-mode {
@@ -144,8 +145,8 @@ body.theme-5 {
   --header-text-color: #fff;
   --icon-color: #fff;
   --contrast-text-color: #fff;
-  --text-color: #222;
-  --light-text-color: #222;
+  --text-color: #333;
+  --light-text-color: #333;
   --footer-text-color: var(--header-text-color);
   --border-line-color: rgba(170, 170, 170, 0.5);
   --footer-bg-color: var(--header-bg-color);

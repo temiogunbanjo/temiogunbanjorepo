@@ -49,6 +49,7 @@ const PortfolioEducation = () => {
   };
 
   useEffect(() => {
+    document.title = "Education - Temi Ogunbanjo";
     const vName = window.localStorage.getItem("visitor_name");
     const lastUsedTheme = window.localStorage.getItem("theme");
     const isDarkMode = getSavedMode();
@@ -85,7 +86,29 @@ const PortfolioEducation = () => {
             className="cols"
             style={{ justifyContent: "center", padding: "10px" }}
           >
+            <IconButton
+              href="/home"
+              className="flex flex-row items-center rounded-md"
+              sx={{
+                mr: "auto",
+                borderRadius: "8px",
+                color: "var(--primary-color-light)",
+              }}
+            >
+              <LeftIcon />
+              <span className="ml-5">Back to profile</span>
+            </IconButton>
             <h1
+              className="mb-8 main-text flex flex-col items-start"
+              style={{
+                fontSize: "44px",
+                marginTop: "12px",
+                marginBottom: "38px",
+              }}
+            >
+              My Education
+            </h1>
+            {/* <h1
               className="main-text flex flex-row items-start"
               style={{
                 marginTop: "28px",
@@ -95,8 +118,8 @@ const PortfolioEducation = () => {
               <Link to="/home" className="-ml-3 my-3 sm:my-5 inline-block">
                 <LeftIcon />
               </Link>
-              <span className="ml-5 inline-block">My Education</span>
-            </h1>
+              <span className="ml-5 inline-block"></span>
+            </h1> */}
             <Typography
               component="h3"
               className="inline align-center mt-3"

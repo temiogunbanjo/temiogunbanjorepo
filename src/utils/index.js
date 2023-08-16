@@ -1,4 +1,10 @@
-export const availableThemes = ["theme-1", "theme-2", "theme-3", "theme-5"];
+export const availableThemes = [
+  "theme-1",
+  "theme-2",
+  "theme-3",
+  "theme-5",
+  // "theme-4",
+];
 
 export const getRandomItem = (array) => {
   const itemIndex = Math.floor(Math.random() * array.length);
@@ -46,6 +52,6 @@ export const loadLocalFile = (filePath) => {
     return data;
   } catch (error) {
     console.error({ error });
-    return '';
+    return "";
   }
 };

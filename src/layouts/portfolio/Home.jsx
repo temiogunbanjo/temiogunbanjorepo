@@ -324,9 +324,9 @@ const PortfolioIndex = () => {
           {isLayman ? (
             <Fade>
               <p className="py-8 text-xl" style={styles.bioStyle}>
-                {`Meet a dynamic Full Stack Software Developer with a passion for innovation and ${
+                {`Meet a dynamic full-stack software developer with a passion for innovation and ${
                   new Date().getFullYear() - 2019
-                } years of hands-on experience crafting robust RESTful APIs using the powerful M.E.R.N (MongoDB, ExpressJS, React.Js, NodeJS) stack. With an artistic flair as a part-time graphics designer and animator, I bring creativity and adaptability to every project. A recent graduate of the esteemed University of Lagos, I am eager to leverage my skills to build cutting-edge, scalable solutions that leave a lasting impact. Let's code the future together!`}
+                } years of hands-on experience crafting robust RESTful APIs using the powerful M.E.R.N. (MongoDB, ExpressJS, React.Js, NodeJS) stack. With an artistic flair as a part-time graphics designer and animator, I bring creativity and adaptability to every project. As a recent graduate of the esteemed University of Lagos, I am eager to leverage my skills to build cutting-edge, scalable solutions that leave a lasting impact. Let's code the future together!`}
               </p>
             </Fade>
           ) : (
@@ -572,10 +572,10 @@ const PortfolioIndex = () => {
                   direction="row"
                   justifyContent={"space-between"}
                   alignItems="center"
-                  sx={{
-                    margin: { xs: "10px 14px 20px", sm: "10px 17px 20px" },
-                  }}
                   className="bordr"
+                  sx={{
+                    marginBottom: { xs: "10px", sm: "10px" },
+                  }}
                 >
                   <TextField
                     ref={skillSearchRef}
@@ -632,7 +632,7 @@ const PortfolioIndex = () => {
                 </Stack>
 
                 {!loadingSkills && filterSkills(tabIndex).length > 0 ? (
-                  <div className="flex flex-row justify-center flex-wrap w-4/7">
+                  <div className="flex flex-row justify-start flex-wrap w-full">
                     {(showAllSkills
                       ? filterSkills(tabIndex)
                       : filterSkills(tabIndex).slice(0, MAX_SKILLS_DISPLAYED)

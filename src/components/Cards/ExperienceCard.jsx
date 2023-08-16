@@ -28,7 +28,7 @@ const ExperienceCard = (props) => {
     <Box
       component="div"
       id={experienceId}
-      className={`card flex flex-col sm:flex-row-reverse sm:justify-between mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
+      className={`card flex flex-col sm:flex-row-reverse sm:justify-between mb-12 sm:mb-8 pl-8 my-3 -ml-4 shadow-lg`}
       sx={{}}
     >
       <div className="flex flex-col mr-8 sm:ml-12 h-auto timeline-section">
@@ -222,7 +222,7 @@ const ExperienceCard = (props) => {
               // letterSpacing: "0.5px",
               fontSize: {
                 xs: "12px",
-                md: "12px",
+                md: "14px",
               },
             }}
           >

@@ -43,7 +43,7 @@ const SkillCard = (props) => {
       onClick={onClick}
     >
       <div
-        className="card-header flex sm:flex-row-reverse flex-col-reverse sm:mb-10 h-full sm:h-auto sm:w-full items-center justify-between px-10 sm:px-6 py-6 rounded-lg"
+        className="card-header flex sm:flex-row-reverse flex-col-reverse sm:mb-8 h-full sm:h-auto sm:w-full items-center justify-between px-10 sm:px-6 py-6 rounded-lg"
         style={{
           // width: "130px",
           borderRadius: "7px",
@@ -89,10 +89,10 @@ const SkillCard = (props) => {
       >
         <div className="flex flex-col w-full">
           <b
-            className="text-left text-2xl uppercase"
+            className="text-left text-2xl capitalize"
             style={{
               margin: 0,
-              fontWeight: 700,
+              fontWeight: 400,
               color: "var(--text-color)",
               // fontSize: "15px",
             }}

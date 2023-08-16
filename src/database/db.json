@@ -466,8 +466,8 @@
           "icon": "https://www.firstbanknigeria.com/wp-content/uploads/2020/08/First-Bank-Logo_Symbol.svg",
           "company": "First Bank Of Nigeria",
           "timeframe": "Sep 2022 - March 2023",
-          "role": "RPA Developer • Internship",
-          "description": "I was responsible for building a Time Sheet Process application using Microsoft PowerApp, SharePoint Lists and Power Automate. I was able to learn the fundamentals of No-code development and due to the guidance from the Exec 200 Team",
+          "role": "RPA Developer Intern • Internship",
+          "description": "<p>My role and responsibilities as a RPA Developer Intern includes, but were not limited to, the following:</p><ol><li>Developing a Power App solution known as the Time Sheet App to automate the manual process of tracking staff work hours and activities which typically took several days, reducing the process to a single click and a notification.</li><li>I created a flow using Power Automate, which integrates with the Time Sheet App to manage daily notifications and database automation.</li></ol>",
           "references": [
             {
               "name": "Ogechi Uche",
@@ -482,7 +482,7 @@
               "url": "/static/images/avatar/2.jpg",
               "title": "Team Lead / Programme Manager",
               "phone": null,
-              "email": "",
+              "email": "onyeri.o.chioma@firstbanknigeria.com",
               "website": null
             },
             {
@@ -546,7 +546,7 @@
           "company": "TradeBuza",
           "timeframe": "May 2022 - Present",
           "role": "Senior Front-End Developer • Full-Time",
-          "description": "<p>I was responsible for:</p><ol><li>Spearheading the rewrite of the company's entire legacy codebase by leveraging ReactJS and TypeScript together with the Front-end, Back End and Quality Assurance (QA) team to keep the codebase up-to-date with the recent technology trends.</li><li>Successfully completing the migration of an entire application to TypeScript, improving overall code quality and maintainability.</li><li>Initiating and leading the development of 3 new projects, resulting in a user base of over 100,000 and continuous growth.</li><li>Providing exceptional technical support to team members, drawing on expertise in debugging various codebases in the early days of my career.</li><li>Implementing safe coding practices to safeguard frontend applications against known security vulnerabilities, utilizing extensive knowledge of OWASP standards.</li></ol>",
+          "description": "<p>My role and responsibilities as a Senior Front-End Developer includes, but were not limited to, the following:</p><ol><li>Spearheading the rewrite of the company's entire legacy codebase by leveraging ReactJS and TypeScript together with the Front-end, Back End and Quality Assurance (QA) team to keep the codebase up-to-date with the recent technology trends.</li><li>Successfully completing the migration of an entire application to TypeScript, improving overall code quality and maintainability.</li><li>Initiating and leading the development of 3 new projects, resulting in a user base of over 100,000 and continuous growth.</li><li>Providing exceptional technical support to team members, drawing on expertise in debugging various codebases in the early days of my career.</li><li>Implementing safe coding practices to safeguard frontend applications against known security vulnerabilities, utilizing extensive knowledge of OWASP standards.</li></ol>",
           "references": [
             {
               "name": "Elijah Obominuru",
