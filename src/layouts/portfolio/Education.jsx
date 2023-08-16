@@ -20,7 +20,7 @@ import { IoMail as MailIcon } from "react-icons/io5";
 
 import ReactHtmlParser from "html-react-parser";
 import { TypeAnimation } from "react-type-animation";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
