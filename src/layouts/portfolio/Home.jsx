@@ -574,7 +574,7 @@ const PortfolioIndex = () => {
                   alignItems="center"
                   className="bordr"
                   sx={{
-                    marginBottom: { xs: "10px", sm: "10px" },
+                    marginBottom: { xs: "15px", sm: "15px" },
                   }}
                 >
                   <TextField
@@ -632,7 +632,10 @@ const PortfolioIndex = () => {
                 </Stack>
 
                 {!loadingSkills && filterSkills(tabIndex).length > 0 ? (
-                  <div className="flex flex-row justify-start flex-wrap w-full">
+                  <div
+                    className="flex flex-row justify-start flex-wrap w-full"
+                    style={{ marginRight: "-10px", width: "calc(100% + 20px)" }}
+                  >
                     {(showAllSkills
                       ? filterSkills(tabIndex)
                       : filterSkills(tabIndex).slice(0, MAX_SKILLS_DISPLAYED)
