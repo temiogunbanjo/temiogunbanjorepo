@@ -211,7 +211,7 @@ const PortfolioEducation = () => {
                     className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4`}
                     sx={{}}
                   >
-                    <div className="flex flex-col mr-8 h-auto timeline-section">
+                    <div className="flex flex-col ml-8 h-auto timeline-section">
                       <span
                         className="text-xl sm:text-xl"
                         style={{
