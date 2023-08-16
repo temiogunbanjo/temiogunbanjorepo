@@ -134,7 +134,7 @@ const SkillCard = (props) => {
             //   fill: 'var(--text-color)'
             // }}
             paddingAngle={5}
-            lineWidth={10}
+            lineWidth={12}
             data={[
               {
                 title: "Mastered",

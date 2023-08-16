@@ -25,6 +25,7 @@ body.theme-1 {
   --moon-light-color: rgba(255, 209, 123, 0.87);
   --moon-dark-color: rgb(255, 91, 132);
   --pointer-color: var(--moon-dark-color);
+  --card-bg-color: var(--page-bg-color);
   position: relative;
   padding: 0;
   background-color: var(--page-bg-color);
@@ -60,6 +61,7 @@ body.theme-1.dark-mode {
   --moon-light-color: rgba(255, 149, 220, 0.87);
   --moon-dark-color: rgba(75, 65, 223, 0.659);
   --pointer-color: #9C0038;
+  --card-bg-color: rgba(145, 145, 145, 0.23);
 }
 
 /* THEME 2 */
@@ -106,6 +108,7 @@ body.theme-3.dark-mode {
   --header-text-color: #FFF;
   --icon-color: var(--primary-color);
   --pointer-color: #2F4858;
+  --card-bg-color: #5C3932;
 }
 
 /* THEME 4 */
