@@ -216,10 +216,9 @@ const ExperienceCard = (props) => {
           <Box
             className="text-xl md:text-2xl sm:text-justify"
             sx={{
-              fontWeight: 500,
+              fontWeight: 400,
               color: "var(--light-text-color)",
               lineHeight: 1.8,
-              // letterSpacing: "0.5px",
               fontSize: {
                 xs: "12px",
                 md: "14px",
