@@ -100,15 +100,15 @@ body.theme-3.dark-mode {
   --page-bg-color: #271b1b;
   --page-dialog-bg-color: var(--page-bg-color);
   --primary-color: #FF7377;
-  --primary-color-light: #f99b9f;
+  --primary-color-light: #FF7377;
   --header-bg-color: transparent;
-  --footer-bg-color: #2F4858;
+  --footer-bg-color: #5c3932;
   --light-text-color: #efefef;
   --contrast-text-color: var(--page-bg-color);
   --header-text-color: #FFF;
   --icon-color: var(--primary-color);
   --pointer-color: #2F4858;
-  --card-bg-color: #5C3932;
+  --card-bg-color: #5c3932;
 }
 
 /* THEME 4 */
