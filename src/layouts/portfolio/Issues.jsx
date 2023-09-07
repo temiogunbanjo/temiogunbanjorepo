@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Box, IconButton, Link } from "@mui/material";
 import ReactHtmlParser from "html-react-parser";
 import Fade from "@successtar/react-reveal/Fade";
-// import { CgEye } from "react-icons/cg";
+import { CgEye } from "react-icons/cg";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
-// import CustomButton from "../../components/common/Button";
-import { getSavedMode, setDarkMode, setTheme } from "../../utils";
-import { VisitorAuth } from "./ModalContents";
+import CustomButton from "../../components/common/Button";
 import Dialog from "../../components/common/Dialog";
 import Image from "../../components/common/Image";
 
-const Issues = () => {
-  // const navigate = useNavigate();
+import { getSavedMode, setDarkMode, setTheme } from "../../utils";
+import { VisitorAuth } from "./ModalContents";
 
+const Issues = () => {
   const [openModal, setOpenModal] = useState(false);
   const [dialogContent, setDialogContent] = useState(null);
 
@@ -23,6 +22,16 @@ const Issues = () => {
     setOpenModal(false);
   };
   const [posts] = useState([
+    {
+      title: "How to become a great software developer - Full Course",
+      timeframe: "Posted on Aug, 2023",
+      // role: "Web development • Internship at Jara Analytics",
+      tags: ["Web development", "Internship at Jara Analytics"],
+      content: `<p>
+      The memory heap out issue occurs when the heap size is not sufficient to run the application. To resolve this issue, open the package.json file, which can be found in the root folder of React application and use --max_old_space_size=4096 as like in the below code snippet...
+      </p>`,
+      links: ["/blogs/basics-of-programming"],
+    },
     {
       title:
         'How to resolve the typescript "memory heap out" issue that occurs while building the React application',
@@ -35,6 +44,18 @@ const Issues = () => {
       links: [
         "https://help.boldreports.com/embedded-reporting/react-reporting/how-to/how-to-resolve-the-javascript-memory-heap-out-issue/#how-to-resolve-the-javascript-memory-heap-out-issue-that-occurs-while-building-the-react-application",
       ],
+    },
+    {
+      title:
+        "How to setup HTTPS with a free web certificate on your Nginx server (Ubuntu-20) using CertBot",
+      timeframe: "Posted on Aug, 2023",
+      role: "Web development • Full Stack Software Developer at Lixom Technologies",
+      tags: ["Web development", "https", "Nginx"],
+      content: `<p>
+      To enable HTTPS on your website, you need to get a certificate (a type of file) from a Certificate Authority (CA). Let's Encrypt is a CA. In order to get a certificate for your website's domain from Let's Encrypt, you have to demonstrate control over the domain. With Let's Encrypt, you do this using software that uses the ACME protocol which typically runs on your web host.
+      To figure out what method will work best for you, you will need to know whether you have shell access (also known as SSH access) to your web host. If you manage your website entirely through a control panel like cPanel, Plesk, or WordPress, there's a good chance you don't have shell access. You can ask your hosting provider to be sure....
+      </p>`,
+      links: ["https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal"],
     },
     {
       posterImage:
@@ -146,31 +167,29 @@ const Issues = () => {
                   >
                     {each.timeframe}
                   </span>
-                  <span
-                    className="text-l mt-5"
-                    style={{
-                      fontWeight: 500,
-                      color: "var(--tab-border-color)",
-                      letterSpacing: "1px",
-                    }}
-                  >
-                    {each.role}
-                  </span>
+                  {each?.role && (
+                    <span
+                      className="text-l mt-5"
+                      style={{
+                        fontWeight: 500,
+                        color: "var(--light-text-color)",
+                        letterSpacing: "0.5px",
+                      }}
+                    >
+                      {each.role}
+                    </span>
+                  )}
                 </Box>
 
                 <div
                   className="flex flex-col flew-grow md:ml-8 mt-4 md:mt-0 text-2xl"
-                  style={
-                    {
-                      // marginRight: "100px",
-                    }
-                  }
+                  style={{}}
                 >
                   <Link href={each?.links[0]} className="inline-block">
                     <span
-                      className="text-3xl capitalize"
+                      className="text-4xl capitalize"
                       style={{
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: "var(--text-color)",
                         lineHeight: 1.5,
                       }}
@@ -181,7 +200,7 @@ const Issues = () => {
                   <div
                     className="line-clamp-5 mt-7"
                     style={{
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 500,
                       color: "var(--light-text-color)",
                       lineHeight: 2,
@@ -190,48 +209,74 @@ const Issues = () => {
                     {ReactHtmlParser(each.content)}
                   </div>
                   <span
-                    className="text-lg mt-5"
+                    className="text-lg mt-4"
                     style={{
                       fontWeight: 500,
                       color: "var(--tab-border-color)",
                       letterSpacing: "0.5px",
                     }}
                   >
-                    {each.tags.map((tag) =>
-                      `#${tag
-                        .toLowerCase()
-                        .replace(/[^A-Z]/gi, "-")
-                        .replace(/\s+/gi, "-")}  `
+                    {each.tags.map(
+                      (tag) =>
+                        `#${tag
+                          .toLowerCase()
+                          .replace(/[^A-Z]/gi, "-")
+                          .replace(/\s+/gi, "-")}  `
                     )}
                   </span>
                 </div>
-
-                {/* <CustomButton
-                  className="border self-start ml-auto"
-                  value={
-                    <span
-                      className="flex flex-row items-center"
-                      style={{ color: "var(--text-color)" }}
-                    >
-                      <span>Read Full</span>
-                      <i
-                        className="ml-3"
-                        style={{
-                          fontSize: "20px",
-                        }}
-                      >
-                        <CgEye />
-                      </i>
-                    </span>
-                  }
-                  sx={{
-                    boxShadow: "none",
-                    color: "#393A4A",
-                    flex: "none",
-                  }}
-                /> */}
               </div>
             ))}
+          </div>
+          <div className="flex flex-row">
+            <CustomButton
+              className="border self-start ml-auto"
+              value={
+                <span
+                  className="flex flex-row items-center"
+                  style={{ color: "var(--text-color)" }}
+                >
+                  <span>Read Full</span>
+                  <i
+                    className="ml-3"
+                    style={{
+                      fontSize: "20px",
+                    }}
+                  >
+                    <CgEye />
+                  </i>
+                </span>
+              }
+              sx={{
+                boxShadow: "none",
+                color: "#393A4A",
+                flex: "none",
+              }}
+            />
+            <CustomButton
+              className="border self-start ml-auto"
+              value={
+                <span
+                  className="flex flex-row items-center"
+                  style={{ color: "var(--text-color)" }}
+                >
+                  <span>Read Full</span>
+                  <i
+                    className="ml-3"
+                    style={{
+                      fontSize: "20px",
+                    }}
+                  >
+                    <CgEye />
+                  </i>
+                </span>
+              }
+              sx={{
+                boxShadow: "none",
+                color: "#393A4A",
+                flex: "none",
+              }}
+            />
           </div>
         </section>
       </Fade>

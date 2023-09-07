@@ -20,17 +20,15 @@ import NoPage from "./components/404Page";
 import SuspenseFallback from "./components/SuspenseFallback";
 
 import Portfolio from "./pages/Portfolio";
+import Blogs from "./pages/Blogs";
 
 import Therapy from "./layouts/therapy/Therapy";
-// import PortfolioEducation from "./layouts/portfolio/Education";
-// import PortfolioAuth from "./layouts/portfolio/Auth";
-// import PortfolioIssues from "./layouts/portfolio/Issues";
-// import Projects from "./layouts/portfolio/Projects";
 
 const PortfolioIndex = React.lazy(() => import("./layouts/portfolio/Home"));
 const PortfolioEducation = React.lazy(() => import("./layouts/portfolio/Education"));
 const PortfolioIssues = React.lazy(() => import("./layouts/portfolio/Issues"));
 const Projects = React.lazy(() => import("./layouts/portfolio/Projects"));
+const BasicsOfProgramming = React.lazy(() => import("./layouts/Blogs/BasicsOfProgramming"));
 
 function App(props) {
   return (
@@ -49,6 +47,10 @@ function App(props) {
                   />
                   <Route path="issues" element={<PortfolioIssues />} />
                   <Route path="therapy" element={<Therapy />} />
+                </Route>
+
+                <Route path="/blogs" element={<Blogs />}>
+                  <Route path="basics-of-programming" element={<BasicsOfProgramming />} />
                 </Route>
 
                 <Route path="/projects" element={<Projects />} />

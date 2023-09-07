@@ -223,6 +223,104 @@ body.dark-mode button.material-black:hover {
   box-shadow: 0px 3px 5px rgba(30, 30, 30, 0.5);
 }
 
+header,
+header .rows,
+header + nav.mobile-navigation-menu .rows {
+  align-items: center;
+  color: var(--icon-color);
+}
+
+body.dark-mode header,
+body.dark-mode header .rows,
+body.dark-mode header + nav.mobile-navigation-menu .rows {
+  color: var(--icon-color);
+}
+
+header + nav.mobile-navigation-menu {
+  background-color: var(--header-bg-color);
+}
+
+header {
+  width: 100%;
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+  justify-content: space-between;
+  padding: 1.2rem;
+  height: 6.4rem;
+  /* padding: 0 24px; */
+}
+
+header [class^="icofont-"] {
+  font-size: 2rem;
+}
+
+header .logo {
+  height: 32px;
+}
+
+header .left-elements > * {
+  margin: auto 1rem;
+}
+
+/* header .octicon {
+  fill: var(--header-text-color);
+} */
+
+header nav.navigation-links a {
+  color: var(--header-text-color);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+  /* letter-spacing: 1px; */
+}
+
+header .left-elements .user-profile img {
+  display: block;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  margin-right: 0.2rem;
+}
+
+header form.search-form {
+  border: 1px solid #646464;
+  background-color: transparent;
+  border-radius: 5vh;
+  width: auto;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+header form.search-form * {
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+header form.search-form label {
+  /* border: 1px solid #646464; */
+  padding: 0.2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  height: 3.5rem;
+  width: 3.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+  /* border-radius: 5vh; */
+  /* margin: auto 0.7rem; */
+}
+
+header form.search-form input {
+  padding: 0.6rem 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+header form.search-form input:focus + label {
+  visibility: hidden;
+}
+
 /* For all mobile users only */
 @media only screen and (max-width: 799px) {
   .hide-on-mobile {

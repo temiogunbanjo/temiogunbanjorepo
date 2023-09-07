@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Header from "../components/SimpleHeader";
 import { getSavedMode, setDarkMode } from "../utils";
-import "./portfolio.css";
+import "./blogs.css";
 
-const Portfolio = () => {
+const BlogPage = () => {
   useEffect(() => {
     if (!getSavedMode()) {
       const curDate = new Date();
@@ -21,7 +21,7 @@ const Portfolio = () => {
     <>
       <Header />
       <main
-        id="portfolio__main"
+        id="blogs__main"
         className="cols"
         style={{
           zIndex: "+999",
@@ -34,4 +34,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default BlogPage;
