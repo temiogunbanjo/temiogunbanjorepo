@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
-// import Timeline from "@mui/lab/Timeline";
-// import TimelineItem from "@mui/lab/TimelineItem";
-// import TimelineSeparator from "@mui/lab/TimelineSeparator";
-// import TimelineConnector from "@mui/lab/TimelineConnector";
-// import TimelineContent from "@mui/lab/TimelineContent";
-// import TimelineDot from "@mui/lab/TimelineDot";
-import { Box, Collapse, Link, Stack, Tab, TextField } from "@mui/material";
+import {
+  Box,
+  Collapse,
+  Grid,
+  Link,
+  Stack,
+  Tab,
+  TextField,
+} from "@mui/material";
 
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiFillSetting, AiOutlineSearch } from "react-icons/ai";
 import { BiFilter as FilterIcon } from "react-icons/bi";
 import { CgArrowLongDown as DownArrowIcon } from "react-icons/cg";
 
@@ -18,7 +20,7 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 
-import { BsTelephoneFill as PhoneIcon } from "react-icons/bs";
+import { BsPenFill, BsTelephoneFill as PhoneIcon } from "react-icons/bs";
 
 import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
@@ -31,9 +33,10 @@ import {
   fetchUserSkills,
 } from "../../database";
 
-import { SkillInfo, VisitorAuth } from "./ModalContents";
+import { Explorer, SkillInfo, VisitorAuth } from "./ModalContents";
 
 import {
+  delay,
   getRandomItem,
   getSavedMode,
   loadLocalFile,
@@ -50,10 +53,14 @@ import EmptyState from "../../components/common/EmptyState";
 import ResponsiveTab from "../../components/common/ResponsiveTab";
 import ExperienceCard from "../../components/Cards/ExperienceCard";
 
-import { quoteSequence } from "../../database/globals";
+import { WINDOW_LOAD_TIME, quoteSequence } from "../../database/globals";
 import Image from "../../components/common/Image";
+import StyledAvatar from "../../components/common/StyledAvatar";
+import HomeApp from "../../components/HomeApp";
+import FolderApp from "../../components/FolderApp";
+import Window from "../../components/Window";
 
-const PortfolioIndex = () => {
+const PortfolioIndexOld = () => {
   const navigate = useNavigate();
   const [isLayman, setIsLayman] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -964,6 +971,160 @@ const PortfolioIndex = () => {
   );
 };
 
+const AuthScreen = ({ closeHandler = () => {} }) => {
+  return (
+    <Stack
+      id="auth_screen"
+      className="h-screen w-screen items-center justify-center"
+    >
+      <Stack className="items-center justify-center">
+        <StyledAvatar
+          src={require("../../assets/images/Me.jpeg")}
+          alt="Aret Online"
+          sx={{
+            width: "150px",
+            height: "150px",
+          }}
+        />
+
+        <div className="my-6 text-2xl text-white font-medium">
+          Temiloluwa Ogunbanjo
+        </div>
+
+        <CustomButton
+          className="w-full mt-5"
+          variant="outlined"
+          value={"Sign In"}
+          onClick={closeHandler}
+        />
+      </Stack>
+    </Stack>
+  );
+};
+
+const PortfolioIndex = () => {
+  const [openModal, setOpenModal] = useState(true);
+  const [windowInfo, setWindowInfo] = useState(null);
+  const [apps, setApps] = useState([
+    <HomeApp
+      name={`About Me`}
+      icon={
+        <BsPenFill style={{ ...styles.appIconStyles }} />
+      }
+    />,
+    <HomeApp
+      name={`Skills & Experiences`}
+      icon={
+        <AiFillSetting
+          style={{ ...styles.appIconStyles }}
+        />
+      }
+    />,
+    <FolderApp
+      name={`Professional Experiences`}
+      onDoubleClick={(ev) => {
+        delay(
+          () =>
+            setWindowInfo({
+              name: `Professional Experiences`,
+              type: "folder",
+            }),
+          WINDOW_LOAD_TIME
+        );
+      }}
+    />,
+    <CustomButton
+      className="w-full"
+      variant="outlined"
+      value={"Add Box"}
+      onClick={() => {
+        setApps((prev) =>
+          prev.concat([
+            <HomeApp
+              name={`Home Application ${prev.length + 1}`}
+              icon={
+                <img
+                  src={require("../../assets/images/Commodify.png")}
+                  alt="#"
+                  style={styles.appIconStyles}
+                />
+              }
+            />,
+            <FolderApp name={`Folder ${prev.length + 1}`} />,
+          ])
+        );
+      }}
+    />,
+    <CustomButton
+      className="w-full"
+      variant="outlined"
+      value={"Remove Box"}
+      onClick={() => {
+        setApps((prev) => prev.slice(0, Math.max(2, prev.length - 1)));
+      }}
+    />,
+  ]);
+
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => {
+    setOpenModal(false);
+  };
+
+  return (
+    <>
+      <section className="flex flex-col relative pt-10 px-4">
+        <Grid
+          container
+          spacing={2}
+          // gridTemplateAreas={["1fr", "1fr", "1fr"]}
+          sx={{}}
+        >
+          {apps.map((eachApp, index) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={1}
+              xl={1}
+              key={index}
+              alignItems={"center"}
+              justifyContent="center"
+              sx={{ flexGrow: 1, border: "2px solid transparent" }}
+            >
+              {eachApp}
+            </Grid>
+          ))}
+        </Grid>
+      </section>
+
+      {windowInfo && (
+        <Window info={windowInfo} closeHandler={() => setWindowInfo(null)}>
+          <Explorer />
+        </Window>
+      )}
+
+      <Dialog
+        open={openModal}
+        onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundColor: "var(--page-dialog-bg-color)",
+            maxWidth: "unset",
+            maxHeight: "unset",
+            margin: 0,
+            padding: 0,
+          },
+        }}
+        DialogContentProps={{
+          sx: { padding: 0 },
+        }}
+      >
+        <AuthScreen closeHandler={handleClose} />
+      </Dialog>
+    </>
+  );
+};
+
 const styles = {
   bioStyle: {
     fontSize: "14px",
@@ -974,6 +1135,7 @@ const styles = {
     maxWidth: "712px",
   },
   iconStyles: { fontSize: "20px", marginBottom: "10px" },
+  appIconStyles: { width: "100%", height: "100%", objectFit: "contain", color: "#86d1ff" },
   tabStyles: {
     fontFamily: "Poppins, Roboto,'Open Sans', Montserrat, san-serif",
     color: "var(--light-text-color)",

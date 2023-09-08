@@ -522,3 +522,16 @@ export const VisitorAuth = ({ closeHandler }) => {
     </Stack>
   );
 };
+
+export const Explorer = () => {
+  return (
+    <Stack direction="row" className="" sx={{ minHeight: "150px" }}>
+      <Stack className="bg-gray-200 p-3 border-r" sx={{ minWidth: "150px" }}>
+        Window
+      </Stack>
+      <Stack className="p-3" sx={{ minWidth: "200px" }}>
+        Window
+      </Stack>
+    </Stack>
+  );
+};

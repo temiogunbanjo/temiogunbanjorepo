@@ -80,3 +80,5 @@ export const quoteSequence = (callback) => [
     callback
   ],
 ];
+
+export const WINDOW_LOAD_TIME = 500;

@@ -7,14 +7,14 @@ import "./portfolio.css";
 
 const Portfolio = () => {
   useEffect(() => {
-    if (!getSavedMode()) {
-      const curDate = new Date();
-      const isNightTime =
-        curDate.getHours() > 18 ||
-        (curDate.getHours() >= 0 && curDate.getHours() <= 6);
-      console.log({ isNightTime });
-      setDarkMode(isNightTime);
-    }
+    // if (!getSavedMode()) {
+    //   const curDate = new Date();
+    //   const isNightTime =
+    //     curDate.getHours() > 18 ||
+    //     (curDate.getHours() >= 0 && curDate.getHours() <= 6);
+    //   console.log({ isNightTime });
+    //   setDarkMode(isNightTime);
+    // }
   }, []);
 
   return (
@@ -22,14 +22,14 @@ const Portfolio = () => {
       <Header />
       <main
         id="portfolio__main"
-        className="cols"
+        className="relative"
         style={{
-          zIndex: "+999",
+          zIndex: "+99",
         }}
       >
         <Outlet />
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 };

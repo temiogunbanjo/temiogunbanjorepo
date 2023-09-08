@@ -55,3 +55,7 @@ export const loadLocalFile = (filePath) => {
     return "";
   }
 };
+
+export const delay = (callback, timeout) => {
+  setTimeout(callback, timeout);
+}
