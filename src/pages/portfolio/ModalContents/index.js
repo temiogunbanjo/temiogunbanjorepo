@@ -29,18 +29,18 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
       <IconButton
         className="self-end -mr-4 -top-4 -right-4"
         onClick={closeHandler}
+        title="close skill modal"
         sx={{
           fontSize: "14px",
           fontWeight: 600,
           color: "var(--primary-color)",
           borderRadius: "8px",
         }}
-        title="close skill modal"
       >
         <IoCloseOutline
           style={{ fontSize: "24px", color: "var(--primary-color)" }}
         />
-        <span className="ml-1">close</span>
+        <span className="ml-1">Close</span>
       </IconButton>
 
       <Stack direction="row" className="-mt-5 mb-8 flex-wrap sm:flex-nowrap">
@@ -66,7 +66,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
             <Typography
               component="h2"
               style={{
-                fontSize: "24px",
+                fontSize: "28px",
                 fontWeight: 700,
                 fontFamily: "Poppins",
               }}
@@ -118,7 +118,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
 
           <p
             className="mt-4"
-            style={{ lineHeight: 2, fontSize: "1.2rem", fontWeight: 400 }}
+            style={{ lineHeight: 2, fontSize: "1.4rem", fontWeight: 400 }}
           >
             {data?.description}
           </p>
@@ -190,7 +190,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                         component="h2"
                         style={{
                           fontFamily: "Poppins",
-                          fontSize: "1.4rem",
+                          fontSize: "1.5rem",
                           fontWeight: 600,
                           textTransform: "capitalize",
                           // letterSpacing: "0.5px",
@@ -242,7 +242,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                 direction="row"
                 className={`${
                   index === a.length - 5 ? "border-b" : ""
-                } my-1.5 pb-3`}
+                } my-2 pb-3`}
                 sx={{ borderColor: "var(--border-line-color)" }}
               >
                 <div
@@ -268,7 +268,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                       component="h2"
                       sx={{
                         fontFamily: "Poppins",
-                        fontSize: "1.4rem",
+                        fontSize: "1.5rem",
                         fontWeight: 600,
                         textTransform: "capitalize",
                         // letterSpacing: "0.5px",
@@ -286,7 +286,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                   </span>
 
                   <span
-                    className="inline-block mt-1.5 text-lg"
+                    className="inline-block mt-2 text-xl"
                     sx={{ color: "var(--light-text-color)" }}
                   >
                     {`Issued on ${certificate?.issue_date}`}
@@ -296,7 +296,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                     certificate?.verification_link) && (
                     <a
                       href={certificate?.verification_link}
-                      className="flex flex-row items-center text-sm mt-1.5 uppercase"
+                      className="flex flex-row items-center text-base mt-1.5 uppercase"
                       style={{
                         // fontFamily: "'Open Sans'",
                         fontWeight: 500,

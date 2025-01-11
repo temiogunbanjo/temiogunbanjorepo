@@ -264,14 +264,16 @@ body.dark-mode .background-illuminator {
   scroll-snap-align: top !important;
   justify-content: flex-start;
   align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .skills .card {
   padding: 0;
   color: var(--light-text-color);
-  margin: 10px 10px 10px;
+  /* margin: 10px 10px 10px; */
   flex-grow: 1;
-  width: calc(25% - 20px);
+  /* width: calc(25% - 20px); */
   min-width: 215px;
   max-width: 305px;
   background-color: var(--card-bg-color);
@@ -499,7 +501,7 @@ body.theme-3.dark-mode footer h3 {
   }
 
   .skills .card {
-    margin: 5px 15px 20px;
+    /* margin: 5px 15px 20px; */
     max-width: unset;
   }
 

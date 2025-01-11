@@ -11,12 +11,12 @@ import { useNavigate } from "react-router-dom";
 import Fade from "@successtar/react-reveal/Fade";
 // import { Fade as AwesomeFade } from "react-awesome-reveal";
 
-import CustomButton from "../../components/common/Button";
-import Spinner from "../../components/common/Spinner";
-import Dialog from "../../components/common/Dialog";
+import CustomButton from "components/common/Button";
+import Spinner from "components/common/Spinner";
+import Dialog from "components/common/Dialog";
 
-import { fetchUserEducation } from "../../database";
-import { getSavedMode, setDarkMode, setTheme } from "../../utils";
+import { fetchUserEducation } from "database";
+import { getSavedMode, setDarkMode, setTheme } from "utils";
 import { VisitorAuth } from "./ModalContents";
 
 const EducationCard = (props) => {

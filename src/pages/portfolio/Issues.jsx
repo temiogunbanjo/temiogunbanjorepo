@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Box, IconButton, Link } from "@mui/material";
 import ReactHtmlParser from "html-react-parser";
 import Fade from "@successtar/react-reveal/Fade";
-import { CgEye } from "react-icons/cg";
+// import { CgEye } from "react-icons/cg";
 import { BsChevronLeft as LeftIcon } from "react-icons/bs";
 
-import CustomButton from "../../components/common/Button";
-import Dialog from "../../components/common/Dialog";
-import Image from "../../components/common/Image";
+// import CustomButton from "components/common/Button";
+import Dialog from "components/common/Dialog";
+import Image from "components/common/Image";
 
-import { getSavedMode, setDarkMode, setTheme } from "../../utils";
+import { getSavedMode, setDarkMode, setTheme } from "utils";
 import { VisitorAuth } from "./ModalContents";
 
 const Issues = () => {
@@ -23,6 +23,8 @@ const Issues = () => {
   };
   const [posts] = useState([
     {
+      posterImage:
+        "https://usa.bootcampcdn.com/wp-content/uploads/sites/108/2021/12/tes_gen_blog_post_071921_1233182206-1-800x412.jpg",
       title: "How to become a great software developer - Full Course",
       timeframe: "Posted on Aug, 2023",
       // role: "Web development • Internship at Jara Analytics",
@@ -30,9 +32,11 @@ const Issues = () => {
       content: `<p>
       The memory heap out issue occurs when the heap size is not sufficient to run the application. To resolve this issue, open the package.json file, which can be found in the root folder of React application and use --max_old_space_size=4096 as like in the below code snippet...
       </p>`,
-      links: ["/blogs/basics-of-programming"],
+      links: ["/issues/basics-of-programming"],
     },
     {
+      posterImage:
+        "https://global.discourse-cdn.com/ionicframework/optimized/3X/6/7/67215d4fd6def470d712dd35da239651e4c947f8_2_690x318.png",
       title:
         'How to resolve the typescript "memory heap out" issue that occurs while building the React application',
       timeframe: "Posted on Aug, 2023",
@@ -46,6 +50,8 @@ const Issues = () => {
       ],
     },
     {
+      posterImage:
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3H4V_Yi8YIKVsK-4IlxfCh3_tkMvIa8VYdVx7rl1mbsOju91qGSlKEF2_M23kgb4Fv_ZDxPkJh-LKqNA1Ugd4auD2W50jKugdxXkA120d9T-GFeRSnrSdKzBlWJBf-UdQ58mbdKccFFiPtrfc5mmN5yrtSyzPZGamWUYb_pQi5Kt4hMDXPsVJ0dIPKA/s1280/how-to-install-certbot-on-ubuntu.jpg",
       title:
         "How to setup HTTPS with a free web certificate on your Nginx server (Ubuntu-20) using CertBot",
       timeframe: "Posted on Aug, 2023",
@@ -153,8 +159,7 @@ const Issues = () => {
                 >
                   <Image
                     src={
-                      each?.posterImage ||
-                      require("../../assets/images/3638095.png")
+                      each?.posterImage || require("assets/images/3638095.png")
                     }
                     alt=""
                     className="rounded-lg bg-slate-500"
@@ -185,7 +190,13 @@ const Issues = () => {
                   className="flex flex-col flew-grow md:ml-8 mt-4 md:mt-0 text-2xl"
                   style={{}}
                 >
-                  <Link href={each?.links[0]} className="inline-block">
+                  <Link
+                    href={each?.links[0]}
+                    // underline={true}
+                    component={"a"}
+                    target="_blank"
+                    className="inline-block"
+                  >
                     <span
                       className="text-4xl capitalize"
                       style={{
@@ -228,7 +239,7 @@ const Issues = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-row">
+          {/* <div className="flex flex-row">
             <CustomButton
               className="border self-start ml-auto"
               value={
@@ -277,7 +288,7 @@ const Issues = () => {
                 flex: "none",
               }}
             />
-          </div>
+          </div> */}
         </section>
       </Fade>
 
