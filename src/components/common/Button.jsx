@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React from "react";
 
 function CustomButton(props) {
@@ -6,7 +7,7 @@ function CustomButton(props) {
 
   let allProps = {
     ...rest,
-    style: {
+    sx: {
       fontWeight: 700,
       fontSize: "12px",
       textTransform: "capitalize",
@@ -21,13 +22,18 @@ function CustomButton(props) {
     case "outlined":
       allProps = {
         ...allProps,
-        style: {
-          ...allProps.style,
+        sx: {
+          ...allProps.sx,
           boxShadow: "none",
           color: "white",
           borderWidth: "2px",
           borderStyle: "solid",
           borderColor: "white",
+          transition: "all 0.2s ease",
+          "&:hover": {
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
+            color: "black"
+          },
           ...customSx,
         },
       };
@@ -38,9 +44,9 @@ function CustomButton(props) {
   }
 
   return (
-    <button variant="contained" {...allProps}>
+    <Box component="button" variant="contained" {...allProps}>
       {value || ""}
-    </button>
+    </Box>
   );
 }
 

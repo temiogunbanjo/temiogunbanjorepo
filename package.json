@@ -5,46 +5,22 @@
     "node": "16.x"
   },
   "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/lab": "^5.0.0-alpha.138",
-    "@mui/material": "^5.14.3",
-    "@react-three/cannon": "^6.5.2",
-    "@react-three/drei": "^9.80.1",
-    "@react-three/fiber": "^8.13.6",
-    "@successtar/react-reveal": "^1.2.10",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
-    "gsap": "^3.12.2",
-    "html-react-parser": "^4.2.0",
-    "lottie-react": "^2.4.0",
-    "parser-string-html-jsx": "^1.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.10.1",
-    "react-jsx-parser": "^1.29.0",
-    "react-minimal-pie-chart": "^8.4.0",
-    "react-player": "^2.12.0",
-    "react-router-dom": "^6.14.2",
-    "react-scripts": "^5.0.1",
-    "react-type-animation": "^3.1.0",
-    "serve": "^14.2.0",
-    "three": "^0.155.0",
-    "web-vitals": "^3.4.0"
-  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "ogunbanjo temiloluwa",
+  "license": "ISC",
+  "homepage": "https://temiogunbanjo-dev.netlify.app",
   "scripts": {
     "dev": "react-scripts start",
-    "dev:server": "cd server && npm run dev",
-    "start": "npm run build && serve -s build",
+    "dev:server": "cd server && yarn run dev",
+    "start": "yarn run build && serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "upgrade": "npm run upgrade:rm && npm run upgrade:ncu && npm run upgrade:install",
+    "upgrade": "yarn run upgrade:rm && yarn run upgrade:ncu && yarn run upgrade:install",
     "upgrade:rm": "rm -Rf node_modules",
     "upgrade:ncu": "npx npm-check-updates -u",
-    "upgrade:install": "npm install"
+    "upgrade:install": "yarn"
   },
   "eslintConfig": {
     "extends": [
@@ -64,10 +40,6 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "author": "ogunbanjo temiloluwa",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/temiogunbanjo/temiogunbanjorepo.git"
@@ -84,9 +56,36 @@
   "bugs": {
     "url": "https://github.com/temiogunbanjo/temiogunbanjorepo/issues"
   },
-  "homepage": "https://temiogunbanjo-dev.netlify.app",
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/lab": "^6.0.0-beta.9",
+    "@mui/material": "^6.0.2",
+    "@react-spring/three": "^9.7.4",
+    "@react-three/cannon": "^6.5.2",
+    "@react-three/drei": "^9.80.1",
+    "@react-three/fiber": "^8.13.6",
+    "@successtar/react-reveal": "^1.2.10",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "gsap": "^3.12.5",
+    "html-react-parser": "^5.1.15",
+    "lottie-react": "^2.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.3.0",
+    "react-jsx-parser": "^2.0.0",
+    "react-minimal-pie-chart": "^8.4.0",
+    "react-player": "^2.16.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "^5.0.1",
+    "react-type-animation": "^3.2.0",
+    "serve": "^14.2.3",
+    "three": "^0.155.0",
+    "web-vitals": "^4.2.3"
+  },
   "devDependencies": {
-    "tailwindcss": "^3.3.3",
-    "@babel/plugin-proposal-private-property-in-object": "*"
+    "tailwindcss": "^3.4.10"
   }
 }
