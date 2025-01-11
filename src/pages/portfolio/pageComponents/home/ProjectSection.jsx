@@ -135,6 +135,8 @@ function ProjectSection({ loadingProjects, data: projects, showAllProjects }) {
                     {eachProj.link && (
                       <Link
                         href={eachProj.link}
+                        component="a"
+                        target="_blank"
                         className="flex flex-row items-center text-xl mt-3"
                         style={{
                           // fontFamily: "'Open Sans'",

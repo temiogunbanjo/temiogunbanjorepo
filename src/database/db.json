@@ -632,6 +632,18 @@
       "userId": 1,
       "data": [
         {
+          "name": "CardVeal - Fun to play game",
+          "content": [
+            {
+              "type": "image",
+              "url": "/resources/images/AD.png"
+            }
+          ],
+          "tag": "Web 3D & Animations",
+          "description": "CardVeal is a simple card reveal game",
+          "link": "https://project-cardveal.netlify.app"
+        },
+        {
           "name": "3D Blender Product Animation",
           "content": [
             {
