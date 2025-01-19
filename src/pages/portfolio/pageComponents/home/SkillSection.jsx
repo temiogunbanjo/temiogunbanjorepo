@@ -239,6 +239,7 @@ function SkillSection({
                     <AiOutlineSearch style={{ fontSize: "20px" }} />
                   ),
                   sx: {
+                    borderRadius: "8px",
                     color: "var(--text-color)",
                     backgroundColor: "rgba(255, 255, 255, 0.2)",
                   },
