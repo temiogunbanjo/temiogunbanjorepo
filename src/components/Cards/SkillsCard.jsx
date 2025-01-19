@@ -38,7 +38,7 @@ const SkillCard = (props) => {
     <div
       className="card flex flex-row sm:flex-col items-center"
       style={{
-        borderRadius: "8px",
+        borderRadius: "15px",
         boxSizing: "border-box",
       }}
       onClick={onClick}
