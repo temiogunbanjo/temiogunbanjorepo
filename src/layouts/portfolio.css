@@ -23,7 +23,7 @@
 }
 
 #portfolio__main > div > section:not(.hero) {
-  max-width: 1600px;
+  padding: 32px;
 }
 
 body *.MuiTab-root.Mui-selected {
