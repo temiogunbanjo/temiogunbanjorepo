@@ -22,7 +22,7 @@
   width: 100%;
 }
 
-#portfolio__main > section:not(.hero) {
+#portfolio__main > div > section:not(.hero) {
   max-width: 1600px;
 }
 
