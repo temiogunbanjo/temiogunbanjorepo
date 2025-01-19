@@ -209,7 +209,13 @@ function SkillSection({
             key={index}
             index={each}
             currentTabIndex={tabIndex}
-            sx={{ display: each === 0 ? "none" : "block", p: "20px", pt: 1 }}
+            sx={{
+              display: each === 0 ? "none" : "block",
+              pt: 1,
+              p: "20px",
+              mx: "auto",
+              maxWidth: "1600px",
+            }}
           >
             <Stack
               direction="row"
