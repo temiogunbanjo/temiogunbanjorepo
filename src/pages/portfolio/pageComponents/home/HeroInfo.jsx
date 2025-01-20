@@ -101,7 +101,7 @@ function HeroInfo() {
       >
         <a
           href="tel:+2349059620514"
-          className="mb-6 sm:mr-12 w-full sm:w-1/3 block"
+          className="mb-6 sm:mr-9 w-full sm:w-1/2 block"
           style={{ minWidth: "150px" }}
         >
           <CustomButton
@@ -132,7 +132,7 @@ function HeroInfo() {
 
         <a
           href="#skill-section"
-          className="mb-6 w-full sm:w-1/3 block"
+          className="mb-6 w-full sm:w-1/2 block"
           style={{ minWidth: "150px" }}
         >
           <CustomButton

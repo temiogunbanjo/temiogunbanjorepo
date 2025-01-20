@@ -164,7 +164,7 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                     <div
                       className="flex flex-row-reverse w-full items-center justify-center p-2 rounded-lg mr-6"
                       style={{
-                        width: "40px",
+                        width: "60px",
                         height: "40px",
                         backgroundColor: "rgba(170, 170, 170, 0.15)",
                       }}
@@ -190,8 +190,8 @@ export const SkillInfo = ({ data, experiences, closeHandler }) => {
                         component="h2"
                         style={{
                           fontFamily: "Poppins",
-                          fontSize: "1.5rem",
-                          fontWeight: 600,
+                          fontSize: "1.3rem",
+                          fontWeight: 700,
                           textTransform: "capitalize",
                           // letterSpacing: "0.5px",
                         }}

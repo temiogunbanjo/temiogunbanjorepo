@@ -44,11 +44,11 @@ const ExperienceCard = (props) => {
         <span
           className="text-lg mt-2 sm:mt-5"
           style={{
-            fontFamily: "'Open Sans'",
+            // fontFamily: "'Open Sans'",
             fontWeight: 600,
             color: "var(--primary-color)",
             letterSpacing: "0.5px",
-            lineHeight: 2,
+            lineHeight: 1.5,
           }}
         >
           {props?.data?.role}
@@ -57,7 +57,7 @@ const ExperienceCard = (props) => {
         {props?.data?.references && props?.data?.references.length > 0 && (
           <div className="hidden sm:flex flex-col mt-4 sm:mt-5 w-full">
             <span
-              className="text-xl capitalize"
+              className="text-lg capitalize"
               style={{
                 color: "#888",
                 fontWeight: 700,
