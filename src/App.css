@@ -269,7 +269,7 @@ header .left-elements > * {
 header nav.navigation-links a {
   color: var(--header-text-color);
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 0 1rem;
   /* letter-spacing: 1px; */
 }

@@ -154,10 +154,9 @@ const Issues = () => {
               <div className="flex flex-col md:flex-row mb-14 my-3">
                 <Box
                   component="div"
-                  className="flex flex-col mr-8 h-auto"
+                  className="flex flex-col mr-8 h-auto md:max-w-[45vw]"
                   sx={{
                     width: { xs: "100%", md: "190px" },
-                    maxWidth: "45vw",
                     flex: "none",
                   }}
                 >
@@ -170,7 +169,7 @@ const Issues = () => {
                     style={{ height: "auto" }}
                   />
                   <span
-                    className="text-2xl mt-5 sm:font-semibold font-medium"
+                    className="text-xl mt-5 sm:font-semibold font-medium"
                     style={{
                       color: "var(--light-text-color)",
                     }}
@@ -203,7 +202,7 @@ const Issues = () => {
                     className="inline-block"
                   >
                     <span
-                      className="text-4xl capitalize"
+                      className="text-3xl capitalize"
                       style={{
                         fontWeight: 500,
                         color: "var(--text-color)",
