@@ -93,7 +93,7 @@ const SkillCard = (props) => {
             className="text-left text-2xl capitalize"
             style={{
               margin: 0,
-              fontWeight: 400,
+              fontWeight: 500,
               color: "var(--text-color)",
               // fontSize: "15px",
             }}

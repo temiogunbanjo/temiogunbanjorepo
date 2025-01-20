@@ -223,7 +223,7 @@ function SkillSection({
               alignItems="center"
               className="bordr"
               sx={{
-                marginBottom: { xs: "25px", sm: "25px" },
+                marginBottom: { xs: "25px", sm: "55px" },
               }}
             >
               <TextField

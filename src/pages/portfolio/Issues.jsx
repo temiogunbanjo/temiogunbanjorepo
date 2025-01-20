@@ -151,7 +151,7 @@ const Issues = () => {
 
           <div className="flex flex-col flex-wrap px-3">
             {posts.map((each) => (
-              <div className="flex flex-col md:flex-row mb-14 my-3 mx-auto max-w-[1280px]">
+              <div className="flex flex-col md:flex-row mb-14 my-3 mx-auto max-w-[1280px] w-full">
                 <Box
                   component="div"
                   className="flex flex-col mr-8 h-auto lg:max-w-[40vw]"
