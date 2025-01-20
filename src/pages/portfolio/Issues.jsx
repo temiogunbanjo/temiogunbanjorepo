@@ -141,9 +141,9 @@ const Issues = () => {
           <h1
             className="mb-8 main-text flex flex-col items-start"
             style={{
-              fontSize: "44px",
+              fontSize: "2.75rem",
               marginTop: "12px",
-              marginBottom: "38px",
+              marginBottom: "4rem",
             }}
           >
             <span className="ml-5">Career Challenges</span>
@@ -151,12 +151,12 @@ const Issues = () => {
 
           <div className="flex flex-col flex-wrap px-3">
             {posts.map((each) => (
-              <div className="flex flex-col md:flex-row mb-14 my-3">
+              <div className="flex flex-col md:flex-row mb-14 my-3 mx-auto max-w-[1280px]">
                 <Box
                   component="div"
-                  className="flex flex-col mr-8 h-auto md:max-w-[45vw]"
+                  className="flex flex-col mr-8 h-auto lg:max-w-[40vw]"
                   sx={{
-                    width: { xs: "100%", md: "190px" },
+                    width: { xs: "100%", md: "200px" },
                     flex: "none",
                   }}
                 >
@@ -213,7 +213,7 @@ const Issues = () => {
                     </span>
                   </Link>
                   <div
-                    className="line-clamp-5 mt-7"
+                    className="line-clamp-5 mt-4"
                     style={{
                       fontSize: "1rem",
                       fontWeight: 500,
