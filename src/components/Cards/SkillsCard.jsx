@@ -75,8 +75,8 @@ const SkillCard = (props) => {
             style={{
               objectFit: "contain",
               width: "auto",
-              height: "35px",
-              minWidth: "35px",
+              height: "45px",
+              minWidth: "45px",
             }}
           />
         )}
