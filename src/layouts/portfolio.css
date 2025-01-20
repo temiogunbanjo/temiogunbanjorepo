@@ -11,11 +11,7 @@
   /* flex: none; */
   margin-bottom: 3.5rem;
   min-height: 600px;
-  padding-left: 32px;
-  padding-right: 32px;
-
-  padding-top: 32px;
-  padding-bottom: 32px;
+  /* padding: 32px; */
 
   margin-left: auto;
   margin-right: auto;
@@ -169,7 +165,7 @@ body.dark-mode .hero,
   max-height: 750px; */
   align-items: center;
   padding: 3rem 1rem 5rem;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   height: 100%;
   z-index: +220;
   /* backdrop-filter: blur(10px); */
@@ -536,6 +532,7 @@ body.theme-3.dark-mode footer h3 {
     min-height: 480px;
     padding: 3rem 2.7rem 5rem;
     border: 2px solid;
+    border-radius: 15px;
     border-color: var(--primary-color);
     background-color: var(--primary-color);
   }
