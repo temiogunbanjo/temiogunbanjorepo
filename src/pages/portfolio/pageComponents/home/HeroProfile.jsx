@@ -13,7 +13,7 @@ function HeroProfile() {
   const [showProfilePic, setShowProfilePic] = useState(false);
 
   return (
-    <div className="flex flex-col user-profile-section overflow-hidden shadow-md sm:shadow-none">
+    <div className="flex flex-col user-profile-section overflow-hidden shadow--md shadow-none">
       <div
         className="w-full flex flex-row img-wrapper mt-0 mb-12 transition-all ease-in"
         style={{

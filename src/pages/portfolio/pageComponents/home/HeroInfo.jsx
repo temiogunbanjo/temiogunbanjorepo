@@ -14,7 +14,7 @@ function HeroInfo() {
   return (
     <div
       className="cols sm:mr-12"
-      style={{ justifyContent: "center", padding: "10px" }}
+      style={{ justifyContent: "center", padding: "4rem 1rem" }}
     >
       <h1 className="main-text" style={{ fontSize: "3.5rem" }}>
         <span style={{ fontSize: "1.75rem", fontWeight: 500 }}>Who is </span>

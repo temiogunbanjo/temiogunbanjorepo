@@ -170,7 +170,7 @@ function SkillSection({
           fontWeight: 400,
           opacity: 0.8,
           lineHeight: 1.8,
-          maxWidth: "650px",
+          maxWidth: "800px",
         }}
       >
         This section showcases my technical expertise and proficiency in
@@ -283,7 +283,7 @@ function SkillSection({
 
             {!loadingSkills && filterSkills(tabIndex).length > 0 ? (
               <div
-                className="grid grid-cols-1 gap-9 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-start w-full"
+                className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-start w-full"
                 style={{ marginLeft: "0px" }}
               >
                 {(showAllSkills

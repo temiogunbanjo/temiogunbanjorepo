@@ -49,7 +49,7 @@ body:not([class*="dark-mode"]) *.MuiTabs-indicator {
   background-repeat: no-repeat;
   background-position: bottom right;
   padding-left: 4% !important;
-  padding-right: 4% !important;
+  /* padding-right: 4% !important; */
 }
 
 img.user-profile-picture {
@@ -165,12 +165,12 @@ body.dark-mode .hero,
   width: 38vw;
   min-height: 550px;
   min-width: 250px;
-  max-width: 360px;
-  max-height: 750px;
+  /* max-width: 360px;
+  max-height: 750px; */
   align-items: center;
   padding: 3rem 1rem 5rem;
   border-radius: 15px;
-  height: auto;
+  height: 100%;
   z-index: +220;
   /* backdrop-filter: blur(10px); */
   /* background-color: rgba(12, 12, 12, 0.1); */
@@ -188,7 +188,7 @@ body.dark-mode .user-profile-section {
     rgba(177, 177, 177, 0),
     rgba(177, 177, 177, 0)
   ); */
-  box-shadow: 10px 10px 30px rgba(10, 10, 10, 0.3);
+  /* box-shadow: 10px 10px 30px rgba(10, 10, 10, 0.3); */
 }
 
 .user-profile-section .img-wrapper {
