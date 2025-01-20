@@ -16,8 +16,8 @@ function HeroInfo() {
       className="cols sm:mr-12"
       style={{ justifyContent: "center", padding: "10px" }}
     >
-      <h1 className="main-text" style={{ fontSize: "5rem" }}>
-        <span style={{ fontSize: "28px", fontWeight: 600 }}>Who is </span>
+      <h1 className="main-text" style={{ fontSize: "3.5rem" }}>
+        <span style={{ fontSize: "1.75rem", fontWeight: 500 }}>Who is </span>
         <br />
         <span style={{}}>Temiloluwa Ogunbanjo ?</span>
       </h1>
@@ -168,7 +168,7 @@ function HeroInfo() {
 
 const styles = {
   bioStyle: {
-    fontSize: "14px",
+    fontSize: "1rem",
     textAlign: "justify",
     fontWeight: 400,
     color: "var(--light-text-color)",

@@ -155,7 +155,11 @@ const Issues = () => {
                 <Box
                   component="div"
                   className="flex flex-col mr-8 h-auto"
-                  sx={{ width: { xs: "100%", md: "190px" }, flex: "none" }}
+                  sx={{
+                    width: { xs: "100%", md: "190px" },
+                    maxWidth: "45vw",
+                    flex: "none",
+                  }}
                 >
                   <Image
                     src={
@@ -163,9 +167,10 @@ const Issues = () => {
                     }
                     alt=""
                     className="rounded-lg bg-slate-500"
+                    style={{ height: "auto" }}
                   />
                   <span
-                    className="text-2xl mt-5 sm:font-bold font-medium"
+                    className="text-2xl mt-5 sm:font-semibold font-medium"
                     style={{
                       color: "var(--light-text-color)",
                     }}
@@ -211,7 +216,7 @@ const Issues = () => {
                   <div
                     className="line-clamp-5 mt-7"
                     style={{
-                      fontSize: "12px",
+                      fontSize: "1rem",
                       fontWeight: 500,
                       color: "var(--light-text-color)",
                       lineHeight: 2,
@@ -220,7 +225,7 @@ const Issues = () => {
                     {ReactHtmlParser(each.content)}
                   </div>
                   <span
-                    className="text-lg mt-4"
+                    className="text-sm mt-4"
                     style={{
                       fontWeight: 500,
                       color: "var(--tab-border-color)",

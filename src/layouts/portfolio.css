@@ -70,9 +70,9 @@ body.dark-mode .hero,
 }
 
 .main-text {
-  line-height: 1.15;
-  font-size: 50px;
-  font-weight: 700;
+  line-height: 1.05;
+  font-size: 3.5rem;
+  font-weight: 800;
   margin: 0;
   color: var(--text-color);
   background-color: var(--text-color);
@@ -92,7 +92,7 @@ body.dark-mode .hero,
 
 .subtitle {
   color: var(--light-text-color);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 28px;
 }
@@ -103,7 +103,7 @@ body.dark-mode .hero,
   font-family: Poppins, "Open Sans";
   text-transform: capitalize;
   /* letter-spacing: 1px; */
-  font-size: 32px;
+  font-size: 2rem;
   position: relative;
   margin-bottom: 40px;
 }
@@ -475,8 +475,8 @@ body.theme-3.dark-mode footer h3 {
   }
 
   .main-text {
-    font-size: 32px;
-    line-height: 1.15;
+    font-size: 2rem;
+    line-height: 1.05;
   }
 
   .user-profile-section button {

@@ -55,7 +55,7 @@ function HeroProfile() {
           repeat={0}
           className="text-center sm:text-justify"
           style={{
-            fontSize: "14px",
+            fontSize: "1rem",
             fontWeight: 400,
             lineHeight: 2,
             margin: "1rem 0 0",

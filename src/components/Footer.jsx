@@ -82,7 +82,7 @@ const Footer = () => {
             <h4 className="capitalize text-4xl mb-8">
               Social Media & Contacts
             </h4>
-            <div className="flex flex-row items-start text-center text-3xl gap-8">
+            <div className="flex flex-row flex-wrap items-start text-center text-3xl gap-8">
               <a
                 href="https://www.linkedin.com/in/temiloluwa-ogunbanjo-719731168"
                 className="flex flex-col items-center justify-center my-2"

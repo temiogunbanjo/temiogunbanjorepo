@@ -243,7 +243,7 @@ const ExperienceCard = (props) => {
                 Related Skills:
               </span>
               <span
-                className="text-lg uppercase"
+                className="text-base uppercase"
                 style={{
                   color: "var(--text-color)",
                   fontWeight: 500,

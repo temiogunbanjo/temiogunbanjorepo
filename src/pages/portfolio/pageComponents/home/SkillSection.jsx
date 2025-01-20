@@ -164,7 +164,7 @@ function SkillSection({
       </h2>
 
       <span
-        className="-mt-10 mb-12 text-center text-xl"
+        className="-mt-5 mb-12 text-center text-sm"
         style={{
           color: "var(--light-text-color)",
           fontWeight: 400,
@@ -245,7 +245,7 @@ function SkillSection({
                   },
                   inputProps: {
                     style: {
-                      fontSize: "1.45rem",
+                      fontSize: "1.05rem",
                       padding: "12px 18px",
                     },
                   },
