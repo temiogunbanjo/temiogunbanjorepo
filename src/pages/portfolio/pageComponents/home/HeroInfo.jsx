@@ -63,6 +63,7 @@ function HeroInfo() {
             {`Meet a dynamic full-stack software developer with a passion for innovation and ${
               new Date().getFullYear() - 2019
             } years of hands-on experience crafting robust RESTful APIs using the powerful M.E.R.N. (MongoDB, ExpressJS, React.Js, NodeJS) stack. With an artistic flair as a part-time graphics designer and animator, I bring creativity and adaptability to every project. As a recent graduate of the esteemed University of Lagos, I am eager to leverage my skills to build cutting-edge, scalable solutions that leave a lasting impact. Let's code the future together!`}
+            {`A seasoned software developer with 5+ years of experience building scalable, high-performance web applications using the M.E.R.N. (MongoDB, ExpressJS, React.js, Node.js) stack. Adept at collaborating with teams ranging from startups to enterprise-scale organizations, I bring a unique combination of technical expertise and creative problem-solving. Proficient in crafting intuitive, responsive user interfaces and optimizing frontend performance, I focus on delivering exceptional user experiences. A proud graduate of the University of Lagos, I have led projects that reduced load times by 40%, mentored junior developers, and contributed to cross-functional team success. Let’s create the future of digital innovation together.`}
           </p>
         </Fade>
       ) : (
