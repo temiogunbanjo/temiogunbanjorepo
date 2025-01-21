@@ -214,6 +214,7 @@ const PortfolioEducation = () => {
               href="/home"
               className="flex flex-row items-center rounded-md"
               sx={{
+                ml:"-10px",
                 mr: "auto",
                 borderRadius: "8px",
                 color: "var(--primary-color-light)",
@@ -288,7 +289,7 @@ const PortfolioEducation = () => {
                 }}
               />
             </Typography>
-            <p className="py-8 text-xl sm:text-2xl" style={styles.bioStyle}>
+            <p className="py-8 text-lg sm:text-xl" style={styles.bioStyle}>
               I embarked on an important educational journey and earned my
               Bachelor of Sciences in Mechanical Engineering from University of
               Lagos. Through immersive experiences, I gained a strong foundation

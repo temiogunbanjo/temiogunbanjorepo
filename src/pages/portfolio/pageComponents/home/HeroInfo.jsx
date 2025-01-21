@@ -167,7 +167,7 @@ function HeroInfo() {
 
 const styles = {
   bioStyle: {
-    fontSize: "1rem",
+    fontSize: "1.125rem",
     textAlign: "justify",
     fontWeight: 400,
     color: "var(--light-text-color)",
