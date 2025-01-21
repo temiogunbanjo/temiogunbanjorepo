@@ -38,7 +38,7 @@ const SkillCard = (props) => {
     <div
       className="card flex flex-row sm:flex-col items-center"
       style={{
-        borderRadius: "8px",
+        borderRadius: "15px",
         boxSizing: "border-box",
       }}
       onClick={onClick}
@@ -47,7 +47,7 @@ const SkillCard = (props) => {
         className="card-header flex sm:flex-row-reverse flex-col-reverse sm:mb-8 h-full sm:h-auto sm:w-full items-center justify-between px-10 sm:px-6 py-6 rounded-lg"
         style={{
           // width: "130px",
-          borderRadius: "7px",
+          borderRadius: "14px",
         }}
       >
         {!props.data?.featured ? (
@@ -75,8 +75,8 @@ const SkillCard = (props) => {
             style={{
               objectFit: "contain",
               width: "auto",
-              height: "35px",
-              minWidth: "35px",
+              height: "45px",
+              minWidth: "45px",
             }}
           />
         )}
@@ -93,7 +93,7 @@ const SkillCard = (props) => {
             className="text-left text-2xl capitalize"
             style={{
               margin: 0,
-              fontWeight: 400,
+              fontWeight: 500,
               color: "var(--text-color)",
               // fontSize: "15px",
             }}

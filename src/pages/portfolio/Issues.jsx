@@ -141,9 +141,9 @@ const Issues = () => {
           <h1
             className="mb-8 main-text flex flex-col items-start"
             style={{
-              fontSize: "44px",
+              fontSize: "2.75rem",
               marginTop: "12px",
-              marginBottom: "38px",
+              marginBottom: "4rem",
             }}
           >
             <span className="ml-5">Career Challenges</span>
@@ -151,11 +151,14 @@ const Issues = () => {
 
           <div className="flex flex-col flex-wrap px-3">
             {posts.map((each) => (
-              <div className="flex flex-col md:flex-row mb-14 my-3">
+              <div className="flex flex-col md:flex-row mb-14 my-3 mx-auto max-w-[1280px] w-full">
                 <Box
                   component="div"
-                  className="flex flex-col mr-8 h-auto"
-                  sx={{ width: { xs: "100%", md: "190px" }, flex: "none" }}
+                  className="flex flex-col mr-8 h-auto lg:max-w-[40vw]"
+                  sx={{
+                    width: { xs: "100%", md: "200px" },
+                    flex: "none",
+                  }}
                 >
                   <Image
                     src={
@@ -163,9 +166,10 @@ const Issues = () => {
                     }
                     alt=""
                     className="rounded-lg bg-slate-500"
+                    style={{ height: "auto" }}
                   />
                   <span
-                    className="text-2xl mt-5 sm:font-bold font-medium"
+                    className="text-xl mt-5 sm:font-semibold font-medium"
                     style={{
                       color: "var(--light-text-color)",
                     }}
@@ -198,7 +202,7 @@ const Issues = () => {
                     className="inline-block"
                   >
                     <span
-                      className="text-4xl capitalize"
+                      className="text-3xl capitalize"
                       style={{
                         fontWeight: 500,
                         color: "var(--text-color)",
@@ -209,9 +213,9 @@ const Issues = () => {
                     </span>
                   </Link>
                   <div
-                    className="line-clamp-5 mt-7"
+                    className="line-clamp-5 mt-4"
                     style={{
-                      fontSize: "12px",
+                      fontSize: "1rem",
                       fontWeight: 500,
                       color: "var(--light-text-color)",
                       lineHeight: 2,
@@ -220,7 +224,7 @@ const Issues = () => {
                     {ReactHtmlParser(each.content)}
                   </div>
                   <span
-                    className="text-lg mt-4"
+                    className="text-sm mt-4"
                     style={{
                       fontWeight: 500,
                       color: "var(--tab-border-color)",

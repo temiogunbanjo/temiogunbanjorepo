@@ -463,6 +463,105 @@
       "userId": 1,
       "data": [
         {
+          "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6jzi_Nr3LOJT6dqkpk4e8sy0mUGpMlnNUg&s",
+          "company": "NLPC PFA",
+          "timeframe": "Dec. 2024 - Present",
+          "role": "Senior Front-End Developer • Contract",
+          "description": "<p>My role and responsibilities as a Senior Front-End Developer includes, but were not limited to, the following:</p><ol><li>Spearheading the rewrite of the company's legacy codebase by leveraging ReactJS together with the Front-end, Back End and Quality Assurance (QA) team to keep the codebase up-to-date with the recent technology trends.</li><li>Successfully completing the migration of an entire application to TypeScript, improving overall code quality and maintainability.</li><li>Initiating and leading the development of 3 new projects, resulting in a user base of over 100,000 and continuous growth.</li><li>Providing exceptional technical support to team members, drawing on expertise in debugging various codebases in the early days of my career.</li><li>Implementing safe coding practices to safeguard frontend applications against known security vulnerabilities, utilizing extensive knowledge of OWASP standards.</li></ol>",
+          "references": [
+            {
+              "name": "Mosope",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            }
+          ],
+          "link": "https://www.nlpcpfa.com/",
+          "relatedSkills": [
+            "ReactJS",
+            "RTK Query",
+            "Figma",
+            "Javascript",
+            "Problem Solving",
+            "Azure"
+          ]
+        },
+        {
+          "company": "Lixom Technologies Ltd.",
+          "timeframe": "Nov. 2021 - Present",
+          "role": "Senior Back-End/Game Engineer • Full-Time",
+          "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring.</li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals.</li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li> Management and supervision of my engineers.</li><li>Documentation of the API endpoints. </li></ol>",
+          "references": [
+            {
+              "name": "Wisdom Wakpomeyoma",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Engineer",
+              "phone": null,
+              "email": "",
+              "website": null
+            },
+            {
+              "name": "Elijah Ade",
+              "url": "/static/images/avatar/2.jpg",
+              "title": "Mobile Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            }
+          ],
+          "link": "",
+          "relatedSkills": [
+            "NodeJS",
+            "REST API",
+            "PostgreSQL",
+            "MySQL",
+            "Javascript",
+            "Problem Solving",
+            "Git/GitHub",
+            "MeilliSearch",
+            "RethinkDB",
+            "Python",
+            "AWS Services",
+            "Digital Ocean"
+          ]
+        },
+        {
+          "icon": "https://lh3.googleusercontent.com/p/AF1QipOjlMNLHO1Qpc98MR9OCWeQ-EhFPAk6G8Bw9x1t=s1360-w1360-h1020",
+          "company": "TradeBuza",
+          "timeframe": "May 2022 - Present",
+          "role": "Senior Front-End Developer • Full-Time",
+          "description": "<p>My role and responsibilities as a Senior Front-End Developer includes, but were not limited to, the following:</p><ol><li>Spearheading the rewrite of the company's entire legacy codebase by leveraging ReactJS and TypeScript together with the Front-end, Back End and Quality Assurance (QA) team to keep the codebase up-to-date with the recent technology trends.</li><li>Successfully completing the migration of an entire application to TypeScript, improving overall code quality and maintainability.</li><li>Initiating and leading the development of 3 new projects, resulting in a user base of over 100,000 and continuous growth.</li><li>Providing exceptional technical support to team members, drawing on expertise in debugging various codebases in the early days of my career.</li><li>Implementing safe coding practices to safeguard frontend applications against known security vulnerabilities, utilizing extensive knowledge of OWASP standards.</li></ol>",
+          "references": [
+            {
+              "name": "Elijah Obominuru",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Senior Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            },
+            {
+              "name": "Similoluwa",
+              "url": "/static/images/avatar/1.jpg",
+              "title": "Frontend Developer",
+              "phone": null,
+              "email": "",
+              "website": null
+            }
+          ],
+          "link": "https://www.tradebuza.com/",
+          "relatedSkills": [
+            "ReactJS",
+            "Typescript",
+            "Figma",
+            "Javascript",
+            "Problem Solving",
+            "Git/GitHub"
+          ]
+        },
+        {
           "icon": "https://www.firstbanknigeria.com/wp-content/uploads/2020/08/First-Bank-Logo_Symbol.svg",
           "company": "First Bank Of Nigeria",
           "timeframe": "Sep 2022 - March 2023",
@@ -500,79 +599,6 @@
             "Microsoft Power Apps",
             "MySQL",
             "Problem Solving"
-          ]
-        },
-        {
-          "company": "Lixom Technologies Ltd.",
-          "timeframe": "Nov 2021 - Present",
-          "role": "Senior Back-End/Game Engineer • Full-Time",
-          "description": "<p>Built scalable and automated solutions for 4 major game companies (can not disclose due to NDA). These were some of my roles:</p><ol><li>Collaborating with the team of professionals engineers to build and document the server-side architecture for the game suite. </li><li>Write efficient automation scripts to manage automated tasks such as result generation, ticket events and user activity monitoring.</li><li>Develop effective (super fast, optimized time & space complexity) algorithms that can process millions of user data. </li><li>Writing effective algorithms to handle data analytics of the players, admin and agents on the platform. </li><li>Manage & troubleshoot cloud (AWS, Digital Ocean) infrastructures, integrations and payment portals.</li><li>Perform coverage, integration and unit testing on the whole game flow. </li><li> Management and supervision of my engineers.</li><li>Documentation of the API endpoints. </li></ol>",
-          "references": [
-            {
-              "name": "Wisdom Okpewemeya",
-              "url": "/static/images/avatar/1.jpg",
-              "title": "Senior Frontend Engineer",
-              "phone": null,
-              "email": "",
-              "website": null
-            },
-            {
-              "name": "Elijah Ade",
-              "url": "/static/images/avatar/2.jpg",
-              "title": "Mobile Developer",
-              "phone": null,
-              "email": "",
-              "website": null
-            }
-          ],
-          "link": "",
-          "relatedSkills": [
-            "NodeJS",
-            "REST API",
-            "PostgreSQL",
-            "MySQL",
-            "Javascript",
-            "Problem Solving",
-            "Git/GitHub",
-            "MeilliSearch",
-            "RethinkDB",
-            "Python",
-            "AWS Services",
-            "Digital Ocean"
-          ]
-        },
-        {
-          "icon": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/s0j2vm8hsmcx3fzyrd34",
-          "company": "TradeBuza",
-          "timeframe": "May 2022 - Present",
-          "role": "Senior Front-End Developer • Full-Time",
-          "description": "<p>My role and responsibilities as a Senior Front-End Developer includes, but were not limited to, the following:</p><ol><li>Spearheading the rewrite of the company's entire legacy codebase by leveraging ReactJS and TypeScript together with the Front-end, Back End and Quality Assurance (QA) team to keep the codebase up-to-date with the recent technology trends.</li><li>Successfully completing the migration of an entire application to TypeScript, improving overall code quality and maintainability.</li><li>Initiating and leading the development of 3 new projects, resulting in a user base of over 100,000 and continuous growth.</li><li>Providing exceptional technical support to team members, drawing on expertise in debugging various codebases in the early days of my career.</li><li>Implementing safe coding practices to safeguard frontend applications against known security vulnerabilities, utilizing extensive knowledge of OWASP standards.</li></ol>",
-          "references": [
-            {
-              "name": "Elijah Obominuru",
-              "url": "/static/images/avatar/1.jpg",
-              "title": "Senior Frontend Developer",
-              "phone": null,
-              "email": "",
-              "website": null
-            },
-            {
-              "name": "Similoluwa",
-              "url": "/static/images/avatar/1.jpg",
-              "title": "Frontend Developer",
-              "phone": null,
-              "email": "",
-              "website": null
-            }
-          ],
-          "link": "https://www.tradebuza.com/",
-          "relatedSkills": [
-            "ReactJS",
-            "Typescript",
-            "Figma",
-            "Javascript",
-            "Problem Solving",
-            "Git/GitHub"
           ]
         },
         {

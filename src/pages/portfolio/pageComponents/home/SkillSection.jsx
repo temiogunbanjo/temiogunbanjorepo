@@ -164,13 +164,13 @@ function SkillSection({
       </h2>
 
       <span
-        className="-mt-10 mb-12 text-center text-xl"
+        className="-mt-5 mb-12 text-center text-sm"
         style={{
           color: "var(--light-text-color)",
           fontWeight: 400,
           opacity: 0.8,
           lineHeight: 1.8,
-          maxWidth: "650px",
+          maxWidth: "800px",
         }}
       >
         This section showcases my technical expertise and proficiency in
@@ -209,7 +209,13 @@ function SkillSection({
             key={index}
             index={each}
             currentTabIndex={tabIndex}
-            sx={{ display: each === 0 ? "none" : "block", p: "20px", pt: 1 }}
+            sx={{
+              display: each === 0 ? "none" : "block",
+              pt: 1,
+              p: "20px",
+              mx: "auto",
+              maxWidth: "1600px",
+            }}
           >
             <Stack
               direction="row"
@@ -217,7 +223,7 @@ function SkillSection({
               alignItems="center"
               className="bordr"
               sx={{
-                marginBottom: { xs: "25px", sm: "25px" },
+                marginBottom: { xs: "25px", sm: "55px" },
               }}
             >
               <TextField
@@ -233,12 +239,13 @@ function SkillSection({
                     <AiOutlineSearch style={{ fontSize: "20px" }} />
                   ),
                   sx: {
+                    borderRadius: "8px",
                     color: "var(--text-color)",
                     backgroundColor: "rgba(255, 255, 255, 0.2)",
                   },
                   inputProps: {
                     style: {
-                      fontSize: "1.45rem",
+                      fontSize: "1.05rem",
                       padding: "12px 18px",
                     },
                   },
@@ -276,7 +283,7 @@ function SkillSection({
 
             {!loadingSkills && filterSkills(tabIndex).length > 0 ? (
               <div
-                className="grid grid-cols-1 gap-9 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-start w-full"
+                className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-start w-full"
                 style={{ marginLeft: "0px" }}
               >
                 {(showAllSkills

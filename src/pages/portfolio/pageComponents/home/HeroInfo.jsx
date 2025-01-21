@@ -14,10 +14,10 @@ function HeroInfo() {
   return (
     <div
       className="cols sm:mr-12"
-      style={{ justifyContent: "center", padding: "10px" }}
+      style={{ justifyContent: "center", padding: "4rem 1rem" }}
     >
-      <h1 className="main-text" style={{ fontSize: "5rem" }}>
-        <span style={{ fontSize: "28px", fontWeight: 600 }}>Who is </span>
+      <h1 className="main-text" style={{ fontSize: "3.5rem" }}>
+        <span style={{ fontSize: "1.75rem", fontWeight: 500 }}>Who is </span>
         <br />
         <span style={{}}>Temiloluwa Ogunbanjo ?</span>
       </h1>
@@ -102,7 +102,7 @@ function HeroInfo() {
       >
         <a
           href="tel:+2349059620514"
-          className="mb-6 sm:mr-12 w-full sm:w-1/3 block"
+          className="mb-6 sm:mr-9 w-full sm:w-1/2 block"
           style={{ minWidth: "150px" }}
         >
           <CustomButton
@@ -133,7 +133,7 @@ function HeroInfo() {
 
         <a
           href="#skill-section"
-          className="mb-6 w-full sm:w-1/3 block"
+          className="mb-6 w-full sm:w-1/2 block"
           style={{ minWidth: "150px" }}
         >
           <CustomButton
@@ -169,7 +169,7 @@ function HeroInfo() {
 
 const styles = {
   bioStyle: {
-    fontSize: "14px",
+    fontSize: "1rem",
     textAlign: "justify",
     fontWeight: 400,
     color: "var(--light-text-color)",

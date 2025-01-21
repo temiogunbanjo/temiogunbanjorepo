@@ -11,16 +11,15 @@
   /* flex: none; */
   margin-bottom: 3.5rem;
   min-height: 600px;
-  padding-left: 32px;
-  padding-right: 32px;
+  /* padding: 32px; */
 
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+
+#portfolio__main > div > section:not(.hero) {
+  padding: 32px;
 }
 
 body *.MuiTab-root.Mui-selected {
@@ -46,7 +45,7 @@ body:not([class*="dark-mode"]) *.MuiTabs-indicator {
   background-repeat: no-repeat;
   background-position: bottom right;
   padding-left: 4% !important;
-  padding-right: 4% !important;
+  /* padding-right: 4% !important; */
 }
 
 img.user-profile-picture {
@@ -67,9 +66,9 @@ body.dark-mode .hero,
 }
 
 .main-text {
-  line-height: 1.15;
-  font-size: 50px;
-  font-weight: 700;
+  line-height: 1.05;
+  font-size: 3.5rem;
+  font-weight: 800;
   margin: 0;
   color: var(--text-color);
   background-color: var(--text-color);
@@ -89,7 +88,7 @@ body.dark-mode .hero,
 
 .subtitle {
   color: var(--light-text-color);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 28px;
 }
@@ -100,7 +99,7 @@ body.dark-mode .hero,
   font-family: Poppins, "Open Sans";
   text-transform: capitalize;
   /* letter-spacing: 1px; */
-  font-size: 32px;
+  font-size: 2rem;
   position: relative;
   margin-bottom: 40px;
 }
@@ -162,12 +161,12 @@ body.dark-mode .hero,
   width: 38vw;
   min-height: 550px;
   min-width: 250px;
-  max-width: 360px;
-  max-height: 750px;
+  /* max-width: 360px;
+  max-height: 750px; */
   align-items: center;
   padding: 3rem 1rem 5rem;
-  border-radius: 10px;
-  height: auto;
+  /* border-radius: 15px; */
+  height: 100%;
   z-index: +220;
   /* backdrop-filter: blur(10px); */
   /* background-color: rgba(12, 12, 12, 0.1); */
@@ -185,7 +184,7 @@ body.dark-mode .user-profile-section {
     rgba(177, 177, 177, 0),
     rgba(177, 177, 177, 0)
   ); */
-  box-shadow: 10px 10px 30px rgba(10, 10, 10, 0.3);
+  /* box-shadow: 10px 10px 30px rgba(10, 10, 10, 0.3); */
 }
 
 .user-profile-section .img-wrapper {
@@ -275,7 +274,7 @@ body.dark-mode .background-illuminator {
   flex-grow: 1;
   /* width: calc(25% - 20px); */
   min-width: 215px;
-  max-width: 305px;
+  /* max-width: 305px; */
   background-color: var(--card-bg-color);
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.1),
@@ -310,7 +309,8 @@ body.dark-mode .skills .card {
   border: 2px solid var(--primary-color);
   border-radius: 50%;
   padding: 5px;
-  background-color: var(--contrast-text-color);
+  /* background-color: var(--contrast-text-color); */
+  background-color: var(--primary-color);
 }
 
 .skills em {
@@ -472,8 +472,8 @@ body.theme-3.dark-mode footer h3 {
   }
 
   .main-text {
-    font-size: 32px;
-    line-height: 1.15;
+    font-size: 2rem;
+    line-height: 1.05;
   }
 
   .user-profile-section button {
@@ -532,6 +532,7 @@ body.theme-3.dark-mode footer h3 {
     min-height: 480px;
     padding: 3rem 2.7rem 5rem;
     border: 2px solid;
+    border-radius: 15px;
     border-color: var(--primary-color);
     background-color: var(--primary-color);
   }
