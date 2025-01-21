@@ -30,7 +30,7 @@ const EducationCard = (props) => {
       className={`card flex flex-col md:flex-row mb-12 md:mb-8 pl-8 my-3 -ml-4 shadow-lg`}
       sx={{}}
     >
-      <div className="flex flex-col ml-6 h-auto timeline-section">
+      <div className="flex flex-col md:ml-6 h-auto timeline-section">
         <span
           className="text-lg md:text-xl"
           style={{
@@ -131,6 +131,10 @@ const EducationCard = (props) => {
                   color: "var(--text-color)",
                   fontWeight: 400,
                   letterSpacing: "0.5px",
+                  fontSize: {
+                    xs: "14px",
+                    md: "16px",
+                  },
                 }}
               >
                 {props?.data?.acquiredSkills.join(" • ")}

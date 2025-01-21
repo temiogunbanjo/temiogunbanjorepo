@@ -49,8 +49,8 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col w-full sm:w-1/4 lg:w-1/4 items-center sm:items-start sm:border-r-2 pr-1" style={{ borderColor: 'var(--border-line-color)'}}>
-            <h4 className="capitalize text-4xl mb-8">Quick Links</h4>
-            <div className="flex flex-col text-2xl">
+            <h4 className="capitalize text-4xl mb-8 text-center sm:text-left">Quick Links</h4>
+            <div className="flex flex-col text-2xl text-center sm:text-left">
               <a
                 href="/home/education-history"
                 className="transition-all ease-in-out mb-6 text-xl capitalize hover:text-2xl"
@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col w-full sm:w-1/3 lg:w-1/3 items-center sm:items-start pr-1">
-            <h4 className="capitalize text-4xl mb-8">
+            <h4 className="capitalize text-4xl mb-8 text-center sm:text-left">
               Social Media & Contacts
             </h4>
             <div className="flex flex-row flex-wrap items-start text-center text-3xl gap-8">
