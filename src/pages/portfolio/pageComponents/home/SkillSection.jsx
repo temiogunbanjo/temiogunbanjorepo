@@ -212,7 +212,8 @@ function SkillSection({
             sx={{
               display: each === 0 ? "none" : "block",
               pt: 1,
-              p: "20px",
+              px: { xs: 0, md: "20px" },
+              pb: "20px",
               mx: "auto",
               maxWidth: "1600px",
             }}

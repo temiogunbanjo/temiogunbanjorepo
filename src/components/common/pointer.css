@@ -1,7 +1,7 @@
 .pointer-box {
   position: absolute;
-  top: 10px;
-  left: calc(100% - 390px);
+  top: 75px;
+  left: calc(100% - 415px);
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
   z-index: +999;
   transition: opacity 0.2s ease;
@@ -20,7 +20,7 @@
   align-items: center;
   min-width: 20rem;
   font-size: 0.875rem;
-  padding: 2rem 2.5rem;
+  padding: 2rem;
   border-radius: 5px;
   background-color: var(--pointer-color);
   background-image: -webkit-linear-gradient(
@@ -36,12 +36,10 @@
   position: absolute;
   width: 0;
   height: 0;
-  border-top: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-left: 10px solid var(--pointer-color);
-  border-bottom: 10px solid transparent;
-  top: 32%;
-  right: -19px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid var(--pointer-color);
+  top: -10%;
+  right: 18px;
   transform: translateY(-50%);
   /* margin-top: -10px; */
 }
@@ -49,12 +47,12 @@
 /* For all mobile users only */
 @media only screen and (max-width: 799px) {
   .pointer-box {
-    top: 60px;
-    left: calc(100% - 200px);
+    top: 75px;
+    left: calc(100% - 320px);
   }
 
   .pointer-box-content::after {
-    top: 0;
-    left: 160px;
+    top: -8px;
+    left: 186px;
   }
 }

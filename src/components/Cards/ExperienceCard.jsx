@@ -15,7 +15,6 @@ import {
   BsGlobe as WebIcon,
 } from "react-icons/bs";
 
-
 import ReactHtmlParser from "html-react-parser";
 import { blueGrey } from "@mui/material/colors";
 import StyledAvatar from "../../components/common/StyledAvatar";
@@ -28,12 +27,12 @@ const ExperienceCard = (props) => {
     <Box
       component="div"
       id={experienceId}
-      className={`card flex flex-col sm:flex-row-reverse sm:justify-between mb-12 sm:mb-8 pl-8 my-3 -ml-4 shadow-lg`}
+      className={`card flex flex-col md:flex-row-reverse md:justify-between mb-12 md:mb-8 pl-8 my-3 -ml-4 shadow-lg`}
       sx={{}}
     >
-      <div className="flex flex-col mr-8 sm:ml-12 h-auto timeline-section">
+      <div className="flex flex-col mr-8 md:ml-12 h-auto timeline-section">
         <span
-          className="text-xl sm:text-xl"
+          className="text-lg md:text-xl"
           style={{
             fontWeight: 600,
             color: "var(--text-color)",
@@ -42,7 +41,7 @@ const ExperienceCard = (props) => {
           {props?.data?.timeframe}
         </span>
         <span
-          className="text-lg mt-2 sm:mt-5"
+          className="text-lg mt-2 md:mt-5"
           style={{
             // fontFamily: "'Open Sans'",
             fontWeight: 600,
@@ -55,7 +54,7 @@ const ExperienceCard = (props) => {
         </span>
 
         {props?.data?.references && props?.data?.references.length > 0 && (
-          <div className="hidden sm:flex flex-col mt-4 sm:mt-5 w-full">
+          <div className="hidden md:flex flex-col mt-4 md:mt-5 w-full">
             <span
               className="text-lg capitalize"
               style={{
@@ -175,12 +174,12 @@ const ExperienceCard = (props) => {
       </div>
 
       <div
-        className="flex flex-col flew-grow sm:ml-8 mt-4 sm:mt-0 text-2xl w-full"
+        className="flex flex-col flew-grow md:ml-8 mt-4 md:mt-0 text-2xl w-full"
         style={{ maxWidth: "800px" }}
       >
         <div className="flex flex-row items-center justify-start">
           <span
-            className="text-3xl sm:text-3xl"
+            className="text-3xl md:text-3xl"
             style={{
               fontWeight: 700,
               color: "var(--text-color)",
@@ -202,26 +201,25 @@ const ExperienceCard = (props) => {
           )}
         </div>
 
-        <Box className="mt-5 sm:mt-6">
+        <Box className="mt-5 md:mt-6">
           <span
-            className="inline-block text-xl mb-2"
+            className="inline-block text-lg mb-2 font-semibold"
             style={{
               color: "#888",
-              fontWeight: 600,
               letterSpacing: "0.5px",
             }}
           >
             Role Description:
           </span>
           <Box
-            className="text-xl md:text-2xl sm:text-justify"
+            className="md:text-justify"
             sx={{
               fontWeight: 400,
               color: "var(--light-text-color)",
               lineHeight: 1.8,
               fontSize: {
-                xs: "12px",
-                md: "14px",
+                xs: "14px",
+                md: "16px",
               },
             }}
           >
@@ -231,12 +229,11 @@ const ExperienceCard = (props) => {
 
         {props?.data?.relatedSkills &&
           props?.data?.relatedSkills.length > 0 && (
-            <div className="flex flex-col justify-start items-start mt-6 sm:mt-7 mb-2">
+            <div className="flex flex-col justify-start items-start mt-6 md:mt-7 mb-2">
               <span
-                className="text-xl mb-2"
+                className="text-lg mb-2 font-semibold"
                 style={{
                   color: "#888",
-                  fontWeight: 600,
                   letterSpacing: "0.5px",
                 }}
               >
@@ -261,12 +258,11 @@ const ExperienceCard = (props) => {
           )}
 
         {props?.data?.references && props?.data?.references.length > 0 && (
-          <div className="sm:hidden flex flex-col mt-4 sm:mt-5 w-full">
+          <div className="md:hidden flex flex-col mt-4 md:mt-5 w-full">
             <span
-              className="text-xl capitalize"
+              className="text-lg font-semibold"
               style={{
                 color: "#888",
-                fontWeight: 700,
                 letterSpacing: "0.5px",
               }}
             >
