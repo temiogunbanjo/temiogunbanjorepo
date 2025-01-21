@@ -27,12 +27,12 @@ const EducationCard = (props) => {
     <Box
       component="div"
       id={experienceId}
-      className={`card flex flex-col sm:flex-row mb-12 sm:mb-8 pl-8 my-3 -ml-4 shadow-lg`}
+      className={`card flex flex-col md:flex-row mb-12 md:mb-8 pl-8 my-3 -ml-4 shadow-lg`}
       sx={{}}
     >
       <div className="flex flex-col ml-6 h-auto timeline-section">
         <span
-          className="text-xl sm:text-xl"
+          className="text-lg md:text-xl"
           style={{
             fontWeight: 600,
             color: "var(--text-color)",
@@ -41,9 +41,9 @@ const EducationCard = (props) => {
           {props?.data?.timeframe}
         </span>
         <span
-          className="text-lg mt-2 sm:mt-5"
+          className="text-lg mt-2 md:mt-5"
           style={{
-            fontFamily: "'Open Sans'",
+            // fontFamily: "'Open Sans'",
             fontWeight: 600,
             color: "var(--primary-color)",
             letterSpacing: "0.5px",
@@ -55,12 +55,12 @@ const EducationCard = (props) => {
       </div>
 
       <div
-        className="flex flex-col flew-grow sm:ml-6 sm:mr-6 mt-2 sm:mt-0 text-2xl w-full"
+        className="flex flex-col flew-grow md:ml-6 md:mr-6 mt-2 md:mt-0 text-2xl w-full"
         style={{ maxWidth: "800px" }}
       >
         <div className="flex flex-row items-center justify-start">
           <span
-            className="text-3xl sm:text-3xl"
+            className="text-2xl md:text-3xl"
             style={{
               fontWeight: 700,
               color: "var(--text-color)",
@@ -83,7 +83,7 @@ const EducationCard = (props) => {
         </div>
 
         {props?.data?.description && (
-          <Box className="mt-5 sm:mt-6">
+          <Box className="mt-5 md:mt-6">
             <span
               className="inline-block text-xl mb-2"
               style={{
@@ -95,15 +95,15 @@ const EducationCard = (props) => {
               Description:
             </span>
             <Box
-              className="text-xl md:text-2xl sm:text-justify"
+              className="md:text-justify"
               sx={{
                 fontWeight: 500,
                 color: "var(--light-text-color)",
                 lineHeight: 1.8,
                 letterSpacing: "0.5px",
                 fontSize: {
-                  xs: "12px",
-                  md: "12px",
+                  xs: "14px",
+                  md: "16px",
                 },
               }}
             >
@@ -114,7 +114,7 @@ const EducationCard = (props) => {
 
         {props?.data?.acquiredSkills &&
           props?.data?.acquiredSkills.length > 0 && (
-            <div className="flex flex-col justify-start items-start mt-4 sm:mt-6 mb-2">
+            <div className="flex flex-col justify-start items-start mt-4 md:mt-6 mb-2">
               <span
                 className="text-xl mb-2"
                 style={{
@@ -139,7 +139,7 @@ const EducationCard = (props) => {
           )}
 
         {props?.data?.references && props?.data?.references.length > 0 && (
-          <div className="flex flex-col mt-2 sm:mt-4 w-full">
+          <div className="flex flex-col mt-2 md:mt-4 w-full">
             <span
               className="text-xl capitalize"
               style={{
