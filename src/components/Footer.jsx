@@ -31,7 +31,7 @@ const Footer = () => {
         </h3>
 
         <div className="flex flex-row flex-wrap gap-12">
-          <div className="flex flex-col w-full items-center sm:items-start sm:w-1/4 lg:w-1/4 sm:border-r-2" style={{ borderColor: 'var(--border-line-color)'}}>
+          <div className="flex flex-col flex-grow w-full items-center sm:items-start sm:w-1/4 lg:w-1/4 sm:border-r-2" style={{ borderColor: 'var(--border-line-color)'}}>
             <Link to="/" className="my-icon">
               <Image
                 src={logo}
@@ -48,7 +48,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="flex flex-col w-full sm:w-1/4 lg:w-1/4 items-center sm:items-start sm:border-r-2 pr-1" style={{ borderColor: 'var(--border-line-color)'}}>
+          <div className="flex flex-col flex-grow w-full sm:w-1/4 lg:w-1/4 items-center sm:items-start sm:border-r-2 pr-1" style={{ borderColor: 'var(--border-line-color)'}}>
             <h4 className="capitalize text-4xl mb-8 text-center sm:text-left">Quick Links</h4>
             <div className="flex flex-col text-2xl text-center sm:text-left">
               <a
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col w-full sm:w-1/3 lg:w-1/3 items-center sm:items-start pr-1">
+          <div className="flex flex-col flex-grow w-full sm:w-1/3 lg:w-1/3 items-center sm:items-start pr-1">
             <h4 className="capitalize text-4xl mb-8 text-center sm:text-left">
               Social Media & Contacts
             </h4>
